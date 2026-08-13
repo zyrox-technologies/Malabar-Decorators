@@ -33,10 +33,31 @@ export default function SocialMedia() {
             image: "/live_counter.png",
             tag: "#LiveCounter",
         },
+        {
+            title: "Vibrant Haldi & Mehendi Stage",
+            likes: "1.5k",
+            comments: "78",
+            image: "/haldi_decor.png",
+            tag: "#HaldiDecor",
+        },
+        {
+            title: "Stage Entry Low Fog & Pyro SFX",
+            likes: "2.9k",
+            comments: "165",
+            image: "/sfx_stage.png",
+            tag: "#EventSFX",
+        },
+        {
+            title: "Grand Banquet Catering Spread",
+            likes: "2.1k",
+            comments: "118",
+            image: "/catering_spread.png",
+            tag: "#MalabarFeast",
+        },
     ];
 
     return (
-        <section className="py-16 bg-[#FAF8F2]">
+        <section className="py-16 bg-[#FAF8F2] overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-10 pb-6 border-b border-[#EFE8D7]">
                     <div>
@@ -87,49 +108,51 @@ export default function SocialMedia() {
                     </div>
                 </div>
 
-                {/* Social Feed Highlights */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {posts.map((post, idx) => (
-                        <div
-                            key={idx}
-                            className="bg-white rounded-2xl overflow-hidden border border-[#EFE8D7] shadow-md hover:shadow-xl transition-all duration-300 group"
-                        >
-                            <div className="relative h-56 bg-[#38070A] overflow-hidden">
-                                <Image
-                                    src={post.image}
-                                    alt={post.title}
-                                    fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#171110]/90 via-transparent to-transparent opacity-80" />
-                                <span className="absolute top-3 left-3 bg-[#6F1014]/90 backdrop-blur-md text-[#F2B93F] text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-[#F2B93F]/30">
-                                    {post.tag}
-                                </span>
-                                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-semibold">
-                                    <div className="flex items-center gap-3">
-                                        <span className="flex items-center gap-1">
-                                            <Heart className="w-3.5 h-3.5 fill-[#8B1E23] text-[#8B1E23]" />
-                                            {post.likes}
-                                        </span>
-                                        <span className="flex items-center gap-1">
-                                            <MessageCircle className="w-3.5 h-3.5" />
-                                            {post.comments}
-                                        </span>
+                {/* Auto Scrolling Marquee Track (Without side fades) */}
+                <div className="relative w-full overflow-hidden">
+                    <div className="animate-marquee gap-6 py-4">
+                        {[...posts, ...posts].map((post, idx) => (
+                            <div
+                                key={idx}
+                                className="w-72 sm:w-80 bg-white rounded-2xl overflow-hidden border border-[#EFE8D7] shadow-md hover:shadow-2xl transition-all duration-300 group shrink-0"
+                            >
+                                <div className="relative h-56 bg-[#38070A] overflow-hidden">
+                                    <Image
+                                        src={post.image}
+                                        alt={post.title}
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#171110]/90 via-transparent to-transparent opacity-80" />
+                                    <span className="absolute top-3 left-3 bg-[#6F1014]/90 backdrop-blur-md text-[#F2B93F] text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-[#F2B93F]/30">
+                                        {post.tag}
+                                    </span>
+                                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-semibold">
+                                        <div className="flex items-center gap-3">
+                                            <span className="flex items-center gap-1">
+                                                <Heart className="w-3.5 h-3.5 fill-[#8B1E23] text-[#8B1E23]" />
+                                                {post.likes}
+                                            </span>
+                                            <span className="flex items-center gap-1">
+                                                <MessageCircle className="w-3.5 h-3.5" />
+                                                {post.comments}
+                                            </span>
+                                        </div>
+                                        <Share2 className="w-3.5 h-3.5 text-[#F2B93F]" />
                                     </div>
-                                    <Share2 className="w-3.5 h-3.5 text-[#F2B93F]" />
+                                </div>
+                                <div className="p-4">
+                                    <p className="text-xs font-semibold text-[#241B18] line-clamp-2">
+                                        {post.title}
+                                    </p>
+                                    <div className="flex items-center justify-between mt-2 pt-2 border-t border-[#F7F3EA] text-[11px] text-[#6F1014] font-bold">
+                                        <span>Malabar Decorators Official</span>
+                                        <ExternalLink className="w-3 h-3" />
+                                    </div>
                                 </div>
                             </div>
-                            <div className="p-4">
-                                <p className="text-xs font-semibold text-[#241B18] line-clamp-2">
-                                    {post.title}
-                                </p>
-                                <div className="flex items-center justify-between mt-2 pt-2 border-t border-[#F7F3EA] text-[11px] text-[#6F1014] font-bold">
-                                    <span>Malabar Decorators Official</span>
-                                    <ExternalLink className="w-3 h-3" />
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

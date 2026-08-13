@@ -63,17 +63,41 @@ body {
   background: linear-gradient(135deg, #6F1014 0%, #4E0A0D 100%);
 }
 
+/* Infinite Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #241B18;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #8B1E23;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #DFAE32;
 }

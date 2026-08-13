@@ -2,297 +2,467 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Utensils, Flame, Sparkles, Check, ChevronRight } from "lucide-react";
+import { Utensils, Flame, Sparkles, Check, ChevronRight, ChevronDown, GlassWater, Coffee, CookingPot, Award } from "lucide-react";
+
+interface MenuItem {
+  name: string;
+  malayalam: string;
+  category: "drinks" | "mains" | "curries" | "desserts" | "beverages";
+  categoryName: string;
+  desc: string;
+  tag: string;
+  badge?: "LIVE COUNTER" | "CHEF SPECIAL" | "TRADITIONAL" | "MUST TRY";
+  pairing?: string;
+  spiceLevel?: "Mild" | "Medium" | "Rich & Spicy";
+}
 
 export default function Menu() {
-    const [activeTab, setActiveTab] = useState<string>("all");
+  const [activeTab, setActiveTab] = useState<string>("all");
+  const [showAllItems, setShowAllItems] = useState<boolean>(false);
 
-    const categories = [
-        { id: "all", name: "Full Menu Overview" },
-        { id: "drinks", name: "Welcome Drinks / Live Juices" },
-        { id: "mains", name: "Main Dishes (Biriyani & Live)" },
-        { id: "curries", name: "Curries & Sides" },
-        { id: "desserts", name: "Desserts & Live Sweets" },
-        { id: "beverages", name: "Beverages & Live Tea" },
-    ];
+  const categories = [
+    { id: "all", name: "Full Menu Overview", count: 24, icon: Utensils },
+    { id: "mains", name: "Main Dishes (Biriyani & Live)", count: 6, icon: CookingPot },
+    { id: "curries", name: "Curries & Sides", count: 6, icon: Flame },
+    { id: "desserts", name: "Desserts & Live Sweets", count: 5, icon: Sparkles },
+    { id: "drinks", name: "Welcome Drinks / Live Juices", count: 3, icon: GlassWater },
+    { id: "beverages", name: "Beverages & Live Tea", count: 3, icon: Coffee },
+  ];
 
-    const menuItems = {
-        drinks: [
-            { name: "Watermelon Juice", malayalam: "വട്ടര്മെലൺ ജ്യൂസ്", live: false },
-            { name: "Papaya Juice", malayalam: "പപ്പായ ജ്യൂസ്", live: false },
-            { name: "Grape Juice", malayalam: "ഗ്രേപ്പ് ജ്യൂസ്", live: false },
-            { name: "Pineapple Juice", malayalam: "പൈനാപ്പിൾ ജ്യൂസ്", live: false },
-            { name: "Musambi Juice", malayalam: "മൂസാമ്പി ജ്യൂസ്", live: false },
-        ],
-        mains: [
-            { name: "Chicken Biriyani", malayalam: "ചിക്കൻ ബിരിയാണി", featured: true },
-            { name: "Mutton Biriyani", malayalam: "മട്ടൻ ബിരിയാണി", featured: true },
-            { name: "Ghee Rice (Neychoru)", malayalam: "നെയ്‌ചോറ്", featured: true },
-            { name: "Vellappam – Live Counter", malayalam: "വെള്ളപ്പൊം (ലൈവ്)", live: true },
-            { name: "Neypathal – Live Counter", malayalam: "നെയ്പത്തൽ (ലൈവ്)", live: true },
-            { name: "Malabar Porotta – Live", malayalam: "പൊറോട്ട (ലൈവ്)", live: true },
-            { name: "Dosa – Live Counter", malayalam: "ദോശ (ലൈവ്)", live: true },
-            { name: "Chappathi", malayalam: "ചപ്പാത്തി", live: false },
-            { name: "Fried Rice", malayalam: "ഫ്രൈഡ് റൈസ്", live: false },
-            { name: "Veg Pulav", malayalam: "വെജ് പുലാവ്", live: false },
-        ],
-        curries: [
-            { name: "Chicken Curry", malayalam: "ചിക്കൻ കറി" },
-            { name: "Chicken Varattiyath", malayalam: "ചിക്കൻ വരട്ടിയത്", spicy: true },
-            { name: "Mutton Varattiyath", malayalam: "മട്ടൻ വരട്ടിയത്", spicy: true },
-            { name: "Chilly Chicken", malayalam: "ചില്ലി ചിക്കൻ" },
-            { name: "Pepper Chicken", malayalam: "പെപ്പർ ചിക്കൻ" },
-            { name: "Veg Kuruma", malayalam: "വെജ് കുറുമ" },
-            { name: "Gopi Manchurian", malayalam: "ഗോപി മഞ്ചൂരിയൻ" },
-            { name: "Gopi Chilli", malayalam: "ഗോപി ചില്ലി" },
-        ],
-        desserts: [
-            { name: "Payasam – Pradhaman", malayalam: "പ്രഥമൻ പായസം", traditional: true },
-            { name: "Ada Pradhaman", malayalam: "അട പ്രഥമൻ", traditional: true },
-            { name: "Palpayasam", malayalam: "പാൽപായസം", traditional: true },
-            { name: "Jilebi – Live Counter", malayalam: "ജിലേബി (ലൈവ്)", live: true },
-            { name: "Mysore Pak – Live Counter", malayalam: "മൈസൂർ പാക്ക് (ലൈവ്)", live: true },
-            { name: "Ice Cream Selection", malayalam: "ഐസ് ക്രീം" },
-            { name: "Gulab Jamun", malayalam: "ഗുലാബ് ജാമുൻ" },
-        ],
-        beverages: [
-            { name: "Malabar Colour Tea – Live", malayalam: "കളർ ടീ (ലൈവ്)", live: true },
-            { name: "Hot Filter Coffee", malayalam: "കോഫി" },
-            { name: "Juice Selection", malayalam: "ജ്യൂസ് ഐറ്റംസ്" },
-            { name: "Purified Water & Soft Drinks", malayalam: "വാട്ടർ & സോഫ്റ്റ് ഡ്രിങ്ക്സ്" },
-        ],
-    };
+  const menuItems: MenuItem[] = [
+    // MAINS
+    {
+      name: "Malabar Dum Biriyani (Chicken / Mutton)",
+      malayalam: "മലബാർ ദം ബിരിയാണി",
+      category: "mains",
+      categoryName: "Main Dishes",
+      desc: "Slow-cooked in copper cauldrons with premium Kaima rice, pure ghee, fried onions, cashews & secret Malabar masala.",
+      tag: "Signature Dish",
+      badge: "CHEF SPECIAL",
+      pairing: "Pairs with Date Pickle, Coconut Chammanthi & Raitha",
+      spiceLevel: "Medium",
+    },
+    {
+      name: "Ghee Rice (Malabar Neychoru)",
+      malayalam: "മലബാർ നെയ്‌ചോറ്",
+      category: "mains",
+      categoryName: "Main Dishes",
+      desc: "Fragrant short-grain rice cooked in pure cow ghee, spiced with whole cardamom, cloves, cinnamon & golden fried raisins.",
+      tag: "Traditional Favorite",
+      badge: "TRADITIONAL",
+      pairing: "Pairs with Mutton Varattiyath & Chicken Roast",
+      spiceLevel: "Mild",
+    },
+    {
+      name: "Vellappam (Live Counter)",
+      malayalam: "വെള്ളപ്പൊം - തത്സമയം",
+      category: "mains",
+      categoryName: "Main Dishes",
+      desc: "Freshly fermented rice & coconut milk pancakes cooked live on traditional clay pans with lacy golden edges.",
+      tag: "Live Chef Station",
+      badge: "LIVE COUNTER",
+      pairing: "Pairs with Veg Kuruma or Chicken Stew",
+      spiceLevel: "Mild",
+    },
+    {
+      name: "Neypathal (Live Counter)",
+      malayalam: "നെയ്പത്തൽ - തത്സമയം",
+      category: "mains",
+      categoryName: "Main Dishes",
+      desc: "Crispy fried Malabar rice & fennel seed puris fried hot right before your event guests.",
+      tag: "Live Chef Station",
+      badge: "LIVE COUNTER",
+      pairing: "Best enjoyed with Spicy Chicken Varattiyath",
+      spiceLevel: "Medium",
+    },
+    {
+      name: "Malabar Flaky Porotta (Live)",
+      malayalam: "മലബാർ പൊറോട്ട - തത്സമയം",
+      category: "mains",
+      categoryName: "Main Dishes",
+      desc: "Hand-tossed multi-layered flaky flatbread grilled live on iron tawa with pure ghee.",
+      tag: "Guest Favorite",
+      badge: "LIVE COUNTER",
+      pairing: "Pairs with Beef Roast or Chilly Chicken",
+      spiceLevel: "Mild",
+    },
+    {
+      name: "Live Dosa Station",
+      malayalam: "തത്സമയ ദോശ സ്റ്റേഷൻ",
+      category: "mains",
+      categoryName: "Main Dishes",
+      desc: "Piping hot ghee roast & masala dosa made to order with chutney varieties.",
+      tag: "Live Chef Station",
+      badge: "LIVE COUNTER",
+      pairing: "Served with Sambar & 3 Chutney Flavors",
+      spiceLevel: "Mild",
+    },
 
-    return (
-        <section id="menu" className="py-20 bg-[#FAF8F2] relative">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Section Title */}
-                <div className="text-center max-w-3xl mx-auto space-y-3">
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#8B1E23]/10 border border-[#8B1E23]/20 text-[#8B1E23] text-xs font-bold tracking-widest uppercase">
-                        Authentic Taste of Kerala
-                    </div>
-                    <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#241B18]">
-                        Catering Menu & Feast Catalogue
-                    </h2>
-                    <div className="flex items-center justify-center gap-3">
-                        <div className="h-0.5 w-12 bg-[#8B1E23]" />
-                        <div className="w-2 h-2 rotate-45 bg-[#DFAE32]" />
-                        <div className="h-0.5 w-12 bg-[#8B1E23]" />
-                    </div>
-                    <p className="text-sm text-[#241B18]/75">
-                        Prepared by master chefs using traditional recipes, fresh ground spices, and hygienic ingredients for high-capacity event catering.
-                    </p>
-                </div>
+    // CURRIES
+    {
+      name: "Chicken Varattiyath",
+      malayalam: "ചിക്കൻ വരട്ടിയത്",
+      category: "curries",
+      categoryName: "Curries & Sides",
+      desc: "Tender chicken slow-roasted in thick black pepper & shallot gravy with roasted coconut slivers.",
+      tag: "Malabar Classic",
+      badge: "MUST TRY",
+      pairing: "Best paired with Ghee Rice or Porotta",
+      spiceLevel: "Rich & Spicy",
+    },
+    {
+      name: "Mutton Roast Varattiyath",
+      malayalam: "മട്ടൻ വരട്ടിയത്",
+      category: "curries",
+      categoryName: "Curries & Sides",
+      desc: "Succulent mutton cuts slow-cooked in traditional urli with crushed pepper, curry leaves & ghee.",
+      tag: "Royal Recipe",
+      badge: "CHEF SPECIAL",
+      pairing: "Perfect with Malabar Dum Biriyani or Neychoru",
+      spiceLevel: "Rich & Spicy",
+    },
+    {
+      name: "Traditional Kerala Chicken Curry",
+      malayalam: "നാടൻ ചിക്കൻ കറി",
+      category: "curries",
+      categoryName: "Curries & Sides",
+      desc: "Country chicken cooked in roasted coconut paste with coriander, turmeric & green chillies.",
+      tag: "Banquet Essential",
+      badge: "TRADITIONAL",
+      pairing: "Pairs with Vellappam & Pathiri",
+      spiceLevel: "Medium",
+    },
+    {
+      name: "Vegetable Kuruma",
+      malayalam: "വെജിറ്റബിൾ കുറുമ",
+      category: "curries",
+      categoryName: "Curries & Sides",
+      desc: "Garden fresh carrots, green peas & potatoes simmered in a rich coconut milk cashew gravy.",
+      tag: "Vegetarian Delicacy",
+      badge: "TRADITIONAL",
+      pairing: "Pairs with Appam & Chappathi",
+      spiceLevel: "Mild",
+    },
+    {
+      name: "Chilly Chicken Dry / Gravy",
+      malayalam: "ചില്ലി ചിക്കൻ",
+      category: "curries",
+      categoryName: "Curries & Sides",
+      desc: "Crispy chicken morsels tossed with bell peppers, onions, ginger & soy chilli glaze.",
+      tag: "Party Favorite",
+      spiceLevel: "Medium",
+    },
+    {
+      name: "Gopi Manchurian Live",
+      malayalam: "ഗോപി മഞ്ചൂരിയൻ",
+      category: "curries",
+      categoryName: "Curries & Sides",
+      desc: "Crispy cauliflower florets coated in aromatic garlic tomato soya reduction.",
+      tag: "Live Veg Option",
+      spiceLevel: "Medium",
+    },
 
-                {/* Catering Feature Visual Banner */}
-                <div className="mt-10 mb-12 rounded-2xl overflow-hidden shadow-2xl relative border-2 border-[#DFAE32]/40 bg-[#38070A]">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
-                        <div className="lg:col-span-7 p-8 sm:p-10 space-y-4 text-white z-10">
-                            <span className="bg-[#DFAE32] text-[#38070A] text-xs font-bold px-3 py-1 rounded-md uppercase tracking-wider">
-                                Signature Dish
-                            </span>
-                            <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#F2B93F]">
-                                Malabar Special Dum Biriyani & Sadya
-                            </h3>
-                            <p className="text-xs sm:text-sm text-[#FAF8F2]/90 leading-relaxed font-normal">
-                                Slow-cooked in traditional copper cauldrons with aromatic Kaima rice, tender meat, ghee, fried cashew raisins, and authentic spices served with live porotta and appam counters.
-                            </p>
-                            <div className="flex flex-wrap gap-4 text-xs font-semibold text-[#F7D06E] pt-2">
-                                <span>🔥 Live Cooking Counters</span>
-                                <span>🌱 Pure Veg & Non-Veg Options</span>
-                                <span>✨ Custom Menu Options</span>
-                            </div>
-                        </div>
-                        <div className="lg:col-span-5 relative h-64 lg:h-full min-h-[260px]">
-                            <Image
-                                src="/hero_biriyani.png"
-                                alt="Malabar Dum Biriyani Feast"
-                                fill
-                                className="object-cover object-center"
-                            />
-                        </div>
-                    </div>
-                </div>
+    // DESSERTS
+    {
+      name: "Ada Pradhaman Payasam",
+      malayalam: "അട പ്രഥമൻ പായസം",
+      category: "desserts",
+      categoryName: "Desserts & Sweets",
+      desc: "Traditional Kerala dessert made with steamed rice flakes, thick jaggery syrup, coconut milk & fried cashew-raisin ghee topping.",
+      tag: "Kerala Royal Sweet",
+      badge: "TRADITIONAL",
+      pairing: "Served warm in clay pots",
+    },
+    {
+      name: "Palpayasam (Rich Milk Pudding)",
+      malayalam: "പാൽപായസം",
+      category: "desserts",
+      categoryName: "Desserts & Sweets",
+      desc: "Slow-reduced whole milk & Kaima rice simmered for hours until creamy golden pink.",
+      tag: "Temple Classic",
+      badge: "TRADITIONAL",
+    },
+    {
+      name: "Live Hot Jalebi Counter",
+      malayalam: "തത്സമയ ലൈവ് ജിലേബി",
+      category: "desserts",
+      categoryName: "Desserts & Sweets",
+      desc: "Crispy spirals fried live in pure ghee and dipped in saffron kardamom sugar syrup.",
+      tag: "Live Dessert",
+      badge: "LIVE COUNTER",
+    },
+    {
+      name: "Live Mysore Pak Counter",
+      malayalam: "തത്സമയ ലൈവ് മൈസൂർ പാക്ക്",
+      category: "desserts",
+      categoryName: "Desserts & Sweets",
+      desc: "Melt-in-mouth golden gram flour fudge made hot at the live dessert counter.",
+      tag: "Live Dessert",
+      badge: "LIVE COUNTER",
+    },
+    {
+      name: "Premium Ice Cream & Gulab Jamun",
+      malayalam: "ഐസ് ക്രീം & ഗുലാബ് ജാമുൻ",
+      category: "desserts",
+      categoryName: "Desserts & Sweets",
+      desc: "Soft cardamom jamuns served with vanilla, mango or pistachio ice cream scoops.",
+      tag: "Classic Finish",
+    },
 
-                {/* Tab Buttons */}
-                <div className="flex flex-wrap justify-center gap-2 mb-10">
-                    {categories.map((tab) => (
-                        <button
-                            key={tab.id}
-                            onClick={() => setActiveTab(tab.id)}
-                            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all border ${activeTab === tab.id
-                                    ? "bg-[#6F1014] text-[#F2B93F] border-[#6F1014] shadow-md"
-                                    : "bg-white text-[#241B18] border-[#EFE8D7] hover:border-[#6F1014]/40"
-                                }`}
-                        >
-                            {tab.name}
-                        </button>
-                    ))}
-                </div>
+    // DRINKS
+    {
+      name: "Fresh Watermelon Juice",
+      malayalam: "തത്സമയ വട്ടര്മെലൺ ജ്യൂസ്",
+      category: "drinks",
+      categoryName: "Welcome Drinks",
+      desc: "Freshly cold-pressed sweet watermelon with mint leaves & crushed ice.",
+      tag: "Welcome Cooler",
+      badge: "MUST TRY",
+    },
+    {
+      name: "Chilled Papaya & Pineapple Juice",
+      malayalam: "പപ്പായ & പൈനാപ്പിൾ ജ്യൂസ്",
+      category: "drinks",
+      categoryName: "Welcome Drinks",
+      desc: "Tropical fruit blend made with farm-fresh Kerala fruits.",
+      tag: "Welcome Cooler",
+    },
+    {
+      name: "Fresh Grape & Musambi Juice",
+      malayalam: "ഗ്രേപ്പ് & മൂസാമ്പി ജ്യൂസ്",
+      category: "drinks",
+      categoryName: "Welcome Drinks",
+      desc: "Refreshing natural citrus punch served in crystal glassware.",
+      tag: "Welcome Cooler",
+    },
 
-                {/* Menu Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {/* Main Dishes */}
-                    {(activeTab === "all" || activeTab === "mains") && (
-                        <div className="bg-white rounded-2xl p-6 border border-[#EFE8D7] shadow-md space-y-4">
-                            <div className="flex items-center justify-between border-b border-[#F7F3EA] pb-3">
-                                <div className="flex items-center gap-2">
-                                    <Utensils className="w-5 h-5 text-[#8B1E23]" />
-                                    <h3 className="font-display font-bold text-lg text-[#6F1014]">
-                                        Main Dishes
-                                    </h3>
-                                </div>
-                                <span className="text-[11px] font-semibold text-[#DFAE32] uppercase">
-                                    Rice & Live
-                                </span>
-                            </div>
-                            <ul className="space-y-3">
-                                {menuItems.mains.map((item, i) => (
-                                    <li key={i} className="flex items-center justify-between text-xs py-1 border-b border-gray-50 last:border-0">
-                                        <div>
-                                            <span className="font-semibold text-[#241B18] block">{item.name}</span>
-                                            <span className="text-[10px] text-[#6F1014] font-medium">{item.malayalam}</span>
-                                        </div>
-                                        {item.live && (
-                                            <span className="bg-[#6F1014] text-[#F2B93F] text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0">
-                                                LIVE
-                                            </span>
-                                        )}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    )}
+    // BEVERAGES
+    {
+      name: "Malabar Colour Tea (Live)",
+      malayalam: "തത്സമയ മലബാർ കളർ ടീ",
+      category: "beverages",
+      categoryName: "Beverages & Tea",
+      desc: "Aromatic pulled Malabar tea brewed with cardamoms and poured live with high froth.",
+      tag: "Cultural Icon",
+      badge: "LIVE COUNTER",
+    },
+    {
+      name: "Hot Filter Coffee Station",
+      malayalam: "ഹാറ്റ് ഫിൽട്ടർ കോഫി",
+      category: "beverages",
+      categoryName: "Beverages & Tea",
+      desc: "Authentic South Indian decoction coffee brewed with fresh cow milk.",
+      tag: "Hot Beverage",
+    },
+    {
+      name: "Purified Mineral Water & Cool Drinks",
+      malayalam: "മിനറൽ വാട്ടർ & കൂൾ ഡ്രിങ്ക്സ്",
+      category: "beverages",
+      categoryName: "Beverages & Tea",
+      desc: "Hygienically served bottled water and chilled soft beverages.",
+      tag: "Standard Inclusion",
+    },
+  ];
 
-                    {/* Curries */}
-                    {(activeTab === "all" || activeTab === "curries") && (
-                        <div className="bg-white rounded-2xl p-6 border border-[#EFE8D7] shadow-md space-y-4">
-                            <div className="flex items-center justify-between border-b border-[#F7F3EA] pb-3">
-                                <div className="flex items-center gap-2">
-                                    <Flame className="w-5 h-5 text-[#8B1E23]" />
-                                    <h3 className="font-display font-bold text-lg text-[#6F1014]">
-                                        Curries & Side Dishes
-                                    </h3>
-                                </div>
-                                <span className="text-[11px] font-semibold text-[#DFAE32] uppercase">
-                                    Gravies
-                                </span>
-                            </div>
-                            <ul className="space-y-3">
-                                {menuItems.curries.map((item, i) => (
-                                    <li key={i} className="flex items-center justify-between text-xs py-1 border-b border-gray-50 last:border-0">
-                                        <div>
-                                            <span className="font-semibold text-[#241B18] block">{item.name}</span>
-                                            <span className="text-[10px] text-[#6F1014] font-medium">{item.malayalam}</span>
-                                        </div>
-                                        {item.spicy && (
-                                            <span className="bg-[#FAF8F2] text-[#8B1E23] text-[10px] font-bold px-2 py-0.5 rounded border border-[#8B1E23]/30 shrink-0">
-                                                SPICY
-                                            </span>
-                                        )}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    )}
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId);
+    setShowAllItems(false);
+  };
 
-                    {/* Desserts */}
-                    {(activeTab === "all" || activeTab === "desserts") && (
-                        <div className="bg-white rounded-2xl p-6 border border-[#EFE8D7] shadow-md space-y-4">
-                            <div className="flex items-center justify-between border-b border-[#F7F3EA] pb-3">
-                                <div className="flex items-center gap-2">
-                                    <Sparkles className="w-5 h-5 text-[#8B1E23]" />
-                                    <h3 className="font-display font-bold text-lg text-[#6F1014]">
-                                        Desserts & Sweets
-                                    </h3>
-                                </div>
-                                <span className="text-[11px] font-semibold text-[#DFAE32] uppercase">
-                                    Payasam & Live
-                                </span>
-                            </div>
-                            <ul className="space-y-3">
-                                {menuItems.desserts.map((item, i) => (
-                                    <li key={i} className="flex items-center justify-between text-xs py-1 border-b border-gray-50 last:border-0">
-                                        <div>
-                                            <span className="font-semibold text-[#241B18] block">{item.name}</span>
-                                            <span className="text-[10px] text-[#6F1014] font-medium">{item.malayalam}</span>
-                                        </div>
-                                        {item.live && (
-                                            <span className="bg-[#6F1014] text-[#F2B93F] text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0">
-                                                LIVE
-                                            </span>
-                                        )}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    )}
+  const filteredItems =
+    activeTab === "all"
+      ? menuItems
+      : menuItems.filter((item) => item.category === activeTab);
 
-                    {/* Welcome Drinks */}
-                    {(activeTab === "all" || activeTab === "drinks") && (
-                        <div className="bg-white rounded-2xl p-6 border border-[#EFE8D7] shadow-md space-y-4">
-                            <div className="flex items-center justify-between border-b border-[#F7F3EA] pb-3">
-                                <h3 className="font-display font-bold text-lg text-[#6F1014]">
-                                    Welcome Drinks & Juices
-                                </h3>
-                                <span className="text-[11px] font-semibold text-[#DFAE32] uppercase">
-                                    Fresh Juices
-                                </span>
-                            </div>
-                            <ul className="space-y-3">
-                                {menuItems.drinks.map((item, i) => (
-                                    <li key={i} className="flex items-center justify-between text-xs py-1 border-b border-gray-50 last:border-0">
-                                        <div>
-                                            <span className="font-semibold text-[#241B18] block">{item.name}</span>
-                                            <span className="text-[10px] text-[#6F1014] font-medium">{item.malayalam}</span>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    )}
+  const displayedItems = showAllItems ? filteredItems : filteredItems.slice(0, 6);
 
-                    {/* Beverages */}
-                    {(activeTab === "all" || activeTab === "beverages") && (
-                        <div className="bg-white rounded-2xl p-6 border border-[#EFE8D7] shadow-md space-y-4">
-                            <div className="flex items-center justify-between border-b border-[#F7F3EA] pb-3">
-                                <h3 className="font-display font-bold text-lg text-[#6F1014]">
-                                    Beverages & Tea Counter
-                                </h3>
-                                <span className="text-[11px] font-semibold text-[#DFAE32] uppercase">
-                                    Live Tea
-                                </span>
-                            </div>
-                            <ul className="space-y-3">
-                                {menuItems.beverages.map((item, i) => (
-                                    <li key={i} className="flex items-center justify-between text-xs py-1 border-b border-gray-50 last:border-0">
-                                        <div>
-                                            <span className="font-semibold text-[#241B18] block">{item.name}</span>
-                                            <span className="text-[10px] text-[#6F1014] font-medium">{item.malayalam}</span>
-                                        </div>
-                                        {item.live && (
-                                            <span className="bg-[#6F1014] text-[#F2B93F] text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0">
-                                                LIVE
-                                            </span>
-                                        )}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    )}
-                </div>
+  return (
+    <section id="menu" className="py-20 bg-[#FAF8F2] relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Title */}
+        <div className="text-center max-w-3xl mx-auto space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#8B1E23]/10 border border-[#8B1E23]/20 text-[#8B1E23] text-xs font-bold tracking-widest uppercase">
+            Authentic Taste of Kerala
+          </div>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#241B18]">
+            Catering Menu & Feast Catalogue
+          </h2>
+          <div className="flex items-center justify-center gap-3">
+            <div className="h-0.5 w-12 bg-[#8B1E23]" />
+            <div className="w-2 h-2 rotate-45 bg-[#DFAE32]" />
+            <div className="h-0.5 w-12 bg-[#8B1E23]" />
+          </div>
+          <p className="text-sm text-[#241B18]/75">
+            Prepared by master chefs using traditional recipes, fresh ground spices, and hygienic ingredients for high-capacity event catering.
+          </p>
+        </div>
 
-                {/* CTA Banner */}
-                <div className="mt-12 text-center">
-                    <a
-                        href="#contact"
-                        className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[#6F1014] hover:bg-[#8B1E23] text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-xl transition-all"
-                    >
-                        <span>Request Custom Catering Menu Quote</span>
-                        <ChevronRight className="w-4 h-4 text-[#F2B93F]" />
-                    </a>
-                </div>
+        {/* Signature Feature Banner */}
+        <div className="mt-10 mb-12 rounded-3xl overflow-hidden shadow-2xl relative border-2 border-[#DFAE32]/40 bg-[#38070A]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
+            <div className="lg:col-span-7 p-8 sm:p-10 space-y-4 text-white z-10">
+              <span className="bg-[#DFAE32] text-[#38070A] text-xs font-bold px-3 py-1 rounded-md uppercase tracking-wider">
+                Signature Royal Dish
+              </span>
+              <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#F2B93F]">
+                Malabar Special Dum Biriyani & Live Feast
+              </h3>
+              <p className="text-xs sm:text-sm text-[#FAF8F2]/90 leading-relaxed font-normal">
+                Slow-cooked in traditional copper cauldrons with aromatic Kaima rice, tender meat, ghee, fried cashew raisins, and authentic spices served with live porotta and appam counters.
+              </p>
+              <div className="flex flex-wrap gap-4 text-xs font-semibold text-[#F7D06E] pt-2">
+                <span>🔥 Live Cooking Counters</span>
+                <span>🌱 Pure Veg & Non-Veg Options</span>
+                <span>✨ Custom Menu Options</span>
+              </div>
             </div>
-        </section>
-    );
+            <div className="lg:col-span-5 relative h-64 lg:h-full min-h-[260px]">
+              <Image
+                src="/hero_biriyani.png"
+                alt="Malabar Dum Biriyani Feast"
+                fill
+                className="object-cover object-center"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Luxury Category Pills */}
+        <div className="flex flex-wrap justify-center gap-2.5 mb-12">
+          {categories.map((tab) => {
+            const IconComp = tab.icon;
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => handleTabChange(tab.id)}
+                className={`px-4 py-2.5 rounded-full text-xs font-bold transition-all border flex items-center gap-2 shadow-sm ${
+                  isActive
+                    ? "bg-[#6F1014] text-[#F2B93F] border-[#DFAE32] shadow-lg scale-105"
+                    : "bg-white text-[#241B18] border-[#EFE8D7] hover:border-[#6F1014]/40 hover:bg-[#FAF8F2]"
+                }`}
+              >
+                <IconComp className={`w-4 h-4 ${isActive ? "text-[#F2B93F]" : "text-[#8B1E23]"}`} />
+                <span>{tab.name}</span>
+                <span
+                  className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold ${
+                    isActive ? "bg-[#8B1E23] text-[#F2B93F]" : "bg-[#F7F3EA] text-[#6F1014]"
+                  }`}
+                >
+                  {tab.count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Completely Re-Designed Luxury Menu Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {displayedItems.map((item, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-3xl p-6 border-2 border-[#EFE8D7] shadow-lg hover:shadow-2xl hover:border-[#DFAE32] transition-all duration-300 flex flex-col justify-between relative group overflow-hidden"
+            >
+              {/* Top Accent Gold Strip */}
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#6F1014] via-[#DFAE32] to-[#6F1014]" />
+
+              <div>
+                {/* Header Row: Category Pill & Live Badge */}
+                <div className="flex items-center justify-between gap-2 pt-2 mb-3">
+                  <span className="text-[10px] font-bold tracking-wider uppercase bg-[#F7F3EA] text-[#6F1014] px-2.5 py-1 rounded-full border border-[#6F1014]/20">
+                    {item.categoryName}
+                  </span>
+
+                  {item.badge && (
+                    <span
+                      className={`text-[10px] font-extrabold px-3 py-1 rounded-full shadow-sm flex items-center gap-1 uppercase tracking-wider ${
+                        item.badge === "LIVE COUNTER"
+                          ? "bg-[#6F1014] text-[#F2B93F] border border-[#F2B93F]/50 animate-pulse"
+                          : item.badge === "CHEF SPECIAL"
+                          ? "bg-gradient-to-r from-[#DFAE32] to-[#F2B93F] text-[#38070A]"
+                          : "bg-[#38070A] text-[#FAF8F2]"
+                      }`}
+                    >
+                      {item.badge === "LIVE COUNTER" && <Flame className="w-3 h-3 text-[#F2B93F]" />}
+                      {item.badge === "CHEF SPECIAL" && <Award className="w-3 h-3" />}
+                      <span>{item.badge}</span>
+                    </span>
+                  )}
+                </div>
+
+                {/* Main Dish Name & Malayalam Calligraphy */}
+                <div className="space-y-1 my-3">
+                  <h3 className="font-display font-bold text-lg sm:text-xl text-[#241B18] group-hover:text-[#6F1014] transition-colors leading-snug">
+                    {item.name}
+                  </h3>
+                  <div className="inline-block bg-[#6F1014]/5 px-2.5 py-0.5 rounded-md border border-[#6F1014]/15">
+                    <span className="text-xs font-bold text-[#6F1014] tracking-wide">
+                      {item.malayalam}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Culinary Description */}
+                <p className="text-xs text-[#241B18]/80 leading-relaxed mt-3 font-normal">
+                  {item.desc}
+                </p>
+
+                {/* Flavor Profile & Spice Level */}
+                {item.spiceLevel && (
+                  <div className="mt-3 pt-3 border-t border-[#F7F3EA] flex items-center justify-between text-[11px]">
+                    <span className="text-[#241B18]/60 font-medium">Flavor Profile:</span>
+                    <span className="font-bold text-[#8B1E23] bg-[#8B1E23]/10 px-2 py-0.5 rounded">
+                      🌶️ {item.spiceLevel}
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {/* Card Footer: Pairing Recommendation */}
+              <div className="mt-5 pt-4 border-t border-[#F7F3EA]">
+                {item.pairing ? (
+                  <div className="flex items-start gap-2 bg-[#FAF8F2] p-2.5 rounded-xl border border-[#EFE8D7] text-[11px]">
+                    <Sparkles className="w-4 h-4 text-[#DFAE32] shrink-0 mt-0.5" />
+                    <span className="text-[#241B18]/85 font-medium leading-tight">
+                      <strong className="text-[#6F1014] block font-semibold">Recommended Pair:</strong>
+                      {item.pairing}
+                    </span>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-between text-[11px] text-[#6F1014] font-bold">
+                    <span>✨ Malabar Decorators Culinary Excellence</span>
+                    <Check className="w-4 h-4 text-[#25D366]" />
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* View More / Show Less Toggle Button */}
+        {filteredItems.length > 6 && (
+          <div className="mt-10 text-center">
+            <button
+              onClick={() => setShowAllItems(!showAllItems)}
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white border-2 border-[#6F1014] text-[#6F1014] hover:bg-[#6F1014] hover:text-[#F2B93F] font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-xl transition-all group"
+            >
+              <span>{showAllItems ? "Show Fewer Menu Cards" : `View All ${filteredItems.length} Menu Items`}</span>
+              <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${showAllItems ? "rotate-180" : ""}`} />
+            </button>
+          </div>
+        )}
+
+        {/* CTA Quote Request */}
+        <div className="mt-12 text-center">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-[#6F1014] to-[#8B1E23] hover:from-[#8B1E23] hover:to-[#6F1014] text-white font-bold text-xs uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all"
+          >
+            <span>Request Custom Catering Menu Quote</span>
+            <ChevronRight className="w-4 h-4 text-[#F2B93F]" />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
 }

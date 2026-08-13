@@ -218,9 +218,9 @@ export default function Services() {
                     ))}
                 </div>
 
-                {/* Additional Services Grid */}
-                <div className="mt-16 bg-gradient-to-r from-[#6F1014] via-[#4E0A0D] to-[#6F1014] rounded-2xl p-8 text-white shadow-xl border border-[#DFAE32]/30">
-                    <div className="text-center space-y-2 mb-6">
+                {/* Additional Services Auto-Scrolling Marquee Ticker */}
+                <div className="mt-16 bg-gradient-to-r from-[#6F1014] via-[#4E0A0D] to-[#6F1014] rounded-2xl py-8 px-4 text-white shadow-xl border border-[#DFAE32]/30 overflow-hidden relative">
+                    <div className="text-center space-y-2 mb-6 px-4">
                         <h3 className="font-display text-2xl font-bold text-[#F2B93F]">
                             Comprehensive Event Offerings
                         </h3>
@@ -228,16 +228,24 @@ export default function Services() {
                             Whatever the occasion, Malabar Decorators handles complete setup, decoration, theme styling, and catering.
                         </p>
                     </div>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 text-xs font-semibold">
-                        {allOtherServicesList.map((item, idx) => (
-                            <div
-                                key={idx}
-                                className="bg-[#38070A]/80 border border-[#F2B93F]/30 px-3.5 py-2.5 rounded-lg text-[#FAF8F2] flex items-center gap-2 hover:border-[#F2B93F] transition-colors"
-                            >
-                                <div className="w-1.5 h-1.5 rounded-full bg-[#F2B93F]" />
-                                <span>{item}</span>
-                            </div>
-                        ))}
+
+                    {/* Auto Scrolling Marquee Track */}
+                    <div className="relative w-full overflow-hidden">
+                        {/* Gradient Fade Edges */}
+                        <div className="absolute top-0 bottom-0 left-0 w-16 bg-gradient-to-r from-[#6F1014] to-transparent z-10 pointer-events-none" />
+                        <div className="absolute top-0 bottom-0 right-0 w-16 bg-gradient-to-l from-[#6F1014] to-transparent z-10 pointer-events-none" />
+
+                        <div className="animate-marquee gap-3 py-2">
+                            {[...allOtherServicesList, ...allOtherServicesList].map((item, idx) => (
+                                <div
+                                    key={idx}
+                                    className="bg-[#38070A]/90 border border-[#F2B93F]/40 px-5 py-2.5 rounded-full text-[#FAF8F2] text-xs font-bold whitespace-nowrap flex items-center gap-2 shadow-md hover:border-[#F2B93F] transition-colors shrink-0 group hover:bg-[#8B1E23]"
+                                >
+                                    <Sparkle className="w-3.5 h-3.5 text-[#F2B93F] group-hover:rotate-45 transition-transform" />
+                                    <span>{item}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -28,7 +28,7 @@ export default function Hero() {
     ];
 
     return (
-        <section id="hero" className="relative bg-[#171110] text-white pt-28 sm:pt-36 lg:pt-40 pb-0 overflow-hidden">
+        <section id="hero" className="relative bg-[#171110] text-white pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-20">
             {/* Background Image Layer */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <Image
@@ -40,14 +40,17 @@ export default function Hero() {
                 />
 
                 {/* Clean Center-to-Right Fade Overlay */}
-                {/* Deep maroon gradient on the left behind text, fading smoothly to 0% opacity on the right */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#38070A] via-[#4E0A0D]/90 to-transparent w-full md:w-[70%] lg:w-[60%]" />
-                <div className="absolute inset-0 bg-gradient-to-b from-[#171110]/80 via-transparent to-[#171110]/90" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#171110]/80 via-transparent to-[#171110]/95" />
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="max-w-3xl pt-6 pb-16 sm:pb-24 space-y-6 text-left">
-                
+                <div className="max-w-3xl pt-6 pb-8 space-y-6 text-left">
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E23]/70 border border-[#F2B93F]/40 text-[#F2B93F] text-xs font-semibold tracking-wider uppercase backdrop-blur-md">
+                        <span className="w-2 h-2 rounded-full bg-[#F2B93F] animate-pulse" />
+                        Kannur's Premier Catering & Decor Specialists
+                    </div>
+
                     <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15]">
                         Delicious Food & <br />
                         <span className="gold-gradient-text">Beautiful Decor</span> <br />
@@ -90,9 +93,9 @@ export default function Hero() {
                     </p>
                 </div>
 
-                {/* 04 — HERO MERGED FEATURE CARD */}
-                {/* Visually attached & physically overlapping the bottom of Hero */}
-                <div className="relative -mb-12 sm:-mb-16 z-20">
+                {/* 04 — HERO FEATURE CARD */}
+                {/* Fully visible card container without negative margin clipping */}
+                <div className="relative z-20 mt-8 sm:mt-12">
                     <div className="bg-gradient-to-r from-[#4E0A0D] via-[#6F1014] to-[#4E0A0D] border-2 border-[#DFAE32]/40 rounded-2xl shadow-2xl p-6 sm:p-8 backdrop-blur-lg">
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-[#7A1518]/60">
                             {strengths.map((item, idx) => {
