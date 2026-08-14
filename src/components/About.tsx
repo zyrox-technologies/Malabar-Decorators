@@ -80,10 +80,10 @@ export default function About() {
                         </div>
 
                         {/* Central Badge Overlay */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-[#6F1014] border-2 border-[#F2B93F] text-white p-4 rounded-2xl shadow-2xl text-center hidden sm:block">
-                            <Sparkles className="w-6 h-6 text-[#F2B93F] mx-auto mb-1" />
-                            <p className="font-display font-bold text-lg text-[#F2B93F]">10+ Years</p>
-                            <p className="text-[11px] text-[#FAF8F2] tracking-wider uppercase font-medium">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-[#6F1014] border-2 border-[#F2B93F] text-white p-2.5 sm:p-4 rounded-xl sm:rounded-2xl shadow-2xl text-center flex flex-col items-center justify-center scale-90 sm:scale-100 backdrop-blur-md">
+                            <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-[#F2B93F] mx-auto mb-0.5 sm:mb-1" />
+                            <p className="font-display font-bold text-sm sm:text-lg text-[#F2B93F] leading-tight">10+ Years</p>
+                            <p className="text-[9px] sm:text-[11px] text-[#FAF8F2] tracking-wider uppercase font-medium whitespace-nowrap">
                                 Excellence in Kerala
                             </p>
                         </div>

@@ -143,14 +143,14 @@ export default function Services() {
                 </div>
 
                 {/* Filter Tabs */}
-                <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-10 mb-12">
+                <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3 mt-8 sm:mt-10 mb-10 sm:mb-12 overflow-x-auto no-scrollbar pb-2 -mx-4 px-4 sm:mx-0 sm:px-0">
                     {serviceCategories.map((cat) => (
                         <button
                             key={cat.id}
                             onClick={() => setActiveCategory(cat.id as any)}
-                            className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all border ${activeCategory === cat.id
-                                    ? "bg-[#6F1014] text-white border-[#6F1014] shadow-md"
-                                    : "bg-white text-[#241B18] border-[#EFE8D7] hover:border-[#6F1014]/40 hover:bg-[#FAF8F2]"
+                            className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all border shrink-0 whitespace-nowrap ${activeCategory === cat.id
+                                ? "bg-[#6F1014] text-white border-[#6F1014] shadow-md"
+                                : "bg-white text-[#241B18] border-[#EFE8D7] hover:border-[#6F1014]/40 hover:bg-[#FAF8F2]"
                                 }`}
                         >
                             {cat.label}

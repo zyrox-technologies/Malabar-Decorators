@@ -46,12 +46,12 @@ export default function Hero() {
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="max-w-3xl pt-6 pb-8 space-y-6 text-left">
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E23]/70 border border-[#F2B93F]/40 text-[#F2B93F] text-xs font-semibold tracking-wider uppercase backdrop-blur-md">
-                        <span className="w-2 h-2 rounded-full bg-[#F2B93F] animate-pulse" />
-                        Kannur's Premier Catering & Decor Specialists
+                    <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-[#8B1E23]/70 border border-[#F2B93F]/40 text-[#F2B93F] text-[11px] sm:text-xs font-semibold tracking-wider uppercase backdrop-blur-md">
+                        <span className="w-2 h-2 rounded-full bg-[#F2B93F] animate-pulse shrink-0" />
+                        <span>Kannur's Premier Catering & Decor Specialists</span>
                     </div>
 
-                    <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15]">
+                    <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15]">
                         Delicious Food & <br />
                         <span className="gold-gradient-text">Beautiful Decor</span> <br />
                         for Every Occasion
@@ -64,7 +64,7 @@ export default function Hero() {
                         <div className="h-0.5 w-12 bg-gradient-to-r from-[#F2B93F] to-transparent" />
                     </div>
 
-                    <p className="text-base sm:text-lg text-[#FAF8F2]/95 max-w-2xl font-normal leading-relaxed">
+                    <p className="text-sm sm:text-lg text-[#FAF8F2]/95 max-w-2xl font-normal leading-relaxed">
                         From authentic Malabar dum biriyani and lavish catering spreads to stunning Nikah, stage, and reception decorations — we make your precious moments truly unforgettable.
                     </p>
 
@@ -96,24 +96,23 @@ export default function Hero() {
                 {/* 04 — HERO FEATURE CARD */}
                 {/* Fully visible card container without negative margin clipping */}
                 <div className="relative z-20 mt-8 sm:mt-12">
-                    <div className="bg-gradient-to-r from-[#4E0A0D] via-[#6F1014] to-[#4E0A0D] border-2 border-[#DFAE32]/40 rounded-2xl shadow-2xl p-6 sm:p-8 backdrop-blur-lg">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-[#7A1518]/60">
+                    <div className="bg-gradient-to-r from-[#4E0A0D] via-[#6F1014] to-[#4E0A0D] border-2 border-[#DFAE32]/40 rounded-2xl shadow-2xl p-5 sm:p-8 backdrop-blur-lg">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                             {strengths.map((item, idx) => {
                                 const IconComponent = item.icon;
                                 return (
                                     <div
                                         key={idx}
-                                        className={`flex items-start gap-4 ${idx > 0 ? "pt-5 sm:pt-0 sm:pl-6" : ""
-                                            }`}
+                                        className="flex items-start gap-3.5 p-4 sm:p-3 rounded-xl bg-[#38070A]/50 border border-[#7A1518]/60 lg:border-none lg:bg-transparent lg:p-0 transition-all hover:bg-[#38070A]/70"
                                     >
-                                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8B1E23] to-[#4E0A0D] border border-[#F2B93F]/50 flex items-center justify-center shrink-0 shadow-md text-[#F2B93F]">
-                                            <IconComponent className="w-6 h-6 stroke-[1.75]" />
+                                        <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#8B1E23] to-[#4E0A0D] border border-[#F2B93F]/50 flex items-center justify-center shrink-0 shadow-md text-[#F2B93F]">
+                                            <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.75]" />
                                         </div>
                                         <div>
-                                            <h3 className="font-display font-bold text-base text-white tracking-wider">
+                                            <h3 className="font-display font-bold text-sm sm:text-base text-white tracking-wider">
                                                 {item.title}
                                             </h3>
-                                            <p className="text-xs text-[#FAF8F2]/80 mt-1 font-normal leading-snug">
+                                            <p className="text-xs text-[#FAF8F2]/80 mt-0.5 font-normal leading-snug">
                                                 {item.desc}
                                             </p>
                                         </div>
