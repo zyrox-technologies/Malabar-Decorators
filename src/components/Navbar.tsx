@@ -75,7 +75,7 @@ export default function Navbar() {
                                 <span className="font-display font-bold text-xl tracking-wider text-white leading-none">
                                     MALABAR
                                 </span>
-                                <span className="text-[10px] tracking-[0.25em] text-[#F2B93F] uppercase font-medium mt-0.5">
+                                <span className="text-[9px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.25em] text-[#F2B93F] uppercase font-medium mt-0.5 whitespace-nowrap">
                                     DECORATORS & CATERING
                                 </span>
                             </div>
@@ -137,7 +137,7 @@ export default function Navbar() {
 
                     {/* Mobile Menu Dropdown */}
                     {mobileMenuOpen && (
-                        <div className="lg:hidden bg-[#4E0A0D] border-t border-[#7A1518] mt-3 px-4 pt-3 pb-6 space-y-3 rounded-b-2xl animate-in slide-in-from-top duration-200">
+                        <div className="lg:hidden bg-[#4E0A0D] border-t border-[#7A1518] mt-3 px-4 pt-3 pb-6 space-y-3 rounded-b-2xl animate-in slide-in-from-top duration-200 max-h-[75vh] overflow-y-auto no-scrollbar">
                             {navLinks.map((link) => (
                                 <a
                                     key={link.name}
