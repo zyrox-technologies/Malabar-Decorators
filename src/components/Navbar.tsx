@@ -30,7 +30,7 @@ export default function Navbar() {
             {/* Floating Container */}
             <div className="max-w-7xl mx-auto shadow-2xl rounded-2xl overflow-hidden border border-[#7A1518]/80 bg-[#4E0A0D]/95 backdrop-blur-md">
                 {/* Top Utility Strip */}
-                <div className="bg-[#38070A] text-[#F7F3EA] text-xs py-1.5 px-4 border-b border-[#7A1518]/60 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <div className="hidden sm:flex bg-[#38070A] text-[#F7F3EA] text-xs py-1.5 px-4 border-b border-[#7A1518]/60 sm:flex-row justify-between items-center gap-2">
                     <div className="flex items-center gap-2">
                         <Sparkles className="w-3.5 h-3.5 text-[#F2B93F]" />
                         <span className="font-medium tracking-wide">
