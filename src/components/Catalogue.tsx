@@ -195,14 +195,14 @@ export default function Catalogue() {
                             </div>
 
                             {/* Modal Body */}
-                            <div className="p-6 overflow-y-auto space-y-3 divide-y divide-[#EFE8D7]">
+                            <div className="p-4 sm:p-6 overflow-y-auto space-y-3 divide-y divide-[#EFE8D7]">
                                 {fullCatalogue.map((item, idx) => (
-                                    <div key={idx} className="pt-3 first:pt-0 flex items-center justify-between gap-4 text-xs sm:text-sm">
+                                    <div key={idx} className="pt-3 first:pt-0 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-4 text-xs sm:text-sm">
                                         <div className="flex items-center gap-2 font-medium text-[#241B18]">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-[#8B1E23]" />
+                                            <div className="w-1.5 h-1.5 rounded-full bg-[#8B1E23] shrink-0" />
                                             <span>{item.name}</span>
                                         </div>
-                                        <span className="font-bold text-[#6F1014] bg-[#6F1014]/10 px-2.5 py-1 rounded-md text-xs">
+                                        <span className="font-bold text-[#6F1014] bg-[#6F1014]/10 px-2.5 py-1 rounded-md text-xs self-start sm:self-auto shrink-0">
                                             {item.price}
                                         </span>
                                     </div>

@@ -316,7 +316,7 @@ export default function Menu() {
                 <span>✨ Custom Menu Options</span>
               </div>
             </div>
-            <div className="lg:col-span-5 relative h-64 lg:h-full min-h-[260px]">
+            <div className="lg:col-span-5 relative h-48 sm:h-64 lg:h-full min-h-[200px] sm:min-h-[260px]">
               <Image
                 src="/hero_biriyani.png"
                 alt="Malabar Dum Biriyani Feast"
@@ -328,7 +328,7 @@ export default function Menu() {
         </div>
 
         {/* Luxury Category Pills */}
-        <div className="flex flex-wrap justify-center gap-2.5 mb-12">
+        <div className="flex items-center justify-start sm:justify-center gap-2.5 mb-8 sm:mb-12 overflow-x-auto no-scrollbar pb-2 -mx-4 px-4 sm:mx-0 sm:px-0">
           {categories.map((tab) => {
             const IconComp = tab.icon;
             const isActive = activeTab === tab.id;
@@ -336,18 +336,16 @@ export default function Menu() {
               <button
                 key={tab.id}
                 onClick={() => handleTabChange(tab.id)}
-                className={`px-4 py-2.5 rounded-full text-xs font-bold transition-all border flex items-center gap-2 shadow-sm ${
-                  isActive
+                className={`px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs font-bold transition-all border flex items-center gap-2 shadow-sm shrink-0 whitespace-nowrap ${isActive
                     ? "bg-[#6F1014] text-[#F2B93F] border-[#DFAE32] shadow-lg scale-105"
                     : "bg-white text-[#241B18] border-[#EFE8D7] hover:border-[#6F1014]/40 hover:bg-[#FAF8F2]"
-                }`}
+                  }`}
               >
                 <IconComp className={`w-4 h-4 ${isActive ? "text-[#F2B93F]" : "text-[#8B1E23]"}`} />
                 <span>{tab.name}</span>
                 <span
-                  className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold ${
-                    isActive ? "bg-[#8B1E23] text-[#F2B93F]" : "bg-[#F7F3EA] text-[#6F1014]"
-                  }`}
+                  className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold ${isActive ? "bg-[#8B1E23] text-[#F2B93F]" : "bg-[#F7F3EA] text-[#6F1014]"
+                    }`}
                 >
                   {tab.count}
                 </span>
@@ -375,13 +373,12 @@ export default function Menu() {
 
                   {item.badge && (
                     <span
-                      className={`text-[10px] font-extrabold px-3 py-1 rounded-full shadow-sm flex items-center gap-1 uppercase tracking-wider ${
-                        item.badge === "LIVE COUNTER"
+                      className={`text-[10px] font-extrabold px-3 py-1 rounded-full shadow-sm flex items-center gap-1 uppercase tracking-wider ${item.badge === "LIVE COUNTER"
                           ? "bg-[#6F1014] text-[#F2B93F] border border-[#F2B93F]/50 animate-pulse"
                           : item.badge === "CHEF SPECIAL"
-                          ? "bg-gradient-to-r from-[#DFAE32] to-[#F2B93F] text-[#38070A]"
-                          : "bg-[#38070A] text-[#FAF8F2]"
-                      }`}
+                            ? "bg-gradient-to-r from-[#DFAE32] to-[#F2B93F] text-[#38070A]"
+                            : "bg-[#38070A] text-[#FAF8F2]"
+                        }`}
                     >
                       {item.badge === "LIVE COUNTER" && <Flame className="w-3 h-3 text-[#F2B93F]" />}
                       {item.badge === "CHEF SPECIAL" && <Award className="w-3 h-3" />}
