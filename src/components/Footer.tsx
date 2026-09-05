@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Phone, Mail, MapPin, MessageCircle, ArrowUp, Sparkles } from "lucide-react";
 
 export default function Footer() {
@@ -89,39 +90,39 @@ export default function Footer() {
                         </h4>
                         <ul className="space-y-2.5 text-xs sm:text-sm text-[#FAF8F2]/80 font-medium">
                             <li>
-                                <a href="#hero" className="hover:text-[#F2B93F] transition-colors">
+                                <Link href="/#hero" className="hover:text-[#F2B93F] transition-colors">
                                     Home
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#about" className="hover:text-[#F2B93F] transition-colors">
+                                <Link href="/#about" className="hover:text-[#F2B93F] transition-colors">
                                     About Us
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#services" className="hover:text-[#F2B93F] transition-colors">
+                                <Link href="/services" className="hover:text-[#F2B93F] transition-colors">
                                     Services
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#menu" className="hover:text-[#F2B93F] transition-colors">
+                                <Link href="/menu" className="hover:text-[#F2B93F] transition-colors">
                                     Menu
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#catalogue" className="hover:text-[#F2B93F] transition-colors">
+                                <Link href="/catalogue" className="hover:text-[#F2B93F] transition-colors">
                                     Catalogue
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#gallery" className="hover:text-[#F2B93F] transition-colors">
+                                <Link href="/#gallery" className="hover:text-[#F2B93F] transition-colors">
                                     Gallery
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#contact" className="hover:text-[#F2B93F] transition-colors">
+                                <Link href="/#contact" className="hover:text-[#F2B93F] transition-colors">
                                     Contact
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>

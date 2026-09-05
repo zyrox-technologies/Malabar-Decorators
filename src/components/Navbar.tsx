@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Phone, Menu, X, Calendar, MessageCircle } from "lucide-react";
 
 export default function Navbar() {
@@ -17,13 +18,13 @@ export default function Navbar() {
     }, []);
 
     const navLinks = [
-        { name: "Home", href: "#hero" },
-        { name: "About Us", href: "#about" },
-        { name: "Services", href: "#services" },
-        { name: "Menu", href: "#menu" },
-        { name: "Catalogue", href: "#catalogue" },
-        { name: "Gallery", href: "#gallery" },
-        { name: "Contact", href: "#contact" },
+        { name: "Home", href: "/#hero" },
+        { name: "About Us", href: "/#about" },
+        { name: "Services", href: "/services" },
+        { name: "Menu", href: "/menu" },
+        { name: "Catalogue", href: "/catalogue" },
+        { name: "Gallery", href: "/#gallery" },
+        { name: "Contact", href: "/#contact" },
     ];
 
     return (
@@ -39,7 +40,7 @@ export default function Navbar() {
                 <nav className="px-4 sm:px-6">
                     <div className="flex items-center justify-between">
                         {/* Logo */}
-                        <a href="#hero" className="flex items-center gap-3 group my-auto">
+                        <Link href="/" className="flex items-center gap-3 group my-auto">
                             <div className="relative w-11 h-11 shrink-0 flex items-center justify-center translate-y-0.5">
                                 <Image
                                     src="/LOGO/logo.png"
@@ -57,18 +58,18 @@ export default function Navbar() {
                                     className="object-contain object-left"
                                 />
                             </div>
-                        </a>
+                        </Link>
 
                         {/* Navigation Links */}
                         <div className="hidden lg:flex items-center gap-7">
                             {navLinks.map((link) => (
-                                <a
+                                <Link
                                     key={link.name}
                                     href={link.href}
                                     className="text-sm font-semibold text-[#171110] hover:text-[#6F1014] transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#6F1014] hover:after:w-full after:transition-all"
                                 >
                                     {link.name}
-                                </a>
+                                </Link>
                             ))}
                         </div>
 
@@ -117,14 +118,14 @@ export default function Navbar() {
                     {mobileMenuOpen && (
                         <div className="lg:hidden bg-white/98 border-t border-gray-200 mt-3 px-4 pt-3 pb-6 space-y-3 rounded-b-2xl animate-in slide-in-from-top duration-200 max-h-[75vh] overflow-y-auto no-scrollbar backdrop-blur-2xl shadow-2xl">
                             {navLinks.map((link) => (
-                                <a
+                                <Link
                                     key={link.name}
                                     href={link.href}
                                     onClick={() => setMobileMenuOpen(false)}
                                     className="block text-base font-semibold text-[#171110] hover:text-[#6F1014] py-2 border-b border-gray-100"
                                 >
                                     {link.name}
-                                </a>
+                                </Link>
                             ))}
                             <div className="pt-2 flex flex-col gap-2.5">
                                 <a

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Utensils, Flame, Sparkles, Check, ChevronRight, ChevronDown, GlassWater, Coffee, CookingPot, Award, Star } from "lucide-react";
 
 interface MenuItem {
@@ -440,14 +441,21 @@ export default function Menu() {
           </div>
         )}
 
-        {/* Quote Request CTA */}
-        <div className="mt-12 text-center">
+        {/* Quote Request & Details Page Navigation CTA */}
+        <div className="mt-12 text-center flex flex-wrap items-center justify-center gap-4">
+          <Link
+            href="/menu"
+            className="inline-flex items-center gap-2.5 px-9 py-4 rounded-2xl bg-gradient-to-r from-[#6F1014] to-[#8B1E23] hover:from-[#8B1E23] hover:to-[#6F1014] text-white font-bold text-xs uppercase tracking-widest shadow-xl hover:shadow-2xl transition-all group"
+          >
+            <span>View Full Catering Feast Catalogue Page</span>
+            <ChevronRight className="w-4 h-4 text-[#F2B93F] group-hover:translate-x-1 transition-transform" />
+          </Link>
+
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-9 py-4 rounded-2xl bg-gradient-to-r from-[#6F1014] to-[#8B1E23] hover:from-[#8B1E23] hover:to-[#6F1014] text-white font-bold text-xs uppercase tracking-widest shadow-xl hover:shadow-2xl transition-all group"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white border-2 border-[#6F1014] text-[#6F1014] hover:bg-[#6F1014] hover:text-[#F2B93F] font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-2xl transition-all"
           >
-            <span>Request Custom Catering Menu Quote</span>
-            <ChevronRight className="w-4 h-4 text-[#F2B93F] group-hover:translate-x-1 transition-transform" />
+            <span>Request Custom Menu Quote</span>
           </a>
         </div>
 

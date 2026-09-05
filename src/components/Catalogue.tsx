@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Tag, Sparkles, X, Phone, ArrowUpRight, ShieldCheck, Sparkle } from "lucide-react";
+import Link from "next/link";
+import { Tag, Sparkles, X, Phone, ArrowUpRight, ShieldCheck, Sparkle, ArrowRight } from "lucide-react";
 
 export default function Catalogue() {
     const [showModal, setShowModal] = useState(false);
@@ -180,15 +181,22 @@ export default function Catalogue() {
                     ))}
                 </div>
 
-                {/* View Full Catalogue CTA Button */}
-                <div className="mt-16 text-center">
-                    <button
-                        onClick={() => setShowModal(true)}
+                {/* View Full Catalogue Page & Modal Buttons */}
+                <div className="mt-16 text-center flex flex-wrap items-center justify-center gap-4">
+                    <Link
+                        href="/catalogue"
                         className="inline-flex items-center gap-2.5 px-9 py-4 rounded-2xl bg-gradient-to-r from-[#DFAE32] to-[#F2B93F] text-[#38070A] font-bold text-xs uppercase tracking-widest shadow-xl hover:shadow-2xl hover:brightness-110 active:scale-95 transition-all cursor-pointer group"
                     >
                         <Tag className="w-4 h-4 text-[#38070A]" />
-                        <span>View Full Pricing Catalogue (20+ Offerings)</span>
-                        <Sparkle className="w-4 h-4 text-[#38070A] group-hover:rotate-90 transition-transform duration-300" />
+                        <span>Explore Complete Event Decor Catalogue Page</span>
+                        <ArrowRight className="w-4 h-4 text-[#38070A] group-hover:translate-x-1 transition-transform" />
+                    </Link>
+
+                    <button
+                        onClick={() => setShowModal(true)}
+                        className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl bg-white border-2 border-[#6F1014] text-[#6F1014] hover:bg-[#6F1014] hover:text-[#F2B93F] font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all cursor-pointer"
+                    >
+                        <span>Quick Rates Popup</span>
                     </button>
                 </div>
 

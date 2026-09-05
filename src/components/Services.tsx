@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Sparkles, Sparkle, ArrowRight } from "lucide-react";
 
 export default function Services() {
@@ -222,6 +223,17 @@ export default function Services() {
                             ))}
                         </div>
                     </div>
+                </div>
+
+                {/* View Full Services Page Navigation CTA */}
+                <div className="mt-12 text-center">
+                    <Link
+                        href="/services"
+                        className="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-gradient-to-r from-[#DFAE32] to-[#F2B93F] text-[#38070A] font-bold text-xs uppercase tracking-widest shadow-xl hover:shadow-2xl hover:brightness-110 active:scale-95 transition-all cursor-pointer group"
+                    >
+                        <span>Explore All Services & Special Packages</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                 </div>
             </div>
         </section>
