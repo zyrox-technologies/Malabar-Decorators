@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme {
+  --font-heading: var(--font-heading), 'Cinzel', 'Playfair Display', Georgia, serif;
   --font-serif: var(--font-serif), 'Playfair Display', Georgia, serif;
   --font-sans: var(--font-sans), 'Plus Jakarta Sans', system-ui, sans-serif;
 
@@ -45,7 +46,8 @@ body {
 
 /* Typography Helpers */
 .font-display {
-  font-family: var(--font-serif), 'Playfair Display', Georgia, serif;
+  font-family: var(--font-heading), var(--font-serif), 'Cinzel', 'Playfair Display', Georgia, serif;
+  letter-spacing: 0.02em;
 }
 
 /* Custom Gold Gradient & Line Accent */
