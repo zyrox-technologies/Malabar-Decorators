@@ -28,7 +28,6 @@ export default function Reviews() {
         {
             id: 1,
             name: "Dr. Mohammed Shafi",
-            role: "Nikah & Catering Host",
             rating: 5,
             date: "October 14, 2025",
             comment: "Excellent food, beautiful stage presentation, and very professional service! The Malabar Dum Biriyani and live food counters were a massive hit.",
@@ -37,7 +36,6 @@ export default function Reviews() {
         {
             id: 2,
             name: "Anjali Nair",
-            role: "Evening Reception Host",
             rating: 5,
             date: "August 4, 2025",
             comment: "Malabar Decorators handled both our evening outdoor reception decoration and dinner catering seamlessly. The fairy light canopy looked magical!",
@@ -46,7 +44,6 @@ export default function Reviews() {
         {
             id: 3,
             name: "Firoz Khan",
-            role: "Haldi & Stage Event",
             rating: 5,
             date: "June 11, 2025",
             comment: "On-time delivery, traditional Kerala aesthetic, and extremely courteous staff. The Haldi stage setup with marigold flowers was stunning.",
@@ -55,7 +52,6 @@ export default function Reviews() {
         {
             id: 4,
             name: "Suresh K. V.",
-            role: "Housewarming & Banquet",
             rating: 5,
             date: "March 30, 2025",
             comment: "Top-notch catering quality in Kannur! The Ghee Rice, Chicken Varattiyath, and Ada Pradhaman payasam were praised by everyone.",
@@ -64,7 +60,6 @@ export default function Reviews() {
         {
             id: 5,
             name: "Rubel Miah",
-            role: "Wedding Function Host",
             rating: 5,
             date: "December 9, 2024",
             comment: "Very nice venue decoration and professional management team. Everyone enjoyed the delicious food spreads and decor setup.",
@@ -73,7 +68,6 @@ export default function Reviews() {
         {
             id: 6,
             name: "Nishat Shahriyar",
-            role: "Corporate Inauguration",
             rating: 5,
             date: "December 5, 2024",
             comment: "Wonderful stage setup and awesome catering arrangement. Recommended for any large family functions and corporate events.",
@@ -175,13 +169,6 @@ export default function Reviews() {
                                 <p className="text-xs sm:text-sm text-[#171110]/80 leading-relaxed font-normal pt-1">
                                     "{item.comment}"
                                 </p>
-                            </div>
-
-                            {/* Footer Tag */}
-                            <div className="pt-3 border-t border-[#FAF8F2] mt-4">
-                                <span className="inline-block px-3 py-0.5 rounded-full bg-[#6F1014]/10 text-[#6F1014] text-[11px] font-bold border border-[#6F1014]/20">
-                                    {item.role}
-                                </span>
                             </div>
                         </div>
                     ))}
