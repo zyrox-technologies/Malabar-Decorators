@@ -1,8 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { Utensils, Flame, Sparkles, Check, ChevronRight, ChevronDown, GlassWater, Coffee, CookingPot, Award, Star } from "lucide-react";
+import {
+  Utensils,
+  Flame,
+  Sparkles,
+  ChevronRight,
+  ChevronLeft,
+  ChevronDown,
+  GlassWater,
+  Coffee,
+  CookingPot,
+  Sparkle,
+  MessageCircle,
+  Phone
+} from "lucide-react";
 
 interface MenuItem {
   name: string;
@@ -19,14 +33,78 @@ interface MenuItem {
 export default function Menu() {
   const [activeTab, setActiveTab] = useState<string>("all");
   const [showAllItems, setShowAllItems] = useState<boolean>(false);
+  const [activeCardIndex, setActiveCardIndex] = useState<number>(0);
 
   const categories = [
     { id: "all", name: "Full Feast Collection", count: 24, icon: Utensils },
-    { id: "mains", name: "Main Dishes & Live Cooking", count: 7, icon: CookingPot },
-    { id: "curries", name: "Royal Curries & Sides", count: 6, icon: Flame },
+    { id: "mains", name: "Main Dishes & Rice", count: 7, icon: CookingPot },
+    { id: "curries", name: "Royal Curries & Fries", count: 6, icon: Flame },
     { id: "desserts", name: "Desserts & Live Sweets", count: 5, icon: Sparkles },
     { id: "drinks", name: "Welcome Coolers", count: 3, icon: GlassWater },
-    { id: "beverages", name: "Beverages & Tea", count: 3, icon: Coffee },
+    { id: "beverages", name: "Tea & Beverages", count: 3, icon: Coffee },
+  ];
+
+  const featuredPackages = [
+    {
+      id: 0,
+      title: "Royal Wedding Feast",
+      subtitle: "A spectacular buffet for 500+ guests",
+      desc: "Authentic copper cauldron Dum Biriyani, Ghee Rice, Mutton Varattiyath, live counters & homemade sweets.",
+      image: "/service/file_000000003f2081faa2f8fe4fef914b6c.png",
+      tag: "500+ Guests Buffet",
+      cardStyle: "rounded-3xl border-2 border-[#DFAE32] shadow-[0_15px_40px_rgba(223,174,50,0.25)] bg-white",
+      badge: "CHEF SPECIAL",
+    },
+    {
+      id: 1,
+      title: "Elegant Reception Soirée",
+      subtitle: "Exquisite appetizers & entrees for 150+ guests",
+      desc: "Pure cow ghee Neychoru, slow-roasted chicken roast, hot Neypathal counter & fresh welcome coolers.",
+      image: "/service/file_00000000eb9881fab921c9342b3b0d2b.png",
+      tag: "150+ Guests Reception",
+      cardStyle: "rounded-[2.5rem] border border-[#EFE8D7] shadow-lg bg-white",
+      badge: "POPULAR CHOICE",
+    },
+    {
+      id: 2,
+      title: "Classic Banquet Celebration",
+      subtitle: "Authentic flavours for large gatherings",
+      desc: "24+ traditional Kerala vegetarian delicacies served on fresh green banana leaf with Ada Pradhaman.",
+      image: "/service/file_00000000031081fa834f12ca0ea5b50d.png",
+      tag: "Traditional Sadhya",
+      cardStyle: "rounded-2xl border border-[#EFE8D7] shadow-md bg-white -rotate-1 hover:rotate-0 transition-transform",
+      badge: "TRADITIONAL",
+    },
+    {
+      id: 3,
+      title: "Modern Live Counter Station",
+      subtitle: "Contemporary live cooking & tea fusion",
+      desc: "Freshly made Vellappam, fluffy Neypathal, hot Jalebis & authentic frothy Malabar Colour Tea.",
+      image: "/service/file_0000000074e881fa996b7468b88652b4.png",
+      tag: "Live Chef Stations",
+      cardStyle: "rounded-t-[4rem] rounded-b-3xl border border-[#EFE8D7] shadow-md bg-white",
+      badge: "LIVE COUNTER",
+    },
+    {
+      id: 4,
+      title: "Signature Smoked Kuzhimanthi",
+      subtitle: "Luxury smoked mandi experience for 200+ guests",
+      desc: "Slow-smoked tender chicken & mutton mandi rice served with garlic tomato salsa and fresh salads.",
+      image: "/service/file_000000009420820b9bff46071f57ae0d.png",
+      tag: "Smoked Speciality",
+      cardStyle: "rounded-2xl border border-[#EFE8D7] shadow-md bg-white rotate-1 hover:rotate-0 transition-transform",
+      badge: "MUST TRY",
+    },
+    {
+      id: 5,
+      title: "Grand Refreshment Buffet",
+      subtitle: "Chilled fruit coolers & dessert stalls",
+      desc: "Watermelon mint punch, grape coolers, fresh ice creams, Falooda counters & hot Sulaimani.",
+      image: "/service/file_00000000b464820b963a97bd17a2c97d.png",
+      tag: "Refreshments & Desserts",
+      cardStyle: "rounded-3xl border border-[#EFE8D7] shadow-md bg-white",
+      badge: "ADD-ON SPECIAL",
+    },
   ];
 
   const menuItems: MenuItem[] = [
@@ -97,186 +175,91 @@ export default function Menu() {
       spiceLevel: "Mild",
     },
     {
-      name: "Live Dosa Station",
-      malayalam: "തത്സമയ ദോശ സ്റ്റേഷൻ",
+      name: "Traditional Kerala Sadhya (24+ Items)",
+      malayalam: "പരമ്പരാഗത കേരള സദ്യ",
       category: "mains",
       categoryName: "Main Dishes",
-      desc: "Piping hot ghee roast & masala dosa made to order with chutney varieties.",
-      tag: "Live Chef Station",
-      badge: "LIVE COUNTER",
-      pairing: "Sambar & 3 Chutney Flavors",
+      desc: "Complete ceremonial feast served on fresh green banana leaf featuring Matta Rice, Parippu, Sambar, Aviyal, Thoran, Pappadam & 2 Payasams.",
+      tag: "Authentic Sadhya",
+      badge: "TRADITIONAL",
+      pairing: "Ada Pradhaman & Palada Payasam",
       spiceLevel: "Mild",
     },
-
-    // CURRIES
     {
-      name: "Chicken Varattiyath",
-      malayalam: "ചിക്കൻ വരട്ടിയത്",
+      name: "Mutton Varattiyath (Royal Slow Roast)",
+      malayalam: "മട്ടൺ വരട്ടിയത്",
       category: "curries",
-      categoryName: "Curries & Sides",
-      desc: "Tender chicken slow-roasted in thick black pepper & shallot gravy with roasted coconut slivers.",
-      tag: "Malabar Classic",
-      badge: "MUST TRY",
-      pairing: "Ghee Rice or Porotta",
-      spiceLevel: "Rich & Spicy",
-    },
-    {
-      name: "Mutton Roast Varattiyath",
-      malayalam: "മട്ടൻ വരട്ടിയത്",
-      category: "curries",
-      categoryName: "Curries & Sides",
-      desc: "Succulent mutton cuts slow-cooked in traditional urli with crushed pepper, curry leaves & ghee.",
+      categoryName: "Royal Curries",
+      desc: "Tender goat meat slow-roasted in shallow copper pans with crushed black pepper, fried coconut slices & curry leaves.",
       tag: "Royal Recipe",
       badge: "CHEF SPECIAL",
-      pairing: "Malabar Dum Biriyani or Neychoru",
+      pairing: "Neychoru or Flaky Porotta",
       spiceLevel: "Rich & Spicy",
     },
     {
-      name: "Traditional Kerala Chicken Curry",
-      malayalam: "നാടൻ ചിക്കൻ കറി",
+      name: "Malabar Chicken Roast & Fry",
+      malayalam: "ചിക്കൻ റോസ്റ്റ് & ഫ്രൈ",
       category: "curries",
-      categoryName: "Curries & Sides",
-      desc: "Country chicken cooked in roasted coconut paste with coriander, turmeric & green chillies.",
-      tag: "Banquet Essential",
-      badge: "TRADITIONAL",
-      pairing: "Vellappam & Pathiri",
+      categoryName: "Royal Curries",
+      desc: "Marinated farm-fresh chicken cooked in thick caramelized onion & tomato gravy, finished with fried coconut strips.",
+      tag: "Feast Essential",
       spiceLevel: "Medium",
     },
     {
-      name: "Vegetable Kuruma",
-      malayalam: "വെജിറ്റബിൾ കുറുമ",
+      name: "Beef Roast / Beef Varattiyath",
+      malayalam: "ബീഫ് റോസ്റ്റ് / ബീഫ് വരട്ടിയത്",
       category: "curries",
-      categoryName: "Curries & Sides",
-      desc: "Garden fresh carrots, green peas & potatoes simmered in a rich coconut milk cashew gravy.",
-      tag: "Vegetarian Delicacy",
-      badge: "TRADITIONAL",
-      pairing: "Appam & Chappathi",
+      categoryName: "Royal Curries",
+      desc: "Kerala style spiced beef chunks tossed with coconut bites, shallots, garlic and freshly pounded garam masala.",
+      tag: "Crowd Favorite",
+      badge: "MUST TRY",
+      pairing: "Hot Neypathal & Porotta",
+      spiceLevel: "Rich & Spicy",
+    },
+    {
+      name: "Live Jalebi & Sweet Stall",
+      malayalam: "തത്സമയ ജിലേബി കൗണ്ടർ",
+      category: "desserts",
+      categoryName: "Desserts & Sweets",
+      desc: "Crispy hot golden Jalebi cooked live and dipped in saffron sugar syrup, served warm to guests.",
+      tag: "Live Sweet Stalls",
+      badge: "LIVE COUNTER",
       spiceLevel: "Mild",
     },
     {
-      name: "Chilly Chicken Dry / Gravy",
-      malayalam: "ചില്ലി ചിക്കൻ",
-      category: "curries",
-      categoryName: "Curries & Sides",
-      desc: "Crispy chicken morsels tossed with bell peppers, onions, ginger & soy chilli glaze.",
-      tag: "Party Favorite",
-      spiceLevel: "Medium",
-    },
-    {
-      name: "Gopi Manchurian Live",
-      malayalam: "ഗോപി മഞ്ചൂരിയൻ",
-      category: "curries",
-      categoryName: "Curries & Sides",
-      desc: "Crispy cauliflower florets coated in aromatic garlic tomato soya reduction.",
-      tag: "Live Veg Option",
-      spiceLevel: "Medium",
-    },
-
-    // DESSERTS
-    {
-      name: "Ada Pradhaman Payasam",
-      malayalam: "അട പ്രഥമൻ പായസം",
+      name: "Ada Pradhaman & Palada Payasam",
+      malayalam: "അട പ്രഥമൻ & പാലട പായസം",
       category: "desserts",
       categoryName: "Desserts & Sweets",
-      desc: "Traditional Kerala dessert made with steamed rice flakes, thick jaggery syrup, coconut milk & fried cashew-raisin ghee topping.",
-      tag: "Kerala Royal Sweet",
-      badge: "TRADITIONAL",
-      pairing: "Served warm in clay pots",
-    },
-    {
-      name: "Palpayasam (Rich Milk Pudding)",
-      malayalam: "പാൽപായസം",
-      category: "desserts",
-      categoryName: "Desserts & Sweets",
-      desc: "Slow-reduced whole milk & Kaima rice simmered for hours until creamy golden pink.",
-      tag: "Temple Classic",
+      desc: "Rich jaggery & coconut milk Ada Pradhaman cooked slow with cashew nuts, ghee & cardamom.",
+      tag: "Traditional Dessert",
       badge: "TRADITIONAL",
     },
     {
-      name: "Live Hot Jalebi Counter",
-      malayalam: "തത്സമയ ലൈവ് ജിലേബി",
-      category: "desserts",
-      categoryName: "Desserts & Sweets",
-      desc: "Crispy spirals fried live in pure ghee and dipped in saffron cardamom sugar syrup.",
-      tag: "Live Dessert",
-      badge: "LIVE COUNTER",
-    },
-    {
-      name: "Live Mysore Pak Counter",
-      malayalam: "തത്സമയ ലൈവ് മൈസൂർ പാക്ക്",
-      category: "desserts",
-      categoryName: "Desserts & Sweets",
-      desc: "Melt-in-mouth golden gram flour fudge made hot at the live dessert counter.",
-      tag: "Live Dessert",
-      badge: "LIVE COUNTER",
-    },
-    {
-      name: "Premium Ice Cream & Gulab Jamun",
-      malayalam: "ഐസ് ക്രീം & ഗുലാബ് ജാമുൻ",
-      category: "desserts",
-      categoryName: "Desserts & Sweets",
-      desc: "Soft cardamom jamuns served with vanilla, mango or pistachio ice cream scoops.",
-      tag: "Classic Finish",
-    },
-
-    // DRINKS
-    {
-      name: "Fresh Watermelon Juice",
-      malayalam: "തത്സമയ വട്ടര്മെലൺ ജ്യൂസ്",
+      name: "Fresh Fruit Welcome Coolers",
+      malayalam: "ഫ്രഷ് ഫ്രൂട്ട് ജ്യൂസുകൾ",
       category: "drinks",
       categoryName: "Welcome Drinks",
-      desc: "Freshly cold-pressed sweet watermelon with mint leaves & crushed ice.",
-      tag: "Welcome Cooler",
-      badge: "MUST TRY",
+      desc: "Refreshing chilled Watermelon Mint, Grape Punch, Passion Fruit, and Lemon Mint Mojito served in crystal dispensers.",
+      tag: "Chilled Welcome",
     },
     {
-      name: "Chilled Papaya & Pineapple Juice",
-      malayalam: "പപ്പായ & പൈനാപ്പിൾ ജ്യൂസ്",
-      category: "drinks",
-      categoryName: "Welcome Drinks",
-      desc: "Tropical fruit blend made with farm-fresh Kerala fruits.",
-      tag: "Welcome Cooler",
-    },
-    {
-      name: "Fresh Grape & Musambi Juice",
-      malayalam: "ഗ്രേപ്പ് & മൂസാമ്പി ജ്യൂസ്",
-      category: "drinks",
-      categoryName: "Welcome Drinks",
-      desc: "Refreshing natural citrus punch served in crystal glassware.",
-      tag: "Welcome Cooler",
-    },
-
-    // BEVERAGES
-    {
-      name: "Malabar Colour Tea (Live)",
-      malayalam: "തത്സമയ മലബാർ കളർ ടീ",
-      category: "beverages",
-      categoryName: "Beverages & Tea",
-      desc: "Aromatic pulled Malabar tea brewed with cardamoms and poured live with high froth.",
-      tag: "Cultural Icon",
+      name: "Malabar Colour Tea & Sulaimani (Live)",
+      malayalam: "മലബാർ കളർ ചായ & സുലൈമാനി",
+      category: "desserts",
+      categoryName: "Beverages",
+      desc: "Strong layered frothy Malabar Dum Tea and digestion-boosting spiced Sulaimani served live post-feast.",
+      tag: "Post-Feast Beverage",
       badge: "LIVE COUNTER",
-    },
-    {
-      name: "Hot Filter Coffee Station",
-      malayalam: "ഹാറ്റ് ഫിൽട്ടർ കോഫി",
-      category: "beverages",
-      categoryName: "Beverages & Tea",
-      desc: "Authentic South Indian decoction coffee brewed with fresh cow milk.",
-      tag: "Hot Beverage",
-    },
-    {
-      name: "Purified Mineral Water & Cool Drinks",
-      malayalam: "മിനറൽ വാട്ടർ & കൂൾ ഡ്രിങ്ക്സ്",
-      category: "beverages",
-      categoryName: "Beverages & Tea",
-      desc: "Hygienically served bottled water and chilled soft beverages.",
-      tag: "Standard Inclusion",
     },
   ];
 
-  const handleTabChange = (tabId: string) => {
-    setActiveTab(tabId);
-    setShowAllItems(false);
+  const handlePrevCard = () => {
+    setActiveCardIndex((prev) => (prev === 0 ? featuredPackages.length - 1 : prev - 1));
+  };
+
+  const handleNextCard = () => {
+    setActiveCardIndex((prev) => (prev === featuredPackages.length - 1 ? 0 : prev + 1));
   };
 
   const filteredItems =
@@ -287,178 +270,279 @@ export default function Menu() {
   const displayedItems = showAllItems ? filteredItems : filteredItems.slice(0, 8);
 
   return (
-    <section id="menu" className="py-12 sm:py-16 bg-[#FAF8F2] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
+    <section id="menu" className="py-12 sm:py-16 bg-white relative overflow-hidden text-[#171110]">
+      {/* Decorative Gold SVG Fine-Line Waves */}
+      <div className="absolute inset-0 pointer-events-none opacity-30">
+        <svg className="w-full h-full stroke-[#DFAE32]/40 fill-none" viewBox="0 0 1440 800" preserveAspectRatio="none">
+          <circle cx="1200" cy="180" r="280" strokeWidth="0.8" strokeDasharray="4 4" />
+          <path d="M-100,300 Q400,100 900,400 T1600,200" strokeWidth="0.8" />
+        </svg>
+      </div>
+
+      {/* Decorative Sparkle Accents */}
+      <div className="absolute top-10 right-12 text-[#DFAE32]/40 animate-pulse">
+        <Sparkle className="w-6 h-6" />
+      </div>
+      <div className="absolute bottom-12 left-10 text-[#DFAE32]/40">
+        <Sparkles className="w-5 h-5" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-[#6F1014]/10 border border-[#6F1014]/20 text-[#6F1014] text-xs font-bold tracking-widest uppercase">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Royal Malabar Culinary Experience</span>
+            <span>Curated Collections for Your Exquisite Event</span>
           </div>
 
-          <h2 className="font-display text-3xl sm:text-5xl font-bold leading-tight">
-            <span className="dark-gradient-text">Catering Feast</span> <span className="maroon-gradient-text">Catalogue</span>
+          <h2 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
+            <span className="dark-gradient-text uppercase">CATERING FEAST</span>{" "}
+            <span className="maroon-gradient-text uppercase">CATALOGUE</span>
           </h2>
 
-          <div className="flex items-center justify-center gap-3">
-            <div className="h-0.5 w-16 bg-[#6F1014]" />
-            <div className="w-2.5 h-2.5 rotate-45 bg-[#F2B93F]" />
-            <div className="h-0.5 w-16 bg-[#6F1014]" />
-          </div>
-
-          <p className="text-sm sm:text-base text-[#171110]/75 max-w-2xl mx-auto font-normal">
-            Crafted by legendary Kerala chefs using traditional copper cauldrons, authentic Kaima rice, fresh ground spices, and live cooking stations.
+          <p className="text-xs sm:text-sm text-gray-600 font-medium">
+            Explore our curated culinary packages, copper cauldron biriyanis, live appam & neypathal counters, and traditional Sadhya spreads.
           </p>
         </div>
 
-        {/* Category Navigation - Modern Floating Segmented Bar */}
-        <div className="mt-10 sm:mt-14 mb-12 flex justify-center">
-          <div className="bg-white p-2 rounded-2xl sm:rounded-full shadow-xl border border-[#EFE8D7] flex items-center gap-2 overflow-x-auto max-w-full no-scrollbar">
-            {categories.map((tab) => {
-              const IconComp = tab.icon;
-              const isActive = activeTab === tab.id;
+        {/* GEMINI SHOWCASE CAROUSEL CONTAINER */}
+        <div className="relative pt-2 pb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+            {featuredPackages.map((pkg, idx) => {
+              const isActive = idx === activeCardIndex;
+
               return (
-                <button
-                  key={tab.id}
-                  onClick={() => handleTabChange(tab.id)}
-                  className={`px-4 sm:px-5 py-2.5 rounded-xl sm:rounded-full text-xs font-bold transition-all duration-300 flex items-center gap-2 shrink-0 cursor-pointer ${
+                <div
+                  key={pkg.id}
+                  onClick={() => setActiveCardIndex(idx)}
+                  className={`cursor-pointer transition-all duration-500 p-6 flex flex-col justify-between relative group ${pkg.cardStyle} ${
                     isActive
-                      ? "bg-[#6F1014] text-[#F2B93F] shadow-lg scale-105"
-                      : "text-[#171110]/80 hover:bg-[#FAF8F2] hover:text-[#6F1014]"
+                      ? "ring-2 ring-[#DFAE32] shadow-2xl scale-[1.02] border-[#DFAE32]"
+                      : "opacity-90 hover:opacity-100 hover:scale-[1.01]"
                   }`}
                 >
-                  <IconComp className={`w-4 h-4 ${isActive ? "text-[#F2B93F]" : "text-[#6F1014]"}`} />
-                  <span>{tab.name}</span>
-                  <span
-                    className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold ${
-                      isActive ? "bg-[#F2B93F] text-[#38070A]" : "bg-[#FAF8F2] text-[#6F1014]"
-                    }`}
-                  >
-                    {tab.count}
-                  </span>
+                  {/* Top Badges */}
+                  <div className="flex items-center justify-between gap-2 mb-4">
+                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#6F1014] bg-[#6F1014]/10 px-3 py-1 rounded-full border border-[#6F1014]/20">
+                      {pkg.tag}
+                    </span>
+                    <span className="text-[10px] font-bold text-[#DFAE32] bg-[#38070A] px-2.5 py-0.5 rounded-full border border-[#DFAE32]/40 shadow-xs">
+                      {pkg.badge}
+                    </span>
+                  </div>
+
+                  {/* Top Image Cutout */}
+                  <div className="relative w-full h-52 mb-5 overflow-hidden rounded-2xl bg-gray-100 shadow-inner">
+                    <Image
+                      src={pkg.image}
+                      alt={pkg.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70" />
+                  </div>
+
+                  {/* Content */}
+                  <div className="space-y-2.5 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-heading text-xl font-bold text-[#171110] group-hover:text-[#6F1014] transition-colors leading-tight">
+                        {pkg.title}
+                      </h3>
+                      <p className="text-xs font-semibold text-[#6F1014] mt-0.5">
+                        {pkg.subtitle}
+                      </p>
+                      <p className="text-xs text-gray-600 leading-relaxed mt-2 line-clamp-2">
+                        {pkg.desc}
+                      </p>
+                    </div>
+
+                    {/* Explore CTA Button inside Card */}
+                    <div className="pt-4 border-t border-[#EFE8D7] flex items-center justify-between">
+                      <a
+                        href={`https://wa.me/919946692100?text=${encodeURIComponent(`Hi Malabar Caterers, I want to enquiry about ${pkg.title}`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="px-4 py-2 rounded-xl bg-[#6F1014] hover:bg-[#8B1E23] text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-md hover:shadow-lg transition-all"
+                      >
+                        <MessageCircle className="w-3.5 h-3.5 fill-white" />
+                        <span>EXPLORE MENU</span>
+                      </a>
+
+                      <span className="text-[11px] font-bold text-[#6F1014] uppercase tracking-wider flex items-center gap-1">
+                        <span>Details</span>
+                        <ChevronRight className="w-3.5 h-3.5" />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Slider Controls & Progress Indicator */}
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-6 px-2">
+            <div className="flex items-center gap-3 order-2 sm:order-1">
+              <button
+                onClick={handlePrevCard}
+                aria-label="Previous Feast Package"
+                className="w-10 h-10 rounded-full bg-white border border-[#EFE8D7] shadow-md hover:border-[#6F1014] text-[#171110] hover:text-[#6F1014] flex items-center justify-center transition-all cursor-pointer hover:scale-105 active:scale-95"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={handleNextCard}
+                aria-label="Next Feast Package"
+                className="w-10 h-10 rounded-full bg-white border border-[#EFE8D7] shadow-md hover:border-[#6F1014] text-[#171110] hover:text-[#6F1014] flex items-center justify-center transition-all cursor-pointer hover:scale-105 active:scale-95"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Progress Bar */}
+            <div className="w-48 h-1.5 bg-gray-200 rounded-full overflow-hidden order-1 sm:order-2">
+              <div
+                className="h-full bg-gradient-to-r from-[#6F1014] via-[#DFAE32] to-[#F2B93F] transition-all duration-300 rounded-full"
+                style={{ width: `${((activeCardIndex + 1) / featuredPackages.length) * 100}%` }}
+              />
+            </div>
+
+            {/* Pagination Numbers */}
+            <div className="text-xs font-bold text-gray-500 order-3">
+              <span className="text-[#6F1014]">{String(activeCardIndex + 1).padStart(2, "0")}</span> / {String(featuredPackages.length).padStart(2, "0")}
+            </div>
+          </div>
+        </div>
+
+        {/* CENTER MAIN CTA BUTTON ("Discover Your Feast") */}
+        <div className="mt-8 mb-16 text-center space-y-3">
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/menu"
+              className="inline-flex items-center gap-2.5 px-9 py-4 rounded-full bg-gradient-to-r from-[#DFAE32] via-[#F2B93F] to-[#DFAE32] text-[#38070A] font-bold text-xs uppercase tracking-widest shadow-xl hover:shadow-2xl hover:brightness-110 active:scale-95 transition-all cursor-pointer group"
+            >
+              <Utensils className="w-4 h-4 text-[#38070A]" />
+              <span>Discover Your Feast</span>
+              <ChevronRight className="w-4 h-4 text-[#38070A] group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white border-2 border-[#6F1014] text-[#6F1014] hover:bg-[#6F1014] hover:text-[#F2B93F] font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all cursor-pointer"
+            >
+              <span>Request Custom Menu Quote</span>
+            </a>
+          </div>
+
+          <p className="text-xs text-gray-500 max-w-lg mx-auto leading-relaxed">
+            Explore our curated packages. Click to view detailed menus and customization options.
+          </p>
+        </div>
+
+        {/* FULL DISH CATEGORY TABS & MENU ITEMS GRID */}
+        <div className="pt-10 border-t border-[#EFE8D7]">
+          <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
+            <h3 className="font-heading text-2xl sm:text-3xl font-bold text-[#171110]">
+              Full Culinary Item Collection
+            </h3>
+            <p className="text-xs text-gray-600">
+              Browse individual dishes, live counters, welcome drinks, and desserts.
+            </p>
+          </div>
+
+          {/* Category Tabs */}
+          <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto no-scrollbar py-2 mb-8">
+            {categories.map((cat) => {
+              const Icon = cat.icon;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveTab(cat.id)}
+                  className={`px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold transition-all duration-300 flex items-center gap-2 shrink-0 cursor-pointer ${
+                    activeTab === cat.id
+                      ? "bg-[#6F1014] text-white shadow-md"
+                      : "bg-[#FAF8F2] text-[#171110]/70 hover:bg-[#6F1014]/10 hover:text-[#6F1014] border border-[#EFE8D7]"
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  <span>{cat.name}</span>
                 </button>
               );
             })}
           </div>
-        </div>
 
-        {/* Unique Asymmetric Culinary Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {displayedItems.map((item, index) => (
-            <div
-              key={index}
-              className="group bg-white rounded-3xl border border-[#EFE8D7] hover:border-[#F2B93F]/80 shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(111,16,20,0.12)] transition-all duration-500 relative overflow-hidden flex flex-col justify-between p-6 sm:p-7 hover:-translate-y-1"
-            >
-              {/* Left Edge Brand Crimson Accent Bar */}
-              <div className="absolute top-0 bottom-0 left-0 w-2 bg-[#6F1014] group-hover:bg-[#F2B93F] transition-colors duration-500" />
-
-              <div className="space-y-4">
-                {/* Top Row: Category Tag & Badge */}
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-bold tracking-widest uppercase text-[#6F1014] bg-[#6F1014]/10 px-3 py-1 rounded-full border border-[#6F1014]/20">
-                      {item.categoryName}
+          {/* Dish Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {displayedItems.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-[#FAF8F2] rounded-2xl p-5 border border-[#EFE8D7] shadow-xs hover:shadow-md hover:border-[#6F1014]/30 transition-all flex flex-col justify-between group"
+              >
+                <div className="space-y-2.5">
+                  <div className="flex items-start justify-between gap-1.5">
+                    <span className="text-[10px] font-bold tracking-widest uppercase text-[#6F1014] bg-[#6F1014]/10 px-2.5 py-0.5 rounded-full border border-[#6F1014]/20">
+                      {item.tag}
                     </span>
-                  </div>
-
-                  {item.badge && (
-                    <span
-                      className={`text-[10px] font-extrabold px-3 py-1 rounded-full shadow-sm flex items-center gap-1 uppercase tracking-wider ${
-                        item.badge === "LIVE COUNTER"
-                          ? "bg-[#6F1014] text-[#F2B93F] border border-[#F2B93F]/40 animate-pulse"
-                          : item.badge === "CHEF SPECIAL"
-                          ? "bg-gradient-to-r from-[#DFAE32] to-[#F2B93F] text-[#38070A]"
-                          : "bg-[#171110] text-white"
-                      }`}
-                    >
-                      {item.badge === "LIVE COUNTER" && <Flame className="w-3 h-3 text-[#F2B93F]" />}
-                      {item.badge === "CHEF SPECIAL" && <Award className="w-3 h-3" />}
-                      <span>{item.badge}</span>
-                    </span>
-                  )}
-                </div>
-
-                {/* Dish Name & Malayalam Calligraphy Badge */}
-                <div className="space-y-2 pt-1">
-                  <h3 className="font-display font-bold text-xl sm:text-2xl text-[#171110] group-hover:text-[#6F1014] transition-colors leading-snug">
-                    {item.name}
-                  </h3>
-
-                  <div className="inline-flex items-center gap-1.5 bg-[#FAF8F2] border border-[#DFAE32]/50 px-3 py-1 rounded-full shadow-sm">
-                    <Sparkles className="w-3 h-3 text-[#DFAE32]" />
-                    <span className="text-xs font-bold text-[#6F1014] tracking-wide">
-                      {item.malayalam}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Culinary Description */}
-                <p className="text-xs sm:text-sm text-[#171110]/80 leading-relaxed font-normal">
-                  {item.desc}
-                </p>
-              </div>
-
-              {/* Bottom Feature Bar: Recommended Pairing & Spice Profile */}
-              <div className="mt-6 pt-4 border-t border-[#F7F3EA] space-y-2">
-                <div className="bg-[#FAF8F2] p-3.5 rounded-2xl border border-[#EFE8D7] flex flex-wrap items-center justify-between gap-3 text-xs">
-                  {item.pairing ? (
-                    <div className="flex items-center gap-2 text-[#171110]/85 font-medium">
-                      <Star className="w-3.5 h-3.5 text-[#F2B93F] fill-[#F2B93F] shrink-0" />
-                      <span>
-                        <strong className="text-[#6F1014] font-bold">Pairing: </strong>
-                        {item.pairing}
+                    {item.badge && (
+                      <span className="text-[9px] font-extrabold px-2 py-0.5 rounded-full bg-[#DFAE32]/20 text-[#38070A] border border-[#DFAE32]/40 uppercase tracking-wider">
+                        {item.badge}
                       </span>
-                    </div>
-                  ) : (
-                    <div className="flex items-center gap-2 text-[#6F1014] font-bold">
-                      <Check className="w-3.5 h-3.5 text-[#25D366]" />
-                      <span>Authentic Malabar Recipe</span>
-                    </div>
-                  )}
+                    )}
+                  </div>
 
-                  {item.spiceLevel && (
-                    <span className="text-[11px] font-bold text-[#6F1014] bg-white px-2.5 py-0.5 rounded-full border border-[#6F1014]/20 shadow-xs">
-                      🌶️ {item.spiceLevel}
-                    </span>
+                  <div>
+                    <h4 className="font-heading text-base font-bold text-[#171110] group-hover:text-[#6F1014] transition-colors leading-tight">
+                      {item.name}
+                    </h4>
+                    <p className="text-[11px] font-semibold text-[#6F1014]/80 mt-0.5">
+                      {item.malayalam}
+                    </p>
+                  </div>
+
+                  <p className="text-xs text-gray-600 leading-relaxed line-clamp-3">
+                    {item.desc}
+                  </p>
+
+                  {item.pairing && (
+                    <div className="bg-white p-2 rounded-xl border border-[#EFE8D7] text-[10px] text-gray-700">
+                      <span className="font-bold text-[#6F1014]">Pairing: </span>
+                      {item.pairing}
+                    </div>
                   )}
                 </div>
+
+                <div className="pt-3 mt-3 border-t border-[#EFE8D7] flex items-center justify-between">
+                  <span className="text-[10px] text-gray-500 font-medium">
+                    Spice: <strong className="text-[#171110]">{item.spiceLevel || "Custom"}</strong>
+                  </span>
+
+                  <a
+                    href={`https://wa.me/919946692100?text=${encodeURIComponent(`Hi Malabar Caterers, I want to enquire about ${item.name}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-bold text-[#6F1014] hover:text-[#8B1E23] flex items-center gap-1 group/btn"
+                  >
+                    <span>Enquire</span>
+                    <ChevronRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                  </a>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* View More Toggle */}
-        {filteredItems.length > 8 && (
-          <div className="mt-12 text-center">
-            <button
-              onClick={() => setShowAllItems(!showAllItems)}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white border-2 border-[#6F1014] text-[#6F1014] hover:bg-[#6F1014] hover:text-[#F2B93F] font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-2xl transition-all cursor-pointer group"
-            >
-              <span>{showAllItems ? "Show Fewer Menu Items" : `Explore All ${filteredItems.length} Feast Dishes`}</span>
-              <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${showAllItems ? "rotate-180" : ""}`} />
-            </button>
+            ))}
           </div>
-        )}
 
-        {/* Quote Request & Details Page Navigation CTA */}
-        <div className="mt-12 text-center flex flex-wrap items-center justify-center gap-4">
-          <Link
-            href="/menu"
-            className="inline-flex items-center gap-2.5 px-9 py-4 rounded-2xl bg-gradient-to-r from-[#6F1014] to-[#8B1E23] hover:from-[#8B1E23] hover:to-[#6F1014] text-white font-bold text-xs uppercase tracking-widest shadow-xl hover:shadow-2xl transition-all group"
-          >
-            <span>View Full Catering Feast Catalogue Page</span>
-            <ChevronRight className="w-4 h-4 text-[#F2B93F] group-hover:translate-x-1 transition-transform" />
-          </Link>
-
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white border-2 border-[#6F1014] text-[#6F1014] hover:bg-[#6F1014] hover:text-[#F2B93F] font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-2xl transition-all"
-          >
-            <span>Request Custom Menu Quote</span>
-          </a>
+          {/* View More Toggle */}
+          {filteredItems.length > 8 && (
+            <div className="mt-10 text-center">
+              <button
+                onClick={() => setShowAllItems(!showAllItems)}
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white border-2 border-[#6F1014] text-[#6F1014] hover:bg-[#6F1014] hover:text-[#F2B93F] font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all cursor-pointer group"
+              >
+                <span>{showAllItems ? "Show Fewer Dishes" : `Explore All ${filteredItems.length} Feast Dishes`}</span>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${showAllItems ? "rotate-180" : ""}`} />
+              </button>
+            </div>
+          )}
         </div>
-
       </div>
     </section>
   );
