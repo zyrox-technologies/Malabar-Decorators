@@ -92,7 +92,7 @@ export default function Gallery() {
     const visibleItems = showAll ? filteredItems : filteredItems.slice(0, 5);
 
     return (
-        <section id="gallery" className="py-24 sm:py-32 bg-[#FAF8F2] relative overflow-hidden">
+        <section id="gallery" className="py-12 sm:py-16 bg-[#FAF8F2] relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Minimal Header */}
                 <div className="text-center max-w-2xl mx-auto space-y-3 mb-10">

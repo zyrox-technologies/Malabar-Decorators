@@ -286,7 +286,7 @@ export default function Menu() {
   const displayedItems = showAllItems ? filteredItems : filteredItems.slice(0, 8);
 
   return (
-    <section id="menu" className="py-24 sm:py-32 bg-[#FAF8F2] relative overflow-hidden">
+    <section id="menu" className="py-12 sm:py-16 bg-[#FAF8F2] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

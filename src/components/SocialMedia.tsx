@@ -57,7 +57,7 @@ export default function SocialMedia() {
     ];
 
     return (
-        <section className="py-16 bg-[#FAF8F2] overflow-hidden">
+        <section className="py-10 sm:py-14 bg-[#FAF8F2] overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-10 pb-6 border-b border-[#EFE8D7]">
                     <div>

@@ -83,7 +83,7 @@ export default function Catalogue() {
     ];
 
     return (
-        <section id="catalogue" className="py-24 sm:py-32 bg-gradient-to-b from-[#FAF8F2] via-[#F6F1E5] to-[#FAF8F2] relative overflow-hidden">
+        <section id="catalogue" className="py-12 sm:py-16 bg-gradient-to-b from-[#FAF8F2] via-[#F6F1E5] to-[#FAF8F2] relative overflow-hidden">
             {/* Ambient Background Radial Glow */}
             <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-[#F2B93F]/10 rounded-full blur-[140px] pointer-events-none" />
 

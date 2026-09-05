@@ -76,7 +76,7 @@ export default function Reviews() {
     ];
 
     return (
-        <section className="py-24 sm:py-32 bg-[#FAF8F2] relative overflow-hidden">
+        <section className="py-12 sm:py-16 bg-[#FAF8F2] relative overflow-hidden">
             {/* Ambient Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[550px] bg-[#F2B93F]/10 rounded-full blur-[150px] pointer-events-none" />
 

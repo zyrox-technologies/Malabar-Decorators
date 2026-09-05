@@ -86,7 +86,7 @@ export default function Services() {
             : services.filter((s) => s.category === activeCategory);
 
     return (
-        <section id="services" className="py-20 sm:py-28 bg-[#0E0A09] text-white relative overflow-hidden border-t border-b border-[#F2B93F]/20">
+        <section id="services" className="py-12 sm:py-16 bg-[#0E0A09] text-white relative overflow-hidden border-t border-b border-[#F2B93F]/20">
             {/* Ambient Background Glow Effects */}
             <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#6F1014]/20 rounded-full blur-[130px] pointer-events-none" />
 
