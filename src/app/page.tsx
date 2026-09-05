@@ -9,6 +9,7 @@ import SocialMedia from "@/components/SocialMedia";
 import Reviews from "@/components/Reviews";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function Home() {
   return (
@@ -47,6 +48,9 @@ export default function Home() {
 
       {/* 12 — FOOTER */}
       <Footer />
+
+      {/* FLOATING WHATSAPP BUTTON */}
+      <WhatsAppButton />
     </div>
   );
 }
