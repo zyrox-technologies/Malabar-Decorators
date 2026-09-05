@@ -1,9 +1,9 @@
 "use client";
 
-import { Star, Sparkles, CheckCircle2, Award, HeartHandshake, ShieldCheck } from "lucide-react";
+import { Star, Sparkles, ExternalLink } from "lucide-react";
 
-const GoogleIcon = () => (
-    <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+const GoogleIcon = ({ className = "w-4 h-4 shrink-0" }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24">
         <path
             fill="#4285F4"
             d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"
@@ -26,160 +26,162 @@ const GoogleIcon = () => (
 export default function Reviews() {
     const testimonials = [
         {
+            id: 1,
             name: "Dr. Mohammed Shafi",
-            role: "Nikah & Reception Host (Kannur)",
+            role: "Nikah & Catering Host",
             rating: 5,
-            date: "Posted on Google • 2 weeks ago",
-            comment:
-                "Excellent food, beautiful stage presentation, and very professional service! The Malabar Dum Biriyani and live food counters were a massive hit among all our 800+ guests. Highly recommended!",
-            tag: "Wedding & Catering",
-            avatarBg: "bg-[#6F1014]",
+            date: "October 14, 2025",
+            comment: "Excellent food, beautiful stage presentation, and very professional service! The Malabar Dum Biriyani and live food counters were a massive hit.",
+            avatarBg: "bg-gradient-to-br from-[#6F1014] to-[#38070A]",
         },
         {
-            name: "Anjali & Rahul Nair",
-            role: "Evening Reception (Thalassery)",
+            id: 2,
+            name: "Anjali Nair",
+            role: "Evening Reception Host",
             rating: 5,
-            date: "Posted on Google • 1 month ago",
-            comment:
-                "Malabar Decorators handled both our evening outdoor reception decoration and full dinner catering seamlessly. The fairy light canopy and floral entrance gate looked magical in photos!",
-            tag: "Outdoor Reception",
-            avatarBg: "bg-[#8B1E23]",
+            date: "August 4, 2025",
+            comment: "Malabar Decorators handled both our evening outdoor reception decoration and dinner catering seamlessly. The fairy light canopy looked magical!",
+            avatarBg: "bg-gradient-to-br from-[#8B1E23] to-[#4E0A0D]",
         },
         {
+            id: 3,
             name: "Firoz Khan",
-            role: "Family Function & Haldi Event",
+            role: "Haldi & Stage Event",
             rating: 5,
-            date: "Posted on Google • 3 weeks ago",
-            comment:
-                "On-time delivery, traditional Kerala aesthetic, and extremely courteous staff. The Haldi stage setup with marigold flowers and traditional brass lamps was stunning.",
-            tag: "Haldi & Stage Decor",
-            avatarBg: "bg-[#4E0A0D]",
+            date: "June 11, 2025",
+            comment: "On-time delivery, traditional Kerala aesthetic, and extremely courteous staff. The Haldi stage setup with marigold flowers was stunning.",
+            avatarBg: "bg-gradient-to-br from-[#4E0A0D] to-[#241B18]",
         },
         {
+            id: 4,
             name: "Suresh K. V.",
-            role: "House Warming & Banquet Host",
+            role: "Housewarming & Banquet",
             rating: 5,
-            date: "Posted on Google • 2 months ago",
-            comment:
-                "Top-notch catering quality in Kannur! The Ghee Rice, Chicken Varattiyath, and Ada Pradhaman payasam were praised by everyone. Professional execution from start to end.",
-            tag: "Catering & Banquet",
-            avatarBg: "bg-[#6F1014]",
+            date: "March 30, 2025",
+            comment: "Top-notch catering quality in Kannur! The Ghee Rice, Chicken Varattiyath, and Ada Pradhaman payasam were praised by everyone.",
+            avatarBg: "bg-gradient-to-br from-[#6F1014] to-[#8B1E23]",
         },
-    ];
-
-    const metrics = [
-        { icon: Star, value: "4.9 / 5.0", label: "Google Business Rating" },
-        { icon: Award, value: "500+ Events", label: "Successfully Completed" },
-        { icon: HeartHandshake, value: "10+ Years", label: "Trusted Experience" },
-        { icon: ShieldCheck, value: "100% Quality", label: "Hygienic Execution" },
+        {
+            id: 5,
+            name: "Rubel Miah",
+            role: "Wedding Function Host",
+            rating: 5,
+            date: "December 9, 2024",
+            comment: "Very nice venue decoration and professional management team. Everyone enjoyed the delicious food spreads and decor setup.",
+            avatarBg: "bg-gradient-to-br from-[#8B1E23] to-[#38070A]",
+        },
+        {
+            id: 6,
+            name: "Nishat Shahriyar",
+            role: "Corporate Inauguration",
+            rating: 5,
+            date: "December 5, 2024",
+            comment: "Wonderful stage setup and awesome catering arrangement. Recommended for any large family functions and corporate events.",
+            avatarBg: "bg-gradient-to-br from-[#6F1014] to-[#4E0A0D]",
+        },
     ];
 
     return (
-        <section className="py-24 sm:py-32 bg-gradient-to-b from-[#FAF8F2] via-[#F6F1E5] to-[#FAF8F2] relative overflow-hidden">
-            {/* Ambient Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[550px] bg-[#F2B93F]/12 rounded-full blur-[150px] pointer-events-none" />
+        <section className="py-24 sm:py-32 bg-[#FAF8F2] relative overflow-hidden">
+            {/* Ambient Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[550px] bg-[#F2B93F]/10 rounded-full blur-[150px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto space-y-4">
-                    {/* Google Reviews Official Badge */}
-                    <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white border border-[#EFE8D7] text-[#171110] text-xs font-bold shadow-sm backdrop-blur-md">
-                        <GoogleIcon />
-                        <span>Google Reviews • 4.9 ★★★★★ (180+ Verified Client Reviews)</span>
+                {/* Section Title */}
+                <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
+                    <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-[#6F1014]/10 border border-[#6F1014]/20 text-[#6F1014] text-xs font-bold tracking-widest uppercase">
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>Client Testimonials</span>
                     </div>
 
                     <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#171110] leading-tight">
                         Trusted By Families <span className="text-[#6F1014]">Across Kerala</span>
                     </h2>
 
-                    <div className="flex items-center justify-center gap-3">
-                        <div className="h-0.5 w-12 bg-[#6F1014]" />
-                        <div className="w-2.5 h-2.5 rotate-45 bg-[#F2B93F]" />
-                        <div className="h-0.5 w-12 bg-[#6F1014]" />
-                    </div>
-
                     <p className="text-sm sm:text-base text-[#171110]/75 max-w-2xl mx-auto font-normal">
-                        Read real Google profile reviews from hosts and families who experienced Malabar Decorators’ catering and event decorations.
+                        Read verified feedback from event hosts who experienced Malabar Decorators’ catering and venue decorations.
                     </p>
                 </div>
 
-                {/* Animated Trust Metrics Strip */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-10 mb-14">
-                    {metrics.map((item, idx) => {
-                        const IconComp = item.icon;
-                        return (
-                            <div
-                                key={idx}
-                                className="bg-white/90 rounded-[22px] p-4.5 sm:p-5 border border-[#EFE8D7] shadow-sm flex items-center gap-3.5 hover:shadow-md transition-all backdrop-blur-md hover:-translate-y-1"
-                            >
-                                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-[#6F1014] to-[#4E0A0D] border border-[#F2B93F]/50 flex items-center justify-center shrink-0 shadow-md text-[#F2B93F]">
-                                    <IconComp className="w-5.5 h-5.5" />
+                {/* Top Google Rating Full Banner (As in Reference Screenshot) */}
+                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-[#EFE8D7] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 mb-16">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                        <GoogleIcon className="w-6 h-6 sm:w-7 sm:h-7" />
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+                            <span className="font-display font-bold text-base text-[#171110]">
+                                Google Rating
+                            </span>
+                            <div className="flex items-center gap-1.5">
+                                <span className="font-bold text-sm text-[#171110]">4.9</span>
+                                <div className="flex text-[#F2B93F]">
+                                    {[...Array(5)].map((_, i) => (
+                                        <Star key={i} className="w-4 h-4 fill-current" />
+                                    ))}
                                 </div>
-                                <div>
-                                    <span className="font-display font-bold text-base sm:text-lg text-[#171110] block leading-tight">
-                                        {item.value}
-                                    </span>
-                                    <span className="text-[11px] text-[#171110]/70 font-medium">
-                                        {item.label}
-                                    </span>
-                                </div>
+                                <span className="text-xs text-[#171110]/65 font-medium ml-1">
+                                    Based on 180+ Reviews
+                                </span>
                             </div>
-                        );
-                    })}
+                        </div>
+                    </div>
+
+                    <a
+                        href="https://google.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-5 py-2 rounded-full bg-[#6F1014] hover:bg-[#8B1E23] text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105"
+                    >
+                        <span>Write a Review</span>
+                        <ExternalLink className="w-3.5 h-3.5 text-[#F2B93F]" />
+                    </a>
                 </div>
 
-                {/* Google Styled Review Cards with Ultra Premium Corners */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {testimonials.map((item, idx) => (
+                {/* Review Cards Grid with Overlapping Initial Avatars */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-14 gap-x-6 pt-4">
+                    {testimonials.map((item) => (
                         <div
-                            key={idx}
-                            className="group bg-white rounded-[26px] p-6 sm:p-7 border border-[#EFE8D7] hover:border-[#F2B93F] shadow-[0_10px_35px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(111,16,20,0.14)] transition-all duration-500 flex flex-col justify-between relative overflow-hidden hover:-translate-y-2"
+                            key={item.id}
+                            className="relative bg-white rounded-2xl p-6 pt-10 border border-[#EFE8D7] shadow-sm hover:shadow-xl hover:border-[#F2B93F]/60 transition-all duration-300 flex flex-col justify-between text-center group hover:-translate-y-1"
                         >
-                            {/* Top Golden Border Accent */}
-                            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#F2B93F] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            {/* Top Left Google G Logo */}
+                            <div className="absolute top-4 left-4">
+                                <GoogleIcon className="w-4 h-4" />
+                            </div>
 
-                            <div className="space-y-4 relative z-10">
-                                {/* Header: Rating & Google Badge */}
-                                <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-1 text-[#F2B93F]">
-                                        {[...Array(item.rating)].map((_, i) => (
-                                            <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                                        ))}
-                                    </div>
-                                    <div className="flex items-center gap-1 bg-gray-50 border border-gray-200/80 px-2.5 py-1 rounded-full text-[10px] font-bold text-gray-700 shadow-2xs">
-                                        <GoogleIcon />
-                                        <span>Verified</span>
-                                    </div>
+                            {/* Overlapping Top Center Circle Avatar with First Letter Initial */}
+                            <div className={`absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full border-4 border-white ${item.avatarBg} text-[#F2B93F] shadow-md flex items-center justify-center font-display font-bold text-xl group-hover:scale-110 transition-transform duration-300`}>
+                                {item.name.charAt(0)}
+                            </div>
+
+                            {/* Review Content */}
+                            <div className="space-y-2 mt-2">
+                                <h3 className="font-display font-bold text-base text-[#171110]">
+                                    {item.name}
+                                </h3>
+
+                                {/* Star Rating */}
+                                <div className="flex justify-center text-[#F2B93F] gap-1">
+                                    {[...Array(item.rating)].map((_, i) => (
+                                        <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                                    ))}
                                 </div>
 
-                                {/* Date & Tag Pill */}
-                                <div className="flex items-center justify-between text-[10px] text-[#171110]/60 font-medium">
-                                    <span>{item.date}</span>
-                                    <span className="font-bold text-[#6F1014] bg-[#6F1014]/10 px-2 py-0.5 rounded-md border border-[#6F1014]/20">
-                                        {item.tag}
-                                    </span>
-                                </div>
+                                {/* Date */}
+                                <span className="block text-[11px] text-[#171110]/55 font-medium">
+                                    {item.date}
+                                </span>
 
-                                {/* Review Quote */}
-                                <p className="text-xs sm:text-sm text-[#171110]/85 font-normal leading-relaxed">
+                                {/* Review Text */}
+                                <p className="text-xs sm:text-sm text-[#171110]/80 leading-relaxed font-normal pt-1">
                                     "{item.comment}"
                                 </p>
                             </div>
 
-                            {/* Author Footer with Verified Badge */}
-                            <div className="pt-4 mt-6 border-t border-[#F7F3EA] flex items-center gap-3 relative z-10">
-                                <div className={`w-10 h-10 rounded-full ${item.avatarBg} text-[#F2B93F] flex items-center justify-center font-display font-bold text-sm shrink-0 border border-[#F2B93F]/50 shadow-md`}>
-                                    {item.name.charAt(0)}
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                    <h4 className="font-display font-bold text-xs sm:text-sm text-[#171110] flex items-center gap-1 truncate">
-                                        <span className="truncate">{item.name}</span>
-                                        <CheckCircle2 className="w-3.5 h-3.5 text-[#25D366] shrink-0" />
-                                    </h4>
-                                    <p className="text-[11px] text-[#171110]/65 font-medium truncate">
-                                        {item.role}
-                                    </p>
-                                </div>
+                            {/* Footer Tag */}
+                            <div className="pt-3 border-t border-[#FAF8F2] mt-4">
+                                <span className="inline-block px-3 py-0.5 rounded-full bg-[#6F1014]/10 text-[#6F1014] text-[11px] font-bold border border-[#6F1014]/20">
+                                    {item.role}
+                                </span>
                             </div>
                         </div>
                     ))}
