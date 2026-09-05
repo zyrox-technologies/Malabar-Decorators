@@ -1,9 +1,33 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { CheckCircle2, Award, HeartHandshake, Utensils, Sparkles, ArrowRight } from "lucide-react";
+import { CheckCircle2, Sparkles, ArrowRight, Layers } from "lucide-react";
 
 export default function About() {
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const aboutImages = [
+        {
+            id: 0,
+            src: "/about/file_0000000066c881faa5f56fe5bdde9048.png",
+            title: "Malabar Event & Stage Setup",
+            tag: "✨ Stage Decor",
+        },
+        {
+            id: 1,
+            src: "/about/file_000000007b0c81fa8424c183306499a2.png",
+            title: "Traditional Catering & Dining",
+            tag: "🍛 Kerala Catering",
+        },
+        {
+            id: 2,
+            src: "/about/file_00000000f67c81fa893e6923aca91ef0.png",
+            title: "Grand Celebration Experience",
+            tag: "🌙 Event Management",
+        },
+    ];
+
     const highlights = [
         "Catering for all occasions & gathering sizes",
         "Customized stage & venue decor for every theme",
@@ -12,87 +36,15 @@ export default function About() {
     ];
 
     return (
-        <section id="about" className="pt-24 sm:pt-32 pb-16 bg-[#FAF8F2] relative overflow-hidden">
+        <section id="about" className="pt-24 sm:pt-32 pb-20 bg-[#FAF8F2] relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-                    {/* Left Collage Grid */}
-                    <div className="lg:col-span-6 relative">
-                        <div className="grid grid-cols-2 gap-4 relative z-10">
-                            {/* Photo 1: Nikah Stage */}
-                            <div className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-[#DFAE32]/30 group">
-                                <Image
-                                    src="/nikah_stage.png"
-                                    alt="Malabar Decorators Nikah Stage Decoration"
-                                    width={300}
-                                    height={360}
-                                    className="w-full h-52 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#38070A]/80 via-transparent to-transparent opacity-80" />
-                                <span className="absolute bottom-3 left-3 text-xs font-semibold text-[#F2B93F] tracking-wide">
-                                    ✨ Stage Decor
-                                </span>
-                            </div>
 
-                            {/* Photo 2: Catering Dum Biriyani */}
-                            <div className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-[#DFAE32]/30 group mt-6 sm:mt-8">
-                                <Image
-                                    src="/catering_spread.png"
-                                    alt="Malabar Decorators Catering Spread"
-                                    width={300}
-                                    height={360}
-                                    className="w-full h-52 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#38070A]/80 via-transparent to-transparent opacity-80" />
-                                <span className="absolute bottom-3 left-3 text-xs font-semibold text-[#F2B93F] tracking-wide">
-                                    🍛 Kerala Catering
-                                </span>
-                            </div>
-
-                            {/* Photo 3: Reception Decor */}
-                            <div className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-[#DFAE32]/30 group -mt-6 sm:-mt-8">
-                                <Image
-                                    src="/reception_decor.png"
-                                    alt="Malabar Reception Venue Decor"
-                                    width={300}
-                                    height={360}
-                                    className="w-full h-52 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#38070A]/80 via-transparent to-transparent opacity-80" />
-                                <span className="absolute bottom-3 left-3 text-xs font-semibold text-[#F2B93F] tracking-wide">
-                                    🌙 Outdoor Reception
-                                </span>
-                            </div>
-
-                            {/* Photo 4: Live Counter */}
-                            <div className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-[#DFAE32]/30 group">
-                                <Image
-                                    src="/live_counter.png"
-                                    alt="Malabar Live Porotta & Appam Counter"
-                                    width={300}
-                                    height={360}
-                                    className="w-full h-52 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#38070A]/80 via-transparent to-transparent opacity-80" />
-                                <span className="absolute bottom-3 left-3 text-xs font-semibold text-[#F2B93F] tracking-wide">
-                                    🍳 Live Counters
-                                </span>
-                            </div>
-                        </div>
-
-                        {/* Central Badge Overlay */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-[#6F1014] border-2 border-[#F2B93F] text-white p-2.5 sm:p-4 rounded-xl sm:rounded-2xl shadow-2xl text-center flex flex-col items-center justify-center scale-90 sm:scale-100 backdrop-blur-md">
-                            <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-[#F2B93F] mx-auto mb-0.5 sm:mb-1" />
-                            <p className="font-display font-bold text-sm sm:text-lg text-[#F2B93F] leading-tight">10+ Years</p>
-                            <p className="text-[9px] sm:text-[11px] text-[#FAF8F2] tracking-wider uppercase font-medium whitespace-nowrap">
-                                Excellence in Kerala
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Right Text Column */}
-                    <div className="lg:col-span-6 space-y-6">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#6F1014]/10 border border-[#6F1014]/20 text-[#6F1014] text-xs font-bold tracking-widest uppercase">
-                            About Malabar Decorators
+                    {/* Left Column - Content */}
+                    <div className="lg:col-span-6 space-y-6 order-1">
+                        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6F1014]/10 border border-[#6F1014]/20 text-[#6F1014] text-xs font-bold tracking-widest uppercase">
+                            <Sparkles className="w-3.5 h-3.5" />
+                            <span>About Malabar Decorators</span>
                         </div>
 
                         <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#241B18] leading-tight">
@@ -132,7 +84,7 @@ export default function About() {
                             ].map((tag, i) => (
                                 <span
                                     key={i}
-                                    className="px-3 py-1 rounded-full bg-[#F7F3EA] border border-[#6F1014]/20 text-[#6F1014] text-xs font-medium"
+                                    className="px-3 py-1 rounded-full bg-white border border-[#6F1014]/20 text-[#6F1014] text-xs font-medium shadow-sm"
                                 >
                                     {tag}
                                 </span>
@@ -143,13 +95,89 @@ export default function About() {
                         <div className="pt-4">
                             <a
                                 href="#contact"
-                                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#6F1014] hover:bg-[#8B1E23] text-white font-bold text-xs tracking-wider uppercase transition-all shadow-lg hover:shadow-xl"
+                                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#6F1014] hover:bg-[#8B1E23] text-white font-bold text-xs tracking-wider uppercase transition-all shadow-lg hover:shadow-xl group"
                             >
                                 <span>More About Us & Book Event</span>
-                                <ArrowRight className="w-4 h-4 text-[#F2B93F]" />
+                                <ArrowRight className="w-4 h-4 text-[#F2B93F] group-hover:translate-x-1 transition-transform" />
                             </a>
                         </div>
                     </div>
+
+                    {/* Right Column - 3D Interactive Stacked Image Deck */}
+                    <div className="lg:col-span-6 order-2 flex flex-col items-center justify-center">
+                        <div className="relative w-full max-w-md h-[400px] sm:h-[460px] flex items-center justify-center">
+                            {aboutImages.map((img, idx) => {
+                                const offset = (idx - activeIndex + aboutImages.length) % aboutImages.length;
+
+                                let styleClass = "";
+                                if (offset === 0) {
+                                    // Front Center Active Card
+                                    styleClass = "z-30 scale-100 translate-x-0 translate-y-0 rotate-0 opacity-100 shadow-2xl border-4 border-[#F2B93F]";
+                                } else if (offset === 1) {
+                                    // Right Tilted Card
+                                    styleClass = "z-20 scale-90 translate-x-12 sm:translate-x-20 translate-y-4 rotate-6 opacity-85 shadow-xl border-2 border-[#DFAE32]/60 hover:opacity-100 hover:scale-95";
+                                } else {
+                                    // Left Tilted Card (offset === 2)
+                                    styleClass = "z-20 scale-90 -translate-x-12 sm:-translate-x-20 translate-y-4 -rotate-6 opacity-85 shadow-xl border-2 border-[#DFAE32]/60 hover:opacity-100 hover:scale-95";
+                                }
+
+                                return (
+                                    <div
+                                        key={img.id}
+                                        onClick={() => setActiveIndex(idx)}
+                                        className={`absolute w-64 sm:w-80 h-72 sm:h-96 rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 ease-out select-none bg-[#38070A] ${styleClass}`}
+                                    >
+                                        <Image
+                                            src={img.src}
+                                            alt={img.title}
+                                            fill
+                                            className="object-cover object-center"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                                        {/* Card Tag & Title */}
+                                        <div className="absolute bottom-4 left-4 right-4 text-white">
+                                            <span className="inline-block px-2.5 py-1 rounded-md bg-[#6F1014]/80 border border-[#F2B93F]/50 text-[11px] font-bold text-[#F2B93F] tracking-wide mb-1 backdrop-blur-md">
+                                                {img.tag}
+                                            </span>
+                                            <h4 className="font-display font-bold text-sm sm:text-base leading-tight text-white">
+                                                {img.title}
+                                            </h4>
+                                        </div>
+
+                                        {offset !== 0 && (
+                                            <div className="absolute inset-0 bg-black/20 hover:bg-transparent transition-colors" />
+                                        )}
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        {/* Interactive Hint & Controls */}
+                        <div className="mt-6 flex flex-col items-center gap-2">
+                            <div className="flex items-center gap-1.5 text-xs text-[#6F1014] font-semibold bg-[#6F1014]/10 px-3 py-1 rounded-full border border-[#6F1014]/20">
+                                <Layers className="w-3.5 h-3.5 text-[#8B1E23]" />
+                                <span>Click any background card to bring it to front</span>
+                            </div>
+
+                            {/* Dot Indicators */}
+                            <div className="flex items-center gap-2 pt-1">
+                                {aboutImages.map((_, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => setActiveIndex(i)}
+                                        className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                                            i === activeIndex
+                                                ? "w-7 bg-[#6F1014]"
+                                                : "w-2.5 bg-[#6F1014]/30 hover:bg-[#6F1014]/60"
+                                        }`}
+                                        aria-label={`Select image ${i + 1}`}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>

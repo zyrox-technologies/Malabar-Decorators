@@ -1,6 +1,7 @@
 "use client";
 
-import { Phone, Mail, MapPin, MessageCircle, ArrowUp } from "lucide-react";
+import Image from "next/image";
+import { Phone, Mail, MapPin, MessageCircle, ArrowUp, Sparkles } from "lucide-react";
 
 export default function Footer() {
     const scrollToTop = () => {
@@ -8,29 +9,38 @@ export default function Footer() {
     };
 
     return (
-        <footer className="bg-[#38070A] text-[#FAF8F2] border-t border-[#7A1518] relative">
-            {/* Top Gold Accent Bar */}
+        <footer className="bg-[#0E0A09] text-[#FAF8F2] border-t border-[#F2B93F]/25 relative overflow-hidden">
+            {/* Top Gold Gradient Accent Strip */}
             <div className="h-1 w-full bg-gradient-to-r from-[#DFAE32] via-[#F2B93F] to-[#DFAE32]" />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
-                    {/* Column 1: Logo & Short Description */}
-                    <div className="lg:col-span-4 space-y-4">
-                        <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#DFAE32] to-[#F2B93F] flex items-center justify-center text-[#38070A] font-display font-bold text-xl shadow-md border border-[#F7D06E]/40">
-                                M
-                            </div>
-                            <div className="flex flex-col">
-                                <span className="font-display font-bold text-xl tracking-wider text-white leading-none">
-                                    MALABAR
-                                </span>
-                                <span className="text-[10px] tracking-[0.25em] text-[#F2B93F] uppercase font-medium mt-0.5">
-                                    DECORATORS & CATERING
-                                </span>
-                            </div>
-                        </div>
+            {/* Ambient Background Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-[#6F1014]/15 rounded-full blur-[140px] pointer-events-none" />
 
-                        <p className="text-xs text-[#FAF8F2]/75 leading-relaxed font-normal">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
+                    {/* Column 1: Logo & Short Description */}
+                    <div className="lg:col-span-4 space-y-5">
+                        <a href="#hero" className="flex items-center gap-3 group my-auto">
+                            <div className="relative w-11 h-11 shrink-0 flex items-center justify-center translate-y-0.5">
+                                <Image
+                                    src="/LOGO/logo.png"
+                                    alt="Malabar Decorators Logo"
+                                    width={44}
+                                    height={44}
+                                    className="object-contain group-hover:scale-105 transition-transform"
+                                />
+                            </div>
+                            <div className="relative h-10 w-40 sm:w-48 shrink-0 flex items-center">
+                                <Image
+                                    src="/LOGO/name.png"
+                                    alt="Malabar Decorators & Catering"
+                                    fill
+                                    className="object-contain object-left"
+                                />
+                            </div>
+                        </a>
+
+                        <p className="text-xs sm:text-sm text-[#FAF8F2]/75 leading-relaxed font-normal">
                             Delicious food, beautiful decor and unforgettable moments — we make your occasions special. Kannur's most trusted wedding stage decor, Nikah styling, and authentic Malabar catering specialists.
                         </p>
 
@@ -40,7 +50,7 @@ export default function Footer() {
                                 href="https://instagram.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-lg bg-[#6F1014] border border-[#F2B93F]/40 flex items-center justify-center text-[#F2B93F] hover:bg-[#F2B93F] hover:text-[#38070A] transition-colors"
+                                className="w-10 h-10 rounded-xl bg-[#171110] border border-[#F2B93F]/40 flex items-center justify-center text-[#F2B93F] hover:bg-[#F2B93F] hover:text-[#171110] transition-all duration-300 hover:scale-105 shadow-md"
                                 aria-label="Instagram"
                             >
                                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -51,7 +61,7 @@ export default function Footer() {
                                 href="https://facebook.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-lg bg-[#6F1014] border border-[#F2B93F]/40 flex items-center justify-center text-[#F2B93F] hover:bg-[#F2B93F] hover:text-[#38070A] transition-colors"
+                                className="w-10 h-10 rounded-xl bg-[#171110] border border-[#F2B93F]/40 flex items-center justify-center text-[#F2B93F] hover:bg-[#F2B93F] hover:text-[#171110] transition-all duration-300 hover:scale-105 shadow-md"
                                 aria-label="Facebook"
                             >
                                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -62,20 +72,20 @@ export default function Footer() {
                                 href="https://wa.me/919946692100"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-lg bg-[#6F1014] border border-[#F2B93F]/40 flex items-center justify-center text-[#F2B93F] hover:bg-[#25D366] hover:text-white transition-colors"
+                                className="w-10 h-10 rounded-xl bg-[#171110] border border-[#F2B93F]/40 flex items-center justify-center text-[#F2B93F] hover:bg-[#25D366] hover:text-white transition-all duration-300 hover:scale-105 shadow-md"
                                 aria-label="WhatsApp"
                             >
-                                <MessageCircle className="w-4 h-4" />
+                                <MessageCircle className="w-4 h-4 fill-current" />
                             </a>
                         </div>
                     </div>
 
                     {/* Column 2: Quick Links */}
                     <div className="lg:col-span-2 space-y-4">
-                        <h4 className="font-display font-bold text-sm text-[#F2B93F] tracking-wider uppercase border-b border-[#7A1518] pb-2">
+                        <h4 className="font-display font-bold text-sm text-[#F2B93F] tracking-wider uppercase border-b border-white/10 pb-2.5">
                             Quick Links
                         </h4>
-                        <ul className="space-y-2.5 text-xs text-[#FAF8F2]/80">
+                        <ul className="space-y-2.5 text-xs sm:text-sm text-[#FAF8F2]/80 font-medium">
                             <li>
                                 <a href="#hero" className="hover:text-[#F2B93F] transition-colors">
                                     Home
@@ -116,42 +126,65 @@ export default function Footer() {
 
                     {/* Column 3: Our Services */}
                     <div className="lg:col-span-3 space-y-4">
-                        <h4 className="font-display font-bold text-sm text-[#F2B93F] tracking-wider uppercase border-b border-[#7A1518] pb-2">
+                        <h4 className="font-display font-bold text-sm text-[#F2B93F] tracking-wider uppercase border-b border-white/10 pb-2.5">
                             Our Services
                         </h4>
-                        <ul className="space-y-2.5 text-xs text-[#FAF8F2]/80">
-                            <li>Wedding & Reception Stage Decor</li>
-                            <li>Nikah & Engagement Decor</li>
-                            <li>Malabar Dum Biriyani & Catering</li>
-                            <li>Haldi & Traditional Ceremony Decor</li>
-                            <li>Live Food & Beverage Counters</li>
-                            <li>SFX Low Fog & Cold Fire Pyrotechnics</li>
-                            <li>Event Planning & Venue Support</li>
+                        <ul className="space-y-2.5 text-xs sm:text-sm text-[#FAF8F2]/80 font-medium">
+                            <li className="flex items-center gap-2">
+                                <Sparkles className="w-3 h-3 text-[#F2B93F] shrink-0" />
+                                <span>Wedding & Reception Stage Decor</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <Sparkles className="w-3 h-3 text-[#F2B93F] shrink-0" />
+                                <span>Nikah & Engagement Decor</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <Sparkles className="w-3 h-3 text-[#F2B93F] shrink-0" />
+                                <span>Malabar Dum Biriyani & Catering</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <Sparkles className="w-3 h-3 text-[#F2B93F] shrink-0" />
+                                <span>Haldi & Traditional Ceremony Decor</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <Sparkles className="w-3 h-3 text-[#F2B93F] shrink-0" />
+                                <span>Live Food & Beverage Counters</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <Sparkles className="w-3 h-3 text-[#F2B93F] shrink-0" />
+                                <span>SFX Low Fog & Cold Fire Pyrotechnics</span>
+                            </li>
                         </ul>
                     </div>
 
                     {/* Column 4: Contact Info */}
                     <div className="lg:col-span-3 space-y-4">
-                        <h4 className="font-display font-bold text-sm text-[#F2B93F] tracking-wider uppercase border-b border-[#7A1518] pb-2">
+                        <h4 className="font-display font-bold text-sm text-[#F2B93F] tracking-wider uppercase border-b border-white/10 pb-2.5">
                             Contact Us
                         </h4>
-                        <div className="space-y-3 text-xs text-[#FAF8F2]/80">
+                        <div className="space-y-3.5 text-xs sm:text-sm text-[#FAF8F2]/85 font-medium">
                             <a
                                 href="tel:9946692100"
-                                className="flex items-center gap-2 hover:text-[#F2B93F] transition-colors font-semibold"
+                                className="flex items-center gap-2.5 hover:text-[#F2B93F] transition-colors font-semibold"
                             >
-                                <Phone className="w-4 h-4 text-[#F2B93F]" />
+                                <div className="w-8 h-8 rounded-lg bg-[#6F1014] text-[#F2B93F] flex items-center justify-center shrink-0 border border-[#F2B93F]/40">
+                                    <Phone className="w-4 h-4" />
+                                </div>
                                 <span>99466 92100</span>
                             </a>
                             <a
                                 href="mailto:info@malabardecorators.com"
-                                className="flex items-center gap-2 hover:text-[#F2B93F] transition-colors"
+                                className="flex items-center gap-2.5 hover:text-[#F2B93F] transition-colors"
                             >
-                                <Mail className="w-4 h-4 text-[#F2B93F]" />
+                                <div className="w-8 h-8 rounded-lg bg-[#6F1014] text-[#F2B93F] flex items-center justify-center shrink-0 border border-[#F2B93F]/40">
+                                    <Mail className="w-4 h-4" />
+                                </div>
                                 <span>info@malabardecorators.com</span>
                             </a>
-                            <div className="flex items-center gap-2">
-                                <MapPin className="w-4 h-4 text-[#F2B93F] shrink-0" />
+                            <div className="flex items-center gap-2.5">
+                                <div className="w-8 h-8 rounded-lg bg-[#6F1014] text-[#F2B93F] flex items-center justify-center shrink-0 border border-[#F2B93F]/40">
+                                    <MapPin className="w-4 h-4" />
+                                </div>
                                 <span>Kannur, Kerala</span>
                             </div>
                         </div>
@@ -159,7 +192,7 @@ export default function Footer() {
                         <div className="pt-2">
                             <a
                                 href="tel:9946692100"
-                                className="w-full py-2.5 rounded-lg bg-gradient-to-r from-[#DFAE32] to-[#F2B93F] text-[#38070A] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow"
+                                className="w-full py-3 rounded-xl bg-gradient-to-r from-[#DFAE32] to-[#F2B93F] text-[#171110] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg hover:brightness-110 transition-all"
                             >
                                 <span>Call Hotline</span>
                             </a>
@@ -168,13 +201,13 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Copyright & Back to Top */}
-                <div className="mt-12 pt-8 border-t border-[#7A1518] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#FAF8F2]/60">
+                <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#FAF8F2]/60">
                     <p>© 2026 Malabar Decorators. All Rights Reserved.</p>
                     <div className="flex items-center gap-4">
                         <span>Kannur • Kerala • India</span>
                         <button
                             onClick={scrollToTop}
-                            className="w-8 h-8 rounded-full bg-[#6F1014] border border-[#F2B93F]/40 flex items-center justify-center text-[#F2B93F] hover:bg-[#F2B93F] hover:text-[#38070A] transition-colors"
+                            className="w-9 h-9 rounded-full bg-[#6F1014] border border-[#F2B93F]/50 flex items-center justify-center text-[#F2B93F] hover:bg-[#F2B93F] hover:text-[#171110] transition-all duration-300 hover:scale-110 shadow-lg shadow-[#F2B93F]/20 cursor-pointer"
                             aria-label="Back to Top"
                         >
                             <ArrowUp className="w-4 h-4" />

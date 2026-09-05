@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Sparkles, Maximize2, X, ChevronRight, Camera } from "lucide-react";
+import { Sparkles, Maximize2, X } from "lucide-react";
 
 export default function Gallery() {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -11,58 +11,74 @@ export default function Gallery() {
     const galleryItems = [
         {
             id: 1,
-            title: "Royal Nikah Stage Decor",
+            title: "Royal Event Grand Stage",
             category: "nikah",
-            categoryLabel: "Nikah Stage",
-            image: "/nikah_stage.png",
+            categoryLabel: "Stage Decor",
+            image: "/hero%20section/file_0000000021f881fab47cecc78e81a1e0.png",
             span: "col-span-1 md:col-span-2 row-span-2",
         },
         {
             id: 2,
-            title: "Authentic Malabar Dum Biriyani",
+            title: "Traditional Malabar Dum Biriyani",
             category: "catering",
-            categoryLabel: "Catering Feast",
-            image: "/hero_biriyani.png",
+            categoryLabel: "Catering",
+            image: "/service/file_000000003f2081faa2f8fe4fef914b6c.png",
             span: "col-span-1 row-span-1",
         },
         {
             id: 3,
-            title: "Evening Lawn Reception Decor",
+            title: "Outdoor Lawn Reception Setup",
             category: "reception",
-            categoryLabel: "Outdoor Reception",
-            image: "/reception_decor.png",
+            categoryLabel: "Reception",
+            image: "/Decoration/file_00000000344c81fa850396f61fb9d12d.png",
             span: "col-span-1 row-span-1",
         },
         {
             id: 4,
-            title: "Traditional Haldi Floral Stage",
+            title: "Traditional Haldi & Mandap Decor",
             category: "traditional",
-            categoryLabel: "Haldi Ceremony",
-            image: "/haldi_decor.png",
+            categoryLabel: "Haldi",
+            image: "/about/file_0000000066c881faa5f56fe5bdde9048.png",
             span: "col-span-1 row-span-1",
         },
         {
             id: 5,
-            title: "SFX Low Fog & Cold Pyro Entry",
+            title: "SFX Low Fog Pyrotechnic Entry",
             category: "sfx",
-            categoryLabel: "SFX Stage Pyrotechnics",
-            image: "/sfx_stage.png",
+            categoryLabel: "SFX",
+            image: "/service/file_00000000b464820b963a97bd17a2c97d.png",
             span: "col-span-1 md:col-span-2 row-span-1",
         },
         {
             id: 6,
-            title: "Live Porotta & Appam Counter",
-            category: "catering",
-            categoryLabel: "Live Counter",
-            image: "/live_counter.png",
+            title: "Custom Floral Entrance & Arch",
+            category: "nikah",
+            categoryLabel: "Stage Decor",
+            image: "/Decoration/file_0000000015b881fa9bbbf4a93b5e22b6.png",
             span: "col-span-1 row-span-1",
         },
         {
             id: 7,
-            title: "Malabar Wedding Buffet Banquet",
+            title: "Grand Event Catering Spread",
             category: "catering",
-            categoryLabel: "Banquet Catering",
-            image: "/catering_spread.png",
+            categoryLabel: "Catering",
+            image: "/about/file_000000007b0c81fa8424c183306499a2.png",
+            span: "col-span-1 row-span-1",
+        },
+        {
+            id: 8,
+            title: "Chandelier Stage Illumination",
+            category: "reception",
+            categoryLabel: "Reception",
+            image: "/hero%20section/file_00000000dfd081fdb147914ac2fdda08.png",
+            span: "col-span-1 row-span-1",
+        },
+        {
+            id: 9,
+            title: "Traditional Kerala Wedding Stage",
+            category: "traditional",
+            categoryLabel: "Traditional",
+            image: "/Decoration/file_00000000e8f8820bb6b4b4dcaff4fbb3.png",
             span: "col-span-1 row-span-1",
         },
     ];
@@ -73,81 +89,77 @@ export default function Gallery() {
             : galleryItems.filter((item) => item.category === activeFilter);
 
     return (
-        <section id="gallery" className="py-20 bg-[#F7F3EA] border-t border-b border-[#EFE8D7]">
+        <section id="gallery" className="py-24 sm:py-32 bg-[#FAF8F2] relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Section Title */}
-                <div className="text-center max-w-3xl mx-auto space-y-3">
+                {/* Minimal Header */}
+                <div className="text-center max-w-2xl mx-auto space-y-3 mb-10">
                     <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6F1014]/10 border border-[#6F1014]/20 text-[#6F1014] text-xs font-bold tracking-widest uppercase">
-                        Real Event Showcase
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>Visual Portfolio</span>
                     </div>
-                    <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#241B18]">
-                        Work Gallery & Portfolio
+
+                    <h2 className="font-display text-3xl sm:text-5xl font-bold text-[#171110]">
+                        Selected <span className="text-[#6F1014]">Works</span>
                     </h2>
-                    <div className="flex items-center justify-center gap-3">
-                        <div className="h-0.5 w-12 bg-[#8B1E23]" />
-                        <div className="w-2 h-2 rotate-45 bg-[#DFAE32]" />
-                        <div className="h-0.5 w-12 bg-[#8B1E23]" />
-                    </div>
-                    <p className="text-sm text-[#241B18]/75">
-                        A glimpse into actual weddings, Nikah stages, outdoor receptions, and catering spreads designed and served by Malabar Decorators.
-                    </p>
                 </div>
 
-                {/* Filters */}
-                <div className="flex flex-wrap justify-center gap-2 mt-8 mb-10">
-                    {[
-                        { id: "all", label: "All Portfolio" },
-                        { id: "nikah", label: "Nikah & Stage" },
-                        { id: "reception", label: "Reception Decor" },
-                        { id: "traditional", label: "Haldi & Traditional" },
-                        { id: "catering", label: "Food & Catering" },
-                        { id: "sfx", label: "SFX Pyrotechnics" },
-                    ].map((filter) => (
-                        <button
-                            key={filter.id}
-                            onClick={() => setActiveFilter(filter.id)}
-                            className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${activeFilter === filter.id
-                                    ? "bg-[#6F1014] text-white border-[#6F1014] shadow-md"
-                                    : "bg-white text-[#241B18] border-[#EFE8D7] hover:border-[#6F1014]/40"
+                {/* Minimal Segmented Filter Tabs */}
+                <div className="flex justify-center mb-12">
+                    <div className="bg-white p-1.5 rounded-full shadow-md border border-[#EFE8D7] flex items-center gap-1 overflow-x-auto max-w-full no-scrollbar">
+                        {[
+                            { id: "all", label: "All" },
+                            { id: "nikah", label: "Stage Decor" },
+                            { id: "reception", label: "Reception" },
+                            { id: "traditional", label: "Haldi" },
+                            { id: "catering", label: "Catering" },
+                            { id: "sfx", label: "SFX" },
+                        ].map((filter) => (
+                            <button
+                                key={filter.id}
+                                onClick={() => setActiveFilter(filter.id)}
+                                className={`px-4 sm:px-5 py-2 rounded-full text-xs font-bold transition-all duration-300 whitespace-nowrap cursor-pointer ${
+                                    activeFilter === filter.id
+                                        ? "bg-[#6F1014] text-[#F2B93F] shadow-sm scale-105"
+                                        : "text-[#171110]/70 hover:text-[#6F1014]"
                                 }`}
-                        >
-                            {filter.label}
-                        </button>
-                    ))}
+                            >
+                                {filter.label}
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
-                {/* Editorial Masonry Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 auto-rows-[240px]">
+                {/* Editorial Masonry Visual Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 auto-rows-[250px] sm:auto-rows-[280px]">
                     {filteredItems.map((item) => (
                         <div
                             key={item.id}
                             onClick={() => setSelectedImage(item.image)}
-                            className={`relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl border border-[#EFE8D7] group cursor-pointer bg-[#38070A] ${item.span}`}
+                            className={`relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl border border-[#EFE8D7] hover:border-[#F2B93F] group cursor-pointer bg-[#171110] transition-all duration-500 hover:-translate-y-1 ${item.span}`}
                         >
                             <Image
                                 src={item.image}
                                 alt={item.title}
                                 fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-95 group-hover:brightness-105"
+                                className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#171110]/90 via-[#171110]/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                            
+                            {/* Minimal Gradient Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-85 transition-opacity duration-300" />
 
-                            {/* Category Pill */}
-                            <span className="absolute top-3 left-3 bg-[#6F1014]/85 backdrop-blur-md border border-[#F2B93F]/40 text-[#F2B93F] text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full shadow-md">
+                            {/* Minimal Tag Badge */}
+                            <span className="absolute top-4 left-4 bg-black/60 backdrop-blur-md border border-[#F2B93F]/40 text-[#F2B93F] text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full shadow-md">
                                 {item.categoryLabel}
                             </span>
 
-                            {/* Title Overlay */}
-                            <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                            {/* Minimal Title & Expand Action */}
+                            <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between text-white">
                                 <div>
                                     <h3 className="font-display text-base sm:text-lg font-bold text-white group-hover:text-[#F2B93F] transition-colors leading-tight">
                                         {item.title}
                                     </h3>
-                                    <p className="text-[11px] text-[#FAF8F2]/75 mt-0.5 font-medium">
-                                        Click to view full photo
-                                    </p>
                                 </div>
-                                <div className="w-8 h-8 rounded-full bg-[#6F1014]/80 border border-[#F2B93F]/50 flex items-center justify-center text-[#F2B93F] shrink-0 group-hover:scale-110 transition-transform">
+                                <div className="w-9 h-9 rounded-full bg-[#6F1014]/90 border border-[#F2B93F]/60 flex items-center justify-center text-[#F2B93F] shrink-0 group-hover:scale-110 transition-transform shadow-md">
                                     <Maximize2 className="w-4 h-4" />
                                 </div>
                             </div>
@@ -155,23 +167,24 @@ export default function Gallery() {
                     ))}
                 </div>
 
-                {/* Lightbox Modal */}
+                {/* Minimal Glass Lightbox Modal */}
                 {selectedImage && (
                     <div
-                        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
+                        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-300"
                         onClick={() => setSelectedImage(null)}
                     >
-                        <div className="relative max-w-4xl w-full max-h-[90vh] overflow-hidden rounded-2xl border-2 border-[#DFAE32] shadow-2xl">
+                        <div className="relative max-w-5xl w-full max-h-[90vh] overflow-hidden rounded-3xl border-2 border-[#F2B93F] shadow-2xl animate-in zoom-in-95 duration-300">
                             <button
                                 onClick={() => setSelectedImage(null)}
-                                className="absolute top-4 right-4 z-10 p-2 rounded-full bg-[#6F1014] text-white hover:bg-[#8B1E23] transition-colors"
+                                className="absolute top-4 right-4 z-10 p-2.5 rounded-full bg-[#6F1014] text-[#F2B93F] border border-[#F2B93F]/50 hover:bg-[#8B1E23] transition-colors cursor-pointer"
+                                aria-label="Close image"
                             >
-                                <X className="w-6 h-6" />
+                                <X className="w-5 h-5" />
                             </button>
-                            <div className="relative w-full h-[70vh]">
+                            <div className="relative w-full h-[75vh]">
                                 <Image
                                     src={selectedImage}
-                                    alt="Full size gallery item"
+                                    alt="Full size view"
                                     fill
                                     className="object-contain bg-[#171110]"
                                 />

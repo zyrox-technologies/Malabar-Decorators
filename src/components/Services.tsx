@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Sparkles, ArrowRight, Flame, Heart, Cake, Home, Sparkle, Utensils, Music, ShieldCheck } from "lucide-react";
+import { Sparkles, Sparkle, ArrowRight } from "lucide-react";
 
 export default function Services() {
     const [activeCategory, setActiveCategory] = useState<"all" | "decor" | "catering" | "sfx">("all");
@@ -20,13 +20,7 @@ export default function Services() {
             tag: "Wedding & Stage",
             title: "Nikah & Reception Stage Decor",
             desc: "Royal wedding stage designs with premium floral backdrop, chandelier lighting, luxury plush seating, white & gold drapery.",
-            image: "/nikah_stage.png",
-            items: [
-                "Premium Nikah Stage Setup",
-                "Wedding & Reception Backdrop",
-                "Royal Sofa & Couch Seating",
-                "Crystal Candle & Chandelier Lights",
-            ],
+            image: "/service/file_00000000031081fa834f12ca0ea5b50d.png",
             price: "Starting from ₹20,000",
         },
         {
@@ -34,13 +28,7 @@ export default function Services() {
             tag: "Authentic Cuisine",
             title: "Grand Wedding & Event Catering",
             desc: "Famous Malabar Dum Biriyani, Ghee Rice, Porotta, Neypathal, Live Appam stations, authentic curries and traditional payasam desserts.",
-            image: "/catering_spread.png",
-            items: [
-                "Malabar Dum Biriyani (Chicken/Mutton)",
-                "Live Appam & Porotta Counters",
-                "Authentic Kerala Sadya & Curries",
-                "Desserts, Payasam & Live Tea Counter",
-            ],
+            image: "/service/file_000000003f2081faa2f8fe4fef914b6c.png",
             price: "Custom Packages per Plate",
         },
         {
@@ -48,13 +36,7 @@ export default function Services() {
             tag: "Traditional Ceremony",
             title: "Haldi, Mehendi & Traditional Decor",
             desc: "Vibrant traditional yellow and gold stage drapes, marigold flower arrangements, brass urlis, wooden swings and floral backdrops.",
-            image: "/haldi_decor.png",
-            items: [
-                "Traditional Haldi / Mehendi Stage",
-                "Marigold Garland Drapes & Brass Urlis",
-                "Hindu Traditional Mandap Decor",
-                "Floral Photo Backdrops",
-            ],
+            image: "/service/file_0000000074e881fa996b7468b88652b4.png",
             price: "Starting from ₹12,000",
         },
         {
@@ -62,13 +44,7 @@ export default function Services() {
             tag: "Outdoor Luxury",
             title: "Premium Outdoor & Destination Decor",
             desc: "Romantic evening lawn and beachside setups featuring fairy light canopies, welcome entrance arches, photo booths and floral aisles.",
-            image: "/reception_decor.png",
-            items: [
-                "Fairy Light Canopy Overhead",
-                "Welcome Entrance Arch Gates",
-                "12ft Floral Photo Booth",
-                "Outdoor Lawn & Dining Table Decor",
-            ],
+            image: "/service/file_000000009420820b9bff46071f57ae0d.png",
             price: "Starting from ₹50,000",
         },
         {
@@ -76,13 +52,7 @@ export default function Services() {
             tag: "Stage Pyrotechnics",
             title: "SFX Special Effects & Grand Entries",
             desc: "Transform your bride and groom stage entry with low heavy fog smoke clouds, cold pyro sparklers, cold fire fountains and confetti pops.",
-            image: "/sfx_stage.png",
-            items: [
-                "Low Fog Dry Ice Smoke Effect",
-                "Cold Fire Sparkler Fountains",
-                "Confetti Cannon Pop Effects",
-                "Stage Entry Lighting Sequence",
-            ],
+            image: "/service/file_00000000b464820b963a97bd17a2c97d.png",
             price: "Popular Add-On",
         },
         {
@@ -90,13 +60,7 @@ export default function Services() {
             tag: "Live Food Station",
             title: "Live Cooking & Beverage Counters",
             desc: "Interactive live cooking stations serving hot Neypathal, Dosa, Jalebi, Mysore Pak, fresh watermelon/grape juices and Malabar Colour Tea.",
-            image: "/live_counter.png",
-            items: [
-                "Live Appam & Neypathal Chef Counter",
-                "Hot Jalebi & Mysore Pak Station",
-                "Fresh Fruit Juice Selection",
-                "Traditional Malabar Colour Tea Counter",
-            ],
+            image: "/service/file_00000000eb9881fab921c9342b3b0d2b.png",
             price: "Included in Premier Packages",
         },
     ];
@@ -122,95 +86,102 @@ export default function Services() {
             : services.filter((s) => s.category === activeCategory);
 
     return (
-        <section id="services" className="py-20 bg-[#F7F3EA] border-t border-b border-[#EFE8D7]">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="services" className="py-20 sm:py-28 bg-[#0E0A09] text-white relative overflow-hidden border-t border-b border-[#F2B93F]/20">
+            {/* Ambient Background Glow Effects */}
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#6F1014]/20 rounded-full blur-[130px] pointer-events-none" />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto space-y-4">
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6F1014]/10 border border-[#6F1014]/20 text-[#6F1014] text-xs font-bold tracking-widest uppercase">
-                        Complete Event Solutions
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6F1014]/70 border border-[#F2B93F]/40 text-[#F2B93F] text-xs font-bold tracking-widest uppercase backdrop-blur-md shadow-md">
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>Complete Event Solutions</span>
                     </div>
-                    <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#241B18]">
-                        Our Premium Services
+
+                    <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+                        Our <span className="gold-gradient-text">Premium Services</span>
                     </h2>
-                    <div className="flex items-center justify-center gap-3">
-                        <div className="h-0.5 w-12 bg-[#8B1E23]" />
-                        <div className="w-2 h-2 rotate-45 bg-[#DFAE32]" />
-                        <div className="h-0.5 w-12 bg-[#8B1E23]" />
+
+                    <div className="flex items-center justify-center gap-3 py-1">
+                        <div className="h-0.5 w-12 bg-gradient-to-r from-transparent to-[#F2B93F]" />
+                        <div className="w-2 h-2 rotate-45 bg-[#F2B93F]" />
+                        <div className="h-0.5 w-12 bg-gradient-to-r from-[#F2B93F] to-transparent" />
                     </div>
-                    <p className="text-base text-[#241B18]/75">
-                        Malabar Decorators provides full end-to-end event management: from mouthwatering authentic Malabar catering to breathtaking stage decor, venue styling, and special effects.
+
+                    <p className="text-sm sm:text-base text-[#FAF8F2]/80 leading-relaxed max-w-2xl mx-auto">
+                        Malabar Decorators provides full end-to-end event management: from mouthwatering authentic Malabar catering to breathtaking stage decor and special effects.
                     </p>
                 </div>
 
                 {/* Filter Tabs */}
                 <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3 mt-8 sm:mt-10 mb-10 sm:mb-12 overflow-x-auto no-scrollbar pb-2 -mx-4 px-4 sm:mx-0 sm:px-0">
-                    {serviceCategories.map((cat) => (
-                        <button
-                            key={cat.id}
-                            onClick={() => setActiveCategory(cat.id as any)}
-                            className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all border shrink-0 whitespace-nowrap ${activeCategory === cat.id
-                                ? "bg-[#6F1014] text-white border-[#6F1014] shadow-md"
-                                : "bg-white text-[#241B18] border-[#EFE8D7] hover:border-[#6F1014]/40 hover:bg-[#FAF8F2]"
+                    <div className="bg-[#171110]/90 border border-[#F2B93F]/30 p-1.5 rounded-2xl flex items-center gap-2 backdrop-blur-xl shadow-xl">
+                        {serviceCategories.map((cat) => (
+                            <button
+                                key={cat.id}
+                                onClick={() => setActiveCategory(cat.id as any)}
+                                className={`px-4 sm:px-5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap cursor-pointer ${
+                                    activeCategory === cat.id
+                                        ? "bg-gradient-to-r from-[#DFAE32] to-[#F2B93F] text-[#171110] shadow-md scale-105"
+                                        : "text-[#FAF8F2]/80 hover:text-white hover:bg-white/10"
                                 }`}
-                        >
-                            {cat.label}
-                        </button>
-                    ))}
+                            >
+                                {cat.label}
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
-                {/* Services Editorial Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Sleek Compact Horizontal Glass Capsule Cards */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     {filteredServices.map((service, index) => (
                         <div
                             key={index}
-                            className="bg-white rounded-2xl overflow-hidden border border-[#EFE8D7] shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col group"
+                            className="group relative bg-gradient-to-r from-[#1E1413]/90 to-[#120B0A]/95 rounded-2xl border border-[#F2B93F]/25 hover:border-[#F2B93F]/70 overflow-hidden shadow-xl hover:shadow-[0_0_30px_rgba(242,185,63,0.2)] transition-all duration-300 flex flex-col sm:flex-row hover:-translate-y-1 backdrop-blur-xl"
                         >
-                            {/* Image Header */}
-                            <div className="relative h-60 overflow-hidden bg-[#38070A]">
+                            {/* Left Side: Clean Image Frame - Absolutely No Text Overlay */}
+                            <div className="relative w-full sm:w-5/12 h-44 sm:h-auto min-h-[170px] overflow-hidden bg-[#38070A] shrink-0">
                                 <Image
                                     src={service.image}
                                     alt={service.title}
                                     fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#171110]/90 via-[#171110]/30 to-transparent" />
-                                <span className="absolute top-4 left-4 bg-[#6F1014]/90 backdrop-blur-md border border-[#F2B93F]/40 text-[#F2B93F] text-[11px] font-bold tracking-wider uppercase px-3 py-1 rounded-full shadow-md">
-                                    {service.tag}
-                                </span>
-                                <span className="absolute bottom-3 right-4 bg-[#DFAE32] text-[#38070A] text-xs font-bold px-2.5 py-1 rounded-md shadow-md">
-                                    {service.price}
-                                </span>
+                                <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-transparent via-transparent to-[#1E1413]/90 opacity-60" />
                             </div>
 
-                            {/* Card Body */}
-                            <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                                <div>
-                                    <h3 className="font-display text-xl font-bold text-[#241B18] group-hover:text-[#6F1014] transition-colors leading-snug">
+                            {/* Right Side: Compact Content Details */}
+                            <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-3">
+                                <div className="space-y-2">
+                                    {/* Category Tag & Price Pill Bar */}
+                                    <div className="flex items-center justify-between gap-2 text-[11px] font-bold">
+                                        <span className="px-2.5 py-0.5 rounded-md bg-[#6F1014] border border-[#F2B93F]/40 text-[#F2B93F] uppercase tracking-wider">
+                                            {service.tag}
+                                        </span>
+                                        <span className="text-[#FAF8F2]/70 font-mono text-[11px]">
+                                            {service.price}
+                                        </span>
+                                    </div>
+
+                                    {/* Service Title */}
+                                    <h3 className="font-display text-lg font-bold text-white group-hover:text-[#F2B93F] transition-colors leading-snug pt-1">
                                         {service.title}
                                     </h3>
-                                    <p className="text-xs text-[#241B18]/75 mt-2 leading-relaxed font-normal">
+
+                                    {/* Short Description */}
+                                    <p className="text-xs text-[#FAF8F2]/75 line-clamp-2 leading-relaxed font-normal">
                                         {service.desc}
                                     </p>
                                 </div>
 
-                                {/* Items List */}
-                                <div className="space-y-2 pt-2 border-t border-[#F7F3EA]">
-                                    {service.items.map((item, idx) => (
-                                        <div key={idx} className="flex items-center gap-2 text-xs text-[#241B18]/85 font-medium">
-                                            <Sparkles className="w-3.5 h-3.5 text-[#8B1E23] shrink-0" />
-                                            <span>{item}</span>
-                                        </div>
-                                    ))}
-                                </div>
-
-                                {/* Action CTA */}
-                                <div className="pt-4">
+                                {/* Compact Action Button */}
+                                <div className="pt-2">
                                     <a
                                         href="#contact"
-                                        className="w-full py-2.5 rounded-lg bg-[#6F1014] hover:bg-[#8B1E23] text-white text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-2 transition-all shadow-md"
+                                        className="w-full py-2.5 rounded-xl bg-[#6F1014] hover:bg-[#8B1E23] border border-[#F2B93F]/40 text-white text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-2 transition-all shadow-md group-hover:border-[#F2B93F]"
                                     >
                                         <span>Enquire Service</span>
-                                        <ArrowRight className="w-3.5 h-3.5 text-[#F2B93F]" />
+                                        <ArrowRight className="w-3.5 h-3.5 text-[#F2B93F] group-hover:translate-x-1 transition-transform" />
                                     </a>
                                 </div>
                             </div>
@@ -219,10 +190,14 @@ export default function Services() {
                 </div>
 
                 {/* Additional Services Auto-Scrolling Marquee Ticker */}
-                <div className="mt-16 bg-gradient-to-r from-[#6F1014] via-[#4E0A0D] to-[#6F1014] rounded-2xl py-8 px-4 text-white shadow-xl border border-[#DFAE32]/30 overflow-hidden relative">
+                <div className="mt-16 bg-gradient-to-r from-[#4E0A0D] via-[#6F1014] to-[#4E0A0D] rounded-2xl py-8 px-6 text-white shadow-xl border border-[#DFAE32]/40 overflow-hidden relative backdrop-blur-xl">
                     <div className="text-center space-y-2 mb-6 px-4">
-                        <h3 className="font-display text-2xl font-bold text-[#F2B93F]">
-                            Comprehensive Event Offerings
+                        <div className="inline-flex items-center gap-2 text-xs font-bold text-[#F2B93F] uppercase tracking-widest">
+                            <Sparkle className="w-4 h-4 text-[#F2B93F]" />
+                            <span>Comprehensive Event Offerings</span>
+                        </div>
+                        <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
+                            Custom Catering & Event Solutions
                         </h3>
                         <p className="text-xs text-[#FAF8F2]/80 max-w-xl mx-auto">
                             Whatever the occasion, Malabar Decorators handles complete setup, decoration, theme styling, and catering.
@@ -232,16 +207,16 @@ export default function Services() {
                     {/* Auto Scrolling Marquee Track */}
                     <div className="relative w-full overflow-hidden">
                         {/* Gradient Fade Edges */}
-                        <div className="absolute top-0 bottom-0 left-0 w-16 bg-gradient-to-r from-[#6F1014] to-transparent z-10 pointer-events-none" />
-                        <div className="absolute top-0 bottom-0 right-0 w-16 bg-gradient-to-l from-[#6F1014] to-transparent z-10 pointer-events-none" />
+                        <div className="absolute top-0 bottom-0 left-0 w-16 bg-gradient-to-r from-[#4E0A0D] to-transparent z-10 pointer-events-none" />
+                        <div className="absolute top-0 bottom-0 right-0 w-16 bg-gradient-to-l from-[#4E0A0D] to-transparent z-10 pointer-events-none" />
 
                         <div className="animate-marquee gap-3 py-2">
                             {[...allOtherServicesList, ...allOtherServicesList].map((item, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-[#38070A]/90 border border-[#F2B93F]/40 px-5 py-2.5 rounded-full text-[#FAF8F2] text-xs font-bold whitespace-nowrap flex items-center gap-2 shadow-md hover:border-[#F2B93F] transition-colors shrink-0 group hover:bg-[#8B1E23]"
+                                    className="bg-[#38070A]/90 border border-[#F2B93F]/40 px-5 py-2 rounded-full text-[#FAF8F2] text-xs font-bold whitespace-nowrap flex items-center gap-2 shadow-md hover:border-[#F2B93F] hover:bg-[#8B1E23] transition-all cursor-pointer shrink-0 group"
                                 >
-                                    <Sparkle className="w-3.5 h-3.5 text-[#F2B93F] group-hover:rotate-45 transition-transform" />
+                                    <Sparkle className="w-3.5 h-3.5 text-[#F2B93F] group-hover:rotate-90 transition-transform duration-300" />
                                     <span>{item}</span>
                                 </div>
                             ))}
