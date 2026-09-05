@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Sparkles, Maximize2, X } from "lucide-react";
+import { Sparkles, Maximize2, X, ChevronDown } from "lucide-react";
 
 export default function Gallery() {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [activeFilter, setActiveFilter] = useState<string>("all");
+    const [showAll, setShowAll] = useState<boolean>(false);
 
     const galleryItems = [
         {
@@ -88,6 +89,8 @@ export default function Gallery() {
             ? galleryItems
             : galleryItems.filter((item) => item.category === activeFilter);
 
+    const visibleItems = showAll ? filteredItems : filteredItems.slice(0, 5);
+
     return (
         <section id="gallery" className="py-24 sm:py-32 bg-[#FAF8F2] relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -116,7 +119,10 @@ export default function Gallery() {
                         ].map((filter) => (
                             <button
                                 key={filter.id}
-                                onClick={() => setActiveFilter(filter.id)}
+                                onClick={() => {
+                                    setActiveFilter(filter.id);
+                                    setShowAll(false);
+                                }}
                                 className={`px-4 sm:px-5 py-2 rounded-full text-xs font-bold transition-all duration-300 whitespace-nowrap cursor-pointer ${
                                     activeFilter === filter.id
                                         ? "bg-[#6F1014] text-[#F2B93F] shadow-sm scale-105"
@@ -131,7 +137,7 @@ export default function Gallery() {
 
                 {/* Editorial Masonry Visual Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5 auto-rows-[250px] sm:auto-rows-[280px]">
-                    {filteredItems.map((item) => (
+                    {visibleItems.map((item) => (
                         <div
                             key={item.id}
                             onClick={() => setSelectedImage(item.image)}
@@ -166,6 +172,19 @@ export default function Gallery() {
                         </div>
                     ))}
                 </div>
+
+                {/* View More / Show Less Toggle Button */}
+                {filteredItems.length > 5 && (
+                    <div className="mt-10 text-center">
+                        <button
+                            onClick={() => setShowAll(!showAll)}
+                            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-[#6F1014] hover:bg-[#8B1E23] border border-[#F2B93F]/40 text-white font-bold text-xs uppercase tracking-widest shadow-lg hover:shadow-xl transition-all cursor-pointer group"
+                        >
+                            <span>{showAll ? "Show Less Photos" : `View More Photos (${filteredItems.length - 5}+)`}</span>
+                            <ChevronDown className={`w-4 h-4 text-[#F2B93F] transition-transform duration-300 ${showAll ? "rotate-180" : ""}`} />
+                        </button>
+                    </div>
+                )}
 
                 {/* Minimal Glass Lightbox Modal */}
                 {selectedImage && (
