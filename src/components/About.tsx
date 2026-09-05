@@ -47,9 +47,9 @@ export default function About() {
                             <span>About Malabar Decorators</span>
                         </div>
 
-                        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#241B18] leading-tight">
-                            We Create, <br />
-                            <span className="text-[#6F1014]">You Celebrate</span>
+                        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+                            <span className="dark-gradient-text">We Create,</span> <br />
+                            <span className="maroon-gradient-text">You Celebrate</span>
                         </h2>
 
                         <p className="text-base text-[#241B18]/80 leading-relaxed font-normal">

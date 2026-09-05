@@ -50,10 +50,25 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* Custom Gold Gradient & Line Accent */
+/* Custom Text Gradients & Color Fade Effects */
 .gold-gradient-text {
-  background: linear-gradient(135deg, #FCE6A8 0%, #DFAE32 50%, #F2B93F 100%);
+  background: linear-gradient(135deg, #FFE8A3 0%, #F2B93F 50%, #DFAE32 100%);
   -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.maroon-gradient-text {
+  background: linear-gradient(135deg, #A2272E 0%, #6F1014 55%, #38070A 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark-gradient-text {
+  background: linear-gradient(135deg, #171110 0%, #362B27 60%, #6F1014 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 

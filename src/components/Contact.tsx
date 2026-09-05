@@ -46,9 +46,9 @@ export default function Contact() {
                                 <span>Start Planning Today</span>
                             </div>
 
-                            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#171110] leading-tight">
-                                Ready to Plan <br />
-                                <span className="text-[#6F1014]">Your Special Event?</span>
+                            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+                                <span className="dark-gradient-text">Ready to Plan</span> <br />
+                                <span className="maroon-gradient-text">Your Special Event?</span>
                             </h2>
 
                             <p className="text-sm sm:text-base text-[#171110]/80 leading-relaxed font-normal">

@@ -64,8 +64,8 @@ export default function SocialMedia() {
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#6F1014]/10 border border-[#6F1014]/20 text-[#6F1014] text-xs font-bold tracking-widest uppercase">
                             Stay Connected
                         </div>
-                        <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#241B18] mt-2">
-                            Follow Us On Social Media
+                        <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold mt-2">
+                            <span className="dark-gradient-text">Follow Us On</span> <span className="maroon-gradient-text">Social Media</span>
                         </h2>
                         <p className="text-xs sm:text-sm text-[#241B18]/75 mt-1">
                             Explore live setup highlights, behind-the-scenes event decor, and customer stories.

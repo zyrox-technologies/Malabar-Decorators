@@ -296,8 +296,8 @@ export default function Menu() {
             <span>Royal Malabar Culinary Experience</span>
           </div>
 
-          <h2 className="font-display text-3xl sm:text-5xl font-bold text-[#171110] leading-tight">
-            Catering Feast <span className="text-[#6F1014]">Catalogue</span>
+          <h2 className="font-display text-3xl sm:text-5xl font-bold leading-tight">
+            <span className="dark-gradient-text">Catering Feast</span> <span className="maroon-gradient-text">Catalogue</span>
           </h2>
 
           <div className="flex items-center justify-center gap-3">

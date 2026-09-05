@@ -101,8 +101,8 @@ export default function Gallery() {
                         <span>Visual Portfolio</span>
                     </div>
 
-                    <h2 className="font-display text-3xl sm:text-5xl font-bold text-[#171110]">
-                        Selected <span className="text-[#6F1014]">Works</span>
+                    <h2 className="font-display text-3xl sm:text-5xl font-bold">
+                        <span className="dark-gradient-text">Selected</span> <span className="maroon-gradient-text">Works</span>
                     </h2>
                 </div>
 

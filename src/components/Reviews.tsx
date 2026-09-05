@@ -88,8 +88,8 @@ export default function Reviews() {
                         <span>Client Testimonials</span>
                     </div>
 
-                    <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#171110] leading-tight">
-                        Trusted By Families <span className="text-[#6F1014]">Across Kerala</span>
+                    <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+                        <span className="dark-gradient-text">Trusted By Families</span> <span className="maroon-gradient-text">Across Kerala</span>
                     </h2>
 
                     <p className="text-sm sm:text-base text-[#171110]/75 max-w-2xl mx-auto font-normal">
