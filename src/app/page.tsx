@@ -1,30 +1,28 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
 import About from "@/components/About";
-import Catering from "@/components/Catering";
+import Pillars from "@/components/Pillars";
+import Services from "@/components/Services";
+import Storytelling from "@/components/Storytelling";
 import MomentsInMotion from "@/components/MomentsInMotion";
-import Gallery from "@/components/Gallery";
-import Process from "@/components/Process";
-import Reviews from "@/components/Reviews";
-import Contact from "@/components/Contact";
+import Team from "@/components/Team";
+import Instagram from "@/components/Instagram";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F2] selection:bg-[#A2272E] selection:text-[#FAF8F2]">
+    <div className="min-h-screen flex flex-col bg-background text-on-background selection:bg-primary selection:text-on-primary">
       <Navbar />
 
       <main className="flex-1">
         <Hero />
-        <Services />
         <About />
-        <Catering />
+        <Pillars />
+        <Services />
+        <Storytelling />
         <MomentsInMotion />
-        <Gallery />
-        <Process />
-        <Reviews />
-        <Contact />
+        <Team />
+        <Instagram />
       </main>
 
       <Footer />

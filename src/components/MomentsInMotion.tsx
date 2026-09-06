@@ -1,94 +1,72 @@
-"use client";
-
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, Play } from "lucide-react";
 
 export default function MomentsInMotion() {
     const videos = [
         {
-            title: "Grand Wedding Setup",
+            title: "The Royal Pavilion Setup",
             duration: "3:45",
-            thumbnail: "/about/file_0000000066c881faa5f56fe5bdde9048.png",
+            thumbnail: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop",
         },
         {
-            title: "Stage Decoration",
-            duration: "2:30",
-            thumbnail: "/service/file_0000000074e881fa996b7468b88652b4.png",
+            title: "Authentic Culinary Journey",
+            duration: "2:10",
+            thumbnail: "https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop",
         },
         {
-            title: "Catering Experience",
-            duration: "1:15",
-            thumbnail: "/service/file_000000003f2081faa2f8fe4fef914b6c.png",
+            title: "Minimalist Floral Architecture",
+            duration: "1:55",
+            thumbnail: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?q=80&w=2070&auto=format&fit=crop",
         },
         {
             title: "Celebration Highlights",
             duration: "4:20",
-            thumbnail: "/service/file_000000009420820b9bff46071f57ae0d.png",
-        },
-        {
-            title: "Event SFX & Pyrotechnics",
-            duration: "0:45",
-            thumbnail: "/service/file_00000000b464820b963a97bd17a2c97d.png",
+            thumbnail: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop",
         },
     ];
 
     return (
-        <section className="py-24 bg-[#FAF8F2] relative overflow-hidden">
-            <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-                
-                {/* Header Section */}
-                <div className="flex flex-col sm:flex-row items-end justify-between gap-6 mb-10">
+        <section className="py-space-2xl md:py-space-3xl overflow-hidden bg-surface" id="gallery">
+            <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop mb-10">
+                <div className="flex flex-col sm:flex-row items-end justify-between gap-6">
                     <div>
-                        <h2 className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#241B18]/70 mb-2">
-                            MOMENTS IN MOTION
-                        </h2>
-                        <p className="text-sm text-[#241B18]/80 font-bold font-display">
-                            A glimpse into the experiences we create.
-                        </p>
+                        <span className="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-2">MOMENTS IN MOTION</span>
+                        <h2 className="font-headline-md text-headline-md text-on-surface">Experience Our Craft</h2>
                     </div>
-
-                    <div className="flex items-center gap-4">
-                        <button className="w-10 h-10 rounded-full border border-[#241B18]/20 flex items-center justify-center hover:bg-[#241B18]/5 transition-colors">
-                            <ArrowLeft className="w-4 h-4 text-[#241B18]" />
+                    <div className="flex items-center gap-3">
+                        <button aria-label="Previous video" className="w-12 h-12 rounded-full border border-surface-variant flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors">
+                            <span className="material-symbols-outlined">arrow_back</span>
                         </button>
-                        <button className="w-10 h-10 rounded-full border border-[#241B18]/20 flex items-center justify-center hover:bg-[#241B18]/5 transition-colors">
-                            <ArrowRight className="w-4 h-4 text-[#241B18]" />
+                        <button aria-label="Next video" className="w-12 h-12 rounded-full border border-surface-variant flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors">
+                            <span className="material-symbols-outlined">arrow_forward</span>
                         </button>
                     </div>
                 </div>
+            </div>
 
-                {/* Horizontal Video Strip */}
-                <div className="flex overflow-x-auto no-scrollbar gap-5 pb-8 snap-x">
+            {/* Horizontal Scrolling Strip */}
+            <div className="pl-gutter-mobile md:pl-gutter-tablet lg:pl-gutter-desktop max-w-max-width mx-auto">
+                <div className="flex overflow-x-auto gap-6 pb-8 snap-x no-scrollbar pr-gutter-mobile md:pr-gutter-tablet lg:pr-gutter-desktop">
                     {videos.map((video, idx) => (
-                        <div key={idx} className="group w-[320px] shrink-0 snap-start flex flex-col gap-3 cursor-pointer">
-                            <div className="relative w-full h-[180px] rounded-sm overflow-hidden bg-gray-200">
-                                <Image
+                        <div key={idx} className="snap-start shrink-0 w-[280px] md:w-[400px] group cursor-pointer">
+                            <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-surface-variant mb-4">
+                                <img 
+                                    alt={`Video thumbnail of ${video.title}`} 
+                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-90 group-hover:brightness-100" 
                                     src={video.thumbnail}
-                                    alt={video.title}
-                                    fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-[0.8]"
                                 />
-                                
-                                {/* Play Button Overlay */}
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="w-12 h-12 rounded-full border border-white/50 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-white/20 transition-all">
-                                        <Play className="w-4 h-4 text-white ml-1 fill-white" />
+                                    <div className="w-14 h-14 rounded-full bg-surface/30 backdrop-blur-md border border-surface-bright/50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                        <span className="material-symbols-outlined text-surface-bright ml-1">play_arrow</span>
                                     </div>
                                 </div>
                             </div>
-
-                            <div className="flex items-center justify-between mt-1">
-                                <h3 className="text-xs font-bold tracking-[0.05em] text-[#241B18]">
-                                    {video.title}
-                                </h3>
-                                <span className="text-[10px] text-[#241B18]/60 font-medium tracking-wider">
-                                    {video.duration}
-                                </span>
+                            <div className="flex justify-between items-start">
+                                <h3 className="font-label-md text-label-md text-on-surface font-semibold">{video.title}</h3>
+                                <span className="font-label-sm text-label-sm text-on-surface-variant">{video.duration}</span>
                             </div>
                         </div>
                     ))}
                 </div>
-
             </div>
         </section>
     );

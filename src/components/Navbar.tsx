@@ -1,113 +1,88 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
+import { useState } from "react";
 import Link from "next/link";
-import { Phone, Menu, X, Calendar, MessageCircle } from "lucide-react";
+import Image from "next/image";
 
 export default function Navbar() {
-    const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-    const navLinks = [
-        { name: "Home", href: "/#hero" },
-        { name: "About", href: "/#about" },
-        { name: "Experiences", href: "/services" },
-        { name: "Menu", href: "/menu" },
-        { name: "Gallery", href: "/#gallery" },
-        { name: "Contact", href: "/#contact" },
-    ];
-
     return (
-        <header className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 border-b ${
-            scrolled
-                ? "bg-[#FAF8F2]/95 backdrop-blur-md border-[#241B18]/10 py-4 shadow-sm"
-                : "bg-[#FAF8F2] border-transparent py-6"
-        }`}>
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <nav className="flex items-center justify-between">
-                    {/* Logo */}
-                    <Link href="/" className="flex flex-col gap-1 group z-50">
-                        <div className="relative w-32 h-10 shrink-0 flex items-center">
-                            <Image
-                                src="/LOGO/logo.png"
-                                alt="Malabar Decorators Logo"
-                                fill
-                                className="object-contain object-left"
-                            />
-                        </div>
+        <header className="sticky top-0 z-50 bg-surface border-b border-surface-variant transition-all duration-200">
+            <div className="w-full max-w-max-width mx-auto flex items-center justify-between px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop h-20">
+                {/* Brand Logo */}
+                <Link href="/" className="flex flex-col gap-1 group z-50">
+                    <div className="relative w-32 h-10 shrink-0 flex items-center">
+                        <Image
+                            src="/LOGO/logo.png"
+                            alt="Malabar Decorators Logo"
+                            fill
+                            className="object-contain object-left"
+                        />
+                    </div>
+                </Link>
+
+                {/* Desktop Navigation Cluster */}
+                <nav className="hidden md:flex items-center space-x-8">
+                    <Link href="/#hero" className="text-primary border-b-2 border-primary pb-1 font-semibold text-label-md font-label-md">
+                        Home
                     </Link>
-
-                    {/* Navigation Links - Centered */}
-                    <div className="hidden lg:flex items-center justify-center gap-10 absolute left-1/2 -translate-x-1/2">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                className="text-[13px] font-medium tracking-[0.1em] text-[#241B18]/80 hover:text-[#A2272E] uppercase transition-colors"
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
-                    </div>
-
-                    {/* CTAs */}
-                    <div className="hidden lg:flex items-center gap-4 z-50">
-                        <a
-                            href="#contact"
-                            className="flex items-center gap-3 px-6 py-3 rounded-full bg-[#A2272E] text-white text-[11px] font-bold tracking-widest uppercase hover:bg-[#8B1E23] transition-all"
-                        >
-                            Plan Your Event
-                            <span className="text-white/70">→</span>
-                        </a>
-                    </div>
-
-                    {/* Mobile Hamburger */}
-                    <div className="flex lg:hidden items-center gap-3 z-50">
-                        <a
-                            href="#contact"
-                            className="px-4 py-2 rounded-full bg-[#A2272E] text-white text-[10px] font-bold tracking-widest uppercase"
-                        >
-                            Plan Event
-                        </a>
-                        <button
-                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className="p-2 -mr-2 text-[#241B18] focus:outline-none"
-                            aria-label="Toggle Menu"
-                        >
-                            {mobileMenuOpen ? (
-                                <X className="w-7 h-7" />
-                            ) : (
-                                <Menu className="w-7 h-7" />
-                            )}
-                        </button>
-                    </div>
+                    <Link href="/#about" className="text-on-surface-variant hover:text-primary transition-colors duration-200 text-label-md font-label-md">
+                        About
+                    </Link>
+                    <Link href="/#services" className="text-on-surface-variant hover:text-primary transition-colors duration-200 text-label-md font-label-md">
+                        Services
+                    </Link>
+                    <Link href="/#gallery" className="text-on-surface-variant hover:text-primary transition-colors duration-200 text-label-md font-label-md">
+                        Gallery
+                    </Link>
+                    <Link href="/#contact" className="text-on-surface-variant hover:text-primary transition-colors duration-200 text-label-md font-label-md">
+                        Contact
+                    </Link>
                 </nav>
 
-                {/* Mobile Menu Dropdown */}
-                {mobileMenuOpen && (
-                    <div className="lg:hidden absolute top-full left-0 w-full bg-[#FAF8F2] border-b border-[#241B18]/10 px-6 py-6 space-y-4 shadow-xl">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="block text-xl font-display text-[#241B18] hover:text-[#A2272E] py-2 border-b border-[#241B18]/5"
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
-                    </div>
-                )}
+                {/* Trailing Action Button */}
+                <div className="flex items-center space-x-4">
+                    <Link
+                        href="/#contact"
+                        className="hidden sm:inline-flex items-center justify-center bg-primary-container hover:bg-primary text-on-primary rounded-lg px-6 py-3 text-label-md font-label-md tracking-wider uppercase transition-all duration-300 active:scale-95 shadow-sm"
+                    >
+                        Plan Your Event
+                    </Link>
+                    <button
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label="Toggle navigation"
+                        className="md:hidden text-on-surface p-2 focus:outline-none"
+                    >
+                        <span className="material-symbols-outlined text-2xl">
+                            {mobileMenuOpen ? 'close' : 'menu'}
+                        </span>
+                    </button>
+                </div>
             </div>
+
+            {/* Mobile Menu Dropdown */}
+            {mobileMenuOpen && (
+                <div className="md:hidden absolute top-full left-0 w-full bg-surface border-b border-surface-variant px-gutter-mobile py-6 shadow-xl">
+                    <nav className="flex flex-col space-y-4">
+                        <Link href="/#hero" onClick={() => setMobileMenuOpen(false)} className="text-primary font-semibold text-label-md font-label-md py-2 border-b border-surface-variant/50">
+                            Home
+                        </Link>
+                        <Link href="/#about" onClick={() => setMobileMenuOpen(false)} className="text-on-surface-variant hover:text-primary text-label-md font-label-md py-2 border-b border-surface-variant/50">
+                            About
+                        </Link>
+                        <Link href="/#services" onClick={() => setMobileMenuOpen(false)} className="text-on-surface-variant hover:text-primary text-label-md font-label-md py-2 border-b border-surface-variant/50">
+                            Services
+                        </Link>
+                        <Link href="/#gallery" onClick={() => setMobileMenuOpen(false)} className="text-on-surface-variant hover:text-primary text-label-md font-label-md py-2 border-b border-surface-variant/50">
+                            Gallery
+                        </Link>
+                        <Link href="/#contact" onClick={() => setMobileMenuOpen(false)} className="text-on-surface-variant hover:text-primary text-label-md font-label-md py-2 border-b border-surface-variant/50">
+                            Contact
+                        </Link>
+                    </nav>
+                </div>
+            )}
         </header>
     );
 }

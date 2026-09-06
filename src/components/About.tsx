@@ -1,116 +1,46 @@
-"use client";
-
-import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
-import { CheckCircle2, ArrowRight, Layers } from "lucide-react";
 
 export default function About() {
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    const aboutImages = [
-        {
-            id: 0,
-            src: "/about/file_0000000066c881faa5f56fe5bdde9048.png",
-            title: "Malabar Event & Stage Setup",
-            tag: "Stage Decor",
-        },
-        {
-            id: 1,
-            src: "/about/file_000000007b0c81fa8424c183306499a2.png",
-            title: "Traditional Catering & Dining",
-            tag: "Kerala Catering",
-        },
-        {
-            id: 2,
-            src: "/about/file_00000000f67c81fa893e6923aca91ef0.png",
-            title: "Grand Celebration Experience",
-            tag: "Event Management",
-        },
-    ];
-
-    const highlights = [
-        "Catering for all occasions & gathering sizes",
-        "Customized stage & venue decor for every theme",
-        "On-time venue delivery & seamless setup",
-        "Experienced & dedicated professional team",
-    ];
-
     return (
-        <section id="about" className="py-20 sm:py-28 bg-[#FAF8F2] relative overflow-hidden">
-            <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-                    
-                    {/* Left Column - Headline & Description */}
-                    <div className="lg:col-span-4 flex flex-col space-y-6">
-                        <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#241B18]/60">
-                            ABOUT MALABAR
-                        </div>
-
-                        <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[#241B18] leading-[1.1]">
-                            Driven by<br />
-                            People. Inspired<br />
-                            by <span className="text-[#A2272E] font-bold">Celebrations.</span>
+        <section className="py-space-3xl md:py-space-4xl bg-surface-container-low border-y border-surface-variant" id="about">
+            <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                    {/* Text Column (5 cols) */}
+                    <div className="lg:col-span-5 space-y-6">
+                        <span className="font-label-caps text-label-caps text-secondary uppercase tracking-widest">ABOUT MALABAR DECORATORS</span>
+                        <h2 className="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface tracking-tight">
+                            Shaping Celebrations Through Thoughtful Design
                         </h2>
-
-                        <p className="text-sm text-[#241B18]/70 leading-relaxed font-light max-w-sm pt-2">
-                            With a passion for perfection and an eye for detail, we design and execute events that reflect your story. From intimate gatherings to grand celebrations, Malabar is with you at every step.
+                        <div className="w-12 h-0.5 bg-primary-container"></div>
+                        <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                            Founded on the values of warm hospitality and structural refinement, Malabar Decorators transforms empty venues into living, breathing works of celebration art. We unite traditional craftsmanship with contemporary spatial balance.
                         </p>
-
-                        <div className="pt-4">
-                            <a
-                                href="#contact"
-                                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#A2272E] text-white font-bold text-xs tracking-widest uppercase hover:bg-[#8B1E23] transition-colors"
-                            >
-                                Our Story
-                                <ArrowRight className="w-4 h-4 text-white/70" />
-                            </a>
+                        <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                            From the initial blueprint of an architectural mandap to the delicate scent of night-blooming jasmine and the warmth of candlelit tables, our team ensures every touchpoint feels curated, intimate, and effortless.
+                        </p>
+                        <div className="pt-2">
+                            <Link href="/#services" className="inline-flex items-center gap-2 text-primary font-label-md text-label-md hover:underline decoration-primary underline-offset-8 transition-all">
+                                <span>Learn about our curation method</span>
+                                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                            </Link>
                         </div>
                     </div>
 
-                    {/* Middle Column - Image Collage */}
-                    <div className="lg:col-span-5 relative h-[500px] sm:h-[600px] flex items-center justify-center">
-                        {/* Main Top Right Image */}
-                        <div className="absolute top-0 right-4 sm:right-10 w-[65%] h-[60%] rounded-sm overflow-hidden z-10 shadow-xl">
-                            <Image
-                                src={aboutImages[1].src}
-                                alt="Catering"
-                                fill
-                                className="object-cover"
+                    {/* Scenography Visual Column (7 cols) */}
+                    <div className="lg:col-span-7">
+                        <div className="relative rounded-xl overflow-hidden border border-surface-variant bg-surface group">
+                            <img 
+                                alt="Editorial wedding stage scenography and floral backdrop" 
+                                className="w-full h-[420px] md:h-[520px] object-cover transition-transform duration-500 group-hover:scale-105" 
+                                src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?q=80&w=2070&auto=format&fit=crop"
                             />
-                        </div>
-                        {/* Bottom Left Image */}
-                        <div className="absolute bottom-0 left-0 w-[55%] h-[55%] rounded-sm overflow-hidden z-20 shadow-xl border-4 border-[#FAF8F2]">
-                            <Image
-                                src={aboutImages[0].src}
-                                alt="Decor"
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                        
-                        {/* Little red accent square (like in reference) */}
-                        <div className="absolute top-0 right-4 sm:right-10 w-16 h-16 bg-[#A2272E] -translate-y-1/2 translate-x-1/4 z-0" />
-                    </div>
-
-                    {/* Right Column - Statistics */}
-                    <div className="lg:col-span-3 flex flex-col justify-center pl-0 lg:pl-12 space-y-10 mt-12 lg:mt-0 border-l-0 lg:border-l border-[#241B18]/10">
-                        <div>
-                            <div className="text-6xl font-light font-display text-[#241B18] leading-none mb-2">10+</div>
-                            <div className="text-sm font-medium text-[#241B18]/80 leading-tight">
-                                Years of<br />
-                                Creating Memories
+                            <div className="absolute bottom-4 right-4 bg-surface/90 backdrop-blur-md px-4 py-2.5 rounded-lg border border-surface-variant text-right">
+                                <span className="font-label-caps text-label-caps text-primary uppercase block">Couture Stagecraft</span>
+                                <span className="font-headline-sm text-headline-sm text-on-surface">Minimalist Mandap Scenography</span>
                             </div>
                         </div>
-
-                        <div className="space-y-4 text-xs font-medium text-[#241B18]/60 uppercase tracking-widest">
-                            <div className="pb-2 border-b border-[#241B18]/10">Planning</div>
-                            <div className="pb-2 border-b border-[#241B18]/10">Decorations</div>
-                            <div className="pb-2 border-b border-[#241B18]/10">Catering</div>
-                            <div className="pb-2 border-b border-[#241B18]/10">Entertainment</div>
-                            <div className="text-[#A2272E]">Complete Event Solutions</div>
-                        </div>
                     </div>
-
                 </div>
             </div>
         </section>
