@@ -1,21 +1,15 @@
 import type { Metadata } from "next";
-import { Cinzel, Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 
-const headingFont = Cinzel({
+const headingFont = Cormorant_Garamond({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800", "900"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
-const serifFont = Playfair_Display({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const sansFont = Plus_Jakarta_Sans({
+const sansFont = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
@@ -43,7 +37,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${headingFont.variable} ${serifFont.variable} ${sansFont.variable} scroll-smooth`}
+      className={`${headingFont.variable} ${sansFont.variable} scroll-smooth`}
     >
       <body className="font-sans bg-[#FAF8F2] text-[#241B18] antialiased selection:bg-[#8B1E23] selection:text-[#F2B93F] min-h-screen flex flex-col overflow-x-hidden">
         {children}

@@ -8,20 +8,14 @@ import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import {
-  ArrowRight,
   CheckCircle2,
   Phone,
   MessageCircle,
-  Calendar,
-  Layers,
   Utensils,
-  Flame,
-  Star,
   Award,
   ChevronRight,
   ShieldCheck,
-  Clock,
-  Users
+  Clock
 } from "lucide-react";
 
 export default function ServicesPage() {
@@ -237,7 +231,7 @@ export default function ServicesPage() {
               {categories.map((cat) => (
                 <button
                   key={cat.id}
-                  onClick={() => setActiveTab(cat.id as any)}
+                  onClick={() => setActiveTab(cat.id as "all" | "decor" | "catering" | "sfx" | "special")}
                   className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all shrink-0 cursor-pointer ${
                     activeTab === cat.id
                       ? "bg-[#6F1014] text-white shadow-md"

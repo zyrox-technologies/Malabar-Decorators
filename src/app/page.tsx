@@ -1,56 +1,33 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
 import Services from "@/components/Services";
-import Menu from "@/components/Menu";
-import Catalogue from "@/components/Catalogue";
+import About from "@/components/About";
+import Catering from "@/components/Catering";
+import MomentsInMotion from "@/components/MomentsInMotion";
 import Gallery from "@/components/Gallery";
-import SocialMedia from "@/components/SocialMedia";
+import Process from "@/components/Process";
 import Reviews from "@/components/Reviews";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F2] selection:bg-[#6F1014] selection:text-[#F2B93F]">
-      {/* 01 — NAVIGATION BAR */}
+    <div className="min-h-screen flex flex-col bg-[#FAF8F2] selection:bg-[#A2272E] selection:text-[#FAF8F2]">
       <Navbar />
 
       <main className="flex-1">
-        {/* 02 — HERO SECTION + 03 — HERO MERGED FEATURE CARD */}
         <Hero />
-
-        {/* 04 — ABOUT SECTION */}
-        <About />
-
-        {/* 05 — SERVICES SECTION */}
         <Services />
-
-        {/* 06 — MENU / CATALOGUE SECTION */}
-        <Menu />
-
-        {/* 07 — CATALOGUE / PRODUCT SERVICES */}
-        <Catalogue />
-
-        {/* 08 — GALLERY SECTION */}
+        <About />
+        <Catering />
+        <MomentsInMotion />
         <Gallery />
-
-        {/* 09 — SOCIAL MEDIA INTEGRATION */}
-        <SocialMedia />
-
-        {/* 10 — CUSTOMER REVIEWS */}
+        <Process />
         <Reviews />
-
-        {/* 11 — CONTACT FORM SECTION */}
         <Contact />
       </main>
 
-      {/* 12 — FOOTER */}
       <Footer />
-
-      {/* FLOATING WHATSAPP BUTTON */}
-      <WhatsAppButton />
     </div>
   );
 }

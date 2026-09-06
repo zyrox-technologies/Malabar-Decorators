@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { UtensilsCrossed, CalendarDays, Award, ShieldCheck, ArrowRight, BookOpen } from "lucide-react";
+import { UtensilsCrossed, PartyPopper, Sparkles } from "lucide-react";
 
 const heroImages = [
     "/hero%20section/file_0000000021f881fab47cecc78e81a1e0.png",
@@ -20,31 +20,8 @@ export default function Hero() {
         return () => clearInterval(timer);
     }, []);
 
-    const strengths = [
-        {
-            icon: UtensilsCrossed,
-            title: "AUTHENTIC TASTE",
-            desc: "Traditional recipes made to perfection",
-        },
-        {
-            icon: CalendarDays,
-            title: "PERFECT FOR EVENTS",
-            desc: "Weddings, parties, functions & more",
-        },
-        {
-            icon: Award,
-            title: "QUALITY INGREDIENTS",
-            desc: "Fresh, hygienic & carefully selected",
-        },
-        {
-            icon: ShieldCheck,
-            title: "TRUSTED SERVICE",
-            desc: "Delivered with care and professionalism",
-        },
-    ];
-
     return (
-        <section id="hero" className="relative bg-[#171110] text-white min-h-screen flex flex-col justify-center pt-20 sm:pt-24 pb-12 overflow-hidden">
+        <section id="hero" className="relative bg-[#171110] text-white min-h-screen flex flex-col justify-end pb-8 overflow-hidden">
             {/* Background Image Carousel Layer */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 {heroImages.map((src, idx) => (
@@ -59,68 +36,106 @@ export default function Hero() {
                             alt={`Malabar Decorators Hero Image ${idx + 1}`}
                             fill
                             priority={idx === 0}
-                            className="object-cover object-center filter brightness-90 contrast-105"
+                            className="object-cover object-center filter brightness-[0.65] contrast-105"
                         />
                     </div>
                 ))}
 
-                {/* Smooth Full-Width Dark Gradient Overlay - No abrupt cut-off line */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 to-black/15 w-full" />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-transparent to-[#171110] w-full" />
+                {/* Dark Gradients for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent w-full" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-[#171110]/90 w-full" />
             </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                <div className="max-w-3xl pt-12 sm:pt-16 pb-4 space-y-6 text-left">
-                    <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15]">
-                        Delicious Food & <br />
-                        <span className="gold-gradient-text">Beautiful Decor</span> <br />
-                        for Every Occasion
-                    </h1>
+            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pb-6 pt-32 flex flex-col justify-end min-h-screen">
+                <div className="flex flex-col md:flex-row md:items-end justify-between w-full flex-1 pb-16">
+                    <div className="max-w-2xl space-y-6 text-left">
+                        <div className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-white/70">
+                            Events that stay with you
+                        </div>
 
-                    {/* Gold Line Accent */}
-                    <div className="flex items-center gap-3 py-1">
-                        <div className="h-0.5 w-16 bg-gradient-to-r from-[#DFAE32] to-[#F2B93F]" />
-                        <div className="w-2 h-2 rotate-45 bg-[#F2B93F]" />
-                        <div className="h-0.5 w-12 bg-gradient-to-r from-[#F2B93F] to-transparent" />
+                        <h1 className="font-display text-5xl sm:text-[5.5rem] lg:text-[6.5rem] font-medium tracking-tight text-white leading-[1.05]">
+                            More than <br />
+                            Events. <br />
+                            Lifelong <span className="text-[#E85D38] font-bold">Memories.</span>
+                        </h1>
+
+                        <p className="text-sm sm:text-base text-white/90 max-w-md font-light leading-relaxed pt-2">
+                            At Malabar, we bring people, places and possibilities
+                            together to create unforgettable experiences.
+                        </p>
+
+                        {/* CTAs */}
+                        <div className="flex flex-col sm:flex-row items-center gap-6 pt-6">
+                            <a
+                                href="#contact"
+                                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#A2272E] text-white font-bold text-xs tracking-widest uppercase hover:bg-[#8B1E23] transition-all flex items-center justify-center gap-3"
+                            >
+                                Plan Your Event
+                                <span className="text-white/70">→</span>
+                            </a>
+
+                            <button className="flex items-center gap-3 group text-white hover:text-white/80 transition-colors">
+                                <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center group-hover:border-white transition-colors">
+                                    <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 text-white ml-0.5">
+                                        <path d="M8 5v14l11-7z" fill="currentColor" />
+                                    </svg>
+                                </div>
+                                <span className="text-[11px] font-bold tracking-widest uppercase">Watch Video</span>
+                            </button>
+                        </div>
                     </div>
 
-                    <p className="text-sm sm:text-lg text-[#FAF8F2]/95 max-w-2xl font-normal leading-relaxed">
-                        From authentic Malabar dum biriyani and lavish catering spreads to stunning Nikah, stage, and reception decorations — we make your precious moments truly unforgettable.
-                    </p>
-
-                    {/* CTAs */}
-                    <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
-                        <a
-                            href="#services"
-                            className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#DFAE32] to-[#F2B93F] text-[#171110] font-bold text-sm tracking-wider uppercase shadow-xl hover:brightness-110 hover:shadow-2xl transition-all flex items-center justify-center gap-2 group"
-                        >
-                            <span>Explore Services</span>
-                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </a>
-
-                        <a
-                            href="#menu"
-                            className="w-full sm:w-auto px-7 py-3.5 rounded-xl border border-[#F2B93F]/50 bg-[#6F1014]/80 hover:bg-[#8B1E23] text-[#FAF8F2] font-semibold text-sm tracking-wider uppercase backdrop-blur-md transition-all flex items-center justify-center gap-2"
-                        >
-                            <BookOpen className="w-4 h-4 text-[#F2B93F]" />
-                            <span>View Menu</span>
-                        </a>
+                    {/* Right side cursive text */}
+                    <div className="hidden md:block text-right pb-4">
+                         <div className="font-display font-bold text-3xl lg:text-4xl text-white/90 leading-tight mr-4">
+                            People<br/>
+                            Places<br/>
+                            Possibilities
+                         </div>
                     </div>
+                </div>
 
-                    {/* Carousel Slide Indicators */}
-                    <div className="flex items-center gap-2 pt-2">
-                        {heroImages.map((_, idx) => (
-                            <button
-                                key={idx}
-                                onClick={() => setCurrentImageIndex(idx)}
-                                className={`h-2 rounded-full transition-all duration-500 cursor-pointer ${
-                                    idx === currentImageIndex
-                                        ? "w-8 bg-[#F2B93F]"
-                                        : "w-2 bg-white/30 hover:bg-white/60"
-                                }`}
-                                aria-label={`Slide ${idx + 1}`}
-                            />
-                        ))}
+                {/* Bottom Service Indicators */}
+                <div className="mt-8 pt-6 border-t border-white/20 grid grid-cols-2 md:grid-cols-4 gap-6">
+                    {/* Item 1 */}
+                    <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-lg border border-white/20 bg-white/5 flex items-center justify-center backdrop-blur-sm">
+                            <Sparkles className="w-5 h-5 text-white/80" />
+                        </div>
+                        <div>
+                            <div className="text-[13px] font-bold text-white tracking-wide">Weddings</div>
+                            <div className="text-[10px] text-white/50 tracking-wider">Events to Notify</div>
+                        </div>
+                    </div>
+                    {/* Item 2 */}
+                    <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-lg border border-white/20 bg-white/5 flex items-center justify-center backdrop-blur-sm">
+                            <UtensilsCrossed className="w-5 h-5 text-white/80" />
+                        </div>
+                        <div>
+                            <div className="text-[13px] font-bold text-white tracking-wide">Catering</div>
+                            <div className="text-[10px] text-white/50 tracking-wider">Flavours that talk</div>
+                        </div>
+                    </div>
+                    {/* Item 3 */}
+                    <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-lg border border-white/20 bg-white/5 flex items-center justify-center backdrop-blur-sm">
+                            <Sparkles className="w-5 h-5 text-white/80" />
+                        </div>
+                        <div>
+                            <div className="text-[13px] font-bold text-white tracking-wide">Decorations</div>
+                            <div className="text-[10px] text-white/50 tracking-wider">Spaces that inspire</div>
+                        </div>
+                    </div>
+                    {/* Item 4 */}
+                    <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-lg border border-white/20 bg-white/5 flex items-center justify-center backdrop-blur-sm">
+                            <PartyPopper className="w-5 h-5 text-white/80" />
+                        </div>
+                        <div>
+                            <div className="text-[13px] font-bold text-white tracking-wide">Celebrations</div>
+                            <div className="text-[10px] text-white/50 tracking-wider">Moments for every milestone</div>
+                        </div>
                     </div>
                 </div>
             </div>
