@@ -34,7 +34,7 @@ export default function Footer() {
                     <div className="md:col-span-3">
                         <h4 className="font-label-caps text-label-caps text-surface-bright/50 uppercase tracking-widest mb-6">Explore</h4>
                         <ul className="space-y-4 font-label-md text-label-md text-surface-bright/80">
-                            {siteData.navLinks.filter(link => link.href !== '/#contact').map((link, index) => (
+                            {siteData.navLinks.map((link, index) => (
                                 <li key={index}><Link href={link.href} className="hover:text-primary-fixed transition-colors">{link.label}</Link></li>
                             ))}
                         </ul>

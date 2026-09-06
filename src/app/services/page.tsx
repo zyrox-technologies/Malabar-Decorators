@@ -171,53 +171,52 @@ export default function ServicesPage() {
       : serviceDetails.filter((s) => s.category === activeTab);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F2] selection:bg-[#6F1014] selection:text-[#F2B93F]">
+    <div className="min-h-screen flex flex-col bg-background text-on-surface selection:bg-primary-container selection:text-surface">
       {/* NAVIGATION BAR */}
       <Navbar />
 
-      <main className="flex-1 pt-24 sm:pt-28">
+      <main className="flex-1">
         {/* HERO BANNER */}
-        <section className="relative bg-[#171110] text-white py-16 sm:py-24 overflow-hidden border-b border-[#F2B93F]/20">
-          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#F2B93F_1px,transparent_1px)] [background-size:24px_24px]" />
-          <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#6F1014]/40 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#DFAE32]/20 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <section className="pt-space-3xl pb-space-2xl md:pt-space-4xl md:pb-space-3xl bg-surface-container-low border-b border-surface-variant">
+          <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-xs font-semibold text-[#F2B93F]/80 uppercase tracking-widest mb-4">
-              <Link href="/" className="hover:text-white transition-colors">
+            <div className="flex items-center gap-2 font-label-caps text-label-caps text-secondary uppercase tracking-widest mb-4">
+              <Link href="/" className="hover:text-primary transition-colors">
                 Home
               </Link>
               <ChevronRight className="w-3.5 h-3.5" />
-              <span className="text-white">Our Premium Services</span>
+              <span className="text-on-surface font-semibold">Services & Disciplines</span>
             </div>
 
             <div className="max-w-3xl space-y-4">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F2B93F]/10 border border-[#F2B93F]/30 text-[#F2B93F] text-xs font-bold tracking-widest uppercase">
-                <span>Malabar Decorators & Caterers</span>
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-[1px] bg-primary"></span>
+                <span className="font-label-caps text-label-caps text-primary tracking-widest uppercase">
+                  OUR DISCIPLINES & EXPERTISE
+                </span>
               </div>
 
-              <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                Complete <span className="gold-gradient-text">Event & Catering</span> Solutions
+              <h1 className="font-headline-xl text-headline-xl text-on-surface tracking-tight leading-tight">
+                Complete <span className="text-primary italic">Event & Catering</span> Solutions
               </h1>
 
-              <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+              <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
                 From majestic wedding stage decor to authentic Malabar Dum Biryani feasts, live food stalls, and mesmerizing stage entry SFX — we turn every occasion into a royal celebration across Malappuram & Kerala.
               </p>
 
               {/* Stats badges */}
-              <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-4 border-t border-white/10 max-w-xl">
+              <div className="grid grid-cols-3 gap-4 pt-6 border-t border-surface-variant max-w-xl">
                 <div>
-                  <p className="text-xl sm:text-2xl font-bold text-[#F2B93F]">10+ Years</p>
-                  <p className="text-[11px] text-gray-400 uppercase tracking-wider">Experience</p>
+                  <p className="font-headline-md text-headline-md text-primary font-medium">10+ Years</p>
+                  <p className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Experience</p>
                 </div>
                 <div>
-                  <p className="text-xl sm:text-2xl font-bold text-[#F2B93F]">500+</p>
-                  <p className="text-[11px] text-gray-400 uppercase tracking-wider">Events Executed</p>
+                  <p className="font-headline-md text-headline-md text-primary font-medium">500+</p>
+                  <p className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Events Executed</p>
                 </div>
                 <div>
-                  <p className="text-xl sm:text-2xl font-bold text-[#F2B93F]">100%</p>
-                  <p className="text-[11px] text-gray-400 uppercase tracking-wider">Quality Guaranteed</p>
+                  <p className="font-headline-md text-headline-md text-primary font-medium">100%</p>
+                  <p className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Quality Guaranteed</p>
                 </div>
               </div>
             </div>
@@ -225,17 +224,17 @@ export default function ServicesPage() {
         </section>
 
         {/* SERVICE CATEGORY FILTER */}
-        <section className="py-8 bg-white border-b border-[#EFE8D7] sticky top-[72px] z-30 shadow-xs">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+        <section className="py-6 bg-surface border-b border-surface-variant sticky top-20 z-30 shadow-xs">
+          <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+            <div className="flex items-center gap-3 overflow-x-auto no-scrollbar py-1">
               {categories.map((cat) => (
                 <button
                   key={cat.id}
                   onClick={() => setActiveTab(cat.id as "all" | "decor" | "catering" | "sfx" | "special")}
-                  className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all shrink-0 cursor-pointer ${
+                  className={`px-5 py-2 rounded-lg font-label-md text-label-md transition-all shrink-0 cursor-pointer ${
                     activeTab === cat.id
-                      ? "bg-[#6F1014] text-white shadow-md"
-                      : "bg-[#FAF8F2] text-[#171110]/70 hover:bg-[#6F1014]/10 hover:text-[#6F1014] border border-[#EFE8D7]"
+                      ? "bg-primary-container text-surface font-semibold shadow-sm"
+                      : "bg-surface-container-low text-on-surface-variant hover:text-primary border border-surface-variant"
                   }`}
                 >
                   {cat.label}
@@ -246,54 +245,54 @@ export default function ServicesPage() {
         </section>
 
         {/* SERVICES DETAILED LIST GRID */}
-        <section className="py-12 sm:py-16 bg-[#FAF8F2]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <section className="py-space-3xl md:py-space-4xl bg-background">
+          <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop space-y-12">
             {filteredServices.map((service, idx) => (
               <div
                 key={service.id}
                 id={service.id}
-                className="bg-white rounded-3xl overflow-hidden border border-[#EFE8D7] shadow-md hover:shadow-xl transition-all grid grid-cols-1 lg:grid-cols-12"
+                className="bg-surface rounded-xl overflow-hidden border border-surface-variant shadow-sm hover:shadow-md transition-all duration-300 grid grid-cols-1 lg:grid-cols-12"
               >
                 {/* Image side */}
-                <div className={`lg:col-span-5 relative min-h-[300px] lg:min-h-[420px] ${idx % 2 === 1 ? 'lg:order-2' : ''}`}>
+                <div className={`lg:col-span-5 relative min-h-[320px] lg:min-h-[440px] bg-surface-container ${idx % 2 === 1 ? 'lg:order-2' : ''}`}>
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 hover:scale-105"
                   />
-                  <div className="absolute top-4 left-4 bg-[#6F1014]/90 backdrop-blur-md text-[#F2B93F] text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-[#F2B93F]/30 shadow-md">
+                  <div className="absolute top-4 left-4 bg-surface/90 backdrop-blur-md text-primary font-label-caps text-label-caps uppercase tracking-wider px-3 py-1 rounded-lg border border-outline-variant/40 shadow-sm">
                     {service.tag}
                   </div>
-                  <div className="absolute bottom-4 left-4 right-4 bg-black/70 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-xl flex items-center justify-between border border-white/20">
+                  <div className="absolute bottom-4 left-4 right-4 bg-inverse-surface/85 backdrop-blur-md text-surface-bright font-label-sm text-label-sm px-4 py-2.5 rounded-lg flex items-center justify-between border border-surface-variant/20">
                     <span>{service.capacity}</span>
-                    <span className="text-[#F2B93F]">{service.price}</span>
+                    <span className="text-primary-fixed font-semibold">{service.price}</span>
                   </div>
                 </div>
 
                 {/* Content side */}
-                <div className={`lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between ${idx % 2 === 1 ? 'lg:order-1' : ''}`}>
+                <div className={`lg:col-span-7 p-6 md:p-8 flex flex-col justify-between ${idx % 2 === 1 ? 'lg:order-1' : ''}`}>
                   <div className="space-y-4">
                     <div>
-                      <p className="text-xs font-semibold text-[#6F1014] uppercase tracking-widest mb-1">
+                      <p className="font-label-caps text-label-caps text-secondary uppercase tracking-widest mb-1">
                         {service.malayalam}
                       </p>
-                      <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#171110]">
+                      <h2 className="font-headline-md text-headline-md text-on-surface">
                         {service.title}
                       </h2>
                     </div>
 
-                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                    <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
                       {service.fullDesc}
                     </p>
 
                     {/* Features checklist */}
-                    <div className="space-y-2 pt-2 border-t border-[#EFE8D7]">
-                      <p className="text-xs font-bold text-[#171110] uppercase tracking-wider">What&apos;s Included & Highlights:</p>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div className="space-y-3 pt-3 border-t border-surface-variant">
+                      <p className="font-label-caps text-label-caps text-on-surface uppercase tracking-wider">What&apos;s Included & Highlights:</p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         {service.features.map((feat, fIdx) => (
-                          <div key={fIdx} className="flex items-start gap-2 text-xs text-gray-700">
-                            <CheckCircle2 className="w-4 h-4 text-[#6F1014] shrink-0 mt-0.5" />
+                          <div key={fIdx} className="flex items-start gap-2 font-body-sm text-body-sm text-on-surface-variant">
+                            <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                             <span>{feat}</span>
                           </div>
                         ))}
@@ -302,20 +301,20 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Actions */}
-                  <div className="flex flex-wrap items-center gap-3 pt-6 mt-6 border-t border-[#EFE8D7]">
+                  <div className="flex flex-wrap items-center gap-4 pt-6 mt-6 border-t border-surface-variant">
                     <a
-                      href={`https://wa.me/919946692100?text=${encodeURIComponent(`Hi Malabar Decorators, I would like to enquire about ${service.title}`)}`}
+                      href={`https://wa.me/919846222216?text=${encodeURIComponent(`Hi Malabar Decorators, I would like to enquire about ${service.title}`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
+                      className="px-5 py-2.5 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white font-label-md text-label-md uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all"
                     >
                       <MessageCircle className="w-4 h-4 fill-white" />
                       <span>Enquire on WhatsApp</span>
                     </a>
 
                     <a
-                      href="#contact"
-                      className="px-5 py-2.5 rounded-xl bg-[#6F1014] hover:bg-[#8B1E23] text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
+                      href="/contact"
+                      className="px-5 py-2.5 rounded-lg bg-primary-container hover:bg-primary text-surface font-label-md text-label-md uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all"
                     >
                       <Phone className="w-3.5 h-3.5" />
                       <span>Book Service</span>
@@ -328,46 +327,45 @@ export default function ServicesPage() {
         </section>
 
         {/* WHY CHOOSE US */}
-        <section className="py-12 sm:py-16 bg-gradient-to-b from-[#FAF8F2] to-[#F6F1E5] border-t border-[#EFE8D7]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto space-y-3 mb-10">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6F1014]/10 border border-[#6F1014]/20 text-[#6F1014] text-xs font-bold tracking-widest uppercase">
+        <section className="py-space-3xl md:py-space-4xl bg-surface-container-low border-t border-b border-surface-variant">
+          <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+            <div className="text-center max-w-2xl mx-auto space-y-3 mb-12">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-surface border border-surface-variant text-primary font-label-caps text-label-caps tracking-widest uppercase">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>Our Quality Commitment</span>
               </div>
-              <h2 className="font-heading text-2xl sm:text-4xl font-bold">
-                <span className="dark-gradient-text">Why Families Trust</span>{" "}
-                <span className="maroon-gradient-text">Malabar Decorators</span>
+              <h2 className="font-headline-xl text-headline-xl text-on-surface">
+                Why Families Trust Malabar Decorators
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white p-6 rounded-2xl border border-[#EFE8D7] shadow-sm space-y-3">
-                <div className="w-12 h-12 rounded-xl bg-[#6F1014]/10 text-[#6F1014] flex items-center justify-center font-bold text-xl">
+              <div className="bg-surface p-6 rounded-xl border border-surface-variant shadow-sm space-y-3">
+                <div className="w-12 h-12 rounded-lg bg-primary-container/10 text-primary flex items-center justify-center">
                   <Utensils className="w-6 h-6" />
                 </div>
-                <h3 className="font-bold text-lg text-[#171110]">Authentic Malabar Taste</h3>
-                <p className="text-xs text-gray-600 leading-relaxed">
+                <h3 className="font-headline-sm text-headline-sm text-on-surface">Authentic Malabar Taste</h3>
+                <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
                   Traditional Dum Biryani and Sadya prepared with pure cow ghee and hand-ground authentic spices by seasoned master chefs.
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-2xl border border-[#EFE8D7] shadow-sm space-y-3">
-                <div className="w-12 h-12 rounded-xl bg-[#6F1014]/10 text-[#6F1014] flex items-center justify-center font-bold text-xl">
+              <div className="bg-surface p-6 rounded-xl border border-surface-variant shadow-sm space-y-3">
+                <div className="w-12 h-12 rounded-lg bg-primary-container/10 text-primary flex items-center justify-center">
                   <Award className="w-6 h-6" />
                 </div>
-                <h3 className="font-bold text-lg text-[#171110]">Royal Stage Aesthetics</h3>
-                <p className="text-xs text-gray-600 leading-relaxed">
+                <h3 className="font-headline-sm text-headline-sm text-on-surface">Royal Stage Aesthetics</h3>
+                <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
                   Custom stage decorations with fresh premium flowers, crystal chandeliers, warm spot lighting, and elegant drapery.
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-2xl border border-[#EFE8D7] shadow-sm space-y-3">
-                <div className="w-12 h-12 rounded-xl bg-[#6F1014]/10 text-[#6F1014] flex items-center justify-center font-bold text-xl">
+              <div className="bg-surface p-6 rounded-xl border border-surface-variant shadow-sm space-y-3">
+                <div className="w-12 h-12 rounded-lg bg-primary-container/10 text-primary flex items-center justify-center">
                   <Clock className="w-6 h-6" />
                 </div>
-                <h3 className="font-bold text-lg text-[#171110]">Punctual & Stress-Free Execution</h3>
-                <p className="text-xs text-gray-600 leading-relaxed">
+                <h3 className="font-headline-sm text-headline-sm text-on-surface">Punctual Execution</h3>
+                <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
                   Complete event management from setup to food serving and teardown, handled seamlessly so you can celebrate worry-free.
                 </p>
               </div>

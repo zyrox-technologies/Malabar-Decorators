@@ -3,11 +3,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { siteData } from "@/data/site";
 import Button from "@/components/ui/Button";
 
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
 
     return (
         <header className="sticky top-0 z-50 bg-surface border-b border-surface-variant transition-all duration-200">
@@ -26,21 +28,27 @@ export default function Navbar() {
 
                 {/* Desktop Navigation Cluster */}
                 <nav className="hidden md:flex items-center space-x-8">
-                    {siteData.navLinks.map((link, index) => (
-                        <Link 
-                            key={index}
-                            href={link.href} 
-                            className={`text-label-md font-label-md transition-colors duration-200 ${index === 0 ? 'text-primary border-b-2 border-primary pb-1 font-semibold' : 'text-on-surface-variant hover:text-primary'}`}
-                        >
-                            {link.label}
-                        </Link>
-                    ))}
+                    {siteData.navLinks.map((link, index) => {
+                        const isActive = link.href === "/" 
+                            ? pathname === "/" 
+                            : pathname?.startsWith(link.href);
+
+                        return (
+                            <Link 
+                                key={index}
+                                href={link.href} 
+                                className={`text-label-md font-label-md transition-colors duration-200 ${isActive ? 'text-primary border-b-2 border-primary pb-1 font-semibold' : 'text-on-surface-variant hover:text-primary'}`}
+                            >
+                                {link.label}
+                            </Link>
+                        );
+                    })}
                 </nav>
 
                 {/* Trailing Action Button */}
                 <div className="flex items-center space-x-4">
                     <Button
-                        href={siteData.hero.primaryCta.href}
+                        href="/contact"
                         className="hidden sm:inline-flex"
                         size="sm"
                     >
@@ -62,16 +70,22 @@ export default function Navbar() {
             {mobileMenuOpen && (
                 <div className="md:hidden absolute top-full left-0 w-full bg-surface border-b border-surface-variant px-gutter-mobile py-6 shadow-xl">
                     <nav className="flex flex-col space-y-4">
-                        {siteData.navLinks.map((link, index) => (
-                            <Link 
-                                key={index}
-                                href={link.href} 
-                                onClick={() => setMobileMenuOpen(false)} 
-                                className={`text-label-md font-label-md py-2 border-b border-surface-variant/50 ${index === 0 ? 'text-primary font-semibold' : 'text-on-surface-variant hover:text-primary'}`}
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
+                        {siteData.navLinks.map((link, index) => {
+                            const isActive = link.href === "/" 
+                                ? pathname === "/" 
+                                : pathname?.startsWith(link.href);
+
+                            return (
+                                <Link 
+                                    key={index}
+                                    href={link.href} 
+                                    onClick={() => setMobileMenuOpen(false)} 
+                                    className={`text-label-md font-label-md py-2 border-b border-surface-variant/50 ${isActive ? 'text-primary font-semibold' : 'text-on-surface-variant hover:text-primary'}`}
+                                >
+                                    {link.label}
+                                </Link>
+                            );
+                        })}
                     </nav>
                 </div>
             )}
