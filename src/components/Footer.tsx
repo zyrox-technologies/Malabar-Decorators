@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, Mail, MapPin, MessageCircle, ArrowUp, Sparkles } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, ArrowUp } from "lucide-react";
 
 export default function Footer() {
     const scrollToTop = () => {
@@ -134,27 +134,21 @@ export default function Footer() {
                         </h4>
                         <ul className="space-y-2.5 text-xs sm:text-sm text-[#FAF8F2]/80 font-medium">
                             <li className="flex items-center gap-2">
-                                <Sparkles className="w-3 h-3 text-[#F2B93F] shrink-0" />
                                 <span>Wedding & Reception Stage Decor</span>
                             </li>
                             <li className="flex items-center gap-2">
-                                <Sparkles className="w-3 h-3 text-[#F2B93F] shrink-0" />
                                 <span>Nikah & Engagement Decor</span>
                             </li>
                             <li className="flex items-center gap-2">
-                                <Sparkles className="w-3 h-3 text-[#F2B93F] shrink-0" />
                                 <span>Malabar Dum Biriyani & Catering</span>
                             </li>
                             <li className="flex items-center gap-2">
-                                <Sparkles className="w-3 h-3 text-[#F2B93F] shrink-0" />
                                 <span>Haldi & Traditional Ceremony Decor</span>
                             </li>
                             <li className="flex items-center gap-2">
-                                <Sparkles className="w-3 h-3 text-[#F2B93F] shrink-0" />
                                 <span>Live Food & Beverage Counters</span>
                             </li>
                             <li className="flex items-center gap-2">
-                                <Sparkles className="w-3 h-3 text-[#F2B93F] shrink-0" />
                                 <span>SFX Low Fog & Cold Fire Pyrotechnics</span>
                             </li>
                         </ul>

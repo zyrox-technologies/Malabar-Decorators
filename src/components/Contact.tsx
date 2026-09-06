@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, Mail, MapPin, Send, MessageCircle, Sparkles, CheckCircle2 } from "lucide-react";
+import { Phone, Mail, MapPin, Send, MessageCircle, CheckCircle2 } from "lucide-react";
 
 export default function Contact() {
     const [formSubmitted, setFormSubmitted] = useState(false);
@@ -42,7 +42,6 @@ export default function Contact() {
                     <div className="lg:col-span-5 space-y-8">
                         <div className="space-y-4">
                             <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-[#6F1014]/10 border border-[#6F1014]/20 text-[#6F1014] text-xs font-bold tracking-widest uppercase">
-                                <Sparkles className="w-3.5 h-3.5" />
                                 <span>Start Planning Today</span>
                             </div>
 

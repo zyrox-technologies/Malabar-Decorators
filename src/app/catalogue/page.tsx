@@ -9,15 +9,13 @@ import Contact from "@/components/Contact";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import {
   Tag,
-  Sparkles,
   ChevronRight,
   ShieldCheck,
   Phone,
   MessageCircle,
   CheckCircle2,
   Image as ImageIcon,
-  Layers,
-  Sparkle
+  Layers
 } from "lucide-react";
 
 export default function DecorCataloguePage() {

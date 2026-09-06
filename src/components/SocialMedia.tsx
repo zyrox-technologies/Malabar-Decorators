@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { MessageCircle, Heart, Share2, Sparkles, ExternalLink } from "lucide-react";
+import { MessageCircle, Heart, Share2, ExternalLink } from "lucide-react";
 
 export default function SocialMedia() {
     const posts = [

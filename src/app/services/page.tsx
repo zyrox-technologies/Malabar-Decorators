@@ -8,7 +8,6 @@ import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import {
-  Sparkles,
   ArrowRight,
   CheckCircle2,
   Phone,
@@ -201,7 +200,6 @@ export default function ServicesPage() {
 
             <div className="max-w-3xl space-y-4">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F2B93F]/10 border border-[#F2B93F]/30 text-[#F2B93F] text-xs font-bold tracking-widest uppercase">
-                <Sparkles className="w-3.5 h-3.5" />
                 <span>Malabar Decorators & Caterers</span>
               </div>
 

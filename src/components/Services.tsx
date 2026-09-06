@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, Sparkle, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function Services() {
     const [activeCategory, setActiveCategory] = useState<"all" | "decor" | "catering" | "sfx">("all");
@@ -95,7 +95,6 @@ export default function Services() {
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto space-y-4">
                     <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6F1014]/70 border border-[#F2B93F]/40 text-[#F2B93F] text-xs font-bold tracking-widest uppercase backdrop-blur-md shadow-md">
-                        <Sparkles className="w-3.5 h-3.5" />
                         <span>Complete Event Solutions</span>
                     </div>
 
@@ -194,7 +193,6 @@ export default function Services() {
                 <div className="mt-16 bg-gradient-to-r from-[#4E0A0D] via-[#6F1014] to-[#4E0A0D] rounded-2xl py-8 px-6 text-white shadow-xl border border-[#DFAE32]/40 overflow-hidden relative backdrop-blur-xl">
                     <div className="text-center space-y-2 mb-6 px-4">
                         <div className="inline-flex items-center gap-2 text-xs font-bold text-[#F2B93F] uppercase tracking-widest">
-                            <Sparkle className="w-4 h-4 text-[#F2B93F]" />
                             <span>Comprehensive Event Offerings</span>
                         </div>
                         <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
@@ -217,7 +215,6 @@ export default function Services() {
                                     key={idx}
                                     className="bg-[#38070A]/90 border border-[#F2B93F]/40 px-5 py-2 rounded-full text-[#FAF8F2] text-xs font-bold whitespace-nowrap flex items-center gap-2 shadow-md hover:border-[#F2B93F] hover:bg-[#8B1E23] transition-all cursor-pointer shrink-0 group"
                                 >
-                                    <Sparkle className="w-3.5 h-3.5 text-[#F2B93F] group-hover:rotate-90 transition-transform duration-300" />
                                     <span>{item}</span>
                                 </div>
                             ))}

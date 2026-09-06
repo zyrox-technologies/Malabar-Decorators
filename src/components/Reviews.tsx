@@ -1,6 +1,6 @@
 "use client";
 
-import { Star, Sparkles, ExternalLink } from "lucide-react";
+import { Star, ExternalLink } from "lucide-react";
 
 const GoogleIcon = ({ className = "w-4 h-4 shrink-0" }: { className?: string }) => (
     <svg className={className} viewBox="0 0 24 24">
@@ -84,7 +84,6 @@ export default function Reviews() {
                 {/* Section Title */}
                 <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
                     <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-[#6F1014]/10 border border-[#6F1014]/20 text-[#6F1014] text-xs font-bold tracking-widest uppercase">
-                        <Sparkles className="w-3.5 h-3.5" />
                         <span>Client Testimonials</span>
                     </div>
 

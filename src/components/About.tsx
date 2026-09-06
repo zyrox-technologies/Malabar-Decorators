@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { CheckCircle2, Sparkles, ArrowRight, Layers } from "lucide-react";
+import { CheckCircle2, ArrowRight, Layers } from "lucide-react";
 
 export default function About() {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -12,19 +12,19 @@ export default function About() {
             id: 0,
             src: "/about/file_0000000066c881faa5f56fe5bdde9048.png",
             title: "Malabar Event & Stage Setup",
-            tag: "✨ Stage Decor",
+            tag: "Stage Decor",
         },
         {
             id: 1,
             src: "/about/file_000000007b0c81fa8424c183306499a2.png",
             title: "Traditional Catering & Dining",
-            tag: "🍛 Kerala Catering",
+            tag: "Kerala Catering",
         },
         {
             id: 2,
             src: "/about/file_00000000f67c81fa893e6923aca91ef0.png",
             title: "Grand Celebration Experience",
-            tag: "🌙 Event Management",
+            tag: "Event Management",
         },
     ];
 
@@ -43,7 +43,6 @@ export default function About() {
                     {/* Left Column - Content */}
                     <div className="lg:col-span-6 space-y-6 order-1">
                         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6F1014]/10 border border-[#6F1014]/20 text-[#6F1014] text-xs font-bold tracking-widest uppercase">
-                            <Sparkles className="w-3.5 h-3.5" />
                             <span>About Malabar Decorators</span>
                         </div>
 

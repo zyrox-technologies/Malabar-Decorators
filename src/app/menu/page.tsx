@@ -10,7 +10,6 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import {
   Utensils,
   Flame,
-  Sparkles,
   Check,
   ChevronRight,
   GlassWater,
@@ -44,7 +43,7 @@ export default function CateringMenuPage() {
     { id: "all", name: "Full Catering Catalogue", count: 24, icon: Utensils },
     { id: "mains", name: "Main Dishes & Rice", count: 7, icon: CookingPot },
     { id: "curries", name: "Royal Curries & Fries", count: 6, icon: Flame },
-    { id: "live", name: "Live Cooking Stations", count: 4, icon: Sparkles },
+    { id: "live", name: "Live Cooking Stations", count: 4, icon: CookingPot },
     { id: "desserts", name: "Desserts & Live Sweets", count: 4, icon: Star },
     { id: "drinks", name: "Welcome Coolers", count: 3, icon: GlassWater },
   ];

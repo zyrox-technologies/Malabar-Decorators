@@ -162,7 +162,6 @@ export default function Catalogue() {
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
           {/* Top Capsule Pill Badge */}
           <div className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-[#6F1014]/5 border border-[#6F1014]/15 text-[#6F1014] text-[10px] sm:text-[11px] font-bold tracking-[0.25em] uppercase shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#6F1014]" />
             <span>TRANSPARENT PRICING & ESTIMATES</span>
           </div>
 

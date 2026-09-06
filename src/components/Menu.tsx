@@ -6,14 +6,12 @@ import Link from "next/link";
 import {
   Utensils,
   Flame,
-  Sparkles,
   ChevronRight,
   ChevronLeft,
   ChevronDown,
   GlassWater,
   Coffee,
   CookingPot,
-  Sparkle,
   MessageCircle,
   Phone
 } from "lucide-react";
@@ -39,7 +37,7 @@ export default function Menu() {
     { id: "all", name: "Full Feast Collection", count: 24, icon: Utensils },
     { id: "mains", name: "Main Dishes & Rice", count: 7, icon: CookingPot },
     { id: "curries", name: "Royal Curries & Fries", count: 6, icon: Flame },
-    { id: "desserts", name: "Desserts & Live Sweets", count: 5, icon: Sparkles },
+    { id: "desserts", name: "Desserts & Live Sweets", count: 5, icon: CookingPot },
     { id: "drinks", name: "Welcome Coolers", count: 3, icon: GlassWater },
     { id: "beverages", name: "Tea & Beverages", count: 3, icon: Coffee },
   ];
@@ -279,19 +277,10 @@ export default function Menu() {
         </svg>
       </div>
 
-      {/* Decorative Sparkle Accents */}
-      <div className="absolute top-10 right-12 text-[#DFAE32]/40 animate-pulse">
-        <Sparkle className="w-6 h-6" />
-      </div>
-      <div className="absolute bottom-12 left-10 text-[#DFAE32]/40">
-        <Sparkles className="w-5 h-5" />
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-[#6F1014]/10 border border-[#6F1014]/20 text-[#6F1014] text-xs font-bold tracking-widest uppercase">
-            <Sparkles className="w-3.5 h-3.5" />
             <span>Curated Collections for Your Exquisite Event</span>
           </div>
 
