@@ -1,37 +1,16 @@
-import Image from "next/image";
+import { siteData } from "@/data/site";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 export default function MomentsInMotion() {
-    const videos = [
-        {
-            title: "The Royal Pavilion Setup",
-            duration: "3:45",
-            thumbnail: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop",
-        },
-        {
-            title: "Authentic Culinary Journey",
-            duration: "2:10",
-            thumbnail: "https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop",
-        },
-        {
-            title: "Minimalist Floral Architecture",
-            duration: "1:55",
-            thumbnail: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?q=80&w=2070&auto=format&fit=crop",
-        },
-        {
-            title: "Celebration Highlights",
-            duration: "4:20",
-            thumbnail: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop",
-        },
-    ];
-
     return (
         <section className="py-space-2xl md:py-space-3xl overflow-hidden bg-surface" id="gallery">
             <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop mb-10">
                 <div className="flex flex-col sm:flex-row items-end justify-between gap-6">
-                    <div>
-                        <span className="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-2">MOMENTS IN MOTION</span>
-                        <h2 className="font-headline-md text-headline-md text-on-surface">Experience Our Craft</h2>
-                    </div>
+                    <SectionHeader 
+                        overline={siteData.gallery.overline}
+                        headline={siteData.gallery.headline}
+                        size="md"
+                    />
                     <div className="flex items-center gap-3">
                         <button aria-label="Previous video" className="w-12 h-12 rounded-full border border-surface-variant flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors">
                             <span className="material-symbols-outlined">arrow_back</span>
@@ -46,7 +25,7 @@ export default function MomentsInMotion() {
             {/* Horizontal Scrolling Strip */}
             <div className="pl-gutter-mobile md:pl-gutter-tablet lg:pl-gutter-desktop max-w-max-width mx-auto">
                 <div className="flex overflow-x-auto gap-6 pb-8 snap-x no-scrollbar pr-gutter-mobile md:pr-gutter-tablet lg:pr-gutter-desktop">
-                    {videos.map((video, idx) => (
+                    {siteData.gallery.videos.map((video, idx) => (
                         <div key={idx} className="snap-start shrink-0 w-[280px] md:w-[400px] group cursor-pointer">
                             <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-surface-variant mb-4">
                                 <img 
