@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Malabar Decorators | Bespoke Stage Architecture &amp; Artisanal Catering</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-container": "#ffb0a5",
+            "surface": "#fff8f5",
+            "on-surface-variant": "#59413d",
+            "on-tertiary-fixed-variant": "#84241a",
+            "on-tertiary-fixed": "#410001",
+            "secondary": "#ab3600",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed-dim": "#ffb59c",
+            "on-primary-fixed-variant": "#8c170f",
+            "background": "#fff8f5",
+            "tertiary-fixed-dim": "#ffb4a9",
+            "on-primary-fixed": "#410000",
+            "on-secondary-fixed-variant": "#822700",
+            "inverse-surface": "#33302d",
+            "primary-fixed-dim": "#ffb4a9",
+            "tertiary-fixed": "#ffdad5",
+            "surface-bright": "#fff8f5",
+            "outline-variant": "#e1bfba",
+            "on-surface": "#1e1b19",
+            "tertiary": "#72160f",
+            "error": "#ba1a1a",
+            "secondary-container": "#ff6e38",
+            "surface-container-low": "#faf2ee",
+            "surface-variant": "#e9e1dd",
+            "primary": "#790504",
+            "primary-fixed": "#ffdad5",
+            "secondary-fixed": "#ffdbcf",
+            "on-secondary-container": "#611b00",
+            "on-background": "#1e1b19",
+            "surface-tint": "#ae3024",
+            "on-primary": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-error": "#ffffff",
+            "outline": "#8d716c",
+            "primary-container": "#9b2218",
+            "surface-container": "#f4ece8",
+            "surface-dim": "#e0d8d5",
+            "tertiary-container": "#922e23",
+            "inverse-primary": "#ffb4a9",
+            "surface-container-high": "#efe7e3",
+            "on-secondary-fixed": "#390c00",
+            "on-primary-container": "#ffb0a4",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "error-container": "#ffdad6",
+            "inverse-on-surface": "#f7efeb",
+            "surface-container-highest": "#e9e1dd"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter-mobile": "1rem",
+            "space-xs": "0.5rem",
+            "space-2xs": "0.25rem",
+            "gutter-desktop": "2.5rem",
+            "margin-desktop": "4rem",
+            "margin-mobile": "1.25rem",
+            "space-xl": "2rem",
+            "space-lg": "1.5rem",
+            "space-5xl": "9rem",
+            "space-3xl": "4.5rem",
+            "space-4xl": "6rem",
+            "space-sm": "0.75rem",
+            "space-2xl": "3rem",
+            "max-width": "1440px",
+            "margin-tablet": "2rem",
+            "space-md": "1rem",
+            "gutter-tablet": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Playfair Display"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Playfair Display"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Playfair Display"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-caps": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Playfair Display"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "display-hero": ["Playfair Display"],
+            "display-hero-mobile": ["Playfair Display"],
+            "headline-lg-mobile": ["Playfair Display"],
+            "headline-lg": ["Playfair Display"]
+          },
+          "fontSize": {
+            "headline-md": ["26px", { "lineHeight": "34px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "30px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.14em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "display-hero": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+            "display-hero-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-primary-container selection:text-on-primary">
+<!-- 1. HEADER (Shared Component TopNavBar mapped from JSON) -->
+<header class="sticky top-0 z-50 bg-surface border-b border-surface-variant transition-all duration-200">
+<div class="w-full max-w-max-width mx-auto flex items-center justify-between px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop h-20">
+<!-- Brand Logo -->
+<a class="font-headline-md text-headline-md tracking-tight text-primary font-medium flex items-center gap-2" href="#">
+<span>Malabar Decorators</span>
+</a>
+<!-- Desktop Navigation Cluster -->
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-primary border-b-2 border-primary pb-1 font-semibold text-label-md font-label-md" href="#home">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 text-label-md font-label-md" href="#about">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 text-label-md font-label-md" href="#services">Services</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 text-label-md font-label-md" href="#gallery">Gallery</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 text-label-md font-label-md" href="#contact">Contact</a>
+</nav>
+<!-- Trailing Action Button -->
+<div class="flex items-center space-x-4">
+<a class="hidden sm:inline-flex items-center justify-center bg-primary-container hover:bg-primary text-on-primary rounded-lg px-6 py-3 text-label-md font-label-md tracking-wider uppercase transition-all duration-300 active:scale-95 shadow-sm" href="#contact">
+          Plan Your Event
+        </a>
+<button aria-label="Toggle navigation" class="md:hidden text-on-surface p-2 focus:outline-none">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- 2. HERO SECTION -->
+<section class="relative pt-space-xl pb-space-3xl md:pt-space-2xl md:pb-space-4xl overflow-hidden" id="home">
+<div class="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+<!-- Hero Top Editorial Content -->
+<div class="text-center max-w-3xl mx-auto mb-space-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container rounded-lg border border-surface-variant mb-4">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">EVENT MANAGEMENT • STAGE DECOR • CATERING</span>
+</div>
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface tracking-tight mb-6">
+          Beautiful Spaces. <br class="hidden sm:block"/><span class="italic font-normal">Meaningful Celebrations.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-8 max-w-2xl mx-auto">
+          Malabar Decorators designs and orchestrates bespoke celebration environments through architectural stage decoration, couture floral styling, and exquisite culinary hospitality.
+        </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="w-full sm:w-auto bg-primary-container hover:bg-primary text-on-primary px-8 py-3.5 rounded-lg font-label-md text-label-md tracking-wider uppercase transition-transform duration-200 hover:-translate-y-0.5" href="#contact">
+            Plan Your Event
+          </a>
+<a class="w-full sm:w-auto bg-transparent border border-on-surface text-on-surface hover:bg-surface-container hover:border-primary-container hover:text-primary-container px-8 py-3.5 rounded-lg font-label-md text-label-md tracking-wider uppercase transition-colors duration-200" href="#services">
+            Explore Our Work
+          </a>
+</div>
+</div>
+<!-- Hero Featured Media Showcase -->
+<div class="relative w-full rounded-xl overflow-hidden border border-surface-variant shadow-sm group">
+<img alt="Cinematic luxury wedding banquet under pavilion with bespoke chandeliers and floral arrangements" class="w-full h-[380px] sm:h-[500px] lg:h-[620px] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.015]" src="https://lh3.googleusercontent.com/aida/AEtjO1VReQ6CNgQtmanGAVVMEgEMFZvTpE5RSH8-gAlr2K9qWr6QzYoCGNjxcvvgFGT9YgD0MpH_z3kjvTMDyr4HVmpGwdGnADUquOYDIZkmrfqPw0bkiv5nZyi3pKLE70XOP3RSXo0Uug5BWxra-1G2jcUmPrTXLbPk084UbfHl-eWD9gURxCn2G4oEQmmy9RQC5Q4XjI9JJvsiDCEaCDArVaqiZiI2S7irBNYd5qHb4krnTlhQ52aqECgAbiI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent pointer-events-none"></div>
+<div class="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 flex flex-col sm:flex-row justify-between sm:items-end text-surface-bright">
+<div class="max-w-md">
+<span class="font-label-caps text-label-caps text-tertiary-fixed tracking-widest uppercase">Signature Scenography</span>
+<p class="font-headline-md text-headline-md text-surface-bright mt-1">The Royal Pavilion Wedding</p>
+</div>
+<div class="hidden md:flex items-center gap-3 text-surface-bright/80 font-label-sm text-label-sm">
+<span>Bespoke Lighting</span>
+<span>•</span>
+<span>Floral Architecture</span>
+<span>•</span>
+<span>Banqueting</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. ABOUT MALABAR SECTION -->
+<section class="py-space-3xl md:py-space-4xl bg-surface-container-low border-y border-surface-variant" id="about">
+<div class="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+<!-- Text Column (5 cols) -->
+<div class="lg:col-span-5 space-y-6">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">ABOUT MALABAR DECORATORS</span>
+<h2 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface tracking-tight">
+            Shaping Celebrations Through Thoughtful Design
+          </h2>
+<div class="w-12 h-0.5 bg-primary-container"></div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Founded on the values of warm hospitality and structural refinement, Malabar Decorators transforms empty venues into living, breathing works of celebration art. We unite traditional craftsmanship with contemporary spatial balance.
+          </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            From the initial blueprint of an architectural mandap to the delicate scent of night-blooming jasmine and the warmth of candlelit tables, our team ensures every touchpoint feels curated, intimate, and effortless.
+          </p>
+<div class="pt-2">
+<a class="inline-flex items-center gap-2 text-primary font-label-md text-label-md hover:underline decoration-primary underline-offset-8 transition-all" href="#services">
+<span>Learn about our curation method</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Scenography Visual Column (7 cols) -->
+<div class="lg:col-span-7">
+<div class="relative rounded-xl overflow-hidden border border-surface-variant bg-surface group">
+<img alt="Editorial wedding stage scenography and floral backdrop" class="w-full h-[420px] md:h-[520px] object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1Wuyal6yw6705Iflfd_BWpF3XtcQ-psK-nQYrjAQI2T9HzM9rpgr8gOUMN731jRETFxKodiIG167Wy5PzIwGQi0cexHviWgrL_XiakxBDt09m2eZwUa3llNNNAKrB4QVNrd0ds7APJfx7TZ-gTxbLCcfF-2gWL9O7rX_TbUBF8h_QExjD_xlOH1V8P2J3gniJb5MSEHC5R60H64bIyH1XhulP4l5f9hN6UJCNDOgVLiH_YpzDUbSicIZw0"/>
+<div class="absolute bottom-4 right-4 bg-surface/90 backdrop-blur-md px-4 py-2.5 rounded-lg border border-surface-variant text-right">
+<span class="font-label-caps text-label-caps text-primary uppercase block">Couture Stagecraft</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Minimalist Mandap Scenography</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. WHY MALABAR / BRAND APPROACH (4 Pillars) -->
+<section class="py-space-3xl md:py-space-4xl">
+<div class="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">THE MALABAR STANDARD</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mt-2">
+          Architecture, Florals &amp; Hospitality in Synchrony
+        </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Pillar 01 -->
+<div class="p-8 bg-surface-container-low border border-surface-variant rounded-xl flex flex-col justify-between hover:border-primary-container transition-colors duration-300">
+<div>
+<span class="font-label-caps text-label-caps text-primary tracking-widest block mb-4">01 / DISCIPLINE</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Thoughtful Planning</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Dedicated event choreography and timeline orchestrations that respect cultural significance and smooth logistical cadence.
+            </p>
+</div>
+<div class="mt-8 pt-4 border-t border-surface-variant flex items-center text-outline text-xs">
+<span>Rigorous Floor Plans</span>
+</div>
+</div>
+<!-- Pillar 02 -->
+<div class="p-8 bg-surface-container-low border border-surface-variant rounded-xl flex flex-col justify-between hover:border-primary-container transition-colors duration-300">
+<div>
+<span class="font-label-caps text-label-caps text-primary tracking-widest block mb-4">02 / CRAFTSMANSHIP</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Creative Decoration</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Architectural botanicals, hand-dyed silks, sculptural wooden backdrops, and bespoke stage proportions designed to flatter cameras and guests.
+            </p>
+</div>
+<div class="mt-8 pt-4 border-t border-surface-variant flex items-center text-outline text-xs">
+<span>Custom Scenography</span>
+</div>
+</div>
+<!-- Pillar 03 -->
+<div class="p-8 bg-surface-container-low border border-surface-variant rounded-xl flex flex-col justify-between hover:border-primary-container transition-colors duration-300">
+<div>
+<span class="font-label-caps text-label-caps text-primary tracking-widest block mb-4">03 / SENSORY</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Attention to Detail</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Warm-spectrum ambient lighting, textured stoneware, hand-selected seasonal blooms, and tailored table linen densities.
+            </p>
+</div>
+<div class="mt-8 pt-4 border-t border-surface-variant flex items-center text-outline text-xs">
+<span>Tactile Materiality</span>
+</div>
+</div>
+<!-- Pillar 04 -->
+<div class="p-8 bg-surface-container-low border border-surface-variant rounded-xl flex flex-col justify-between hover:border-primary-container transition-colors duration-300">
+<div>
+<span class="font-label-caps text-label-caps text-primary tracking-widest block mb-4">04 / HARMONY</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Coordinated Hospitality</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              End-to-end alignment between decor styling and artisanal catering courses so banqueting flows naturally with stage rites.
+            </p>
+</div>
+<div class="mt-8 pt-4 border-t border-surface-variant flex items-center text-outline text-xs">
+<span>Impeccable Flow</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. SERVICES (5 CORE OFFERINGS) -->
+<section class="py-space-3xl md:py-space-4xl bg-surface-container-high/30 border-t border-surface-variant" id="services">
+<div class="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">OUR CAPABILITIES</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mt-2">
+            Curated Services for Significant Occasions
+          </h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">
+          Every celebration is approached as a single bespoke architectural and culinary commission with custom fabrication.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Service 1 -->
+<div class="bg-surface rounded-xl border border-surface-variant overflow-hidden group hover:border-primary-container transition-all">
+<div class="h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="An ornate wedding ceremony mandap decorated with cascading white tuberoses, pale blush peonies, and warm copper accents under soft golden lighting. The background features draped linen in warm ivory with structured architectural columns. The atmosphere is serene and deeply romantic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkYUzdK_Yp1URHaODqa3Gts4Ywq42dmoT2XSgCEdgAO570YS7xvD4UZ_lmEgI4s208ywSNistyxT3xe_kkk-M9ok2LtSD3hpiAOstJPV-XF1HUFmTKaUW3vSEFytRa5lRAslOgGVVPauy64m4X6gWMHeo3RdpJh5l2qV2o0SmNiJi9Og4Sa2xA9xlH4S2nJUbiomMCnb3zwECOsJqagnYeeXAMGzwEJ5vpIWT4gHvCfxirV2MJqMLy"/>
+<span class="absolute top-4 left-4 bg-surface/90 text-on-surface px-3 py-1 text-label-sm font-label-sm rounded-lg">Couture Weddings</span>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Wedding &amp; Reception Decor</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
+              Architectural aisle designs, floral mandaps, and atmospheric evening reception staging crafted with handpicked seasonal flora.
+            </p>
+<a class="inline-flex items-center gap-2 text-primary font-label-md text-label-md group-hover:translate-x-1 transition-transform" href="#contact">
+<span>Explore Service</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="bg-surface rounded-xl border border-surface-variant overflow-hidden group hover:border-primary-container transition-all">
+<div class="h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A grand evening event stage featuring sculptural textured panels, warm amber uplighting, and sweeping organic floral arrangements on the perimeter. The set is framed with delicate ivory voiles and refined brass lanterns, creating a regal, intimate celebration aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi051IbtiyLjg0iPiWv-erOQGMOXB6qyHqe_5FG5Mr2CXvbFzJQcflyWOkNJQXYcC1PcxD6FlH6_TjMcmJoxPO_Vf3lo2g0CrhjeujIfWAWM-26guiXm578xX33f7MuVA5fgdltPsD3MzUhKtbi6ikqnJ-OvknHrwOq9rdPV7I_rKEg1mJF9ZzqeZEk_Tw3N5lHnBBuKSm1JlMDoa1go0motxYA-K8JggVpKzIQjUCUCgii3BWuu0c"/>
+<span class="absolute top-4 left-4 bg-surface/90 text-on-surface px-3 py-1 text-label-sm font-label-sm rounded-lg">Scenography</span>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Stage Decoration</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
+              Sculptural floral backdrops, crystal and woven chandeliers, and ambient spotlighting designed for photographic balance.
+            </p>
+<a class="inline-flex items-center gap-2 text-primary font-label-md text-label-md group-hover:translate-x-1 transition-transform" href="#contact">
+<span>Explore Service</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="bg-surface rounded-xl border border-surface-variant overflow-hidden group hover:border-primary-container transition-all">
+<div class="h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A long artisanal event banquet table adorned with dark textured ceramic tableware, polished cutlery, tapered dinner candles in brass holders, and delicate herbal table runners. Waitstaff in crisp formal aprons serve plated regional delicacies under warm diffused canopy lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6dvTfDbpbSKbdY3V8tevgxYXxetkZvEhOy_C3Ollk4QHRm2DP_QRri2EsZdEkbURZMtB0kcbFx-9bVL302VhJqy0tRi9WJWqkSkzJLvffPDPRbDzS6MzFibwoRLbzo42ZLJvPd198WeklatSC4wsu0L3tesfEB6BMjuRcDCYuQCwJipuKW1rtMuotdBPc40ruLLx8sXz2bZvRdiVlSRFH1fxY9DJVOAOtpn98mZdEPUeUJ3TucJaB"/>
+<span class="absolute top-4 left-4 bg-surface/90 text-on-surface px-3 py-1 text-label-sm font-label-sm rounded-lg">Hospitality</span>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Catering Services</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
+              Artisanal multi-course dining, regional heritage specialties, and bespoke live culinary counters tailored to guest preferences.
+            </p>
+<a class="inline-flex items-center gap-2 text-primary font-label-md text-label-md group-hover:translate-x-1 transition-transform" href="#contact">
+<span>Explore Service</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Service 4 -->
+<div class="bg-surface rounded-xl border border-surface-variant overflow-hidden group hover:border-primary-container transition-all">
+<div class="h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="An intimate outdoor garden anniversary party set under olive trees with hanging fairy light canopies. Round dining tables with soft raw linen, vintage glassware, and blush floral centerpieces create a secluded, warm, and joyful twilight gathering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKPPS8lBfUbOt_OV4SsBVBi5aZ8UpW0pvD9e3NXwSkb0FxLsunVLGYjcLRHDe-5ZHQHp5hoILtlN-HVwoM4v20jslqwU3d2jMzfs_jGoVILCfhJmbXwG5aXJ8Rr1pMHWqOW-274yV-DayJ6Y2xolAzCMMcppP7CibBMJRnqcHMA4okT9Q-jKVeYM2esDtCQpDMVE1GlWSNzAIFuacVNbX3h_wUMKCuuEnfihr9Xi_ywNsagic3PZ0Y"/>
+<span class="absolute top-4 left-4 bg-surface/90 text-on-surface px-3 py-1 text-label-sm font-label-sm rounded-lg">Intimate Soirées</span>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Private Celebrations</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
+              Intimate anniversaries, milestone birthdays, and garden soirées executed with high privacy and personalized aesthetic details.
+            </p>
+<a class="inline-flex items-center gap-2 text-primary font-label-md text-label-md group-hover:translate-x-1 transition-transform" href="#contact">
+<span>Explore Service</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Service 5 -->
+<div class="bg-surface rounded-xl border border-surface-variant overflow-hidden group hover:border-primary-container transition-all lg:col-span-2">
+<div class="grid grid-cols-1 md:grid-cols-2 h-full">
+<div class="h-64 md:h-full overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A modern corporate awards gala banquet hall with architectural stage projection, dark slate and crimson accents, sleek linear centerpieces, and warm spotlighting reflecting across glassware. The scene exhibits restrained executive elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz6RwDmjtUlIjrBfSrpDUSVGAdJYokJrzLh4YN4tc4LWid6T865znJ9ksRnRONOJcATjKz6H0HSjYZg-vthY2_U0iI9cuZtlyBr1WN6-5kZpCKTmSQZHHADBTJbk1bpAvTXLPcL5DWl0UHqdS6WgcFT47qmf-pQXt9fuPdZIXUbiiCV_EC5YFlcSmsGtrouTU2RhlNQmbv-Yd_UoBDhEqX7_e8-DX455YxUoNoU6XGa7XrtxiYjCpF"/>
+<span class="absolute top-4 left-4 bg-surface/90 text-on-surface px-3 py-1 text-label-sm font-label-sm rounded-lg">Corporate Galas</span>
+</div>
+<div class="p-8 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Corporate Events &amp; Summits</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
+                  Gala banquets, immersive brand launches, and executive summits where architectural stage presence and punctual dining service define company prestige.
+                </p>
+<div class="space-y-2 mb-6">
+<div class="flex items-center gap-2 text-on-surface text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-primary text-base">check_circle</span>
+<span>Synchronized Audio-Visual Stage Backdrop</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-primary text-base">check_circle</span>
+<span>Banqueting for up to 2,000 Attendees</span>
+</div>
+</div>
+</div>
+<a class="inline-flex items-center gap-2 text-primary font-label-md text-label-md group-hover:translate-x-1 transition-transform" href="#contact">
+<span>Explore Service</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. FEATURED EVENT EXPERIENCE (Storytelling) -->
+<section class="py-space-3xl md:py-space-4xl">
+<div class="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+<div class="bg-surface-container-low rounded-xl border border-surface-variant overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-12">
+<div class="lg:col-span-7 relative h-[360px] sm:h-[450px] lg:h-auto min-h-[400px]">
+<img alt="Cinematic evening event celebration with fairy lights and warm candlelight" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VBnQ6XXlR1of1UJIEDTcAVItW0iuWeB_z_v16Bhfe--SqK3rtMJzy7GM1XbSh6ed-gYl6Bun2kIARGnVncIVu38hPUmU7H_3CjDMqBtFONgNw2OOHNgfWRcU8Ib8Q1rFoEMZA_95Ycx30gS3zo--Xo0DcaHKdLH-RL6sQIb_RCBz-ubhL9HvBOvbl7JfeR1Dlshs2_7yfF-U69s0Uh9YqGFVV3G4WJ11EP2zyDgZdwyjOVKq0pyG1p4_8"/>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent to-surface-container-low/20 hidden lg:block"></div>
+</div>
+<div class="lg:col-span-5 p-8 sm:p-12 lg:p-16 flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase mb-3">EXPERIENCE SPOTLIGHT</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface tracking-tight mb-6">
+              From Intimate Moments to Grand Celebrations
+            </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-8">
+              A wedding reception is not merely a scheduled dinner; it is an atmospheric memory tapestry. We compose lighting angles that soften skin tones, florals that release gentle fragrance as the evening cools, and pacing that allows genuine laughter to fill the room without hurry.
+            </p>
+<div class="grid grid-cols-2 gap-6 pt-6 border-t border-surface-variant">
+<div>
+<p class="font-headline-md text-headline-md text-primary">100%</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Bespoke Scenography</p>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-primary">Flawless</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Timeline Execution</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. CATERING FEATURE -->
+<section class="py-space-3xl md:py-space-4xl bg-surface-container border-y border-surface-variant">
+<div class="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+<!-- Text details -->
+<div class="lg:col-span-5 order-2 lg:order-1 space-y-6">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">CULINARY HOSPITALITY</span>
+<h2 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface tracking-tight">
+            Good Food Brings People Together
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Our master culinary team crafts tailored menus celebrating regional authenticity and seasonal flavors, accompanied by artful tablescapes and impeccable service.
+          </p>
+<div class="space-y-4 pt-2">
+<div class="flex items-start gap-4 pb-4 border-b border-surface-variant">
+<span class="material-symbols-outlined text-primary mt-1">restaurant</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface text-base font-semibold">Artisanal Regional Menus</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Traditional South Indian Sadhyas, fragrant Malabar Dum Biryanis, and curated pan-Asian live counters.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 pb-4 border-b border-surface-variant">
+<span class="material-symbols-outlined text-primary mt-1">local_dining</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface text-base font-semibold">Fine Plated Presentations</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Micro-botanicals, handcrafted stoneware, and temperature-perfect service synchronized with formal speeches.</p>
+</div>
+</div>
+</div>
+<div class="pt-4">
+<a class="inline-flex items-center justify-center bg-primary-container hover:bg-primary text-on-primary px-8 py-3.5 rounded-lg font-label-md text-label-md tracking-wider uppercase transition-all duration-200" href="#contact">
+              Explore Catering Menus
+            </a>
+</div>
+</div>
+<!-- Catering Photo -->
+<div class="lg:col-span-7 order-1 lg:order-2">
+<div class="relative rounded-xl overflow-hidden border border-surface-variant shadow-sm group">
+<img alt="Refined luxury catering and gourmet plated culinary presentation on ceramic stoneware" class="w-full h-[400px] md:h-[520px] object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1WPqrJOzDXny3YkQiYoAd660aK-QwzmngWnDjS9KRMb3nWQWZNlDDRW28-ySfOvP9xSCjdvSRaOp4P_JXC1DY3kKuG7e1SxVPQ6alrC6fFyIkl6KVn89quVDDe5GGJrIFAqsD7a6ue8cJQR8YSLY5v1oyICxpmhNkkSZCIV9E1HfhNAnkkJXl8OBIUUE87U8B5i0VUa7lb-GBOHkbDvDNi7666sdihIPHMxxstG5YnCxn3n7EuC3D75yQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+<div class="absolute bottom-6 left-6 text-surface-bright">
+<span class="font-label-caps text-label-caps text-tertiary-fixed tracking-widest uppercase">Culinary Artistry</span>
+<p class="font-headline-md text-headline-md text-surface-bright">Seasonal Regional Harvest Tasting</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. GALLERY / SELECTED WORK (Asymmetric Grid) -->
+<section class="py-space-3xl md:py-space-4xl" id="gallery">
+<div class="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+<div>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">SELECTED PORTFOLIO</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mt-2">
+            Moments Transformed Into Memory
+          </h2>
+</div>
+<a class="inline-flex items-center gap-2 text-primary font-label-md text-label-md hover:underline decoration-primary underline-offset-8" href="#contact">
+<span>View Full Portfolio Gallery</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Asymmetric Editorial Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Gallery 1 (7 cols) -->
+<div class="md:col-span-7 group relative rounded-xl overflow-hidden border border-surface-variant h-[340px] md:h-[440px]">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="An expansive luxury wedding pavilion with cascading ivory orchid chandeliers, soft amber floor lanterns, and dark wood banquet tables laid out with linen. The setting feels stately, architectural, and cinematic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChiyfzbLDv6YrBasAPT8fkzIOfv21qiafOB6MarsSyEMisblje_Mu5D4y3EIGhUNeZ8L_0axzLfRUMRqV_WIlZb5ZXmCAjTbwpQMXfXqKqMQFATgm_HLpROL30XOsc2oY1qiqBip96s5oNyGoxkL4bQVDWhuGY5bSrdDKU5FnrBEEIApiF-4l60djXo6p-Ccgd9FByg739glP-DWVA0OV8cK32fmSpTRZQOe0rJvGFlXO-1S7m6Dgl"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-transparent opacity-90 transition-opacity"></div>
+<div class="absolute bottom-6 left-6 right-6 text-surface-bright">
+<span class="font-label-caps text-label-caps text-tertiary-fixed tracking-wider uppercase">Wedding Decor</span>
+<h3 class="font-headline-md text-headline-md text-surface-bright mt-1">Pavilion Grand Gala</h3>
+<p class="font-body-sm text-body-sm text-surface-bright/80 mt-1">Calicut Heritage Convention Pavilion</p>
+</div>
+</div>
+<!-- Gallery 2 (5 cols) -->
+<div class="md:col-span-5 group relative rounded-xl overflow-hidden border border-surface-variant h-[340px] md:h-[440px]">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A minimal modern circular wedding floral arch dressed in cream garden roses, eucalyptus, and hanging dried pampas grass against a clean warm textured wall. High aesthetic luxury styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz7AURdD4qn402MhPw1hqFOPYcRVckW1ZqjGI5u-crl99hwCzowsOzqnzzTWCIjLUu4K4-OGEfO4fD_WqqOUbcpB6G6b0H8In5_OfMdXBqCWZ_X-KrbHkX8s8BKS6Z7JIYDSxAmCf-Jg39HH2ziBMltyBhUW_tRm5w5s0JuOSwVsug56YDbyOdzYz861YIDks7eCx4nS2vWlBbgf2zvav4PcpSvzXFMTWlVKLDFAY8vE1giMiX_RqA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-6 left-6 right-6 text-surface-bright">
+<span class="font-label-caps text-label-caps text-tertiary-fixed tracking-wider uppercase">Stage Styling</span>
+<h3 class="font-headline-md text-headline-md text-surface-bright mt-1">Floral Arch Sanctuary</h3>
+<p class="font-body-sm text-body-sm text-surface-bright/80 mt-1">Private Waterfront Estate</p>
+</div>
+</div>
+<!-- Gallery 3 (5 cols) -->
+<div class="md:col-span-5 group relative rounded-xl overflow-hidden border border-surface-variant h-[340px] md:h-[440px]">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A candlelit reception dining room enclosed in glass conservatory architecture with dozens of flickering pillar candles, delicate wine stemware, and lush olive branch garlands running down the long family table." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUTwQ8l5SOrTjjbTJGapS7_LwUXZp6oVgu_IUUN-zzBHcXIdJ1FZYKN1r_F6wHyxyuSDM1imID7y_-lToKcHGLJo6E021UD0cRDCHYKvTNuxy7aLwnAzT6fOzpVHTIXndj6Y6x-rJRB4Xos051kXhRlktRB10F97ExGzdVW4Cah0lNu6BbmCjIZrc6lg5-EZQBxDiGj7r932GWH7gDI4wLcHsE6_U3W7lIplASogTSUhL_Q_brmJtU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-6 left-6 right-6 text-surface-bright">
+<span class="font-label-caps text-label-caps text-tertiary-fixed tracking-wider uppercase">Reception Dining</span>
+<h3 class="font-headline-md text-headline-md text-surface-bright mt-1">The Candlelit Orangery</h3>
+<p class="font-body-sm text-body-sm text-surface-bright/80 mt-1">Kochi Coastal Residence</p>
+</div>
+</div>
+<!-- Gallery 4 (7 cols) -->
+<div class="md:col-span-7 group relative rounded-xl overflow-hidden border border-surface-variant h-[340px] md:h-[440px]">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Fine dining catering buffet spread featuring warm brass chafing dishes, hand-carved wooden platters with gourmet appetizers, fresh herbs, and soft overhead festoon bulbs creating a welcoming culinary experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa6KIlDaH_eSC-qIQMrmrko9A4Ics-PWv3lqdcUsln7iBRDsVWyIdhp6tWXzTIUmzHQPoZhnO1F10qMTJaGfoie3Xrcr6KdzWlFmVkT6A4v5pyW_0sXvT4mouHa1s8WRMpnHWtjQrhXfIzAwDeXkeVyH-luRulQz59HQ0Zo1E24m2r_LGyR2HOwb_J0ORJk7B2yRF9xp9RC9wTuq_FHJbfT_Bv8-50ErDHxgyhoY921hFLt4phR9Df"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-6 left-6 right-6 text-surface-bright">
+<span class="font-label-caps text-label-caps text-tertiary-fixed tracking-wider uppercase">Catering Experience</span>
+<h3 class="font-headline-md text-headline-md text-surface-bright mt-1">The Harvest Banquet</h3>
+<p class="font-body-sm text-body-sm text-surface-bright/80 mt-1">Kannur Bay Terrace</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 9. TEAM / HUMAN SIDE SECTION -->
+<section class="py-space-3xl md:py-space-4xl bg-surface-container-low border-t border-surface-variant">
+<div class="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+<div class="max-w-3xl mx-auto text-center mb-16">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">BEHIND THE ARTISTRY</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mt-2 mb-4">
+          The People Behind Every Celebration
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          From stage carpenters and master floral florists to sous chefs and floor hosts, Malabar Decorators is a collective of dedicated artisans who take quiet pride in perfection behind the curtains.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="p-8 bg-surface rounded-xl border border-surface-variant text-center">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mx-auto mb-6 text-primary">
+<span class="material-symbols-outlined text-3xl">architecture</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Stage Architects &amp; Carpenters</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Constructing precise load-bearing arches, customized stepped podiums, and seamless fabric canopies built for rock-solid stability.
+          </p>
+</div>
+<div class="p-8 bg-surface rounded-xl border border-surface-variant text-center">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mx-auto mb-6 text-primary">
+<span class="material-symbols-outlined text-3xl">spa</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Botanical &amp; Floral Stylists</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Selecting local and Dutch blooms at dawn, cold-conditioning petals, and arranging organic flowing cascades for enduring freshness.
+          </p>
+</div>
+<div class="p-8 bg-surface rounded-xl border border-surface-variant text-center">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mx-auto mb-6 text-primary">
+<span class="material-symbols-outlined text-3xl">room_service</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Executive Chefs &amp; Banqueting Crew</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Preparing regional spice blends from scratch and coordinating service timing so each course is served at prime temperature.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 10. TESTIMONIAL / STORY SECTION -->
+<section class="py-space-3xl md:py-space-4xl">
+<div class="max-w-4xl mx-auto px-gutter-mobile md:px-gutter-tablet text-center">
+<span class="material-symbols-outlined text-5xl text-primary mb-6" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<blockquote class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface leading-tight mb-8">
+        “Malabar transformed our wedding venue into an ethereal, candlelit wonderland. The stage decor and dining experience left our guests captivated.”
+      </blockquote>
+<div class="flex flex-col items-center justify-center">
+<p class="font-headline-sm text-headline-sm text-primary">Elena &amp; Rohan</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Grand Pavilion Wedding, 2024</p>
+</div>
+<div class="flex items-center justify-center gap-2 mt-8">
+<span class="w-8 h-1 bg-primary rounded-full"></span>
+<span class="w-2 h-1 bg-surface-variant rounded-full"></span>
+<span class="w-2 h-1 bg-surface-variant rounded-full"></span>
+</div>
+</div>
+</section>
+<!-- 11. MOMENTS IN MOTION (Video Showcase) -->
+<section class="py-space-3xl md:py-space-4xl bg-inverse-surface text-surface-bright">
+<div class="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div>
+<span class="font-label-caps text-label-caps text-tertiary-fixed tracking-widest uppercase">MOMENTS IN MOTION</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-surface-bright mt-2">
+            Watch the Transformation Unfold
+          </h2>
+</div>
+<p class="font-body-sm text-body-sm text-surface-variant max-w-sm">
+          A glimpse into the hours of quiet preparation that lead to an unforgettable celebration evening.
+        </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Video Canvas Thumbnail -->
+<div class="lg:col-span-8 relative rounded-xl overflow-hidden border border-outline-variant/30 group">
+<img class="w-full h-[360px] md:h-[480px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A filmic wide shot of an evening seaside reception venue during sunset setup. Strings of warm ambient lights are strung across wooden pergola beams, with waitstaff polishing glassware in the background. The lighting is cinematic warm golden hour." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfqKlnaP7rc1Y0g6eZL26qDgw_zG6GC-b7WyxsvpCldTVoBPqHjM49UgutEm7gVLLPARSXShReDB-Y2c1-SxlNLxxEjVBgGgeHVHgZxA10OVskSB-YmJwOmvfqIBCbgJFmk9yWE5YG0iEUMseFqiH0maHFQPiIGGDTiQqZ1lSzfiznkKoriNUKqmmA6ioCXKd_DnvyqEDGgrmd24L4eMaS295IJ24PAIYD6DkEm2ZAL8GfWGA5rpLz"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<button aria-label="Play video showcase" class="w-20 h-20 rounded-full bg-surface-bright/20 backdrop-blur-md border border-surface-bright/40 flex items-center justify-center text-surface-bright hover:scale-110 hover:bg-primary-container transition-all">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<div class="absolute bottom-6 left-6 text-surface-bright">
+<span class="font-label-caps text-label-caps text-tertiary-fixed uppercase">Featured Documentary</span>
+<p class="font-headline-sm text-headline-sm">Wedding Setup — Coastal Estate</p>
+</div>
+</div>
+<!-- Video Chapters -->
+<div class="lg:col-span-4 space-y-4">
+<div class="p-4 bg-surface-container-low/10 rounded-lg border border-outline-variant/20 hover:border-tertiary-fixed transition-colors cursor-pointer flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-surface-variant/20 flex items-center justify-center text-tertiary-fixed shrink-0">
+<span class="material-symbols-outlined">movie</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-surface-bright text-base">Stage Transformation — Pavilion</p>
+<p class="font-body-sm text-body-sm text-surface-variant">Time-lapse of 14 hours of stage architecture</p>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low/10 rounded-lg border border-outline-variant/20 hover:border-tertiary-fixed transition-colors cursor-pointer flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-surface-variant/20 flex items-center justify-center text-tertiary-fixed shrink-0">
+<span class="material-symbols-outlined">outdoor_grill</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-surface-bright text-base">Event Dining — Candlelit Soirée</p>
+<p class="font-body-sm text-body-sm text-surface-variant">Culinary preparation &amp; silver service</p>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low/10 rounded-lg border border-outline-variant/20 hover:border-tertiary-fixed transition-colors cursor-pointer flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-surface-variant/20 flex items-center justify-center text-tertiary-fixed shrink-0">
+<span class="material-symbols-outlined">celebration</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-surface-bright text-base">Celebration Highlights</p>
+<p class="font-body-sm text-body-sm text-surface-variant">Client testimonials and final reveals</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 12. INSTAGRAM / SOCIAL GALLERY (5-Column Stream) -->
+<section class="py-space-3xl">
+<div class="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+<div class="text-center mb-10">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">DISPATCHES FROM THE FIELD</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mt-1 flex items-center justify-center gap-2">
+<span>@MalabarDecorators on Instagram</span>
+</h2>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+<!-- Insta 1 -->
+<div class="relative aspect-square rounded-lg overflow-hidden group border border-surface-variant">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" data-alt="Close up detail of a bride and groom's intertwined hands showing henna patterns and gold wedding rings with soft focused garden foliage in the background under daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChXVj429633tKVihBZtfRJpllVT0XZq6zHB-e4MLE-pugWu9NBKO-5cQEsBPmXdi5JxbBXvTXCVt_SpmzguD-6OQ5u99RfNaLzLdaJ2H7_xL3nacKZKXMmfoZVYNKxESik9oYZLw5FF4Kg9-HbVQCdEhWTbJTWGfulUA290wxJS3msmdO6LPLTolcv1JLqiOka7ic82YcstPFrzZz2av7fIbDgyNkbNeIxM17Dazqo5b4jl7GFWhDp"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+</div>
+</div>
+<!-- Insta 2 -->
+<div class="relative aspect-square rounded-lg overflow-hidden group border border-surface-variant">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" data-alt="Editorial close-up of a bespoke wedding centerpiece with creamy white gardenias, jasmine buds, and flickering tea light candles on draped ivory table fabric." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3kdCGa-GOJ3osNqKSn5lyEoNew89kyu2M83OVNekYtiD0FPjJPnIbOH4bvQo2A4in94ZYEWyzw29vLEqNZNWQp3RpUS-OPe2XhMQfAsVqzpfYDkOZOQH47G1W5fvwJyUIjORcHxnprpLiZWOYOua2DYkTTuM6_2FTkB9GM4iyUpxqK4bt3tpMoU1FFUiiZqEEPS7aZfDSTrGhA2XPOsKva8LLNE1pBnVTylAYC16VRLxo434-2kXm"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+</div>
+</div>
+<!-- Insta 3 -->
+<div class="relative aspect-square rounded-lg overflow-hidden group border border-surface-variant">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" data-alt="A cheerful newlywed couple laughing candidly as rose petals shower down upon them during their traditional marriage ceremony procession." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNB-hMEzfdoZ4oTnlp3B5LzJn6v1QoOuihBhhkYuT2qGOGXRjE82I-5nLSzP3zC8Yw2ked0Rrk0f7jjdsZ0IMepD7qIUo1zssnhxeUYdOE1UvF36kPf0NeVqSg_wsn_S-YSt4WVh80kn2AdWO47isHR090oeBbtSzLMsxHEQ3WUG_roFgvdqiQzva8B-4ZxD5oQwxFwVOnC5EJffgkzF0Bs1QPxYNa5YLSFzS1jbYxtl2iGV6lmbbc"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+</div>
+</div>
+<!-- Insta 4 -->
+<div class="relative aspect-square rounded-lg overflow-hidden group border border-surface-variant">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" data-alt="Chef delicately garnishing a heritage slow-cooked lamb preparation with edible micro-greens in an artisanal ceramic bowl before banquet service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxmknnHDbbju2KK4yN0pSwYqdfKFXiXsFBEFN8tiK33UI2_Ui4Wnxt8GWQnLHLsex88CeQbLOAHWmOb7TD2SgjWvyKza1l8qIkV9fzPCGlXsfl88P3xx6iIkJy9Wth694fR-abdDDWTHzerbEgMZBZ-aRIIGpzLjSCwET12rACwY6Aj1ZafOIilj8hiOyzSihtoX68f9xjdrNSrAU-CS-6YNV5Ziy5FACBE8YHyYdojALCQr1yBn2p"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+</div>
+</div>
+<!-- Insta 5 -->
+<div class="relative aspect-square rounded-lg overflow-hidden group border border-surface-variant col-span-2 sm:col-span-1">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" data-alt="Wide shot of a symmetrical wedding aisle adorned with towering glass vases filled with blossoming white cherry blossoms leading toward an architectural stage bathed in amber spotlighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsZMYcbS3DoRWFf1lOpxx2aeepIiYH1Rdbge8_nRA4p8Q4Rd7Y4Ad44xWJaVm-d19pS-xQd6W4Q_U1AbXrzgburo_yMNCt1Zn2aSDyZDr746lwf0Ywnt6BG--mgZiOTPXinn0hp0yncOf2T5zaPaYeA-Thi6AFXks3UO-bhV0pXKyGIN17S_VIDVoLYpTDy0cuiKRPhTwoq9eEjkzfVPmRD81oLZjZJ7XI_6ShqwNNlpED_ntt5Y3M"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 13. FINAL CTA SECTION -->
+<section class="py-space-3xl md:py-space-5xl bg-surface-container border-t border-surface-variant" id="contact">
+<div class="max-w-4xl mx-auto px-gutter-mobile md:px-gutter-tablet text-center">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-4">RESERVE YOUR DATE</span>
+<h2 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface tracking-tight mb-6">
+        Let’s Create Something Beautiful
+      </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed mb-10">
+        Whether an intimate family celebration or a grand destination wedding, our team is ready to bring your vision to life with architectural grace and warm hospitality.
+      </p>
+<form class="max-w-xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-8">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Your Full Name</label>
+<input class="w-full bg-surface border border-surface-variant rounded-lg px-4 py-3 text-body-md focus:border-primary focus:ring-0 outline-none text-on-surface" placeholder="e.g. Maya Nair" type="text"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Contact Phone</label>
+<input class="w-full bg-surface border border-surface-variant rounded-lg px-4 py-3 text-body-md focus:border-primary focus:ring-0 outline-none text-on-surface" placeholder="+91 98470 00000" type="tel"/>
+</div>
+<div class="sm:col-span-2">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Event Type &amp; Date</label>
+<input class="w-full bg-surface border border-surface-variant rounded-lg px-4 py-3 text-body-md focus:border-primary focus:ring-0 outline-none text-on-surface" placeholder="Wedding Reception — December 2025" type="text"/>
+</div>
+<div class="sm:col-span-2">
+<button class="w-full bg-primary-container hover:bg-primary text-on-primary py-4 rounded-lg font-label-md text-label-md tracking-widest uppercase transition-all duration-200" type="button">
+            Request Event Consultation
+          </button>
+</div>
+</form>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-6 text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">call</span>
+          +91 98470 29912
+        </span>
+<span class="hidden sm:inline">•</span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">mail</span>
+          concierge@malabardecorators.com
+        </span>
+<span class="hidden sm:inline">•</span>
+<span>Calicut • Kochi • Kannur</span>
+</div>
+</div>
+</section>
+<!-- 14. FOOTER (Shared Component Footer mapped from JSON) -->
+<footer class="bg-surface-container-low border-t border-surface-variant text-primary">
+<div class="w-full max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop py-space-3xl">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
+<!-- Brand identity -->
+<div class="lg:col-span-4 space-y-4">
+<a class="font-headline-md text-headline-md text-primary font-medium block" href="#">
+            Malabar Decorators
+          </a>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed max-w-sm">
+            Event Management, Stage Decoration &amp; Catering. Curating transcendent celebrations across Kerala and South India since 2008.
+          </p>
+<div class="pt-2">
+<span class="font-label-caps text-label-caps text-secondary uppercase block mb-2">Studio Headquarters</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Malabar Pavilion Lane, Beach Road, Calicut, Kerala 673001</p>
+</div>
+</div>
+<!-- Disciplines Links -->
+<div class="lg:col-span-3 space-y-3">
+<p class="font-label-caps text-label-caps text-on-surface uppercase tracking-wider">Disciplines</p>
+<ul class="space-y-2 font-body-sm text-body-sm">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#services">Wedding &amp; Reception Decor</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#services">Stage Decoration</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#services">Catering Services</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#services">Private Celebrations</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#services">Corporate Events</a></li>
+</ul>
+</div>
+<!-- Studio Links -->
+<div class="lg:col-span-2 space-y-3">
+<p class="font-label-caps text-label-caps text-on-surface uppercase tracking-wider">Studio</p>
+<ul class="space-y-2 font-body-sm text-body-sm">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#about">About Us</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#gallery">Portfolio Gallery</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#home">Client Stories</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#contact">Studio Correspondence</a></li>
+</ul>
+</div>
+<!-- Legal & Hours -->
+<div class="lg:col-span-3 space-y-3">
+<p class="font-label-caps text-label-caps text-on-surface uppercase tracking-wider">Direct Correspondence</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Consultations by private appointment Monday through Saturday.</p>
+<div class="pt-2">
+<a class="font-label-md text-label-md text-primary hover:underline" href="#contact">concierge@malabardecorators.com</a>
+</div>
+<div class="flex items-center space-x-4 pt-4 text-on-surface-variant">
+<a aria-label="Instagram" class="hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">photo_camera</span>
+</a>
+<a aria-label="Email" class="hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">mail</span>
+</a>
+<a aria-label="Location" class="hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">pin_drop</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Separation & Copyright Bar -->
+<div class="pt-8 border-t border-surface-variant flex flex-col sm:flex-row items-center justify-between gap-4 text-body-sm font-body-sm text-on-surface-variant">
+<p>© 2025 Malabar Decorators. All rights reserved.</p>
+<div class="flex items-center space-x-6">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

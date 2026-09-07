@@ -1,36 +1,112 @@
 @import "tailwindcss";
 
 @theme {
-  --font-heading: var(--font-heading), 'Cinzel', 'Playfair Display', Georgia, serif;
-  --font-serif: var(--font-serif), 'Playfair Display', Georgia, serif;
-  --font-sans: var(--font-sans), 'Plus Jakarta Sans', system-ui, sans-serif;
+  --color-on-tertiary-container: #ffb0a5;
+  --color-surface: #fff8f5;
+  --color-on-surface-variant: #59413d;
+  --color-on-tertiary-fixed-variant: #84241a;
+  --color-on-tertiary-fixed: #410001;
+  --color-secondary: #ab3600;
+  --color-on-tertiary: #ffffff;
+  --color-secondary-fixed-dim: #ffb59c;
+  --color-on-primary-fixed-variant: #8c170f;
+  --color-background: #fff8f5;
+  --color-tertiary-fixed-dim: #ffb4a9;
+  --color-on-primary-fixed: #410000;
+  --color-on-secondary-fixed-variant: #822700;
+  --color-inverse-surface: #33302d;
+  --color-primary-fixed-dim: #ffb4a9;
+  --color-tertiary-fixed: #ffdad5;
+  --color-surface-bright: #fff8f5;
+  --color-outline-variant: #e1bfba;
+  --color-on-surface: #1e1b19;
+  --color-tertiary: #72160f;
+  --color-error: #ba1a1a;
+  --color-secondary-container: #ff6e38;
+  --color-surface-container-low: #faf2ee;
+  --color-surface-variant: #e9e1dd;
+  --color-primary: #790504;
+  --color-primary-fixed: #ffdad5;
+  --color-secondary-fixed: #ffdbcf;
+  --color-on-secondary-container: #611b00;
+  --color-on-background: #1e1b19;
+  --color-surface-tint: #ae3024;
+  --color-on-primary: #ffffff;
+  --color-on-error-container: #93000a;
+  --color-on-error: #ffffff;
+  --color-outline: #8d716c;
+  --color-primary-container: #9b2218;
+  --color-surface-container: #f4ece8;
+  --color-surface-dim: #e0d8d5;
+  --color-tertiary-container: #922e23;
+  --color-inverse-primary: #ffb4a9;
+  --color-surface-container-high: #efe7e3;
+  --color-on-secondary-fixed: #390c00;
+  --color-on-primary-container: #ffb0a4;
+  --color-on-secondary: #ffffff;
+  --color-surface-container-lowest: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-inverse-on-surface: #f7efeb;
+  --color-surface-container-highest: #e9e1dd;
 
-  --color-maroon-950: #38070A;
-  --color-maroon-900: #4E0A0D;
-  --color-maroon-800: #6F1014;
-  --color-maroon-700: #7A1518;
-  --color-maroon-600: #8B1E23;
-  --color-maroon-500: #A2272E;
+  --font-headline-md: 'Playfair Display', serif;
+  --font-label-sm: 'Plus Jakarta Sans', sans-serif;
+  --font-headline-xl: 'Playfair Display', serif;
+  --font-body-lg: 'Plus Jakarta Sans', sans-serif;
+  --font-headline-sm: 'Playfair Display', serif;
+  --font-label-md: 'Plus Jakarta Sans', sans-serif;
+  --font-body-md: 'Plus Jakarta Sans', sans-serif;
+  --font-label-caps: 'Plus Jakarta Sans', sans-serif;
+  --font-headline-xl-mobile: 'Playfair Display', serif;
+  --font-body-sm: 'Plus Jakarta Sans', sans-serif;
+  --font-display-hero: 'Playfair Display', serif;
+  --font-display-hero-mobile: 'Playfair Display', serif;
+  --font-headline-lg-mobile: 'Playfair Display', serif;
+  --font-headline-lg: 'Playfair Display', serif;
 
-  --color-gold-600: #C59828;
-  --color-gold-500: #DFAE32;
-  --color-gold-400: #F2B93F;
-  --color-gold-300: #F7D06E;
-  --color-gold-200: #FCE6A8;
+  --spacing-gutter-mobile: 1rem;
+  --spacing-space-xs: 0.5rem;
+  --spacing-space-2xs: 0.25rem;
+  --spacing-gutter-desktop: 2.5rem;
+  --spacing-margin-desktop: 4rem;
+  --spacing-margin-mobile: 1.25rem;
+  --spacing-space-xl: 2rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-5xl: 9rem;
+  --spacing-space-3xl: 4.5rem;
+  --spacing-space-4xl: 6rem;
+  --spacing-space-sm: 0.75rem;
+  --spacing-space-2xl: 3rem;
+  --spacing-max-width: 1440px;
+  --spacing-margin-tablet: 2rem;
+  --spacing-space-md: 1rem;
+  --spacing-gutter-tablet: 1.5rem;
 
-  --color-ivory-50: #FAF8F2;
-  --color-ivory-100: #F7F3EA;
-  --color-ivory-200: #EFE8D7;
-  --color-ivory-300: #E4D7BE;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+}
 
-  --color-dark-900: #171110;
-  --color-dark-800: #241B18;
-  --color-dark-700: #362B27;
+@layer utilities {
+  .text-headline-md { font-size: 26px; line-height: 34px; letter-spacing: 0em; font-weight: 500; }
+  .text-label-sm { font-size: 12px; line-height: 16px; letter-spacing: 0.01em; font-weight: 500; }
+  .text-headline-xl { font-size: 48px; line-height: 56px; letter-spacing: -0.015em; font-weight: 400; }
+  .text-body-lg { font-size: 18px; line-height: 30px; letter-spacing: -0.005em; font-weight: 400; }
+  .text-headline-sm { font-size: 20px; line-height: 28px; letter-spacing: 0.01em; font-weight: 600; }
+  .text-label-md { font-size: 14px; line-height: 20px; letter-spacing: 0.02em; font-weight: 600; }
+  .text-body-md { font-size: 15px; line-height: 24px; letter-spacing: 0em; font-weight: 400; }
+  .text-label-caps { font-size: 11px; line-height: 16px; letter-spacing: 0.14em; font-weight: 700; }
+  .text-headline-xl-mobile { font-size: 32px; line-height: 40px; letter-spacing: -0.01em; font-weight: 500; }
+  .text-body-sm { font-size: 13px; line-height: 20px; letter-spacing: 0.01em; font-weight: 400; }
+  .text-display-hero { font-size: 64px; line-height: 72px; letter-spacing: -0.02em; font-weight: 500; }
+  .text-display-hero-mobile { font-size: 40px; line-height: 48px; letter-spacing: -0.01em; font-weight: 500; }
+  .text-headline-lg-mobile { font-size: 26px; line-height: 34px; letter-spacing: 0em; font-weight: 500; }
+  .text-headline-lg { font-size: 36px; line-height: 44px; letter-spacing: -0.01em; font-weight: 400; }
 }
 
 :root {
-  --background: #FAF8F2;
-  --foreground: #241B18;
+  --background: #fff8f5;
+  --foreground: #1e1b19;
 }
 
 html {
@@ -38,96 +114,27 @@ html {
 }
 
 body {
-  background-color: #FAF8F2;
-  color: #241B18;
-  font-family: var(--font-sans), 'Plus Jakarta Sans', system-ui, sans-serif;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-body-md);
   overflow-x: hidden;
 }
 
-/* Typography Helpers */
-.font-display {
-  font-family: var(--font-heading), var(--font-serif), 'Cinzel', 'Playfair Display', Georgia, serif;
-  letter-spacing: 0.02em;
-}
-
-/* Custom Text Gradients & Color Fade Effects */
-.gold-gradient-text {
-  background: linear-gradient(135deg, #FFE8A3 0%, #F2B93F 50%, #DFAE32 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.maroon-gradient-text {
-  background: linear-gradient(135deg, #A2272E 0%, #6F1014 55%, #38070A 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.dark-gradient-text {
-  background: linear-gradient(135deg, #171110 0%, #362B27 60%, #6F1014 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.gold-gradient-bg {
-  background: linear-gradient(135deg, #DFAE32 0%, #F2B93F 100%);
-}
-
-.maroon-gradient-bg {
-  background: linear-gradient(135deg, #6F1014 0%, #4E0A0D 100%);
-}
-
-/* Infinite Marquee Animation */
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 30s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #241B18;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #8B1E23;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #DFAE32;
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.no-scrollbar {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
+/* Material Icons Integration for NextJS + Tailwind */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
 }

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact &amp; Inquire — Malabar Decorators</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface": "#1e1b19",
+            "on-primary-fixed-variant": "#8c170f",
+            "on-primary-container": "#ffb0a4",
+            "secondary-container": "#ff6e38",
+            "on-error-container": "#93000a",
+            "inverse-on-surface": "#f7efeb",
+            "surface-container": "#f4ece8",
+            "outline-variant": "#e1bfba",
+            "on-background": "#1e1b19",
+            "on-tertiary-fixed-variant": "#84241a",
+            "surface-tint": "#ae3024",
+            "tertiary-container": "#922e23",
+            "secondary-fixed": "#ffdbcf",
+            "surface-container-lowest": "#ffffff",
+            "surface-dim": "#e0d8d5",
+            "on-secondary-fixed": "#390c00",
+            "surface": "#fff8f5",
+            "surface-container-highest": "#e9e1dd",
+            "background": "#fff8f5",
+            "surface-bright": "#fff8f5",
+            "primary-container": "#9b2218",
+            "on-surface-variant": "#59413d",
+            "tertiary": "#72160f",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed": "#410001",
+            "inverse-primary": "#ffb4a9",
+            "primary": "#790504",
+            "on-tertiary": "#ffffff",
+            "inverse-surface": "#33302d",
+            "on-secondary-container": "#611b00",
+            "primary-fixed": "#ffdad5",
+            "on-error": "#ffffff",
+            "outline": "#8d716c",
+            "surface-container-high": "#efe7e3",
+            "on-primary-fixed": "#410000",
+            "tertiary-fixed-dim": "#ffb4a9",
+            "on-secondary": "#ffffff",
+            "on-tertiary-container": "#ffb0a5",
+            "secondary-fixed-dim": "#ffb59c",
+            "on-secondary-fixed-variant": "#822700",
+            "on-primary": "#ffffff",
+            "primary-fixed-dim": "#ffb4a9",
+            "surface-container-low": "#faf2ee",
+            "error": "#ba1a1a",
+            "tertiary-fixed": "#ffdad5",
+            "secondary": "#ab3600",
+            "surface-variant": "#e9e1dd"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-4xl": "6rem",
+            "margin-tablet": "2rem",
+            "space-sm": "0.75rem",
+            "space-2xs": "0.25rem",
+            "space-xl": "2rem",
+            "margin-mobile": "1.25rem",
+            "space-xs": "0.5rem",
+            "max-width": "1440px",
+            "gutter-tablet": "1.5rem",
+            "space-3xl": "4.5rem",
+            "space-2xl": "3rem",
+            "space-md": "1rem",
+            "space-5xl": "9rem",
+            "gutter-desktop": "2.5rem",
+            "space-lg": "1.5rem",
+            "margin-desktop": "4rem",
+            "gutter-mobile": "1rem"
+          },
+          "fontFamily": {
+            "display-hero-mobile": ["Playfair Display"],
+            "headline-sm": ["Playfair Display"],
+            "headline-lg": ["Playfair Display"],
+            "headline-xl": ["Playfair Display"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-caps": ["Plus Jakarta Sans"],
+            "headline-md": ["Playfair Display"],
+            "display-hero": ["Playfair Display"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Playfair Display"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Playfair Display"]
+          },
+          "fontSize": {
+            "display-hero-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.14em", "fontWeight": "700" }],
+            "headline-md": ["26px", { "lineHeight": "34px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "display-hero": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+            "body-lg": ["18px", { "lineHeight": "30px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-surface text-on-surface antialiased font-body-md text-body-md selection:bg-primary selection:text-surface">
+<!-- TOP APP BAR -->
+<header class="sticky top-0 z-50 bg-surface border-b border-surface-variant">
+<div class="w-full max-w-max-width mx-auto flex items-center justify-between px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop h-20">
+<!-- Logo Anchor -->
+<a class="font-headline-md text-headline-md tracking-tight text-primary font-medium flex items-center gap-2" href="#">
+<span class="tracking-wider">Malabar Decorators</span>
+</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center space-x-8 text-label-md font-label-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 pb-1" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 pb-1" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 pb-1" href="#">Services</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 pb-1" href="#">Gallery</a>
+<!-- Active Nav: Contact -->
+<a class="text-primary border-b-2 border-primary pb-1 font-semibold" href="#">Contact</a>
+</nav>
+<!-- Trailing Action -->
+<div class="flex items-center gap-4">
+<a class="bg-primary-container text-on-primary px-7 py-3.5 rounded-lg text-label-md font-label-md uppercase tracking-wider hover:bg-primary transition-transform duration-200 active:scale-95 text-center" href="#inquiry-section">
+          Plan Your Event
+        </a>
+</div>
+</div>
+</header>
+<main class="w-full">
+<!-- HERO / HEADER SECTION -->
+<section class="pt-space-3xl pb-space-2xl border-b border-surface-variant bg-surface-container-lowest">
+<div class="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+<div class="max-w-3xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="w-8 h-px bg-primary"></span>
+<span class="text-label-caps font-label-caps text-secondary tracking-widest uppercase">
+              STUDIO CORRESPONDENCE &amp; BOOKINGS
+            </span>
+</div>
+<h1 class="font-display-hero text-display-hero text-on-surface tracking-tight mb-6">
+            Let’s Plan Something Extraordinary.
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            Whether envisioning an intimate coastal dinner or an architectural pavilion wedding, our studio is dedicated to bringing your celebration to life with bespoke precision and timeless poise.
+          </p>
+</div>
+</div>
+</section>
+<!-- TWO-COLUMN MAIN CONTACT LAYOUT -->
+<section class="py-space-4xl" id="inquiry-section">
+<div class="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+<!-- LEFT COLUMN: Direct Info, Studios & Guidance -->
+<div class="lg:col-span-5 flex flex-col justify-between space-y-12">
+<div>
+<div class="pb-6 border-b border-surface-variant">
+<span class="text-label-caps font-label-caps text-secondary tracking-widest block mb-2">CALICUT HEADQUARTERS</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-3">Studio Atelier</h2>
+<p class="text-on-surface-variant font-body-md leading-relaxed">
+                  Malabar Pavilion Lane, Beach Road<br/>
+                  Calicut, Kerala 673001, India
+                </p>
+</div>
+<!-- Contact Modes -->
+<div class="py-6 border-b border-surface-variant space-y-4">
+<div>
+<span class="text-label-caps font-label-caps text-outline uppercase block mb-1">Direct Inquiries</span>
+<div class="flex flex-col space-y-1">
+<a class="font-body-lg text-body-lg text-on-surface hover:text-primary transition-colors font-medium" href="tel:+919847029912">
+                      +91 98470 29912
+                    </a>
+<a class="font-body-lg text-body-lg text-on-surface hover:text-primary transition-colors font-medium" href="tel:+919847055500">
+                      +91 98470 55500
+                    </a>
+</div>
+</div>
+<div class="pt-2">
+<span class="text-label-caps font-label-caps text-outline uppercase block mb-1">Correspondence Email</span>
+<a class="font-body-md text-body-md text-primary hover:underline underline-offset-4" href="mailto:concierge@malabardecorators.com">
+                    concierge@malabardecorators.com
+                  </a>
+</div>
+</div>
+<!-- Hours & Access -->
+<div class="py-6 border-b border-surface-variant">
+<span class="text-label-caps font-label-caps text-outline uppercase block mb-2">Consultation Hours</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  By private appointment only.<br/>
+                  Monday through Saturday: 10:00 AM – 7:00 PM<br/>
+<span class="text-outline text-body-sm font-body-sm">Sunday: Reserved exclusively for event execution.</span>
+</p>
+</div>
+<!-- Regional Offices -->
+<div class="py-6 border-b border-surface-variant">
+<span class="text-label-caps font-label-caps text-secondary tracking-widest uppercase block mb-3">Regional Network</span>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded border border-surface-variant">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Kochi Office</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Panampilly Nagar, Waterfront Precinct</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded border border-surface-variant">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Dubai Liaison</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">DIFC Gate Avenue, UAE</p>
+</div>
+</div>
+</div>
+<!-- FAQ snippet -->
+<div class="pt-6">
+<div class="bg-surface-container-low p-6 rounded-lg border border-surface-variant">
+<div class="flex items-center gap-2 mb-2 text-primary">
+<span class="material-symbols-outlined text-headline-sm" data-icon="schedule">schedule</span>
+<h3 class="font-label-md text-label-md tracking-wide uppercase">When should we book?</h3>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                    To maintain strict creative integrity, our atelier undertakes a limited commission docket. We recommend securing dates <span class="text-on-surface font-semibold">4 to 8 months in advance</span> for peak regional wedding and festival months (October – March).
+                  </p>
+</div>
+</div>
+</div>
+<!-- Architectural Quote glyph -->
+<div class="flex items-center justify-start gap-4 pt-6 text-outline">
+<span class="h-px w-12 bg-surface-variant"></span>
+<span class="text-primary text-xs">◇</span>
+<span class="text-label-caps font-label-caps tracking-widest text-outline">MALABAR ARCHITECTURAL SCENOGRAPHY</span>
+</div>
+</div>
+<!-- RIGHT COLUMN: Comprehensive Event Inquiry Form -->
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest p-8 md:p-12 rounded-xl border border-surface-variant">
+<div class="mb-8">
+<span class="text-label-caps font-label-caps text-secondary tracking-widest uppercase block mb-1">Direct Commissioning</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Event Inquiry &amp; Proposal Request</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">
+                  Kindly outline the scope of your envisioned occasion. A dedicated scenographer will review your details and respond within 24 hours.
+                </p>
+</div>
+<form action="#" class="space-y-6" method="POST">
+<!-- Row 1: Full Name & WhatsApp/Phone -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-2" for="full-name">
+                      Full Name <span class="text-primary">*</span>
+</label>
+<input class="w-full bg-surface-container-low border border-surface-variant rounded px-4 py-3.5 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary font-body-md transition-colors" id="full-name" name="full-name" placeholder="e.g. Rohith Nambiar" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-2" for="phone">
+                      Phone Number &amp; WhatsApp <span class="text-primary">*</span>
+</label>
+<input class="w-full bg-surface-container-low border border-surface-variant rounded px-4 py-3.5 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary font-body-md transition-colors" id="phone" name="phone" placeholder="+91 98000 00000" required="" type="tel"/>
+</div>
+</div>
+<!-- Row 2: Email & Event Type -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-2" for="email">
+                      Email Address <span class="text-primary">*</span>
+</label>
+<input class="w-full bg-surface-container-low border border-surface-variant rounded px-4 py-3.5 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary font-body-md transition-colors" id="email" name="email" placeholder="name@domain.com" required="" type="email"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-2" for="event-type">
+                      Event Type <span class="text-primary">*</span>
+</label>
+<select class="w-full bg-surface-container-low border border-surface-variant rounded px-4 py-3.5 text-on-surface focus:outline-none focus:border-primary font-body-md transition-colors" id="event-type" name="event-type" required="">
+<option disabled="" selected="" value="">Select event scope...</option>
+<option value="wedding">Wedding &amp; Reception Decor</option>
+<option value="stage">Architectural Stage Decoration</option>
+<option value="catering">Artisanal Catering Services</option>
+<option value="private">Private Celebrations &amp; Galas</option>
+<option value="corporate">Corporate Events &amp; Summits</option>
+</select>
+</div>
+</div>
+<!-- Row 3: Estimated Date & Guest Count -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-2" for="event-date">
+                      Estimated Event Date <span class="text-primary">*</span>
+</label>
+<input class="w-full bg-surface-container-low border border-surface-variant rounded px-4 py-3.5 text-on-surface focus:outline-none focus:border-primary font-body-md transition-colors" id="event-date" name="event-date" required="" type="date"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-2" for="guest-count">
+                      Anticipated Guest Count
+                    </label>
+<select class="w-full bg-surface-container-low border border-surface-variant rounded px-4 py-3.5 text-on-surface focus:outline-none focus:border-primary font-body-md transition-colors" id="guest-count" name="guest-count">
+<option value="intimate">Intimate (&lt; 150 guests)</option>
+<option value="grand">Grand (150 – 500 guests)</option>
+<option value="monumental">Monumental (500 – 1,500+ guests)</option>
+</select>
+</div>
+</div>
+<!-- Row 4: Venue & Budget -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-2" for="venue">
+                      Venue / Destination City
+                    </label>
+<input class="w-full bg-surface-container-low border border-surface-variant rounded px-4 py-3.5 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary font-body-md transition-colors" id="venue" name="venue" placeholder="e.g. Raviz Kadavu, Calicut or Kumarakom" type="text"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-2" for="budget">
+                      Estimated Production Budget
+                    </label>
+<select class="w-full bg-surface-container-low border border-surface-variant rounded px-4 py-3.5 text-on-surface focus:outline-none focus:border-primary font-body-md transition-colors" id="budget" name="budget">
+<option selected="" value="">Prefer to discuss in consultation</option>
+<option value="range-1">₹15 Lakhs – ₹30 Lakhs</option>
+<option value="range-2">₹30 Lakhs – ₹60 Lakhs</option>
+<option value="range-3">₹60 Lakhs – ₹1.2 Crore</option>
+<option value="range-4">₹1.2 Crore+</option>
+</select>
+</div>
+</div>
+<!-- Vision & Celebration Details -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-2" for="vision">
+                    Celebration Details / Scenography Vision
+                  </label>
+<textarea class="w-full bg-surface-container-low border border-surface-variant rounded px-4 py-3.5 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary font-body-md transition-colors" id="vision" name="vision" placeholder="Describe your preferred spatial aesthetic, botanical preferences, or cultural ceremonies (e.g. Mughal floral arches, warm candlelight pavilions, heritage Kerala wood mandap)..." rows="4"></textarea>
+</div>
+<!-- Privacy check & button -->
+<div class="pt-2">
+<div class="flex items-start gap-3 mb-6">
+<input class="mt-1 h-4 w-4 rounded text-primary focus:ring-0 border-outline" id="privacy" required="" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" for="privacy">
+                      I understand that Malabar Decorators handles all personal records with absolute discretion. We do not distribute client details to outside event suppliers.
+                    </label>
+</div>
+<button class="w-full py-4 px-8 bg-primary-container text-on-primary rounded font-label-md text-label-md uppercase tracking-wider hover:bg-primary transition-all duration-200 active:scale-[0.99] flex items-center justify-center gap-2" type="submit">
+<span>Submit Event Inquiry</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: OUR CONSULTATION PROCESS -->
+<section class="py-space-3xl bg-surface-container-low border-y border-surface-variant">
+<div class="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="text-label-caps font-label-caps text-secondary tracking-widest uppercase block mb-2">THE ROAD TO REFINEMENT</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Our Consultation Process</h2>
+<div class="w-12 h-px bg-primary mx-auto mt-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+<!-- Step 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg border border-surface-variant relative flex flex-col justify-between">
+<div>
+<span class="font-display-hero text-surface-dim block mb-4 leading-none">01</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Initial Conversation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                Within 24 hours of submission, our lead correspondence director contacts you to understand timelines, spatial scales, and overarching dates.
+              </p>
+</div>
+<div class="pt-6 mt-6 border-t border-surface-variant text-label-caps font-label-caps text-primary">
+              RESPONSE WITHIN 24 HOURS
+            </div>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg border border-surface-variant relative flex flex-col justify-between">
+<div>
+<span class="font-display-hero text-surface-dim block mb-4 leading-none">02</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Studio Consultation &amp; Moodboard</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                A private session at our Calicut studio or virtual conference to explore architectural draping swatches, floral curation, and lighting blueprints.
+              </p>
+</div>
+<div class="pt-6 mt-6 border-t border-surface-variant text-label-caps font-label-caps text-primary">
+              CURATED MOODBOARD DRAFT
+            </div>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg border border-surface-variant relative flex flex-col justify-between">
+<div>
+<span class="font-display-hero text-surface-dim block mb-4 leading-none">03</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Bespoke Scenography Proposal</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                Comprehensive 3D layout projections, itemized logistical schedules, and artisan material reservations formalized for flawless execution.
+              </p>
+</div>
+<div class="pt-6 mt-6 border-t border-surface-variant text-label-caps font-label-caps text-primary">
+              CONTRACT &amp; DOCKET LOCK
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: STUDIO PRESENCE & DESTINATION VISUAL -->
+<section class="py-space-4xl">
+<div class="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-6 space-y-6">
+<span class="text-label-caps font-label-caps text-secondary tracking-widest uppercase">REGIONAL DESTINATIONS</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight leading-tight">
+              Executing Across Kerala &amp; Select Global Harbors.
+            </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+              From historic beachfront pavilions along Malabar's shoreline to private estate mandaps in Kochi, Wayanad highlands, and destination waterfronts in Dubai, our logistical teams orchestrate complete set builds with undisturbed grace.
+            </p>
+<div class="grid grid-cols-2 gap-4 pt-4">
+<div class="border-l-2 border-primary pl-4">
+<span class="font-headline-sm text-headline-sm text-on-surface block">Calicut &amp; Malabar</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Home territory &amp; central ateliers</span>
+</div>
+<div class="border-l-2 border-primary pl-4">
+<span class="font-headline-sm text-headline-sm text-on-surface block">Cochin &amp; Backwaters</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Resort &amp; heritage estates</span>
+</div>
+<div class="border-l-2 border-primary pl-4">
+<span class="font-headline-sm text-headline-sm text-on-surface block">Wayanad &amp; Coorg</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">High-altitude estate galas</span>
+</div>
+<div class="border-l-2 border-primary pl-4">
+<span class="font-headline-sm text-headline-sm text-on-surface block">Middle East / UAE</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Select destination weddings</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-6">
+<div class="relative rounded-xl overflow-hidden border border-surface-variant aspect-[16/10] bg-surface-container-high group">
+<img alt="Malabar Decorators pavilion gala" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An expansive, cinematic twilight outdoor reception set inside a grand timber pavilion featuring soaring wooden beams, ornate crystal chandeliers, and lavish long banquet tables decorated with pristine white orchids, lush hydrangeas, and soft glowing candlelight under an ivory ceiling. A refined light-mode aesthetic evokes pure architectural luxury and celebration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ9ewRPZcbLtDfA4VEZo70o-jwn0McuJtfAMVeTBKOtx7EzKgvuQ-7fuYGbRshE2nCMW2jG03afizC__gg1h3_vXB8rdktT8Y_k7QUfzFfujhYC3szu--_USPs9mkXIBfs4G2QA-zEP6aHR26HZSK26CT98788Jkny4F4C0JxGuWmpPc1PSDh5tXT1DF6R9pJvrNXu7y6e4jYbgCeIhaesZ3UlswVZipqRIdzozJK1-9HKxvdpdVXZ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-8">
+<div>
+<span class="text-label-caps font-label-caps text-on-primary uppercase tracking-wider block mb-1">FEATURED ARCHITECTURE</span>
+<p class="font-headline-sm text-headline-sm text-on-primary">The Coastal Timber Pavilion — Beach Road, Calicut</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="bg-surface-container-low border-t border-surface-variant">
+<div class="w-full max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop py-space-3xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-surface-variant">
+<!-- Brand Narrative -->
+<div class="md:col-span-2 space-y-4">
+<a class="font-headline-md text-headline-md text-primary font-medium block" href="#">
+            Malabar Decorators
+          </a>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-md leading-relaxed">
+            Pioneering architectural celebration design, heritage mandaps, and bespoke banquet environments with understated poise and structural grandeur across South India.
+          </p>
+<div class="pt-2 text-label-caps font-label-caps text-secondary uppercase">
+            Established in Kerala • Curating Globally
+          </div>
+</div>
+<!-- Curated Capabilities Links -->
+<div>
+<span class="text-label-caps font-label-caps text-on-surface uppercase tracking-wider block mb-4">Celebration Services</span>
+<ul class="space-y-2.5 text-body-sm font-body-sm">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Wedding &amp; Reception Decor</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Stage Decoration</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Catering Services</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Private Celebrations</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Corporate Events</a></li>
+</ul>
+</div>
+<!-- Studio & Governance Links -->
+<div>
+<span class="text-label-caps font-label-caps text-on-surface uppercase tracking-wider block mb-4">Direct Engagement</span>
+<ul class="space-y-2.5 text-body-sm font-body-sm">
+<li><a class="text-primary font-semibold" href="#">Studio Correspondence</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Terms of Service</a></li>
+<li class="pt-2">
+<span class="text-outline text-label-caps font-label-caps block mb-1">ATELIER DIRECT LINE</span>
+<span class="text-on-surface font-medium">+91 98470 29912</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Footer Bottom Baseline -->
+<div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+          © 2025 Malabar Decorators. All rights reserved.
+        </p>
+<div class="flex items-center gap-6 text-label-caps font-label-caps text-outline">
+<span>CALICUT</span>
+<span>•</span>
+<span>KOCHI</span>
+<span>•</span>
+<span>DUBAI</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
