@@ -1,4 +1,4 @@
-import { siteData } from "@/data/site";
+import { galleryData } from "@/data/gallery";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 export default function MomentsInMotion() {
@@ -7,8 +7,8 @@ export default function MomentsInMotion() {
             <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop mb-10">
                 <div className="flex flex-col sm:flex-row items-end justify-between gap-6">
                     <SectionHeader 
-                        overline={siteData.gallery.overline}
-                        headline={siteData.gallery.headline}
+                        overline={galleryData.overline}
+                        headline={galleryData.headline}
                         size="md"
                     />
                     <div className="flex items-center gap-3">
@@ -25,7 +25,7 @@ export default function MomentsInMotion() {
             {/* Horizontal Scrolling Strip */}
             <div className="pl-gutter-mobile md:pl-gutter-tablet lg:pl-gutter-desktop max-w-max-width mx-auto">
                 <div className="flex overflow-x-auto gap-6 pb-8 snap-x no-scrollbar pr-gutter-mobile md:pr-gutter-tablet lg:pr-gutter-desktop">
-                    {siteData.gallery.videos.map((video, idx) => (
+                    {galleryData.videos.map((video, idx) => (
                         <div key={idx} className="snap-start shrink-0 w-[280px] md:w-[400px] group cursor-pointer">
                             <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-surface-variant mb-4">
                                 <img 

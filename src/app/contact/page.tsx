@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { siteData } from "@/data/site";
+import { contactData } from "@/data/contact";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export default function ContactInquirePage() {
@@ -37,8 +37,8 @@ export default function ContactInquirePage() {
                 <div>
                   <h3 className="font-headline-sm text-headline-sm text-on-surface mb-1">Call Us</h3>
                   <p className="font-body-sm text-body-sm text-on-surface-variant mb-2">Speak directly with our event manager</p>
-                  <a href={`tel:${siteData.contact.phone.replace(/\s+/g, '')}`} className="font-label-md text-label-md text-primary font-semibold hover:underline">
-                    {siteData.contact.phoneDisplay}
+                  <a href={`tel:${contactData.phone.replace(/\s+/g, '')}`} className="font-label-md text-label-md text-primary font-semibold hover:underline">
+                    {contactData.phoneDisplay}
                   </a>
                 </div>
               </div>
@@ -50,8 +50,8 @@ export default function ContactInquirePage() {
                 <div>
                   <h3 className="font-headline-sm text-headline-sm text-on-surface mb-1">Email Us</h3>
                   <p className="font-body-sm text-body-sm text-on-surface-variant mb-2">Send us your detailed event brief</p>
-                  <a href={`mailto:${siteData.contact.email}`} className="font-label-md text-label-md text-primary font-semibold hover:underline">
-                    {siteData.contact.email}
+                  <a href={`mailto:${contactData.email}`} className="font-label-md text-label-md text-primary font-semibold hover:underline">
+                    {contactData.email}
                   </a>
                 </div>
               </div>
@@ -63,7 +63,7 @@ export default function ContactInquirePage() {
                 <div>
                   <h3 className="font-headline-sm text-headline-sm text-on-surface mb-1">Visit Office</h3>
                   <p className="font-body-sm text-body-sm text-on-surface-variant">
-                    {siteData.contact.address[0]}<br />{siteData.contact.address[1]}
+                    {contactData.address[0]}<br />{contactData.address[1]}
                   </p>
                 </div>
               </div>

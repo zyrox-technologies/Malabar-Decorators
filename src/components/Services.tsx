@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { siteData } from "@/data/site";
+import { servicesData } from "@/data/services";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Button from "@/components/ui/Button";
 
@@ -10,8 +10,8 @@ export default function Services() {
                 {/* Section Header */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6">
                     <SectionHeader 
-                        overline={siteData.services.overline}
-                        headline={siteData.services.headline}
+                        overline={servicesData.overline}
+                        headline={servicesData.headline}
                     />
                     <Button href="/#gallery" variant="link" className="hidden md:inline-flex">
                         <span>View all galleries</span>
@@ -21,7 +21,7 @@ export default function Services() {
 
                 {/* Services Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-                    {siteData.services.items.map((service, index) => (
+                    {servicesData.items.map((service, index) => (
                         <Link key={index} href={service.link} className="group block relative overflow-hidden rounded-xl h-[450px] lg:h-[600px]">
                             <img 
                                 alt={service.title} 

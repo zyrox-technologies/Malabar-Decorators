@@ -1,4 +1,4 @@
-import { siteData } from "@/data/site";
+import { pillarsData } from "@/data/pillars";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 export default function Pillars() {
@@ -6,14 +6,14 @@ export default function Pillars() {
         <section className="py-space-3xl md:py-space-4xl">
             <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
                 <SectionHeader 
-                    overline={siteData.pillars.overline}
-                    headline={siteData.pillars.headline}
+                    overline={pillarsData.overline}
+                    headline={pillarsData.headline}
                     align="center"
                     className="mb-16"
                 />
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {siteData.pillars.items.map((pillar, index) => (
+                    {pillarsData.items.map((pillar, index) => (
                         <div key={index} className="p-8 bg-surface-container-low border border-surface-variant rounded-xl flex flex-col justify-between hover:border-primary-container transition-colors duration-300">
                             <div>
                                 <span className="font-label-caps text-label-caps text-primary tracking-widest block mb-4">{pillar.id}</span>

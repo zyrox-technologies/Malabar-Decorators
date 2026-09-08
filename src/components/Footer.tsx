@@ -1,5 +1,8 @@
 import Link from "next/link";
-import { siteData } from "@/data/site";
+import { brandData } from "@/data/brand";
+import { contactData } from "@/data/contact";
+import { socialsData } from "@/data/socials";
+import { navLinksData } from "@/data/navLinks";
 
 export default function Footer() {
     return (
@@ -9,13 +12,13 @@ export default function Footer() {
                     {/* Brand Column (5 cols) */}
                     <div className="md:col-span-5 space-y-6">
                         <Link href="/" className="font-headline-md text-headline-md tracking-tight text-surface-bright font-medium block">
-                            {siteData.brand.name}
+                            {brandData.name}
                         </Link>
                         <p className="font-body-sm text-body-sm text-surface-bright/70 max-w-sm leading-relaxed">
-                            {siteData.brand.description}
+                            {brandData.description}
                         </p>
                         <div className="flex items-center gap-4 pt-4">
-                            {Object.entries(siteData.socials).map(([platform, link], index) => {
+                            {Object.entries(socialsData).map(([platform, link], index) => {
                                 const icons: Record<string, string> = {
                                     instagram: "photo_camera",
                                     facebook: "thumb_up",
@@ -34,7 +37,7 @@ export default function Footer() {
                     <div className="md:col-span-3">
                         <h4 className="font-label-caps text-label-caps text-surface-bright/50 uppercase tracking-widest mb-6">Explore</h4>
                         <ul className="space-y-4 font-label-md text-label-md text-surface-bright/80">
-                            {siteData.navLinks.map((link, index) => (
+                            {navLinksData.map((link, index) => (
                                 <li key={index}><Link href={link.href} className="hover:text-primary-fixed transition-colors">{link.label}</Link></li>
                             ))}
                         </ul>
@@ -46,15 +49,15 @@ export default function Footer() {
                         <ul className="space-y-5 font-body-sm text-body-sm text-surface-bright/80">
                             <li className="flex items-start gap-3">
                                 <span className="material-symbols-outlined text-primary-fixed text-lg mt-0.5">location_on</span>
-                                <span>{siteData.contact.address[0]}<br/>{siteData.contact.address[1]}</span>
+                                <span>{contactData.address[0]}<br/>{contactData.address[1]}</span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="material-symbols-outlined text-primary-fixed text-lg">call</span>
-                                <a className="hover:text-primary-fixed transition-colors" href={`tel:${siteData.contact.phone.replace(/\s+/g, '')}`}>{siteData.contact.phoneDisplay}</a>
+                                <a className="hover:text-primary-fixed transition-colors" href={`tel:${contactData.phone.replace(/\s+/g, '')}`}>{contactData.phoneDisplay}</a>
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="material-symbols-outlined text-primary-fixed text-lg">mail</span>
-                                <a className="hover:text-primary-fixed transition-colors" href={`mailto:${siteData.contact.email}`}>{siteData.contact.email}</a>
+                                <a className="hover:text-primary-fixed transition-colors" href={`mailto:${contactData.email}`}>{contactData.email}</a>
                             </li>
                         </ul>
                     </div>
@@ -62,7 +65,7 @@ export default function Footer() {
 
                 {/* Bottom Bar */}
                 <div className="pt-8 border-t border-surface-bright/10 flex flex-col md:flex-row items-center justify-between gap-4 font-body-sm text-body-sm text-surface-bright/40">
-                    <p>© {new Date().getFullYear()} {siteData.brand.name}. All rights reserved.</p>
+                    <p>© {new Date().getFullYear()} {brandData.name}. All rights reserved.</p>
                     <div className="flex gap-6">
                         <a className="hover:text-surface-bright/70 transition-colors" href="#">Privacy Policy</a>
                         <a className="hover:text-surface-bright/70 transition-colors" href="#">Terms of Service</a>

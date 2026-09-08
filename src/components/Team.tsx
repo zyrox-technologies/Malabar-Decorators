@@ -1,4 +1,4 @@
-import { siteData } from "@/data/site";
+import { teamData } from "@/data/team";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 export default function Team() {
@@ -7,14 +7,14 @@ export default function Team() {
             <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
                 {/* Section Header */}
                 <SectionHeader 
-                    overline={siteData.team.overline}
-                    headline={siteData.team.headline}
+                    overline={teamData.overline}
+                    headline={teamData.headline}
                     align="center"
                     className="mb-16"
                 />
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-                    {siteData.team.members.map((member, index) => (
+                    {teamData.members.map((member, index) => (
                         <div key={index} className="group">
                             <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden mb-6 border border-surface-variant">
                                 <img 

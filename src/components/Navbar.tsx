@@ -4,7 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { siteData } from "@/data/site";
+import { brandData } from "@/data/brand";
+import { navLinksData } from "@/data/navLinks";
+import { heroData } from "@/data/hero";
 import Button from "@/components/ui/Button";
 
 export default function Navbar() {
@@ -19,7 +21,7 @@ export default function Navbar() {
                     <div className="relative w-32 h-10 shrink-0 flex items-center">
                         <Image
                             src="/LOGO/image1.png"
-                            alt={`${siteData.brand.name} Logo`}
+                            alt={`${brandData.name} Logo`}
                             fill
                             className="object-contain object-left h-auto w-10"
                         />
@@ -28,7 +30,7 @@ export default function Navbar() {
 
                 {/* Desktop Navigation Cluster */}
                 <nav className="hidden md:flex items-center space-x-8">
-                    {siteData.navLinks.map((link, index) => {
+                    {navLinksData.map((link, index) => {
                         const isActive = link.href === "/" 
                             ? pathname === "/" 
                             : pathname?.startsWith(link.href);
@@ -52,7 +54,7 @@ export default function Navbar() {
                         className="hidden sm:inline-flex"
                         size="sm"
                     >
-                        {siteData.hero.primaryCta.label}
+                        {heroData.primaryCta.label}
                     </Button>
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -70,7 +72,7 @@ export default function Navbar() {
             {mobileMenuOpen && (
                 <div className="md:hidden absolute top-full left-0 w-full bg-surface border-b border-surface-variant px-gutter-mobile py-6 shadow-xl">
                     <nav className="flex flex-col space-y-4">
-                        {siteData.navLinks.map((link, index) => {
+                        {navLinksData.map((link, index) => {
                             const isActive = link.href === "/" 
                                 ? pathname === "/" 
                                 : pathname?.startsWith(link.href);

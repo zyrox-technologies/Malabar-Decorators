@@ -1,4 +1,4 @@
-import { siteData } from "@/data/site";
+import { instagramData } from "@/data/instagram";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Button from "@/components/ui/Button";
 
@@ -9,12 +9,12 @@ export default function Instagram() {
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row items-center justify-between mb-10 gap-4 text-center sm:text-left">
                     <SectionHeader 
-                        headline={siteData.instagram.handle}
-                        subheadline={siteData.instagram.description}
+                        headline={instagramData.handle}
+                        subheadline={instagramData.description}
                         size="sm"
                     />
                     <Button 
-                        href={siteData.instagram.link} 
+                        href={instagramData.link} 
                         external 
                         variant="surface"
                         size="sm"
@@ -25,7 +25,7 @@ export default function Instagram() {
 
                 {/* Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
-                    {siteData.instagram.posts.map((post, index) => (
+                    {instagramData.posts.map((post, index) => (
                         <a key={index} href={post.link} target="_blank" rel="noopener noreferrer" className="relative w-full aspect-square rounded-lg overflow-hidden group border border-surface-variant">
                             <img 
                                 alt={post.alt} 
