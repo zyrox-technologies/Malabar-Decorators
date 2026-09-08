@@ -15,7 +15,7 @@ export default function Team() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
                     {teamData.members.map((member, index) => (
-                        <div key={index} className="group">
+                        <div key={index} className="group relative bg-white/10 backdrop-blur-md rounded-xl border border-white/20 p-4 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
                             <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden mb-6 border border-surface-variant">
                                 <img 
                                     alt={`Portrait of ${member.role}`} 
