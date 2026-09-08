@@ -38,7 +38,7 @@ export default function ServicesPage() {
       malayalam: "റോയൽ നിക്കാഹ് & റിസപ്ഷൻ സ്‌റ്റേജ്",
       shortDesc: "Bespoke stage designs featuring premium floral backdrops, crystal chandeliers, luxury plush seating, and warm ambient lighting.",
       fullDesc: "We design and execute world-class wedding stages tailored to your family's traditions and modern aesthetics. From traditional white and gold drapes to opulent floral arches and crystal backdrop chandeliers, every element is curated to create an unforgettable setting for your special day.",
-      image: "/service/file_00000000031081fa834f12ca0ea5b50d.png",
+      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-c0b95t3sru.jpg",
       features: [
         "Customized Backdrop Floral Archways",
         "Royal Bride & Groom Maharaja Sofa Seating",
@@ -57,7 +57,7 @@ export default function ServicesPage() {
       malayalam: "മലബാർ കല്യാണ കാറ്ററിംഗ് സദ്യ & ബിരിയാണി",
       shortDesc: "Authentic Malabar Dum Biryani, Mandi, Ghee Rice, traditional Sadhya, live cooking counters, and delicious homemade desserts.",
       fullDesc: "Our master Malabar chefs bring decades of culinary tradition to your event. Prepared with pure cow ghee, premium Kaima rice, and authentic hand-ground spices in traditional copper cauldrons (chembu), our feast is loved by thousands across Malappuram, Kozhikode, Wayanad, and Palakkad.",
-      image: "/service/file_000000003f2081faa2f8fe4fef914b6c.png",
+      image: "/Malabar-imges/malabar-decorators-kasaragod-caterers-hh34cc8r6a.jpg",
       features: [
         "Famous Malabar Dum Biriyani (Chicken/Mutton)",
         "Traditional Slow-Smoked Kuzhimanthi",
@@ -76,7 +76,7 @@ export default function ServicesPage() {
       malayalam: "ഹൽദി & മെഹന്ദി ഡെക്കറേഷൻ",
       shortDesc: "Vibrant yellow and orange flower arrangements, marigold drapes, brass urlis, wooden swings, and festive photo booths.",
       fullDesc: "Bring color and joy to your pre-wedding celebrations. Our Haldi and Mehendi setups include traditional marigold floral strings, brass Urlis filled with flower petals, handcrafted wooden Jhulas (swings), and colorful drapes for photos.",
-      image: "/service/file_0000000074e881fa996b7468b88652b4.png",
+      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-eyuu9lnc79.jpg",
       features: [
         "Fresh Yellow & Orange Marigold Garland Canopy",
         "Traditional Decorated Wooden Swing (Jhula)",
@@ -95,7 +95,7 @@ export default function ServicesPage() {
       malayalam: "ഔട്ട്‌ഡോർ & റിസോർട്ട് ഡെക്കറേഷൻ",
       shortDesc: "Magical fairy light canopies, entrance welcome tunnels, open-air lawn stages, and dreamy evening illumination.",
       fullDesc: "Transform open-air lawns, resorts, and outdoor venues into fairy-tale settings. Features warm string light canopies overhead, flower-lined aisle pathways, rustic wooden welcome boards, and romantic photo corners.",
-      image: "/service/file_000000009420820b9bff46071f57ae0d.png",
+      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-fo6zj2ua32.jpg",
       features: [
         "Heavy Fairy Light Canopy Over Head",
         "Aisle Pathway Floral Pillars & Red Carpet",
@@ -114,7 +114,7 @@ export default function ServicesPage() {
       malayalam: "ഫോഗ് സ്മോക്ക് & കോൾഡ് പൈറോ എൻട്രി",
       shortDesc: "Breathtaking dry ice low fog smoke clouds, smokeless cold fire sparklers, and grand stage entry pyrotechnics.",
       fullDesc: "Make the bride and groom entry an unforgettable highlight. Our low-lying fog machine creates a dreamy cloud effect on stage, complemented by safe, smokeless cold fire sparklers that shoot golden sparks during cake cutting or ring exchange.",
-      image: "/service/file_00000000b464820b963a97bd17a2c97d.png",
+      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-jxc2zhzj3s.jpg",
       features: [
         "Heavy Low-Lying Dry Ice Fog Cloud Machine",
         "Cold Pyro Fire Sparklers (Indoor Safe)",
@@ -133,7 +133,7 @@ export default function ServicesPage() {
       malayalam: "ലൈവ് ഫുഡ് & ടീ കൗണ്ടറുകൾ",
       shortDesc: "Hot Neypathal, Dosa, Jalebi, fresh fruit juices, and authentic Malabar Colour Tea served live to your guests.",
       fullDesc: "Elevate your guest experience with live interactive cooking stalls. Watch hot Neypathals puff up, enjoy freshly fried Jalebis, or sip on traditional piping hot Malabar Sulaimani and Colour Tea served by skilled chefs.",
-      image: "/service/file_00000000eb9881fab921c9342b3b0d2b.png",
+      image: "/Malabar-imges/malabar-decorators-kasaragod-caterers-pnxxplvci4.jpg",
       features: [
         "Live Malabar Neypathal & Vellappam Stalls",
         "Hot Jalebi & Mysore Pak Live Sweet Counter",
@@ -152,7 +152,7 @@ export default function ServicesPage() {
       malayalam: "വീടുമാറൽ & ബർത്ത്ഡേ ഡെക്കറേഷൻ",
       shortDesc: "Customized balloon arches, floral main door Toran, traditional oil lamps, and theme birthday backdrops.",
       fullDesc: "Complete decoration solutions for housewarming ceremonies, birthday celebrations, cradle ceremonies, and family gatherings. Designed to match your home ambiance and budget perfectly.",
-      image: "/Decoration/file_00000000e8f8820bb6b4b4dcaff4fbb3.png",
+      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-k2nr5izcvw.jpg",
       features: [
         "Traditional Fresh Flower Door Garlands & Toran",
         "Entrance Nilavilakku & Urli Styling",
