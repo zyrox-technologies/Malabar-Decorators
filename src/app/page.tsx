@@ -5,7 +5,6 @@ import Pillars from "@/components/Pillars";
 import Services from "@/components/Services";
 import Storytelling from "@/components/Storytelling";
 import MomentsInMotion from "@/components/MomentsInMotion";
-import Team from "@/components/Team";
 import Instagram from "@/components/Instagram";
 import Footer from "@/components/Footer";
 
@@ -21,7 +20,6 @@ export default function Home() {
         <Services />
         <Storytelling />
         <MomentsInMotion />
-        <Team />
         <Instagram />
       </main>
 
