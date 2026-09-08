@@ -28,7 +28,7 @@ export const siteData = {
     primaryCta: { label: "Plan Your Event", href: "/contact" },
     secondaryCta: { label: "Explore Our Work", href: "/services" },
     featured: {
-      image: "/Malabar-imges/malabar-decorators-karandakkad-kasaragod-flower-decorators-3gfqv2nr6m.jpg",
+      image: "/hero section/file_00000000eb0c820bbe3fae738cbee3e7.png",
       overline: "Signature Scenography",
       title: "The Royal Pavilion Wedding",
       tags: ["Bespoke Lighting", "Floral Architecture", "Banqueting"],
@@ -43,7 +43,7 @@ export const siteData = {
     ],
     cta: { label: "Learn about our curation method", href: "/#services" },
     image: {
-      src: "/Malabar-imges/malabar-decorators-karandakkad-kasaragod-flower-decorators-vajfq0rkn4.jpg",
+      src: "/about/file_000000000188820bafb49a41007c1577.png",
       alt: "Editorial wedding stage scenography and floral backdrop",
       captionOverline: "Couture Stagecraft",
       captionTitle: "Minimalist Mandap Scenography"
@@ -86,19 +86,19 @@ export const siteData = {
       {
         title: "Stage Decoration",
         description: "Bespoke architectural backdrops, couture floristry, and lighting design for unforgettable wedding ceremonies.",
-        image: "/Malabar-imges/malabar-decorators-kasaragod-caterers-23js5i5o0x.jpg",
+        image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-7zd2hwxz3r.jpg",
         link: "#"
       },
       {
-        title: "Culinary Excellence",
+        title: "Creating Moments",
         description: "Authentic regional banquets, modern gastronomy, and impeccable table-side hospitality.",
-        image: "/Malabar-imges/malabar-decorators-kasaragod-caterers-2lgugllfij.jpg",
+        image: "/Malabar/IMG-20260908-WA0056.jpg",
         link: "#"
       },
       {
         title: "Event Planning",
         description: "Comprehensive event orchestration, timeline management, and seamless on-the-day coordination.",
-        image: "/Malabar-imges/malabar-decorators-kasaragod-caterers-4zlz2a0u0a.jpg",
+        image: "/Malabar/file_00000000f3ec81fdbef58b3c1e902a94.png",
         link: "#"
       }
     ]
@@ -113,7 +113,7 @@ export const siteData = {
     ],
     cta: { label: "Begin your consultation", href: "/#contact" },
     image: {
-      src: "/Malabar-imges/malabar-decorators-kasaragod-caterers-66no9w8tf0.jpg",
+      src: "/Malabar/file_0000000054bc824391abca2865d59a8f.png",
       alt: "Close up of bespoke floral arrangement on a textured table setting"
     }
   },
@@ -148,22 +148,9 @@ export const siteData = {
     headline: "The Minds Behind the Magic",
     members: [
       {
-        name: "Amina Rahman",
-        role: "Lead Scenographer",
+        name: "Binoy Acharya",
         description: "Master of floral architecture and spatial flow. Amina ensures every venue feels intimate regardless of scale.",
-        image: "/Malabar-imges/malabar-decorators-kasaragod-caterers-bicyl8spie.jpg"
-      },
-      {
-        name: "Tariq Al-Fayed",
-        role: "Executive Chef",
-        description: "Curator of authentic regional banquets, blending generational recipes with modern gastronomic presentation.",
-        image: "/Malabar-imges/malabar-decorators-kasaragod-caterers-fqkn0z4wq3.jpg"
-      },
-      {
-        name: "Imran Khan",
-        role: "Technical Director",
-        description: "The invisible hand behind flawless lighting, soundscapes, and structural engineering that supports the magic.",
-        image: "/Malabar-imges/malabar-decorators-kasaragod-caterers-gpsxscvu2x.jpg"
+        image: "/Malabar/file_000000003c1c81f59e8990e4f9073aeb.png"
       }
     ]
   },
