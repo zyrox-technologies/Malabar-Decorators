@@ -17,13 +17,15 @@ export default function Navbar() {
         <header className="sticky top-0 z-50 bg-surface border-b border-surface-variant transition-all duration-200">
             <div className="w-full max-w-max-width mx-auto flex items-center justify-between px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop h-20">
                 {/* Brand Logo */}
-                <Link href="/" className="flex flex-col gap-1 group z-50">
-                    <div className="relative w-32 h-10 shrink-0 flex items-center">
+                <Link href="/" className="flex items-center group z-50">
+                    <div className="relative w-44 md:w-52 h-12 md:h-14 shrink-0 flex items-center">
                         <Image
                             src="/LOGO/image1.png"
                             alt={`${brandData.name} Logo`}
                             fill
-                            className="object-contain object-left h-auto w-10"
+                            sizes="(max-width: 768px) 176px, 208px"
+                            priority
+                            className="object-contain object-left transition-transform duration-200 group-hover:scale-[1.02]"
                         />
                     </div>
                 </Link>
