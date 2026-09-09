@@ -12,6 +12,10 @@ export const navLinksData = [
     "href": "/services"
   },
   {
+    "label": "Menu",
+    "href": "/menu"
+  },
+  {
     "label": "Gallery",
     "href": "/gallery"
   },
