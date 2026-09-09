@@ -6,6 +6,7 @@ import Services from "@/components/Services";
 import Storytelling from "@/components/Storytelling";
 import MomentsInMotion from "@/components/MomentsInMotion";
 import Instagram from "@/components/Instagram";
+import Reviews from "@/components/Reviews";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
         <Storytelling />
         <MomentsInMotion />
         <Instagram />
+        <Reviews />
       </main>
 
       <Footer />
