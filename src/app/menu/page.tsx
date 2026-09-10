@@ -28,40 +28,42 @@ export default function MenuPage() {
 
       <main className="flex-1">
         {/* Premium Menu Hero Banner */}
-        <section className="pt-16 pb-12 bg-surface-container-low border-b border-outline-variant/30 text-center relative overflow-hidden">
-          {/* Subtle Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[250px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+        <section className="pt-16 sm:pt-20 pb-12 sm:pb-16 bg-[#FAF6F0] border-b border-[#EAE2D8] text-center relative overflow-hidden">
+          {/* Subtle Ambient Glows */}
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#790504]/[0.03] rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#AB3600]/[0.03] rounded-full blur-3xl pointer-events-none" />
 
           <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop relative z-10">
-            <div className="inline-flex items-center justify-center gap-3 mb-3">
-              <span className="w-8 h-[1px] bg-secondary/60"></span>
-              <span className="font-label-caps text-[11px] text-secondary tracking-[0.25em] uppercase font-semibold">
-                MALABAR CATERING & BANQUETS • CURATED FEASTS
+            {/* Overline Capsule Badge */}
+            <div className="inline-flex items-center justify-center gap-2.5 px-4 py-1.5 rounded-full bg-[#790504]/5 border border-[#790504]/15 mb-5 shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#790504] animate-pulse" />
+              <span className="text-[11px] font-bold text-[#790504] tracking-[0.25em] uppercase">
+                MALABAR ROYAL BANQUETING & CATERING
               </span>
-              <span className="w-8 h-[1px] bg-secondary/60"></span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-on-surface max-w-4xl mx-auto leading-tight mb-4 font-normal">
-              Handcrafted Flavours For Every Celebration.
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1E1B19] max-w-4xl mx-auto leading-[1.15] mb-4 font-normal tracking-tight">
+              Culinary Artistry for Life&apos;s <br className="hidden sm:inline" />
+              <span className="text-[#790504] italic">Grandest Celebrations.</span>
             </h1>
             
-            <p className="font-body-sm text-sm md:text-base text-on-surface-variant max-w-2xl mx-auto leading-relaxed mb-6">
-              From copper-cauldron Dum Biriyanis and live tawa stations to authentic 21+ item Kerala Sadyas, explore our handcrafted culinary offerings.
+            <p className="text-sm md:text-base text-[#59413D] max-w-2xl mx-auto leading-relaxed mb-8 font-light">
+              From slow-cooked Dum Biriyanis in copper cauldrons to live tawa flatbreads and the ceremonial 21-item Kerala Sadya — explore our curated event feast offerings.
             </p>
 
             {/* Quick Feature Badges */}
-            <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-on-surface-variant font-medium">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface border border-outline-variant/40 shadow-xs">
-                <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
-                Live Cooking Counters
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs text-[#59413D] font-medium">
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-[#EAE2D8] shadow-xs">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#790504]" />
+                Live Cooking Stations
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface border border-outline-variant/40 shadow-xs">
-                <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
-                Authentic Kerala Sadya
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-[#EAE2D8] shadow-xs">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#790504]" />
+                Authentic 21-Item Sadya
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface border border-outline-variant/40 shadow-xs">
-                <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
-                100% Customized Menus
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-[#EAE2D8] shadow-xs">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#790504]" />
+                100% Customized Feasts
               </span>
             </div>
           </div>
