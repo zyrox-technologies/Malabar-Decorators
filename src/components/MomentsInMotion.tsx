@@ -375,26 +375,15 @@ export default function MomentsInMotion() {
               </div>
             </div>
 
-            {/* Video Player Stage with Ambient Backdrop Lighting */}
-            <div className="relative flex-1 flex items-center justify-center bg-stone-950 min-h-[300px] max-h-[66vh] sm:max-h-[70vh] overflow-hidden">
-              {/* Ambient Glow: dynamic blur of current thumbnail */}
-              <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
-                <img
-                  src={selectedVideo.thumbnail}
-                  alt=""
-                  className="w-full h-full object-cover filter blur-3xl opacity-30 scale-125 transition-all duration-700"
-                />
-                <div className="absolute inset-0 bg-stone-950/60 backdrop-blur-2xl" />
-                <div className="absolute inset-0 bg-radial from-transparent via-stone-950/70 to-stone-950" />
-              </div>
-
+            {/* Video Player Stage - Clean Solid Background */}
+            <div className="relative flex-1 flex items-center justify-center bg-black min-h-[300px] max-h-[66vh] sm:max-h-[70vh] overflow-hidden">
               {/* In-Modal Prev Carousel Button */}
               {activeVideoList.length > 1 && (
                 <button
                   type="button"
                   onClick={handleModalPrev}
                   aria-label="Previous Video"
-                  className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/40 hover:bg-black/80 backdrop-blur-md border border-white/20 text-white flex items-center justify-center shadow-xl transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer group"
+                  className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center shadow-xl border border-white/10 transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer group"
                 >
                   <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-0.5" />
                 </button>
@@ -406,7 +395,7 @@ export default function MomentsInMotion() {
                   type="button"
                   onClick={handleModalNext}
                   aria-label="Next Video"
-                  className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/40 hover:bg-black/80 backdrop-blur-md border border-white/20 text-white flex items-center justify-center shadow-xl transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer group"
+                  className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center shadow-xl border border-white/10 transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer group"
                 >
                   <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5" />
                 </button>
@@ -416,7 +405,7 @@ export default function MomentsInMotion() {
               <div className="relative z-10 max-h-[64vh] sm:max-h-[68vh] flex items-center justify-center p-2 sm:p-4">
                 <video
                   key={selectedVideo.src}
-                  className="max-h-[60vh] sm:max-h-[65vh] w-auto max-w-full rounded-xl shadow-2xl object-contain ring-1 ring-white/15"
+                  className="max-h-[60vh] sm:max-h-[65vh] w-auto max-w-full rounded-xl shadow-2xl object-contain"
                   src={selectedVideo.src}
                   controls
                   autoPlay
