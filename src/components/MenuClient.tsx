@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { menuCategories, MenuCategory, MenuItem } from "@/data/menu";
 import { 
@@ -184,26 +185,50 @@ export default function MenuClient() {
                   id={category.id}
                   className="scroll-mt-36"
                 >
-                  {/* Category Header with Editorial Typography */}
-                  <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 pb-5 border-b border-[#EAE2D8]">
-                    <div>
-                      <div className="flex items-center gap-2 mb-1.5">
-                        <span className="text-xs font-serif font-bold text-[#790504]">
+                  {/* Category Panoramic Food Photography Banner */}
+                  <div className="relative w-full h-48 sm:h-60 md:h-72 rounded-3xl overflow-hidden mb-8 sm:mb-10 border border-[#EAE2D8] shadow-md group">
+                    {/* Background Food Photography */}
+                    {category.bannerImage && (
+                      <Image
+                        src={category.bannerImage}
+                        alt={category.title}
+                        fill
+                        sizes="(max-width: 1280px) 100vw, 1280px"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                        priority={catIndex === 0}
+                      />
+                    )}
+
+                    {/* Cinematic Luxury Dark Scrim Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/25" />
+
+                    {/* Top Right Item Count Pill */}
+                    <div className="absolute top-4 right-4 sm:top-5 sm:right-6 z-10">
+                      <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-black/45 backdrop-blur-md border border-white/20 text-white text-xs font-mono tracking-wider">
+                        {category.items.length} Curated Items
+                      </span>
+                    </div>
+
+                    {/* Bottom Editorial Content Overlay */}
+                    <div className="absolute bottom-0 inset-x-0 p-5 sm:p-7 md:p-8 z-10 text-white flex flex-col justify-end">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-xs font-serif font-bold text-amber-300">
                           {String(catIndex + 1).padStart(2, "0")}
                         </span>
-                        <span className="text-[#AB3600]/40 text-xs">•</span>
-                        <span className="font-label-caps text-[11px] text-[#AB3600] tracking-[0.22em] uppercase font-bold">
+                        <span className="text-white/40 text-xs">•</span>
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-amber-500/20 backdrop-blur-md border border-amber-500/30 text-amber-300 text-[10px] font-bold tracking-[0.22em] uppercase">
                           {category.subtitle}
                         </span>
                       </div>
-                      <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#1E1B19] font-normal tracking-tight">
+
+                      <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-white font-normal drop-shadow-md tracking-tight">
                         {category.title}
                       </h2>
-                    </div>
 
-                    <p className="text-xs sm:text-sm text-[#59413D] max-w-md font-light leading-relaxed">
-                      {category.description}
-                    </p>
+                      <p className="text-xs sm:text-sm text-white/85 max-w-xl font-light leading-relaxed mt-1.5 drop-shadow-xs line-clamp-2 sm:line-clamp-none">
+                        {category.description}
+                      </p>
+                    </div>
                   </div>
 
                   {/* Items Grid - Elegant, Clean, Un-cluttered Cards */}
