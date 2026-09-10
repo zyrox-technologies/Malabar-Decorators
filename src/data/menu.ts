@@ -11,6 +11,7 @@ export interface MenuCategory {
   title: string;
   subtitle: string;
   description: string;
+  bannerImage: string;
   items: MenuItem[];
 }
 
@@ -20,6 +21,7 @@ export const menuCategories: MenuCategory[] = [
     title: "Welcome Drink / Live Juice",
     subtitle: "Refreshing Arrivals",
     description: "Freshly pressed chilled juices and fruit coolers to welcome your guests in style.",
+    bannerImage: "/menu-banners/welcome-drinks.jpg",
     items: [
       { id: "wd-1", name: "Water Melon", type: "veg" },
       { id: "wd-2", name: "Pappaya", type: "veg" },
@@ -33,6 +35,7 @@ export const menuCategories: MenuCategory[] = [
     title: "Main Dishes",
     subtitle: "Heart of the Feast",
     description: "Signature biriyanis, fragrant ghee rice, and fresh live flatbread counters crafted by master chefs.",
+    bannerImage: "/menu-banners/main-dishes.jpg",
     items: [
       { id: "m-1", name: "Chicken Biriyani", type: "non-veg" },
       { id: "m-2", name: "Mutton Biriyani", type: "non-veg" },
@@ -51,6 +54,7 @@ export const menuCategories: MenuCategory[] = [
     title: "Curry & Fries",
     subtitle: "Rich & Savory Accompaniments",
     description: "Authentic slow-roasted meats and aromatic vegetable preparations with traditional spices.",
+    bannerImage: "/menu-banners/curry-fries.jpg",
     items: [
       { id: "c-1", name: "Chicken curry", type: "non-veg" },
       { id: "c-2", name: "Chicken varattiyath", type: "non-veg" },
@@ -67,6 +71,7 @@ export const menuCategories: MenuCategory[] = [
     title: "Desserts",
     subtitle: "Sweet Endings & Live Sweets",
     description: "Traditional Malabar payasams, hot live counters, and chilled dessert delicacies.",
+    bannerImage: "/menu-banners/desserts.jpg",
     items: [
       { id: "d-1", name: "Ice Cream", type: "veg" },
       { id: "d-2", name: "Gulab jamun", type: "veg" },
@@ -82,6 +87,7 @@ export const menuCategories: MenuCategory[] = [
     title: "Beverages",
     subtitle: "Hydration & Hot Sips",
     description: "From live brewed Malabar colour tea to chilled juices and refreshments.",
+    bannerImage: "/menu-banners/beverages.jpg",
     items: [
       { id: "b-1", name: "Water & Soft Drinks", type: "veg" },
       { id: "b-2", name: "Juice Selection", type: "veg" },
@@ -94,6 +100,7 @@ export const menuCategories: MenuCategory[] = [
     title: "Kerala Sadya",
     subtitle: "പരമ്പരാഗത കേരള സദ്യ",
     description: "A lavish traditional feast served with ceremonial reverence on fresh green banana leaf.",
+    bannerImage: "/menu-banners/kerala-sadya.jpg",
     items: [
       { id: "s-1", name: "ചോറ്", malayalam: "Choru (Kerala Rice)", type: "veg" },
       { id: "s-2", name: "പരിപ്പ് & നെയ്യ്", malayalam: "Parippu & Pure Ghee", type: "veg" },
