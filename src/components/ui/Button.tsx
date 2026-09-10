@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import { twMerge } from 'tailwind-merge';
 
 type ButtonProps = {
   children: React.ReactNode;
@@ -38,8 +39,8 @@ export default function Button({
   };
 
   const combinedClasses = variant === 'link' 
-    ? `inline-flex items-center gap-2 text-primary font-label-md text-label-md hover:underline decoration-primary underline-offset-8 transition-all ${className}`
-    : `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
+    ? twMerge("inline-flex items-center gap-2 text-primary font-label-md text-label-md hover:underline decoration-primary underline-offset-8 transition-all", className)
+    : twMerge(baseClasses, sizeClasses[size], variantClasses[variant], className);
 
   if (href) {
     if (external) {

@@ -51,17 +51,18 @@ export default function Navbar() {
 
                 {/* Trailing Action Button */}
                 <div className="flex items-center space-x-4">
-                    <Button
-                        href="/contact"
-                        className="hidden sm:inline-flex"
-                        size="sm"
-                    >
-                        {heroData.primaryCta.label}
-                    </Button>
+                    <div className="hidden md:flex items-center">
+                        <Button
+                            href="/contact"
+                            size="sm"
+                        >
+                            {heroData.primaryCta.label}
+                        </Button>
+                    </div>
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         aria-label="Toggle navigation"
-                        className="md:hidden text-on-surface p-2 focus:outline-none"
+                        className="md:hidden text-on-surface p-2 focus:outline-none cursor-pointer"
                     >
                         <span className="material-symbols-outlined text-2xl">
                             {mobileMenuOpen ? 'close' : 'menu'}
@@ -72,8 +73,8 @@ export default function Navbar() {
 
             {/* Mobile Menu Dropdown */}
             {mobileMenuOpen && (
-                <div className="md:hidden absolute top-full left-0 w-full bg-surface border-b border-surface-variant px-gutter-mobile py-6 shadow-xl">
-                    <nav className="flex flex-col space-y-4">
+                <div className="md:hidden absolute top-full left-0 w-full bg-surface border-b border-surface-variant px-gutter-mobile py-6 shadow-xl animate-in slide-in-from-top-2 duration-200">
+                    <nav className="flex flex-col space-y-3">
                         {navLinksData.map((link, index) => {
                             const isActive = link.href === "/" 
                                 ? pathname === "/" 
@@ -84,13 +85,25 @@ export default function Navbar() {
                                     key={index}
                                     href={link.href} 
                                     onClick={() => setMobileMenuOpen(false)} 
-                                    className={`text-label-md font-label-md py-2 border-b border-surface-variant/50 ${isActive ? 'text-primary font-semibold' : 'text-on-surface-variant hover:text-primary'}`}
+                                    className={`text-label-md font-label-md py-2.5 border-b border-surface-variant/50 ${isActive ? 'text-primary font-semibold' : 'text-on-surface-variant hover:text-primary'}`}
                                 >
                                     {link.label}
                                 </Link>
                             );
                         })}
                     </nav>
+
+                    {/* Mobile Menu 'Plan Your Event' Action Button */}
+                    <div className="pt-5 mt-2">
+                        <Button
+                            href="/contact"
+                            className="w-full justify-center text-center py-3"
+                            size="md"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            {heroData.primaryCta.label}
+                        </Button>
+                    </div>
                 </div>
             )}
         </header>
