@@ -50,11 +50,6 @@ export default function Footer() {
               />
             </Link>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-[#790504]/25 text-[#ffb4a9] border border-[#790504]/40 block w-fit">
-              <Sparkles className="w-3 h-3 text-[#ffb4a9]" />
-              Signature Event Craft & Decor
-            </div>
-
             <p className="text-sm text-[#ded5ce]/80 max-w-sm leading-relaxed font-light">
               {brandData.description}
             </p>

@@ -3,6 +3,15 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { galleryData, GalleryVideo } from "@/data/gallery";
+import {
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+  Sparkles,
+  MessageCircle,
+  ArrowUpRight,
+} from "lucide-react";
 
 export default function MomentsInMotion() {
   const [activeCategory, setActiveCategory] = useState("All Videos");
@@ -10,11 +19,47 @@ export default function MomentsInMotion() {
   const [currentPage, setCurrentPage] = useState(0);
   const gridContainerRef = useRef<HTMLDivElement>(null);
 
-  // Close modal on Escape key press
+  // Filter videos based on active category
+  const filteredVideos =
+    activeCategory === "All Videos"
+      ? galleryData.videos
+      : galleryData.videos.filter((v) => v.category === activeCategory);
+
+  // Active playlist for modal navigation
+  const activeVideoList =
+    filteredVideos.length > 0 ? filteredVideos : galleryData.videos;
+  const currentModalIndex = selectedVideo
+    ? activeVideoList.findIndex((v) => v.id === selectedVideo.id)
+    : -1;
+
+  const handleModalPrev = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (currentModalIndex > 0) {
+      setSelectedVideo(activeVideoList[currentModalIndex - 1]);
+    } else {
+      setSelectedVideo(activeVideoList[activeVideoList.length - 1]);
+    }
+  };
+
+  const handleModalNext = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (currentModalIndex < activeVideoList.length - 1) {
+      setSelectedVideo(activeVideoList[currentModalIndex + 1]);
+    } else {
+      setSelectedVideo(activeVideoList[0]);
+    }
+  };
+
+  // Keyboard navigation for modal (Escape, ArrowLeft, ArrowRight)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (!selectedVideo) return;
       if (e.key === "Escape") {
         setSelectedVideo(null);
+      } else if (e.key === "ArrowLeft") {
+        handleModalPrev();
+      } else if (e.key === "ArrowRight") {
+        handleModalNext();
       }
     };
     if (selectedVideo) {
@@ -27,13 +72,7 @@ export default function MomentsInMotion() {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [selectedVideo]);
-
-  // Filter videos based on active category
-  const filteredVideos =
-    activeCategory === "All Videos"
-      ? galleryData.videos
-      : galleryData.videos.filter((v) => v.category === activeCategory);
+  }, [selectedVideo, currentModalIndex, activeVideoList]);
 
   // Top row (first 3) and bottom row (remaining up to 4) when showing all or filtered
   const topRowVideos = filteredVideos.slice(0, 3);
@@ -284,69 +323,145 @@ export default function MomentsInMotion() {
 
       </div>
 
-      {/* Video Modal / Lightbox Dialog */}
+      {/* Video Modal / Cinema Lightbox Dialog */}
       {selectedVideo && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-3 sm:p-6 md:p-8 animate-in fade-in duration-300"
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-xl p-2 sm:p-4 md:p-6 transition-all duration-300 animate-in fade-in"
           onClick={() => setSelectedVideo(null)}
         >
           {/* Modal Container */}
           <div
-            className="relative w-full max-w-4xl bg-stone-950 rounded-2xl overflow-hidden shadow-2xl border border-white/15 flex flex-col"
+            className="relative w-full max-w-5xl max-h-[92vh] bg-gradient-to-b from-stone-900/95 via-stone-950/98 to-stone-950 rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.85),0_0_50px_rgba(171,54,0,0.15)] border border-white/15 flex flex-col transition-all duration-300 animate-in zoom-in-95"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Top Amber Accent Line */}
+            <div className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-amber-400/60 to-transparent z-30" />
+
             {/* Modal Header */}
-            <div className="p-4 px-5 bg-stone-900/90 border-b border-white/10 flex items-center justify-between text-white">
-              <div>
-                <span className="text-[10px] uppercase font-bold tracking-widest text-secondary-fixed-dim block">
-                  {selectedVideo.categoryLabel}
-                </span>
-                <h4 className="font-serif text-lg font-medium text-white">
+            <div className="px-4 sm:px-7 py-3.5 sm:py-4 bg-stone-900/80 backdrop-blur-md border-b border-white/[0.08] flex items-center justify-between gap-4 text-white z-20">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-300 text-[10px] font-bold tracking-[0.2em] uppercase">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                    {selectedVideo.categoryLabel}
+                  </span>
+                  <span className="text-white/30 text-xs hidden sm:inline">•</span>
+                  <span className="text-[11px] text-white/50 tracking-wider hidden sm:inline uppercase">
+                    Cinema Preview
+                  </span>
+                </div>
+                <h4 className="font-serif text-lg sm:text-2xl font-normal text-white tracking-tight truncate">
                   {selectedVideo.title}
                 </h4>
               </div>
 
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedVideo(null)}
-                aria-label="Close video player"
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
-              >
-                <svg
-                  className="w-5 h-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+              {/* Right Header Controls (Counter + Close) */}
+              <div className="flex items-center gap-2.5 shrink-0">
+                {currentModalIndex >= 0 && (
+                  <span className="hidden sm:inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/70 text-xs font-mono tracking-wider">
+                    {String(currentModalIndex + 1).padStart(2, "0")} / {String(activeVideoList.length).padStart(2, "0")}
+                  </span>
+                )}
+                
+                <button
+                  onClick={() => setSelectedVideo(null)}
+                  aria-label="Close video player"
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer shadow-sm"
                 >
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              </button>
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
             </div>
 
-            {/* Video Player Area */}
-            <div className="relative flex items-center justify-center bg-black min-h-[300px] max-h-[75vh] overflow-hidden">
-              <video
-                className="max-h-[75vh] w-auto max-w-full object-contain"
-                src={selectedVideo.src}
-                controls
-                autoPlay
-                playsInline
-              />
+            {/* Video Player Stage with Ambient Backdrop Lighting */}
+            <div className="relative flex-1 flex items-center justify-center bg-stone-950 min-h-[300px] max-h-[66vh] sm:max-h-[70vh] overflow-hidden">
+              {/* Ambient Glow: dynamic blur of current thumbnail */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
+                <img
+                  src={selectedVideo.thumbnail}
+                  alt=""
+                  className="w-full h-full object-cover filter blur-3xl opacity-30 scale-125 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-stone-950/60 backdrop-blur-2xl" />
+                <div className="absolute inset-0 bg-radial from-transparent via-stone-950/70 to-stone-950" />
+              </div>
+
+              {/* In-Modal Prev Carousel Button */}
+              {activeVideoList.length > 1 && (
+                <button
+                  type="button"
+                  onClick={handleModalPrev}
+                  aria-label="Previous Video"
+                  className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/40 hover:bg-black/80 backdrop-blur-md border border-white/20 text-white flex items-center justify-center shadow-xl transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer group"
+                >
+                  <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-0.5" />
+                </button>
+              )}
+
+              {/* In-Modal Next Carousel Button */}
+              {activeVideoList.length > 1 && (
+                <button
+                  type="button"
+                  onClick={handleModalNext}
+                  aria-label="Next Video"
+                  className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/40 hover:bg-black/80 backdrop-blur-md border border-white/20 text-white flex items-center justify-center shadow-xl transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer group"
+                >
+                  <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5" />
+                </button>
+              )}
+
+              {/* Main Video Element */}
+              <div className="relative z-10 max-h-[64vh] sm:max-h-[68vh] flex items-center justify-center p-2 sm:p-4">
+                <video
+                  key={selectedVideo.src}
+                  className="max-h-[60vh] sm:max-h-[65vh] w-auto max-w-full rounded-xl shadow-2xl object-contain ring-1 ring-white/15"
+                  src={selectedVideo.src}
+                  controls
+                  autoPlay
+                  playsInline
+                />
+              </div>
             </div>
 
             {/* Modal Footer */}
-            <div className="p-3.5 px-5 bg-stone-900/90 flex items-center justify-between text-xs text-white/70">
-              <span>Duration: {selectedVideo.duration}</span>
-              <button
-                onClick={() => setSelectedVideo(null)}
-                className="px-4 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-medium transition-colors"
-              >
-                Done
-              </button>
+            <div className="px-4 sm:px-7 py-3 sm:py-3.5 bg-stone-900/90 backdrop-blur-md border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs z-20">
+              <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-start">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 font-mono text-[11px]">
+                  <Clock className="w-3.5 h-3.5 text-amber-400" />
+                  Duration: {selectedVideo.duration}
+                </span>
+
+                <span className="hidden sm:inline-flex items-center gap-1.5 text-white/45 uppercase tracking-widest text-[10px] font-semibold">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400/70" />
+                  Malabar Decorators Kasaragod
+                </span>
+              </div>
+
+              {/* Quick Actions */}
+              <div className="flex items-center gap-2.5 w-full sm:w-auto justify-end">
+                <a
+                  href={`https://wa.me/919946692100?text=${encodeURIComponent(
+                    `Hi Malabar Decorators, I'm watching your video "${selectedVideo.title}" (${selectedVideo.categoryLabel}) and would like to enquire about this setup for our upcoming event.`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-gradient-to-r from-[#790504] to-[#ab3600] hover:from-[#8f0605] hover:to-[#bd3c00] text-white text-[11px] font-bold tracking-wider uppercase shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 text-amber-300" />
+                  <span>Enquire Setup</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-amber-300" />
+                </a>
+
+                <button
+                  type="button"
+                  onClick={() => setSelectedVideo(null)}
+                  className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-white/90 hover:text-white font-medium text-xs tracking-wider transition-all duration-200 cursor-pointer"
+                >
+                  Done
+                </button>
+              </div>
             </div>
           </div>
         </div>
