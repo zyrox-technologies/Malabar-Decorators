@@ -14,58 +14,52 @@ export const servicesData = {
     "From intimate ceremonies to grand celebrations, we thoughtfully curate experiences that reflect your vision with elegance, precision, and timeless charm.",
   items: [
     {
-      id: "luxury-weddings",
-      title: "Luxury Weddings",
-      description:
-        "Celebrate your love with bespoke wedding experiences, timeless décor, and flawless execution tailored to your unique story.",
-      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-c0b95t3sru.jpg",
+      id: "stage-decor",
+      title: "Royal Nikah & Reception Stage Decor",
+      description: "Bespoke stage designs featuring premium floral backdrops, crystal chandeliers, luxury plush seating, and warm ambient lighting.",
       link: "/services",
-      iconType: "wedding",
+      image: "/service/1.png",
+
     },
     {
-      id: "destination-weddings",
-      title: "Destination Weddings",
-      description:
-        "Exchange vows in Kerala's most breathtaking destinations, where stunning venues meet exceptional planning and hospitality.",
-      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-fo6zj2ua32.jpg",
+      id: "catering-feast",
+      title: "Grand Malabar Wedding & Event Catering",
       link: "/services",
-      iconType: "destination",
-    },
-    {
-      id: "engagement-ceremonies",
-      title: "Engagement Ceremonies",
-      description:
-        "Begin your forever with sophisticated décor, elegant styling, and unforgettable engagement celebrations.",
-      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-lr5hqiduzn.jpg",
-      link: "/services",
-      iconType: "engagement",
-    },
-    {
-      id: "royal-reception",
-      title: "Grand Reception & Stage Décor",
-      description:
-        "Bespoke stage architecture featuring premium floral backdrops, crystal chandeliers, royal sofa seating, and ambient lighting.",
-      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-1lepi60kot.jpg",
-      link: "/services",
-      iconType: "reception",
-    },
-    {
-      id: "malabar-catering",
-      title: "Authentic Malabar Catering",
-      description:
-        "Legendary Thalassery Dum Biryani, live food stalls, and 24+ item traditional Sadya prepared with pure cow ghee and hand-ground spices.",
-      image: "/Malabar-imges/malabar-decorators-kasaragod-caterers-hh34cc8r6a.jpg",
-      link: "/services",
-      iconType: "catering",
+      description: "Authentic Malabar Dum Biryani, Mandi, Ghee Rice, traditional Sadhya, live cooking counters, and delicious homemade desserts.",
+      image: "/service/2.png",
+
     },
     {
       id: "haldi-mehendi",
-      title: "Haldi & Traditional Celebrations",
-      description:
-        "Vibrant yellow floral arrangements, marigold drapes, wooden swings (Jhula), brass Urlis, and cheerful photo booths for family celebrations.",
-      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-eyuu9lnc79.jpg",
+      title: "Haldi, Mehendi & Sangeet Decor",
+      description: "Vibrant yellow and orange flower arrangements, marigold drapes, brass urlis, wooden swings, and festive photo booths.",
       link: "/services",
-      iconType: "haldi",
+      image: "/service/3.png",
+
+    },
+    {
+      id: "outdoor-destination",
+      title: "Outdoor Lawn & Beachside Destination Decor",
+      description: "Magical fairy light canopies, entrance welcome tunnels, open-air lawn stages, and dreamy evening illumination.",
+      link: "/services",
+      image: "/service/4.png",
+
+    },
+    {
+      id: "stage-sfx",
+      title: "Low Fog Cloud Smoke & Cold Pyro SFX Entry",
+      description: "Breathtaking dry ice low fog smoke clouds, smokeless cold fire sparklers, and grand stage entry pyrotechnics.",
+      link: "/services",
+      image: "/service/5.png",
+
+    },
+    {
+      id: "live-food-counters",
+      title: "Interactive Live Food & Refreshment Counters",
+      description: "Hot Neypathal, Dosa, Jalebi, fresh fruit juices, and authentic Malabar Colour Tea served live to your guests.",
+      link: "/services",
+      image: "/service/6.png",
+
     },
   ] as ServiceItem[],
 };

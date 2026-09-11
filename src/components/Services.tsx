@@ -107,9 +107,7 @@ export default function Services() {
                       alt={service.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute -bottom-5 right-4 z-10 w-12 h-12 md:w-13 md:h-13 rounded-full bg-white border border-surface-variant shadow-md flex items-center justify-center group-hover:scale-110 group-hover:bg-surface-container-low transition-transform duration-300">
-                      <ServiceBadgeIcon type={service.iconType} />
-                    </div>
+
                   </div>
                 </div>
 
@@ -135,7 +133,11 @@ export default function Services() {
                 </div>
               </motion.div>
             </Reveal>
+           
           ))}
+           <div className="item:center">
+            <button >View More Service</button>
+              </div>
         </div>
       </div>
     </section>
