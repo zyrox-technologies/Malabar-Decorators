@@ -189,14 +189,7 @@ export default function Footer() {
               </li>
             </ul>
 
-            {/* Live Availability Indicator */}
-            <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-2.5 text-xs text-[#ded5ce]/80">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span>Available for 2026 - 2027 Events</span>
-            </div>
+
           </Reveal>
 
         </div>
