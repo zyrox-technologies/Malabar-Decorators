@@ -33,7 +33,6 @@ export default function ServicesPage() {
     {
       id: "stage-decor",
       category: "decor",
-      tag: "Wedding & Stage",
       title: "Royal Nikah & Reception Stage Decor",
       malayalam: "റോയൽ നിക്കാഹ് & റിസപ്ഷൻ സ്‌റ്റേജ്",
       shortDesc: "Bespoke stage designs featuring premium floral backdrops, crystal chandeliers, luxury plush seating, and warm ambient lighting.",
@@ -46,13 +45,11 @@ export default function ServicesPage() {
         "Vip Carpeted Stage & Entrance Pathway",
         "3D Backdrop Monograms & Family Names",
       ],
-      price: "Starting from ₹20,000",
-      capacity: "Small & Grand Venues",
+
     },
     {
       id: "catering-feast",
       category: "catering",
-      tag: "Authentic Culinary",
       title: "Grand Malabar Wedding & Event Catering",
       malayalam: "മലബാർ കല്യാണ കാറ്ററിംഗ് സദ്യ & ബിരിയാണി",
       shortDesc: "Authentic Malabar Dum Biryani, Mandi, Ghee Rice, traditional Sadhya, live cooking counters, and delicious homemade desserts.",
@@ -65,13 +62,11 @@ export default function ServicesPage() {
         "24+ Item Traditional Banana Leaf Sadhya",
         "Hygienic Uniformed Catering Staff & Table Service",
       ],
-      price: "Custom Per-Plate Packages",
-      capacity: "100 to 5,000+ Guests",
+
     },
     {
       id: "haldi-mehendi",
       category: "decor",
-      tag: "Traditional Ceremonies",
       title: "Haldi, Mehendi & Sangeet Decor",
       malayalam: "ഹൽദി & മെഹന്ദി ഡെക്കറേഷൻ",
       shortDesc: "Vibrant yellow and orange flower arrangements, marigold drapes, brass urlis, wooden swings, and festive photo booths.",
@@ -84,13 +79,11 @@ export default function ServicesPage() {
         "Mehendi Seating Cushions & Canopy Tents",
         "Custom Photo Booth Frame & Props",
       ],
-      price: "Starting from ₹12,000",
-      capacity: "Home & Hall Setups",
+
     },
     {
       id: "outdoor-destination",
       category: "decor",
-      tag: "Outdoor Luxury",
       title: "Outdoor Lawn & Beachside Destination Decor",
       malayalam: "ഔട്ട്‌ഡോർ & റിസോർട്ട് ഡെക്കറേഷൻ",
       shortDesc: "Magical fairy light canopies, entrance welcome tunnels, open-air lawn stages, and dreamy evening illumination.",
@@ -103,13 +96,11 @@ export default function ServicesPage() {
         "Vintage Lanterns & Warm Spotlights",
         "Outdoor Buffet Counter Styling",
       ],
-      price: "Starting from ₹50,000",
-      capacity: "Resorts & Open Grounds",
+
     },
     {
       id: "stage-sfx",
       category: "sfx",
-      tag: "Stage Pyrotechnics",
       title: "Low Fog Cloud Smoke & Cold Pyro SFX Entry",
       malayalam: "ഫോഗ് സ്മോക്ക് & കോൾഡ് പൈറോ എൻട്രി",
       shortDesc: "Breathtaking dry ice low fog smoke clouds, smokeless cold fire sparklers, and grand stage entry pyrotechnics.",
@@ -122,13 +113,10 @@ export default function ServicesPage() {
         "Intelligent Moving Head Stage Lights",
         "Professional SFX Operators Onsite",
       ],
-      price: "Popular Event Add-On",
-      capacity: "Indoor & Outdoor",
     },
     {
       id: "live-food-counters",
       category: "catering",
-      tag: "Live Food Stations",
       title: "Interactive Live Food & Refreshment Counters",
       malayalam: "ലൈവ് ഫുഡ് & ടീ കൗണ്ടറുകൾ",
       shortDesc: "Hot Neypathal, Dosa, Jalebi, fresh fruit juices, and authentic Malabar Colour Tea served live to your guests.",
@@ -141,13 +129,11 @@ export default function ServicesPage() {
         "Traditional Malabar Dum Tea & Sulaimani Counter",
         "Uniformed Chef Stations with Hygienic Setup",
       ],
-      price: "Package Add-on Available",
-      capacity: "All Group Sizes",
+
     },
     {
       id: "housewarming-birthday",
       category: "special",
-      tag: "Family Functions",
       title: "Housewarming & Birthday Decor",
       malayalam: "വീടുമാറൽ & ബർത്ത്ഡേ ഡെക്കറേഷൻ",
       shortDesc: "Customized balloon arches, floral main door Toran, traditional oil lamps, and theme birthday backdrops.",
@@ -160,48 +146,43 @@ export default function ServicesPage() {
         "Name Board Styling & Lighting",
         "Compact Home Space Fitting",
       ],
-      price: "Starting from ₹4,000",
-      capacity: "Home & Hall",
+
     },
     {
-  id: "car-decoration",
-  category: "decor",
-  tag: "Wedding Car Decor",
-  title: "Luxury Wedding Car Decoration",
-  malayalam: "വെഡ്ഡിംഗ് കാർ ഡെക്കറേഷൻ",
-  shortDesc: "Elegant wedding car styling with fresh flowers, premium ribbons, floral garlands, and beautiful finishing touches for a grand departure.",
-  fullDesc: "Make the couple's journey even more special with our elegant wedding car decoration service. From subtle floral arrangements to luxurious full-car styling, we create beautiful designs that complement your wedding theme while keeping the car classy and photogenic.",
-  image: "/service/8.png",
-  features: [
-    "Fresh Flower Hood & Front Grille Decoration",
-    "Elegant Door Mirror Floral Arrangements",
-    "Premium Ribbons & Tulle Draping",
-    "Just Married Name Plate & Custom Signage",
-    "Theme-Matched Floral & Color Styling",
-  ],
-  price: "Starting from ₹3,500",
-  capacity: "All Car Models",
-},
+      id: "car-decoration",
+      category: "decor",
+      title: "Luxury Wedding Car Decoration",
+      malayalam: "വെഡ്ഡിംഗ് കാർ ഡെക്കറേഷൻ",
+      shortDesc: "Elegant wedding car styling with fresh flowers, premium ribbons, floral garlands, and beautiful finishing touches for a grand departure.",
+      fullDesc: "Make the couple's journey even more special with our elegant wedding car decoration service. From subtle floral arrangements to luxurious full-car styling, we create beautiful designs that complement your wedding theme while keeping the car classy and photogenic.",
+      image: "/service/8.png",
+      features: [
+        "Fresh Flower Hood & Front Grille Decoration",
+        "Elegant Door Mirror Floral Arrangements",
+        "Premium Ribbons & Tulle Draping",
+        "Just Married Name Plate & Custom Signage",
+        "Theme-Matched Floral & Color Styling",
+      ],
 
-{
-  id: "inauguration-decoration",
-  category: "special",
-  tag: "Grand Openings",
-  title: "Inauguration & Grand Opening Decoration",
-  malayalam: "ഉദ്ഘാടനം & ഗ്രാൻഡ് ഓപ്പണിംഗ് ഡെക്കറേഷൻ",
-  shortDesc: "Professional inauguration setups with elegant balloon arches, floral decorations, welcome signage, red carpets, and traditional ceremonial styling.",
-  fullDesc: "Create a memorable first impression for your new business, showroom, office, shop, or institution. Our inauguration decoration packages combine elegant floral arrangements, branded balloon styling, welcome boards, red carpets, traditional lamps, and coordinated entrance decor tailored to your brand and venue.",
-  image: "/service/9.png",
-  features: [
-    "Premium Balloon Arch & Entrance Decoration",
-    "Fresh Flower & Floral Garland Styling",
-    "Branded Welcome Board & Name Signage",
-    "Red Carpet & Grand Entrance Setup",
-    "Traditional Nilavilakku & Ceremonial Decor",
-  ],
-  price: "Starting from ₹5,000",
-  capacity: "Shops, Offices & Showrooms",
-},
+    },
+
+    {
+      id: "inauguration-decoration",
+      category: "special",
+      title: "Inauguration & Grand Opening Decoration",
+      malayalam: "ഉദ്ഘാടനം & ഗ്രാൻഡ് ഓപ്പണിംഗ് ഡെക്കറേഷൻ",
+      shortDesc: "Professional inauguration setups with elegant balloon arches, floral decorations, welcome signage, red carpets, and traditional ceremonial styling.",
+      fullDesc: "Create a memorable first impression for your new business, showroom, office, shop, or institution. Our inauguration decoration packages combine elegant floral arrangements, branded balloon styling, welcome boards, red carpets, traditional lamps, and coordinated entrance decor tailored to your brand and venue.",
+      image: "/service/9.png",
+      features: [
+        "Premium Balloon Arch & Entrance Decoration",
+        "Fresh Flower & Floral Garland Styling",
+        "Branded Welcome Board & Name Signage",
+        "Red Carpet & Grand Entrance Setup",
+        "Traditional Nilavilakku & Ceremonial Decor",
+      ],
+
+    },
   ];
 
   const filteredServices =
@@ -270,11 +251,10 @@ export default function ServicesPage() {
                 <button
                   key={cat.id}
                   onClick={() => setActiveTab(cat.id as "all" | "decor" | "catering" | "sfx" | "special")}
-                  className={`px-5 py-2 rounded-lg font-label-md text-label-md transition-all shrink-0 cursor-pointer ${
-                    activeTab === cat.id
+                  className={`px-5 py-2 rounded-lg font-label-md text-label-md transition-all shrink-0 cursor-pointer ${activeTab === cat.id
                       ? "bg-primary-container text-surface font-semibold shadow-sm"
                       : "bg-surface-container-low text-on-surface-variant hover:text-primary border border-surface-variant"
-                  }`}
+                    }`}
                 >
                   {cat.label}
                 </button>
@@ -300,13 +280,6 @@ export default function ServicesPage() {
                     fill
                     className="object-cover transition-transform duration-500 hover:scale-105"
                   />
-                  <div className="absolute top-4 left-4 bg-surface/90 backdrop-blur-md text-primary font-label-caps text-label-caps uppercase tracking-wider px-3 py-1 rounded-lg border border-outline-variant/40 shadow-sm">
-                    {service.tag}
-                  </div>
-                  <div className="absolute bottom-4 left-4 right-4 bg-inverse-surface/85 backdrop-blur-md text-surface-bright font-label-sm text-label-sm px-4 py-2.5 rounded-lg flex items-center justify-between border border-surface-variant/20">
-                    <span>{service.capacity}</span>
-                    <span className="text-primary-fixed font-semibold">{service.price}</span>
-                  </div>
                 </div>
 
                 {/* Content side */}
