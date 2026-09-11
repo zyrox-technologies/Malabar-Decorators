@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { Star, ChevronLeft, ChevronRight, CheckCircle2, ExternalLink } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
 
 // Official Google Multi-Color G Icon
 function GoogleIcon({ className = "w-5 h-5" }: { className?: string }) {
@@ -152,61 +153,63 @@ export default function Reviews() {
       <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-8">
-          <div>
-            {/* Google Badge Overline */}
-            <div className="inline-flex items-center gap-2 mb-2.5">
-              <GoogleIcon className="w-4 h-4" />
-              <span className="font-label-caps text-[11px] text-secondary uppercase tracking-[0.2em] font-semibold">
-                GOOGLE CUSTOMER REVIEWS
-              </span>
-            </div>
-
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-on-surface font-normal leading-tight">
-              Loved by Families Across{" "}
-              <span className="italic font-serif text-secondary font-medium">
-                Malabar
-              </span>
-            </h2>
-
-            <p className="font-body-sm text-sm md:text-base text-on-surface-variant max-w-xl mt-2.5 leading-relaxed">
-              Real celebrations, real testimonials. Read what our couples, families, and corporate hosts share about their experience with us.
-            </p>
-          </div>
-
-          {/* Google Summary Score Card & Direct Button */}
-          <div className="flex flex-wrap items-center gap-4 bg-surface-container-lowest p-4 sm:p-5 rounded-2xl border border-outline-variant/40 shadow-xs shrink-0">
-            <div className="flex items-center gap-3 pr-4 sm:border-r border-outline-variant/30">
-              <div className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center shadow-xs">
-                <GoogleIcon className="w-7 h-7" />
-              </div>
-              <div>
-                <div className="flex items-center gap-1.5">
-                  <span className="font-serif text-2xl font-bold text-on-surface">4.9</span>
-                  <div className="flex gap-0.5 text-amber-500">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
-                    ))}
-                  </div>
-                </div>
-                <span className="text-[10px] uppercase tracking-wider font-semibold text-on-surface-variant block">
-                  180+ Verified Reviews
+        <Reveal>
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-8">
+            <div>
+              {/* Google Badge Overline */}
+              <div className="inline-flex items-center gap-2 mb-2.5">
+                <GoogleIcon className="w-4 h-4" />
+                <span className="font-label-caps text-[11px] text-secondary uppercase tracking-[0.2em] font-semibold">
+                  GOOGLE CUSTOMER REVIEWS
                 </span>
               </div>
+
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-on-surface font-normal leading-tight">
+                Loved by Families Across{" "}
+                <span className="italic font-serif text-secondary font-medium">
+                  Malabar
+                </span>
+              </h2>
+
+              <p className="font-body-sm text-sm md:text-base text-on-surface-variant max-w-xl mt-2.5 leading-relaxed">
+                Real celebrations, real testimonials. Read what our couples, families, and corporate hosts share about their experience with us.
+              </p>
             </div>
 
-            {/* Direct Google Reviews Link Button */}
-            <a
-              href={googleReviewUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary hover:bg-secondary/90 text-white text-xs font-semibold uppercase tracking-wider shadow-xs hover:shadow-sm transition-all duration-300"
-            >
-              <span>Review Us on Google</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+            {/* Google Summary Score Card & Direct Button */}
+            <div className="flex flex-wrap items-center gap-4 bg-surface-container-lowest p-4 sm:p-5 rounded-2xl border border-outline-variant/40 shadow-xs shrink-0">
+              <div className="flex items-center gap-3 pr-4 sm:border-r border-outline-variant/30">
+                <div className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center shadow-xs">
+                  <GoogleIcon className="w-7 h-7" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="font-serif text-2xl font-bold text-on-surface">4.9</span>
+                    <div className="flex gap-0.5 text-amber-500">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+                      ))}
+                    </div>
+                  </div>
+                  <span className="text-[10px] uppercase tracking-wider font-semibold text-on-surface-variant block">
+                    180+ Verified Reviews
+                  </span>
+                </div>
+              </div>
+
+              {/* Direct Google Reviews Link Button */}
+              <a
+                href={googleReviewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary hover:bg-secondary/90 text-white text-xs font-semibold uppercase tracking-wider shadow-xs hover:shadow-sm transition-all duration-300"
+              >
+                <span>Review Us on Google</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* Carousel Container */}
         <div className="relative">
