@@ -12,6 +12,7 @@ import {
   MessageCircle,
   ArrowUpRight,
 } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
 
 export default function MomentsInMotion() {
   const [activeCategory, setActiveCategory] = useState("All Videos");
@@ -127,26 +128,28 @@ export default function MomentsInMotion() {
           </div>
 
           {/* Center Main Header */}
-          <div className="max-w-3xl mx-auto text-center px-4">
-            <div className="inline-flex items-center justify-center gap-3 mb-3">
-              <span className="w-8 h-[1px] bg-secondary/50"></span>
-              <span className="font-label-caps text-[11px] text-secondary uppercase tracking-[0.25em] font-semibold">
-                {galleryData.overline}
-              </span>
-              <span className="w-8 h-[1px] bg-secondary/50"></span>
+          <Reveal>
+            <div className="max-w-3xl mx-auto text-center px-4">
+              <div className="inline-flex items-center justify-center gap-3 mb-3">
+                <span className="w-8 h-[1px] bg-secondary/50"></span>
+                <span className="font-label-caps text-[11px] text-secondary uppercase tracking-[0.25em] font-semibold">
+                  {galleryData.overline}
+                </span>
+                <span className="w-8 h-[1px] bg-secondary/50"></span>
+              </div>
+
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-on-surface font-normal leading-[1.15] tracking-tight">
+                Moments That Speak Louder Than{" "}
+                <span className="italic font-serif text-secondary font-medium">
+                  {galleryData.headlineHighlight}
+                </span>
+              </h2>
+
+              <p className="font-body-sm text-sm md:text-base text-on-surface-variant max-w-2xl mx-auto mt-3.5 leading-relaxed">
+                {galleryData.subheadline}
+              </p>
             </div>
-
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-on-surface font-normal leading-[1.15] tracking-tight">
-              Moments That Speak Louder Than{" "}
-              <span className="italic font-serif text-secondary font-medium">
-                {galleryData.headlineHighlight}
-              </span>
-            </h2>
-
-            <p className="font-body-sm text-sm md:text-base text-on-surface-variant max-w-2xl mx-auto mt-3.5 leading-relaxed">
-              {galleryData.subheadline}
-            </p>
-          </div>
+          </Reveal>
 
           {/* Category Filter Pills */}
           <div className="flex items-center justify-center flex-wrap gap-2 sm:gap-3 mt-8 md:mt-10">
@@ -174,24 +177,26 @@ export default function MomentsInMotion() {
           
           {/* Top Row - 3 Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            {topRowVideos.map((video) => (
-              <VideoCard
-                key={video.id}
-                video={video}
-                onPlay={() => setSelectedVideo(video)}
-              />
+            {topRowVideos.map((video, i) => (
+              <Reveal key={video.id} delay={i * 0.1} from="up">
+                <VideoCard
+                  video={video}
+                  onPlay={() => setSelectedVideo(video)}
+                />
+              </Reveal>
             ))}
           </div>
 
           {/* Bottom Row - 4 Cards */}
           {bottomRowVideos.length > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-              {bottomRowVideos.map((video) => (
-                <VideoCard
-                  key={video.id}
-                  video={video}
-                  onPlay={() => setSelectedVideo(video)}
-                />
+              {bottomRowVideos.map((video, i) => (
+                <Reveal key={video.id} delay={i * 0.08} from="up">
+                  <VideoCard
+                    video={video}
+                    onPlay={() => setSelectedVideo(video)}
+                  />
+                </Reveal>
               ))}
             </div>
           )}

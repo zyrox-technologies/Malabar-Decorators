@@ -1,9 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { brandData } from "@/data/brand";
 import { contactData } from "@/data/contact";
 import { socialsData } from "@/data/socials";
 import { navLinksData } from "@/data/navLinks";
+import Reveal from "@/components/ui/Reveal";
 import { 
   MapPin, 
   Phone, 
@@ -34,8 +37,8 @@ export default function Footer() {
         {/* Main Columns Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 mb-16">
           
-          {/* Brand Column (4 cols) */}
-          <div className="lg:col-span-4 space-y-6">
+          {/* Brand Column */}
+          <Reveal from="up" delay={0} className="lg:col-span-4 space-y-6">
             {/* Colorful Brand Logo Pill Card */}
             <Link 
               href="/" 
@@ -54,7 +57,7 @@ export default function Footer() {
               {brandData.description}
             </p>
 
-            {/* Social Links with Distinct Brand Color Hover States */}
+            {/* Social Links */}
             <div className="flex items-center gap-3 pt-2">
               {socialsData.instagram && (
                 <a
@@ -99,10 +102,11 @@ export default function Footer() {
                 </a>
               )}
             </div>
-          </div>
+          </Reveal>
 
           {/* Quick Links Column (2 cols) */}
-          <div className="lg:col-span-2">
+          {/* Quick Links Column */}
+          <Reveal from="up" delay={0.1} className="lg:col-span-2">
             <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ffdad5] flex items-center gap-2 mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#790504]" />
               Navigation
@@ -120,10 +124,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
-          {/* Services Column (3 cols) */}
-          <div className="lg:col-span-3">
+          {/* Services Column */}
+          <Reveal from="up" delay={0.18} className="lg:col-span-3">
             <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ffdad5] flex items-center gap-2 mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#AB3600]" />
               What We Craft
@@ -140,10 +144,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
-          {/* Contact Details Column (3 cols) */}
-          <div className="lg:col-span-3">
+          {/* Contact Details Column */}
+          <Reveal from="up" delay={0.26} className="lg:col-span-3">
             <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ffdad5] flex items-center gap-2 mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#790504]" />
               Get In Touch
@@ -185,15 +189,8 @@ export default function Footer() {
               </li>
             </ul>
 
-            {/* Live Availability Indicator */}
-            <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-2.5 text-xs text-[#ded5ce]/80">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span>Available for 2026 - 2027 Events</span>
-            </div>
-          </div>
+
+          </Reveal>
 
         </div>
 
