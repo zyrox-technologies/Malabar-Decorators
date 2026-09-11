@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { servicesData, ServiceItem } from "@/data/services";
 import Reveal from "@/components/ui/Reveal";
+import Button from "@/components/ui/Button";
 
 function ServiceBadgeIcon({ type }: { type: ServiceItem["iconType"] }) {
   switch (type) {
@@ -133,12 +134,18 @@ export default function Services() {
                 </div>
               </motion.div>
             </Reveal>
-           
           ))}
-           <div className="item:center">
-            <button >View More Service</button>
-              </div>
         </div>
+
+        {/* View More Services Button */}
+        <Reveal delay={0.2} from="up">
+          <div className="mt-12 flex justify-center">
+            <Button href="/services" variant="primary">
+              <span>View More Services</span>
+              <span className="text-base leading-none">→</span>
+            </Button>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
