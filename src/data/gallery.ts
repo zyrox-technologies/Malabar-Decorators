@@ -32,7 +32,7 @@ export const galleryData = {
       category: "Weddings",
       categoryLabel: "WEDDING",
       duration: "00:38",
-      thumbnail: "/Malabar/file_000000003c1c81f59e8990e4f9073aeb.png",
+      thumbnail: "/Malabar/malabar-decorators-kasaragod-caterers-k6e0rww2mt.jpg",
       src: "/Malabar/4_5837823821939215318.mp4",
     },
     {

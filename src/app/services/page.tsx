@@ -38,7 +38,7 @@ export default function ServicesPage() {
       malayalam: "റോയൽ നിക്കാഹ് & റിസപ്ഷൻ സ്‌റ്റേജ്",
       shortDesc: "Bespoke stage designs featuring premium floral backdrops, crystal chandeliers, luxury plush seating, and warm ambient lighting.",
       fullDesc: "We design and execute world-class wedding stages tailored to your family's traditions and modern aesthetics. From traditional white and gold drapes to opulent floral arches and crystal backdrop chandeliers, every element is curated to create an unforgettable setting for your special day.",
-      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-c0b95t3sru.jpg",
+      image: "/service/1.png",
       features: [
         "Customized Backdrop Floral Archways",
         "Royal Bride & Groom Maharaja Sofa Seating",
@@ -57,7 +57,7 @@ export default function ServicesPage() {
       malayalam: "മലബാർ കല്യാണ കാറ്ററിംഗ് സദ്യ & ബിരിയാണി",
       shortDesc: "Authentic Malabar Dum Biryani, Mandi, Ghee Rice, traditional Sadhya, live cooking counters, and delicious homemade desserts.",
       fullDesc: "Our master Malabar chefs bring decades of culinary tradition to your event. Prepared with pure cow ghee, premium Kaima rice, and authentic hand-ground spices in traditional copper cauldrons (chembu), our feast is loved by thousands across Malappuram, Kozhikode, Wayanad, and Palakkad.",
-      image: "/Malabar-imges/malabar-decorators-kasaragod-caterers-hh34cc8r6a.jpg",
+      image: "/service/2.png",
       features: [
         "Famous Malabar Dum Biriyani (Chicken/Mutton)",
         "Traditional Slow-Smoked Kuzhimanthi",
@@ -76,7 +76,7 @@ export default function ServicesPage() {
       malayalam: "ഹൽദി & മെഹന്ദി ഡെക്കറേഷൻ",
       shortDesc: "Vibrant yellow and orange flower arrangements, marigold drapes, brass urlis, wooden swings, and festive photo booths.",
       fullDesc: "Bring color and joy to your pre-wedding celebrations. Our Haldi and Mehendi setups include traditional marigold floral strings, brass Urlis filled with flower petals, handcrafted wooden Jhulas (swings), and colorful drapes for photos.",
-      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-eyuu9lnc79.jpg",
+      image: "/service/3.png",
       features: [
         "Fresh Yellow & Orange Marigold Garland Canopy",
         "Traditional Decorated Wooden Swing (Jhula)",
@@ -95,7 +95,7 @@ export default function ServicesPage() {
       malayalam: "ഔട്ട്‌ഡോർ & റിസോർട്ട് ഡെക്കറേഷൻ",
       shortDesc: "Magical fairy light canopies, entrance welcome tunnels, open-air lawn stages, and dreamy evening illumination.",
       fullDesc: "Transform open-air lawns, resorts, and outdoor venues into fairy-tale settings. Features warm string light canopies overhead, flower-lined aisle pathways, rustic wooden welcome boards, and romantic photo corners.",
-      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-fo6zj2ua32.jpg",
+      image: "/service/4.png",
       features: [
         "Heavy Fairy Light Canopy Over Head",
         "Aisle Pathway Floral Pillars & Red Carpet",
@@ -114,7 +114,7 @@ export default function ServicesPage() {
       malayalam: "ഫോഗ് സ്മോക്ക് & കോൾഡ് പൈറോ എൻട്രി",
       shortDesc: "Breathtaking dry ice low fog smoke clouds, smokeless cold fire sparklers, and grand stage entry pyrotechnics.",
       fullDesc: "Make the bride and groom entry an unforgettable highlight. Our low-lying fog machine creates a dreamy cloud effect on stage, complemented by safe, smokeless cold fire sparklers that shoot golden sparks during cake cutting or ring exchange.",
-      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-jxc2zhzj3s.jpg",
+      image: "/service/5.png",
       features: [
         "Heavy Low-Lying Dry Ice Fog Cloud Machine",
         "Cold Pyro Fire Sparklers (Indoor Safe)",
@@ -133,7 +133,7 @@ export default function ServicesPage() {
       malayalam: "ലൈവ് ഫുഡ് & ടീ കൗണ്ടറുകൾ",
       shortDesc: "Hot Neypathal, Dosa, Jalebi, fresh fruit juices, and authentic Malabar Colour Tea served live to your guests.",
       fullDesc: "Elevate your guest experience with live interactive cooking stalls. Watch hot Neypathals puff up, enjoy freshly fried Jalebis, or sip on traditional piping hot Malabar Sulaimani and Colour Tea served by skilled chefs.",
-      image: "/Malabar-imges/malabar-decorators-kasaragod-caterers-pnxxplvci4.jpg",
+      image: "/service/6.png",
       features: [
         "Live Malabar Neypathal & Vellappam Stalls",
         "Hot Jalebi & Mysore Pak Live Sweet Counter",
@@ -148,11 +148,11 @@ export default function ServicesPage() {
       id: "housewarming-birthday",
       category: "special",
       tag: "Family Functions",
-      title: "Housewarming (Palakattu) & Birthday Decor",
+      title: "Housewarming & Birthday Decor",
       malayalam: "വീടുമാറൽ & ബർത്ത്ഡേ ഡെക്കറേഷൻ",
       shortDesc: "Customized balloon arches, floral main door Toran, traditional oil lamps, and theme birthday backdrops.",
       fullDesc: "Complete decoration solutions for housewarming ceremonies, birthday celebrations, cradle ceremonies, and family gatherings. Designed to match your home ambiance and budget perfectly.",
-      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-k2nr5izcvw.jpg",
+      image: "/service/7.png",
       features: [
         "Traditional Fresh Flower Door Garlands & Toran",
         "Entrance Nilavilakku & Urli Styling",
@@ -163,6 +163,45 @@ export default function ServicesPage() {
       price: "Starting from ₹4,000",
       capacity: "Home & Hall",
     },
+    {
+  id: "car-decoration",
+  category: "decor",
+  tag: "Wedding Car Decor",
+  title: "Luxury Wedding Car Decoration",
+  malayalam: "വെഡ്ഡിംഗ് കാർ ഡെക്കറേഷൻ",
+  shortDesc: "Elegant wedding car styling with fresh flowers, premium ribbons, floral garlands, and beautiful finishing touches for a grand departure.",
+  fullDesc: "Make the couple's journey even more special with our elegant wedding car decoration service. From subtle floral arrangements to luxurious full-car styling, we create beautiful designs that complement your wedding theme while keeping the car classy and photogenic.",
+  image: "/service/8.png",
+  features: [
+    "Fresh Flower Hood & Front Grille Decoration",
+    "Elegant Door Mirror Floral Arrangements",
+    "Premium Ribbons & Tulle Draping",
+    "Just Married Name Plate & Custom Signage",
+    "Theme-Matched Floral & Color Styling",
+  ],
+  price: "Starting from ₹3,500",
+  capacity: "All Car Models",
+},
+
+{
+  id: "inauguration-decoration",
+  category: "special",
+  tag: "Grand Openings",
+  title: "Inauguration & Grand Opening Decoration",
+  malayalam: "ഉദ്ഘാടനം & ഗ്രാൻഡ് ഓപ്പണിംഗ് ഡെക്കറേഷൻ",
+  shortDesc: "Professional inauguration setups with elegant balloon arches, floral decorations, welcome signage, red carpets, and traditional ceremonial styling.",
+  fullDesc: "Create a memorable first impression for your new business, showroom, office, shop, or institution. Our inauguration decoration packages combine elegant floral arrangements, branded balloon styling, welcome boards, red carpets, traditional lamps, and coordinated entrance decor tailored to your brand and venue.",
+  image: "/service/9.png",
+  features: [
+    "Premium Balloon Arch & Entrance Decoration",
+    "Fresh Flower & Floral Garland Styling",
+    "Branded Welcome Board & Name Signage",
+    "Red Carpet & Grand Entrance Setup",
+    "Traditional Nilavilakku & Ceremonial Decor",
+  ],
+  price: "Starting from ₹5,000",
+  capacity: "Shops, Offices & Showrooms",
+},
   ];
 
   const filteredServices =
