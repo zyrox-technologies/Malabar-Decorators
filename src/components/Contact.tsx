@@ -78,7 +78,7 @@ export default function Contact() {
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-on-surface font-normal leading-tight">
-            Let&apos;s Design Something <span className="italic font-serif text-secondary font-medium">Extraordinary</span>
+            Let&apos;s Design Something <span className="font-serif text-secondary font-bold">Extraordinary</span>
           </h2>
 
           <p className="font-body-sm text-sm md:text-base text-on-surface-variant max-w-xl mx-auto mt-3.5 leading-relaxed">

@@ -166,7 +166,7 @@ export default function Reviews() {
 
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-on-surface font-normal leading-tight">
                 Loved by Families Across{" "}
-                <span className="italic font-serif text-secondary font-medium">
+                <span className="font-serif text-secondary font-bold">
                   Malabar
                 </span>
               </h2>

@@ -14,7 +14,11 @@ import {
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 
-export default function MomentsInMotion() {
+interface MomentsInMotionProps {
+  limit?: number;
+}
+
+export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
   const [activeCategory, setActiveCategory] = useState("All Videos");
   const [selectedVideo, setSelectedVideo] = useState<GalleryVideo | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
@@ -75,9 +79,10 @@ export default function MomentsInMotion() {
     };
   }, [selectedVideo, currentModalIndex, activeVideoList]);
 
-  // Top row (first 3) and bottom row (remaining up to 4) when showing all or filtered
-  const topRowVideos = filteredVideos.slice(0, 3);
-  const bottomRowVideos = filteredVideos.slice(3, 7);
+  // Sliced video list if limit is set (e.g. homepage showing 6 videos)
+  const displayedVideos = limit ? filteredVideos.slice(0, limit) : filteredVideos;
+  const topRowVideos = displayedVideos.slice(0, 3);
+  const remainingVideos = displayedVideos.slice(3);
 
   const handlePrev = () => {
     const catIndex = galleryData.categories.indexOf(activeCategory);
@@ -140,7 +145,7 @@ export default function MomentsInMotion() {
 
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-on-surface font-normal leading-[1.15] tracking-tight">
                 Moments That Speak Louder Than{" "}
-                <span className="italic font-serif text-secondary font-medium">
+                <span className="font-serif text-secondary font-bold">
                   {galleryData.headlineHighlight}
                 </span>
               </h2>
@@ -187,11 +192,17 @@ export default function MomentsInMotion() {
             ))}
           </div>
 
-          {/* Bottom Row - 4 Cards */}
-          {bottomRowVideos.length > 0 && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-              {bottomRowVideos.map((video, i) => (
-                <Reveal key={video.id} delay={i * 0.08} from="up">
+          {/* Grid of Remaining Videos */}
+          {remainingVideos.length > 0 && (
+            <div
+              className={`grid gap-4 md:gap-6 ${
+                limit
+                  ? "grid-cols-1 md:grid-cols-3"
+                  : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+              }`}
+            >
+              {remainingVideos.map((video, i) => (
+                <Reveal key={video.id} delay={Math.min(i * 0.04, 0.25)} from="up">
                   <VideoCard
                     video={video}
                     onPlay={() => setSelectedVideo(video)}
@@ -199,6 +210,24 @@ export default function MomentsInMotion() {
                 </Reveal>
               ))}
             </div>
+          )}
+
+          {/* View Full Gallery Button below videos when limited on homepage */}
+          {limit && filteredVideos.length > limit && (
+            <Reveal delay={0.2} from="up">
+              <div className="flex flex-col items-center justify-center pt-8 md:pt-10">
+                <Link
+                  href="/gallery"
+                  className="group inline-flex items-center gap-3 px-8 py-3.5 sm:py-4 rounded-full bg-secondary hover:bg-secondary/90 text-white font-semibold text-xs sm:text-sm tracking-widest uppercase shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+                >
+                  <span>View All Videos in Gallery</span>
+                  <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+                <p className="text-xs text-on-surface-variant/70 mt-2.5 font-medium">
+                  Showing {displayedVideos.length} of {filteredVideos.length} videos • Click to explore full celebration collection
+                </p>
+              </div>
+            </Reveal>
           )}
 
           {/* If filtered has no videos */}

@@ -4,6 +4,7 @@ import About from "@/components/About";
 import Pillars from "@/components/Pillars";
 import Services from "@/components/Services";
 import Storytelling from "@/components/Storytelling";
+import HomeGalleryShowcase from "@/components/HomeGalleryShowcase";
 import MomentsInMotion from "@/components/MomentsInMotion";
 import Instagram from "@/components/Instagram";
 import Reviews from "@/components/Reviews";
@@ -20,7 +21,8 @@ export default function Home() {
         <Pillars />
         <Services />
         <Storytelling />
-        <MomentsInMotion />
+        <HomeGalleryShowcase />
+        <MomentsInMotion limit={6} />
         <Instagram />
         <Reviews />
       </main>

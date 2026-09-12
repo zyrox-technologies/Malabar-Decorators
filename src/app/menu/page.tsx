@@ -44,7 +44,7 @@ export default function MenuPage() {
 
             <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1E1B19] max-w-4xl mx-auto leading-[1.15] mb-4 font-normal tracking-tight">
               Culinary Artistry for Life&apos;s <br className="hidden sm:inline" />
-              <span className="text-[#790504] italic">Grandest Celebrations.</span>
+              <span className="text-[#790504] font-bold">Grandest Celebrations.</span>
             </h1>
             
             <p className="text-sm md:text-base text-[#59413D] max-w-2xl mx-auto leading-relaxed mb-8 font-light">

@@ -155,7 +155,7 @@ export default function Gallery() {
             
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#241B18] tracking-tight leading-[1.15]">
               Real Events. Real People. <br className="hidden sm:inline" />
-              <span className="text-[#790504] italic">Real Happiness.</span>
+              <span className="text-[#790504] font-bold">Real Happiness.</span>
             </h2>
 
             <p className="mt-3 text-sm md:text-base text-[#241B18]/65 max-w-xl font-light leading-relaxed">

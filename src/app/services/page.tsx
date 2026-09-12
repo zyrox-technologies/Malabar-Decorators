@@ -236,7 +236,7 @@ export default function ServicesPage() {
               </div>
 
               <h1 className="font-headline-xl text-headline-xl text-on-surface tracking-tight leading-tight">
-                Complete <span className="text-primary italic">Event & Catering</span> Solutions
+                Complete <span className="text-primary font-bold">Event & Catering</span> Solutions
               </h1>
 
               <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">

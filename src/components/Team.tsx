@@ -78,7 +78,7 @@ export default function Team() {
                 <span className="absolute -top-3 left-2 font-serif text-4xl text-secondary/30 select-none">
                   “
                 </span>
-                <p className="font-serif italic text-base sm:text-lg text-on-surface leading-relaxed">
+                <p className="font-serif font-bold text-base sm:text-lg text-on-surface leading-relaxed">
                   {founder.quote}
                 </p>
               </div>

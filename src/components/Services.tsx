@@ -82,7 +82,7 @@ export default function Services() {
             </div>
             <h2 className="font-headline-xl text-3xl md:text-5xl text-on-surface tracking-tight leading-tight mb-5">
               Crafting Extraordinary Experiences for{" "}
-              <span className="text-secondary italic font-normal">Every Occasion</span>
+              <span className="text-secondary font-bold">Every Occasion</span>
             </h2>
             <p className="font-body-md text-sm md:text-base text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
               {servicesData.subtitle}
