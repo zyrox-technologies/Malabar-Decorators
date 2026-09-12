@@ -217,7 +217,7 @@ export default function Gallery() {
   const galleryContainerRef = useRef<HTMLDivElement>(null);
   const categorySliderRef = useRef<HTMLDivElement>(null);
 
-  const pageSize = useResponsivePageSize(); // 10 on mobile, 15 on tablet, 20 on laptop
+  const pageSize = useResponsivePageSize(); // 10 on mobile, 15 on tablet, 18 on laptop/desktop (6 rows x 3 cols)
 
   const filteredItems =
     activeCategory === "All"

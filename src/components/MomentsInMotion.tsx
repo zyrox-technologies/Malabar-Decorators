@@ -25,7 +25,7 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
   const gridContainerRef = useRef<HTMLDivElement>(null);
   const categorySliderRef = useRef<HTMLDivElement>(null);
 
-  const responsivePageSize = useResponsivePageSize();
+  const responsivePageSize = useResponsivePageSize({ laptop: 19 });
   const pageSize = limit ? limit : responsivePageSize;
 
   // Filter videos based on active category
