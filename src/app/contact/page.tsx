@@ -1,9 +1,21 @@
-import Navbar from "@/components/Navbar";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import type { Metadata } from "next";
+import Navbar from "@/components/header/Navbar";
+import Contact from "@/components/contact/Contact";
+import Footer from "@/components/footer/Footer";
+import WhatsAppButton from "@/components/common/WhatsAppButton";
 import { contactData } from "@/data/contact";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Contact & Private Consultation | Plan Your Celebration",
+  description:
+    "Connect directly with Malabar Decorators event architects and culinary team. Request bespoke proposals for wedding decor, stage setups, and catering across Kerala.",
+  openGraph: {
+    title: "Contact & Event Consultation | Malabar Decorators",
+    description:
+      "Have an upcoming wedding, reception, or bespoke family function? Connect directly with our team.",
+  },
+};
 
 export default function ContactInquirePage() {
   const cleanPhone = contactData.phone.replace(/\s+/g, "");

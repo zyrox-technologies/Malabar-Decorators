@@ -1,10 +1,22 @@
-import Navbar from "@/components/Navbar";
-import About from "@/components/About";
-import Pillars from "@/components/Pillars";
-import Storytelling from "@/components/Storytelling";
-import Team from "@/components/Team";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import type { Metadata } from "next";
+import Navbar from "@/components/header/Navbar";
+import About from "@/components/about/About";
+import Pillars from "@/components/pillars/Pillars";
+import Storytelling from "@/components/about/Storytelling";
+import Team from "@/components/about/Team";
+import Footer from "@/components/footer/Footer";
+import WhatsAppButton from "@/components/common/WhatsAppButton";
+
+export const metadata: Metadata = {
+  title: "About Us | 15+ Years of Event Scenography & Heritage Feasts",
+  description:
+    "Learn about Malabar Decorators — 15+ years of wedding decor artistry, architectural mandaps, and heritage culinary catering across North Kerala.",
+  openGraph: {
+    title: "About Malabar Decorators | Artistry & Soul",
+    description:
+      "Transforming grand halls, coastal estates, and ancestral courtyards into architectural compositions of warmth and sculptural florals.",
+  },
+};
 
 export default function AboutStudioPage() {
   return (

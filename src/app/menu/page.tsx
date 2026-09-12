@@ -1,14 +1,14 @@
-import { Metadata } from "next";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Contact from "@/components/Contact";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import Menu from "@/components/Menu";
+import type { Metadata } from "next";
+import Navbar from "@/components/header/Navbar";
+import Footer from "@/components/footer/Footer";
+import Contact from "@/components/contact/Contact";
+import WhatsAppButton from "@/components/common/WhatsAppButton";
+import Menu from "@/components/menu/Menu";
 
 export const metadata: Metadata = {
-  title: "Event Catering Menu & Kerala Sadya | Malabar Decorators",
+  title: "Event Catering Menu & Kerala Sadya",
   description:
-    "Explore our royal wedding feast menus, live cooking counters, traditional Malabar biriyanis, curries, and authentic 21+ item Kerala Sadya catering in Kasaragod and across Kerala.",
+    "Explore our royal wedding feast menus, live cooking counters, traditional Malabar biriyanis, curries, and authentic 21+ item Kerala Sadya catering across North Kerala.",
   keywords: [
     "Event Catering",
     "Wedding Catering",
@@ -16,8 +16,13 @@ export const metadata: Metadata = {
     "Event Menu",
     "Malabar Dum Biriyani",
     "Live Counter Catering",
-    "Malabar Decorators Kasaragod",
+    "Malabar Decorators",
   ],
+  openGraph: {
+    title: "Event Catering Menu & Kerala Sadya | Malabar Decorators",
+    description:
+      "Royal wedding feast menus, live counters, traditional Malabar Dum Biryani, and authentic 21+ item Kerala Sadya.",
+  },
 };
 
 export default function MenuPage() {
@@ -26,10 +31,8 @@ export default function MenuPage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* Exact Menu UI matching reference */}
         <Menu />
 
-        {/* Existing Website Contact Section */}
         <div id="contact-section">
           <Contact />
         </div>

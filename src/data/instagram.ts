@@ -15,13 +15,13 @@ export interface InstagramPost {
 export const instagramData = {
   handle: "@malabar_decorators",
   profileName: "Malabar Decorators & Events",
-  avatar: "/LOGO/logo.png",
+  avatar: "/images/logo/logo.webp",
   description: "Daily inspiration from our latest celebrations",
   link: "https://instagram.com/malabardecorators",
   posts: [
     {
       id: "ig-1",
-      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-1f2o2b186d.jpg",
+      image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-1f2o2b186d.webp",
       alt: "Instagram feed post showing floral centerpieces",
       location: "Kasaragod, Kerala",
       likes: 1428,
@@ -34,7 +34,7 @@ export const instagramData = {
     },
     {
       id: "ig-2",
-      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-1lepi60kot.jpg",
+      image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-1lepi60kot.webp",
       alt: "Instagram feed post showing table setting",
       location: "Bekal, Kerala",
       likes: 986,
@@ -47,7 +47,7 @@ export const instagramData = {
     },
     {
       id: "ig-3",
-      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-21ul6bh1v8.jpg",
+      image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-21ul6bh1v8.webp",
       alt: "Instagram feed post showing stage decor",
       location: "Kannur, Kerala",
       likes: 2154,
@@ -60,7 +60,7 @@ export const instagramData = {
     },
     {
       id: "ig-4",
-      image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-3x0dus6bi1.jpg",
+      image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-3x0dus6bi1.webp",
       alt: "Instagram feed post showing lighting",
       location: "Kozhikode, Kerala",
       likes: 1738,
