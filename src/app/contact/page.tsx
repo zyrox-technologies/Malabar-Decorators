@@ -36,6 +36,63 @@ export default function ContactInquirePage() {
           </div>
         </section>
 
+        {/* Quick Contact Cards */}
+        <section className="py-12 bg-surface">
+          <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              {/* Card 1: Call Us */}
+              <a
+                href={`tel:${cleanPhone}`}
+                className="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 hover:border-secondary/50 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4 group"
+              >
+                <div className="p-3.5 rounded-xl bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors shrink-0">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-serif text-lg font-medium text-on-surface mb-0.5">Call Us</h3>
+                  <p className="text-xs text-on-surface-variant mb-2">Direct consultation line</p>
+                  <span className="text-xs font-semibold text-secondary group-hover:underline">
+                    {contactData.phoneDisplay}
+                  </span>
+                </div>
+              </a>
+
+              {/* Card 2: Email Us */}
+              <a
+                href={`mailto:${contactData.email}`}
+                className="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 hover:border-secondary/50 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4 group"
+              >
+                <div className="p-3.5 rounded-xl bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors shrink-0">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-serif text-lg font-medium text-on-surface mb-0.5">Email Us</h3>
+                  <p className="text-xs text-on-surface-variant mb-2">Send event brief & dates</p>
+                  <span className="text-xs font-semibold text-secondary group-hover:underline">
+                    {contactData.email}
+                  </span>
+                </div>
+              </a>
+
+              {/* Card 3: Visit Studio */}
+              <div className="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-xs flex items-start gap-4">
+                <div className="p-3.5 rounded-xl bg-secondary/10 text-secondary shrink-0">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-serif text-lg font-medium text-on-surface mb-0.5">Design Studio</h3>
+                  <p className="text-xs text-on-surface-variant leading-relaxed">
+                    {contactData.address[0]}<br />
+                    {contactData.address[1]}
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
         {/* Master Contact & Booking Pavilion */}
         <Contact />
       </main>
