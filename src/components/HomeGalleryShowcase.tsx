@@ -17,25 +17,25 @@ const showcaseCards: ShowcaseCard[] = [
     id: 1,
     title: "Grand Royal Wedding Stage",
     tag: "Royal Stage",
-    image: "/images/gallery/card1.png",
+    image: "/images/gallery/malabar-decorators-karandakkad-kasaragod-flower-decorators-vajfq0rkn4.jpg",
   },
   {
     id: 2,
     title: "Traditional Ceremony & Floral Mandap",
     tag: "Ceremony & Mandap",
-    image: "/images/gallery/card2.png",
+    image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-1lepi60kot.jpg",
   },
   {
     id: 3,
     title: "Enchanted Floral Arch Reception",
     tag: "Reception Art",
-    image: "/images/gallery/card3.png",
+    image: "/images/gallery/malabar-decorators-karandakkad-kasaragod-flower-decorators-3gfqv2nr6m.jpg",
   },
   {
     id: 4,
-    title: "Bridal Garlands & Adornments",
-    tag: "Floral Details",
-    image: "/images/gallery/card4.png",
+    title: "Chandelier Illuminated Pavilion",
+    tag: "Floral Pavilion",
+    image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-c0b95t3sru.jpg",
   },
 ];
 
