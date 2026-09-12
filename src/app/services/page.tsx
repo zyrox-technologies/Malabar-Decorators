@@ -216,46 +216,48 @@ export default function ServicesPage() {
 
       <main className="flex-1">
         {/* HERO BANNER */}
-        <section className="pt-space-3xl pb-space-2xl md:pt-space-4xl md:pb-space-3xl bg-surface-container-low border-b border-surface-variant">
-          <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
+        <section className="pt-16 pb-12 sm:pt-20 sm:pb-14 bg-[#FDFBF7] border-b border-[#790504]/10 relative overflow-hidden">
+          <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop relative z-10">
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 font-label-caps text-label-caps text-secondary uppercase tracking-widest mb-4">
-              <Link href="/" className="hover:text-primary transition-colors">
+            <div className="flex items-center gap-2 text-xs font-medium text-[#59413D]/70 uppercase tracking-widest mb-5">
+              <Link href="/" className="hover:text-[#790504] transition-colors">
                 Home
               </Link>
-              <ChevronRight className="w-3.5 h-3.5" />
-              <span className="text-on-surface font-semibold">Services & Disciplines</span>
+              <ChevronRight className="w-3.5 h-3.5 text-[#790504]/50" />
+              <span className="text-[#1E1B19] font-semibold">Services & Disciplines</span>
             </div>
 
             <div className="max-w-3xl space-y-4">
-              <div className="flex items-center gap-3">
-                <span className="w-8 h-[1px] bg-primary"></span>
-                <span className="font-label-caps text-label-caps text-primary tracking-widest uppercase">
+              {/* Pill Label */}
+              <div className="inline-block">
+                <span className="border border-[#790504]/30 text-[#790504] px-4 py-1 rounded-full text-[11px] font-bold tracking-[0.2em] uppercase bg-white/60 shadow-xs">
                   OUR DISCIPLINES & EXPERTISE
                 </span>
               </div>
 
-              <h1 className="font-headline-xl text-headline-xl text-on-surface tracking-tight leading-tight">
-                Complete <span className="text-primary italic">Event & Catering</span> Solutions
+              {/* Main Headline */}
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-[#1E1B19] font-normal leading-[1.14] tracking-tight">
+                Complete <span className="text-[#790504] font-bold">Event & Catering</span> Solutions
               </h1>
 
-              <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+              {/* Subtitle */}
+              <p className="mt-3 text-sm md:text-base text-[#59413D]/80 leading-relaxed font-normal">
                 From majestic wedding stage decor to authentic Malabar Dum Biryani feasts, live food stalls, and mesmerizing stage entry SFX — we turn every occasion into a royal celebration across Malappuram & Kerala.
               </p>
 
               {/* Stats badges */}
-              <div className="grid grid-cols-3 gap-4 pt-6 border-t border-surface-variant max-w-xl">
+              <div className="grid grid-cols-3 gap-4 pt-6 border-t border-[#790504]/10 max-w-xl">
                 <div>
-                  <p className="font-headline-md text-headline-md text-primary font-medium">10+ Years</p>
-                  <p className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Experience</p>
+                  <p className="font-serif text-2xl sm:text-3xl text-[#790504] font-bold">10+ Years</p>
+                  <p className="text-[11px] font-medium text-[#59413D]/70 uppercase tracking-wider mt-0.5">Experience</p>
                 </div>
                 <div>
-                  <p className="font-headline-md text-headline-md text-primary font-medium">500+</p>
-                  <p className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Events Executed</p>
+                  <p className="font-serif text-2xl sm:text-3xl text-[#790504] font-bold">500+</p>
+                  <p className="text-[11px] font-medium text-[#59413D]/70 uppercase tracking-wider mt-0.5">Events Executed</p>
                 </div>
                 <div>
-                  <p className="font-headline-md text-headline-md text-primary font-medium">100%</p>
-                  <p className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Quality Guaranteed</p>
+                  <p className="font-serif text-2xl sm:text-3xl text-[#790504] font-bold">100%</p>
+                  <p className="text-[11px] font-medium text-[#59413D]/70 uppercase tracking-wider mt-0.5">Quality Guaranteed</p>
                 </div>
               </div>
             </div>
@@ -342,7 +344,7 @@ export default function ServicesPage() {
                   {/* Actions */}
                   <div className="flex flex-wrap items-center gap-4 pt-6 mt-6 border-t border-surface-variant">
                     <a
-                      href={`https://wa.me/919846222216?text=${encodeURIComponent(`Hi Malabar Decorators, I would like to enquire about ${service.title}`)}`}
+                      href={`https://wa.me/919946692100?text=${encodeURIComponent(`Hi Malabar Decorators, I would like to enquire about ${service.title}`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-5 py-2.5 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white font-label-md text-label-md uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all"

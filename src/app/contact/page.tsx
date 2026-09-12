@@ -14,23 +14,23 @@ export default function ContactInquirePage() {
 
       <main className="flex-1">
         {/* Page Banner Header */}
-        <section className="pt-16 pb-12 bg-surface-container-low border-b border-outline-variant/30 text-center relative overflow-hidden">
-          {/* Subtle glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[250px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
-
+        <section className="pt-16 pb-12 sm:pt-20 sm:pb-14 bg-[#FDFBF7] border-b border-[#790504]/10 text-center relative overflow-hidden">
           <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop relative z-10">
-            <div className="inline-flex items-center justify-center gap-3 mb-3">
-              <span className="w-8 h-[1px] bg-secondary/60"></span>
-              <span className="font-label-caps text-[11px] text-secondary tracking-[0.25em] uppercase font-semibold">
-                MALABAR DECORATORS • PRIVATE CONSULTATIONS
+            {/* Pill Label */}
+            <div className="inline-block mb-3">
+              <span className="border border-[#790504]/30 text-[#790504] px-4 py-1 rounded-full text-[11px] font-bold tracking-[0.2em] uppercase bg-white/60 shadow-xs">
+                PRIVATE CONSULTATIONS
               </span>
-              <span className="w-8 h-[1px] bg-secondary/60"></span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-on-surface max-w-3xl mx-auto leading-tight mb-4 font-normal">
-              Let&apos;s Plan Your Celebration Together.
+            {/* Main Headline */}
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-[#1E1B19] font-normal leading-[1.14] tracking-tight max-w-3xl mx-auto mb-4">
+              Let&apos;s Plan Your <br className="hidden sm:inline" />
+              <span className="text-[#790504] font-bold">Celebration Together</span>
             </h1>
-            <p className="font-body-sm text-sm md:text-base text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+
+            {/* Subtitle */}
+            <p className="mt-3 text-sm md:text-base text-[#59413D]/80 max-w-2xl mx-auto font-normal leading-relaxed">
               Have an upcoming wedding, reception, or bespoke family function? Connect directly with our event architects and culinary team today.
             </p>
           </div>

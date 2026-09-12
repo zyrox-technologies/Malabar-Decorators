@@ -8,23 +8,56 @@ import {
   ChevronLeft,
   ChevronRight,
   Clock,
-  Sparkles,
   MessageCircle,
   ArrowUpRight,
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import { useResponsivePageSize } from "@/hooks/useResponsivePageSize";
 
-export default function MomentsInMotion() {
+interface MomentsInMotionProps {
+  limit?: number;
+}
+
+export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
   const [activeCategory, setActiveCategory] = useState("All Videos");
   const [selectedVideo, setSelectedVideo] = useState<GalleryVideo | null>(null);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const gridContainerRef = useRef<HTMLDivElement>(null);
+  const categorySliderRef = useRef<HTMLDivElement>(null);
+
+  const responsivePageSize = useResponsivePageSize();
+  const pageSize = limit ? limit : responsivePageSize;
 
   // Filter videos based on active category
   const filteredVideos =
     activeCategory === "All Videos"
       ? galleryData.videos
       : galleryData.videos.filter((v) => v.category === activeCategory);
+
+  const totalPages = Math.max(1, Math.ceil(filteredVideos.length / pageSize));
+  const safeCurrentPage = Math.min(Math.max(1, currentPage), totalPages);
+
+  // Sliced video list:
+  // If limit is set (e.g. homepage showing 6 videos), take first 6
+  // If limit is not set (full gallery), use responsive pagination (10 mobile, 15 tablet, 20 laptop)
+  const displayedVideos = limit
+    ? filteredVideos.slice(0, limit)
+    : filteredVideos.slice((safeCurrentPage - 1) * pageSize, safeCurrentPage * pageSize);
+
+  const topRowVideos = displayedVideos.slice(0, 3);
+  const remainingVideos = displayedVideos.slice(3);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    gridContainerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const scrollCategories = (direction: "left" | "right") => {
+    if (categorySliderRef.current) {
+      const scrollAmount = direction === "left" ? -240 : 240;
+      categorySliderRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
 
   // Active playlist for modal navigation
   const activeVideoList =
@@ -75,22 +108,20 @@ export default function MomentsInMotion() {
     };
   }, [selectedVideo, currentModalIndex, activeVideoList]);
 
-  // Top row (first 3) and bottom row (remaining up to 4) when showing all or filtered
-  const topRowVideos = filteredVideos.slice(0, 3);
-  const bottomRowVideos = filteredVideos.slice(3, 7);
-
   const handlePrev = () => {
     const catIndex = galleryData.categories.indexOf(activeCategory);
     const prevIndex =
       (catIndex - 1 + galleryData.categories.length) %
       galleryData.categories.length;
     setActiveCategory(galleryData.categories[prevIndex]);
+    setCurrentPage(1);
   };
 
   const handleNext = () => {
     const catIndex = galleryData.categories.indexOf(activeCategory);
     const nextIndex = (catIndex + 1) % galleryData.categories.length;
     setActiveCategory(galleryData.categories[nextIndex]);
+    setCurrentPage(1);
   };
 
   return (
@@ -140,7 +171,7 @@ export default function MomentsInMotion() {
 
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-on-surface font-normal leading-[1.15] tracking-tight">
                 Moments That Speak Louder Than{" "}
-                <span className="italic font-serif text-secondary font-medium">
+                <span className="font-serif text-secondary font-bold">
                   {galleryData.headlineHighlight}
                 </span>
               </h2>
@@ -151,24 +182,53 @@ export default function MomentsInMotion() {
             </div>
           </Reveal>
 
-          {/* Category Filter Pills */}
-          <div className="flex items-center justify-center flex-wrap gap-2 sm:gap-3 mt-8 md:mt-10">
-            {galleryData.categories.map((cat) => {
-              const isActive = activeCategory === cat;
-              return (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`px-4 sm:px-5 py-2 rounded-full text-xs font-medium tracking-wider uppercase transition-all duration-300 ${
-                    isActive
-                      ? "bg-secondary text-white shadow-md scale-105"
-                      : "bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container border border-outline-variant/30"
-                  }`}
-                >
-                  {cat}
-                </button>
-              );
-            })}
+          {/* Category Filter Slider */}
+          <div className="relative max-w-3xl mx-auto mt-8 md:mt-10 px-9 sm:px-10">
+            {/* Left Scroll Arrow */}
+            <button
+              type="button"
+              onClick={() => scrollCategories("left")}
+              aria-label="Scroll categories left"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-surface-container border border-outline-variant/60 flex items-center justify-center text-on-surface hover:bg-surface hover:border-secondary hover:text-secondary shadow-xs transition-all cursor-pointer"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+
+            {/* Slider track */}
+            <div
+              ref={categorySliderRef}
+              className="flex items-center gap-2 sm:gap-3 overflow-x-auto scroll-smooth py-1 px-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {galleryData.categories.map((cat) => {
+                const isActive = activeCategory === cat;
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => {
+                      setActiveCategory(cat);
+                      setCurrentPage(1);
+                    }}
+                    className={`shrink-0 px-4 sm:px-5 py-2 rounded-full text-xs font-medium tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+                      isActive
+                        ? "bg-secondary text-white shadow-md scale-105"
+                        : "bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container border border-outline-variant/30"
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Right Scroll Arrow */}
+            <button
+              type="button"
+              onClick={() => scrollCategories("right")}
+              aria-label="Scroll categories right"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-surface-container border border-outline-variant/60 flex items-center justify-center text-on-surface hover:bg-surface hover:border-secondary hover:text-secondary shadow-xs transition-all cursor-pointer"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
 
@@ -187,17 +247,96 @@ export default function MomentsInMotion() {
             ))}
           </div>
 
-          {/* Bottom Row - 4 Cards */}
-          {bottomRowVideos.length > 0 && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-              {bottomRowVideos.map((video, i) => (
-                <Reveal key={video.id} delay={i * 0.08} from="up">
+          {/* Grid of Remaining Videos */}
+          {remainingVideos.length > 0 && (
+            <div
+              className={`grid gap-4 md:gap-6 ${
+                limit
+                  ? "grid-cols-1 md:grid-cols-3"
+                  : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+              }`}
+            >
+              {remainingVideos.map((video, i) => (
+                <Reveal key={video.id} delay={Math.min(i * 0.04, 0.25)} from="up">
                   <VideoCard
                     video={video}
                     onPlay={() => setSelectedVideo(video)}
                   />
                 </Reveal>
               ))}
+            </div>
+          )}
+
+          {/* View Full Gallery Button below videos when limited on homepage */}
+          {limit && filteredVideos.length > limit && (
+            <Reveal delay={0.2} from="up">
+              <div className="flex flex-col items-center justify-center pt-8 md:pt-10">
+                <Link
+                  href="/gallery"
+                  className="group inline-flex items-center gap-3 px-8 py-3.5 sm:py-4 rounded-full bg-secondary hover:bg-secondary/90 text-white font-semibold text-xs sm:text-sm tracking-widest uppercase shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+                >
+                  <span>View All Videos in Gallery</span>
+                  <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+                <p className="text-xs text-on-surface-variant/70 mt-2.5 font-medium">
+                  Showing {displayedVideos.length} of {filteredVideos.length} videos • Click to explore full celebration collection
+                </p>
+              </div>
+            </Reveal>
+          )}
+
+          {/* Pagination Controls for Full Gallery (Responsive: 10 mobile, 15 tablet, 20 laptop) */}
+          {!limit && totalPages > 1 && (
+            <div className="flex flex-col items-center justify-center pt-10 md:pt-12 gap-3.5">
+              <div className="flex items-center gap-2 sm:gap-3">
+                {/* Previous Button */}
+                <button
+                  type="button"
+                  onClick={() => handlePageChange(safeCurrentPage - 1)}
+                  disabled={safeCurrentPage <= 1}
+                  className="px-3.5 sm:px-4 py-2 rounded-full border border-outline-variant/50 text-xs uppercase font-semibold text-on-surface hover:border-secondary hover:text-secondary disabled:opacity-40 disabled:cursor-not-allowed transition-all inline-flex items-center gap-1 cursor-pointer"
+                  aria-label="Previous page"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                  <span className="hidden sm:inline">Previous</span>
+                </button>
+
+                {/* Page Number Buttons */}
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+                    <button
+                      key={pageNum}
+                      type="button"
+                      onClick={() => handlePageChange(pageNum)}
+                      className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                        safeCurrentPage === pageNum
+                          ? "bg-secondary text-white shadow-md scale-105"
+                          : "bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container border border-outline-variant/30"
+                      }`}
+                    >
+                      {pageNum}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Next Button */}
+                <button
+                  type="button"
+                  onClick={() => handlePageChange(safeCurrentPage + 1)}
+                  disabled={safeCurrentPage >= totalPages}
+                  className="px-3.5 sm:px-4 py-2 rounded-full border border-outline-variant/50 text-xs uppercase font-semibold text-on-surface hover:border-secondary hover:text-secondary disabled:opacity-40 disabled:cursor-not-allowed transition-all inline-flex items-center gap-1 cursor-pointer"
+                  aria-label="Next page"
+                >
+                  <span className="hidden sm:inline">Next</span>
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Status info */}
+              <p className="text-xs text-on-surface-variant/70 font-medium">
+                Showing {(safeCurrentPage - 1) * pageSize + 1}–
+                {Math.min(safeCurrentPage * pageSize, filteredVideos.length)} of {filteredVideos.length} celebration videos
+              </p>
             </div>
           )}
 
@@ -208,8 +347,11 @@ export default function MomentsInMotion() {
                 No videos found in this category.
               </p>
               <button
-                onClick={() => setActiveCategory("All Videos")}
-                className="mt-3 text-secondary text-xs uppercase tracking-widest font-semibold underline underline-offset-4"
+                onClick={() => {
+                  setActiveCategory("All Videos");
+                  setCurrentPage(1);
+                }}
+                className="mt-3 text-secondary text-xs uppercase tracking-widest font-semibold underline underline-offset-4 cursor-pointer"
               >
                 View All Videos
               </button>
@@ -338,23 +480,16 @@ export default function MomentsInMotion() {
         >
           {/* Modal Container */}
           <div
-            className="relative w-full max-w-5xl max-h-[92vh] bg-gradient-to-b from-stone-900/95 via-stone-950/98 to-stone-950 rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.85),0_0_50px_rgba(171,54,0,0.15)] border border-white/15 flex flex-col transition-all duration-300 animate-in zoom-in-95"
+            className="relative w-full max-w-5xl max-h-[92vh] bg-gradient-to-b from-stone-900/95 via-stone-950/98 to-stone-950 rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.95)] border border-white/15 flex flex-col transition-all duration-300 animate-in zoom-in-95"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Top Amber Accent Line */}
-            <div className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-amber-400/60 to-transparent z-30" />
-
             {/* Modal Header */}
             <div className="px-4 sm:px-7 py-3.5 sm:py-4 bg-stone-900/80 backdrop-blur-md border-b border-white/[0.08] flex items-center justify-between gap-4 text-white z-20">
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-300 text-[10px] font-bold tracking-[0.2em] uppercase">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/20 text-white/90 text-[10px] font-bold tracking-[0.2em] uppercase">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/80" />
                     {selectedVideo.categoryLabel}
-                  </span>
-                  <span className="text-white/30 text-xs hidden sm:inline">•</span>
-                  <span className="text-[11px] text-white/50 tracking-wider hidden sm:inline uppercase">
-                    Cinema Preview
                   </span>
                 </div>
                 <h4 className="font-serif text-lg sm:text-2xl font-normal text-white tracking-tight truncate">
@@ -423,12 +558,11 @@ export default function MomentsInMotion() {
             <div className="px-4 sm:px-7 py-3 sm:py-3.5 bg-stone-900/90 backdrop-blur-md border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs z-20">
               <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-start">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 font-mono text-[11px]">
-                  <Clock className="w-3.5 h-3.5 text-amber-400" />
+                  <Clock className="w-3.5 h-3.5 text-white/70" />
                   Duration: {selectedVideo.duration}
                 </span>
 
-                <span className="hidden sm:inline-flex items-center gap-1.5 text-white/45 uppercase tracking-widest text-[10px] font-semibold">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-400/70" />
+                <span className="hidden sm:inline-flex items-center text-white/45 uppercase tracking-widest text-[10px] font-semibold">
                   Malabar Decorators Kasaragod
                 </span>
               </div>
@@ -443,9 +577,9 @@ export default function MomentsInMotion() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-gradient-to-r from-[#790504] to-[#ab3600] hover:from-[#8f0605] hover:to-[#bd3c00] text-white text-[11px] font-bold tracking-wider uppercase shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
                 >
-                  <MessageCircle className="w-3.5 h-3.5 text-amber-300" />
+                  <MessageCircle className="w-3.5 h-3.5 text-white" />
                   <span>Enquire Setup</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-amber-300" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-white" />
                 </a>
 
                 <button

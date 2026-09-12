@@ -3,7 +3,7 @@ export const contactData = {
     "Calicut Road, Valanchery",
     "Malappuram, Kerala 676552"
   ],
-  "phone": "+91 9846 222 216",
-  "phoneDisplay": "+91 9846 222 216",
+  "phone": "+91 99466 92100",
+  "phoneDisplay": "+91 99466 92100",
   "email": "info@malabardecorators.com"
 };

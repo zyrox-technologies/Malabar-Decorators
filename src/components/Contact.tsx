@@ -27,9 +27,21 @@ export default function Contact() {
     "Other Bespoke Celebration",
   ];
 
+  const cleanPhone = contactData.phone.replace(/[^0-9]/g, "");
+
+  const handleWhatsAppSend = () => {
+    const text = encodeURIComponent(
+      `*NEW EVENT CONSULTATION REQUEST*\n━━━━━━━━━━━━━━━━━━━━\n👤 *Name:* ${formData.name || "Client"}\n📞 *Phone:* ${formData.phone || "N/A"}\n✉️ *Email:* ${formData.email || "Not provided"}\n🎉 *Event Type:* ${formData.eventType}\n📅 *Date:* ${formData.eventDate || "Flexible / TBD"}\n👥 *Approx. Guests:* ${formData.guestCount || "TBD"}\n🏛️ *Vision & Venue:* ${formData.message || "Please share consultation details."}\n━━━━━━━━━━━━━━━━━━━━\n_Sent via Malabar Decorators Website_`
+    );
+    window.open(`https://wa.me/${cleanPhone}?text=${text}`, "_blank");
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+
+    // Open WhatsApp directly with contact details
+    handleWhatsAppSend();
 
     setTimeout(() => {
       setLoading(false);
@@ -46,16 +58,7 @@ export default function Contact() {
           message: "",
         });
       }, 6000);
-    }, 600);
-  };
-
-  const cleanPhone = contactData.phone.replace(/\s+/g, "");
-
-  const handleWhatsAppSend = () => {
-    const text = encodeURIComponent(
-      `Hello Malabar Decorators,\nI would like to inquire about booking an event.\n*Name:* ${formData.name || "Client"}\n*Event Type:* ${formData.eventType}\n*Event Date:* ${formData.eventDate || "TBD"}\n*Phone:* ${formData.phone || "N/A"}\n*Message:* ${formData.message || "Please share consultation details."}`
-    );
-    window.open(`https://wa.me/${cleanPhone.replace("+", "")}?text=${text}`, "_blank");
+    }, 400);
   };
 
   return (
@@ -116,7 +119,7 @@ export default function Contact() {
                   
                   {/* Phone */}
                   <a
-                    href={`tel:${cleanPhone}`}
+                    href={`tel:${contactData.phone.replace(/\s+/g, "")}`}
                     className="flex items-start gap-3.5 group/item transition-colors"
                   >
                     <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-primary-fixed shrink-0 group-hover/item:bg-white/20 transition-colors">
@@ -192,10 +195,10 @@ export default function Contact() {
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h3 className="font-serif text-2xl font-medium text-on-surface mb-2">
-                    Inquiry Received
+                    Inquiry Sent on WhatsApp
                   </h3>
                   <p className="text-xs sm:text-sm text-on-surface-variant max-w-md mx-auto leading-relaxed mb-6">
-                    Thank you! Our senior event scenographer will review your details and connect with you within 24 hours.
+                    Thank you! We have opened WhatsApp with your event details. Our senior scenographer will connect with you shortly.
                   </p>
                   <button
                     type="button"
@@ -244,7 +247,7 @@ export default function Contact() {
                         <input
                           type="tel"
                           required
-                          placeholder="+91 98460 00000"
+                          placeholder="+91 99466 00000"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           className="w-full pl-10 pr-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/50 text-xs text-on-surface placeholder:text-on-surface-variant/40 focus:bg-white focus:border-secondary focus:ring-2 focus:ring-secondary/15 focus:outline-none transition-all"

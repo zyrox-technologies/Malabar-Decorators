@@ -170,43 +170,45 @@ export default function DecorCataloguePage() {
 
       <main className="flex-1 pt-24 sm:pt-28">
         {/* HERO BANNER */}
-        <section className="relative bg-[#171110] text-white py-16 sm:py-24 overflow-hidden border-b border-[#F2B93F]/20">
-          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#F2B93F_1px,transparent_1px)] [background-size:24px_24px]" />
-          <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#6F1014]/40 rounded-full blur-3xl pointer-events-none" />
-
+        <section className="pt-16 pb-12 sm:pt-20 sm:pb-14 bg-[#FDFBF7] border-b border-[#790504]/10 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="flex items-center gap-2 text-xs font-semibold text-[#F2B93F]/80 uppercase tracking-widest mb-4">
-              <Link href="/" className="hover:text-white transition-colors">
+            {/* Breadcrumb */}
+            <div className="flex items-center gap-2 text-xs font-medium text-[#59413D]/70 uppercase tracking-widest mb-5">
+              <Link href="/" className="hover:text-[#790504] transition-colors">
                 Home
               </Link>
-              <ChevronRight className="w-3.5 h-3.5" />
-              <span className="text-white">Event Decor Catalogue</span>
+              <ChevronRight className="w-3.5 h-3.5 text-[#790504]/50" />
+              <span className="text-[#1E1B19] font-semibold">Event Decor Catalogue</span>
             </div>
 
             <div className="max-w-3xl space-y-4">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F2B93F]/10 border border-[#F2B93F]/30 text-[#F2B93F] text-xs font-bold tracking-widest uppercase">
-                <Tag className="w-3.5 h-3.5" />
-                <span>Transparent Rates & Bespoke Setups</span>
+              {/* Pill Label */}
+              <div className="inline-block">
+                <span className="border border-[#790504]/30 text-[#790504] px-4 py-1 rounded-full text-[11px] font-bold tracking-[0.2em] uppercase bg-white/60 shadow-xs">
+                  TRANSPARENT RATES & BESPOKE SETUPS
+                </span>
               </div>
 
-              <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                Event Decor & <span className="gold-gradient-text">Package Catalogue</span>
+              {/* Main Headline */}
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-[#1E1B19] font-normal leading-[1.14] tracking-tight">
+                Event Decor & <span className="text-[#790504] font-bold">Package Catalogue</span>
               </h1>
 
-              <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+              {/* Subtitle */}
+              <p className="mt-3 text-sm md:text-base text-[#59413D]/80 leading-relaxed font-normal">
                 From budget-friendly home function decorations to opulent royal Nikah stages, outdoor lawn receptions, and custom photo booths — explore our full catalog with transparent estimates.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <a
                   href="#full-table"
-                  className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#DFAE32] to-[#F2B93F] text-[#171110] font-bold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition-all"
+                  className="px-6 py-3 rounded-full bg-[#790504] text-white font-bold text-xs uppercase tracking-wider shadow-md hover:bg-[#8B1E23] transition-all"
                 >
                   View Complete Pricing Table
                 </a>
                 <a
                   href="#contact"
-                  className="px-6 py-3 rounded-xl border border-[#F2B93F]/50 bg-[#6F1014]/80 text-[#FAF8F2] font-semibold text-xs uppercase tracking-wider hover:bg-[#8B1E23] transition-all"
+                  className="px-6 py-3 rounded-full border border-[#790504]/30 bg-white text-[#790504] font-semibold text-xs uppercase tracking-wider hover:bg-[#FAF2EE] transition-all shadow-xs"
                 >
                   Request Custom Quotation
                 </a>

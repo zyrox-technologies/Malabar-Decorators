@@ -1,18 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowUpRight,
   Maximize2,
   X,
-  Sparkles,
   ChevronLeft,
   ChevronRight,
   MessageCircle,
   MapPin,
 } from "lucide-react";
+import { useResponsivePageSize } from "@/hooks/useResponsivePageSize";
 
 interface WorkItem {
   id: number;
@@ -85,11 +85,36 @@ const workItems: WorkItem[] = [
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedImage, setSelectedImage] = useState<WorkItem | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const galleryContainerRef = useRef<HTMLDivElement>(null);
+  const categorySliderRef = useRef<HTMLDivElement>(null);
+
+  const pageSize = useResponsivePageSize(); // 10 on mobile, 15 on tablet, 20 on laptop
 
   const filteredItems =
     activeCategory === "All"
       ? workItems
       : workItems.filter((item) => item.category === activeCategory);
+
+  const totalPages = Math.max(1, Math.ceil(filteredItems.length / pageSize));
+  const safeCurrentPage = Math.min(Math.max(1, currentPage), totalPages);
+
+  const displayedItems = filteredItems.slice(
+    (safeCurrentPage - 1) * pageSize,
+    safeCurrentPage * pageSize
+  );
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    galleryContainerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const scrollCategories = (direction: "left" | "right") => {
+    if (categorySliderRef.current) {
+      const scrollAmount = direction === "left" ? -220 : 220;
+      categorySliderRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
 
   const currentImageIndex = selectedImage
     ? filteredItems.findIndex((item) => item.id === selectedImage.id)
@@ -138,7 +163,7 @@ export default function Gallery() {
   }, [selectedImage, currentImageIndex, filteredItems]);
 
   return (
-    <section id="gallery" className="py-20 md:py-28 bg-[#FAF8F2] relative overflow-hidden">
+    <section id="gallery" ref={galleryContainerRef} className="py-20 md:py-28 bg-[#FAF8F2] relative overflow-hidden">
       {/* Subtle Ambient Background Accents */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#790504]/[0.02] rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#AB3600]/[0.02] rounded-full blur-3xl pointer-events-none" />
@@ -155,7 +180,7 @@ export default function Gallery() {
             
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#241B18] tracking-tight leading-[1.15]">
               Real Events. Real People. <br className="hidden sm:inline" />
-              <span className="text-[#790504] italic">Real Happiness.</span>
+              <span className="text-[#790504] font-bold">Real Happiness.</span>
             </h2>
 
             <p className="mt-3 text-sm md:text-base text-[#241B18]/65 max-w-xl font-light leading-relaxed">
@@ -163,27 +188,56 @@ export default function Gallery() {
             </p>
           </div>
 
-          {/* Minimal Filter Tabs */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none self-start lg:self-end">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-medium tracking-wider uppercase transition-all duration-300 cursor-pointer whitespace-nowrap ${
-                  activeCategory === cat
-                    ? "bg-[#241B18] text-white shadow-sm"
-                    : "bg-white/70 text-[#241B18]/70 hover:text-[#241B18] hover:bg-white border border-[#241B18]/10"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          {/* Category Sorting Slider */}
+          <div className="relative max-w-xl w-full self-start lg:self-end px-7">
+            {/* Left Scroll Arrow */}
+            <button
+              type="button"
+              onClick={() => scrollCategories("left")}
+              aria-label="Scroll categories left"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white border border-[#241B18]/15 flex items-center justify-center text-[#241B18] hover:bg-[#FAF8F2] hover:border-[#790504] hover:text-[#790504] shadow-xs transition-all cursor-pointer"
+            >
+              <ChevronLeft className="w-3.5 h-3.5" />
+            </button>
+
+            {/* Slider track */}
+            <div
+              ref={categorySliderRef}
+              className="flex items-center gap-2 overflow-x-auto scroll-smooth py-1 px-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => {
+                    setActiveCategory(cat);
+                    setCurrentPage(1);
+                  }}
+                  className={`shrink-0 px-4 py-2 rounded-full text-xs font-medium tracking-wider uppercase transition-all duration-300 cursor-pointer whitespace-nowrap ${
+                    activeCategory === cat
+                      ? "bg-[#241B18] text-white shadow-sm"
+                      : "bg-white/70 text-[#241B18]/70 hover:text-[#241B18] hover:bg-white border border-[#241B18]/10"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+
+            {/* Right Scroll Arrow */}
+            <button
+              type="button"
+              onClick={() => scrollCategories("right")}
+              aria-label="Scroll categories right"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white border border-[#241B18]/15 flex items-center justify-center text-[#241B18] hover:bg-[#FAF8F2] hover:border-[#790504] hover:text-[#790504] shadow-xs transition-all cursor-pointer"
+            >
+              <ChevronRight className="w-3.5 h-3.5" />
+            </button>
           </div>
         </div>
 
         {/* Curated Modern Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item, index) => (
+          {displayedItems.map((item, index) => (
             <div
               key={item.id}
               onClick={() => setSelectedImage(item)}
@@ -237,6 +291,61 @@ export default function Gallery() {
           ))}
         </div>
 
+        {/* Pagination Controls for Image Gallery (Responsive: 10 mobile, 15 tablet, 20 laptop) */}
+        {totalPages > 1 && (
+          <div className="flex flex-col items-center justify-center pt-10 md:pt-12 gap-3.5">
+            <div className="flex items-center gap-2 sm:gap-3">
+              {/* Previous Button */}
+              <button
+                type="button"
+                onClick={() => handlePageChange(safeCurrentPage - 1)}
+                disabled={safeCurrentPage <= 1}
+                className="px-3.5 sm:px-4 py-2 rounded-full border border-[#241B18]/20 text-xs uppercase font-semibold text-[#241B18] hover:border-[#790504] hover:text-[#790504] disabled:opacity-40 disabled:cursor-not-allowed transition-all inline-flex items-center gap-1 cursor-pointer"
+                aria-label="Previous page"
+              >
+                <ChevronLeft className="w-4 h-4" />
+                <span className="hidden sm:inline">Previous</span>
+              </button>
+
+              {/* Page Number Buttons */}
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+                  <button
+                    key={pageNum}
+                    type="button"
+                    onClick={() => handlePageChange(pageNum)}
+                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                      safeCurrentPage === pageNum
+                        ? "bg-[#790504] text-white shadow-md scale-105"
+                        : "bg-white/80 text-[#241B18]/80 hover:text-[#241B18] hover:bg-white border border-[#241B18]/15"
+                    }`}
+                  >
+                    {pageNum}
+                  </button>
+                ))}
+              </div>
+
+              {/* Next Button */}
+              <button
+                type="button"
+                onClick={() => handlePageChange(safeCurrentPage + 1)}
+                disabled={safeCurrentPage >= totalPages}
+                className="px-3.5 sm:px-4 py-2 rounded-full border border-[#241B18]/20 text-xs uppercase font-semibold text-[#241B18] hover:border-[#790504] hover:text-[#790504] disabled:opacity-40 disabled:cursor-not-allowed transition-all inline-flex items-center gap-1 cursor-pointer"
+                aria-label="Next page"
+              >
+                <span className="hidden sm:inline">Next</span>
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Status info */}
+            <p className="text-xs text-[#241B18]/60 font-medium">
+              Showing {(safeCurrentPage - 1) * pageSize + 1}–
+              {Math.min(safeCurrentPage * pageSize, filteredItems.length)} of {filteredItems.length} images
+            </p>
+          </div>
+        )}
+
         {/* Minimal Bottom Summary Strip */}
         <div className="mt-14 pt-8 border-t border-[#241B18]/10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-8 text-[#241B18]">
@@ -282,23 +391,20 @@ export default function Gallery() {
           onClick={() => setSelectedImage(null)}
         >
           <div
-            className="relative max-w-5xl w-full max-h-[92vh] bg-gradient-to-b from-[#1c1816]/95 via-[#14100e]/98 to-[#14100e] rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 shadow-[0_25px_70px_rgba(0,0,0,0.85),0_0_50px_rgba(121,5,4,0.18)] flex flex-col animate-in zoom-in-95 duration-300"
+            className="relative max-w-5xl w-full max-h-[92vh] bg-gradient-to-b from-[#1c1816]/95 via-[#14100e]/98 to-[#14100e] rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 shadow-[0_25px_70px_rgba(0,0,0,0.95)] flex flex-col animate-in zoom-in-95 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Top Amber Accent Line */}
-            <div className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-amber-400/60 to-transparent z-30" />
-
             {/* Modal Header */}
             <div className="px-4 sm:px-7 py-3.5 sm:py-4 bg-[#231e1a]/85 backdrop-blur-md border-b border-white/[0.08] flex items-center justify-between gap-4 z-20 text-white">
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-300 text-[10px] font-bold tracking-[0.2em] uppercase">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/20 text-white text-[10px] font-bold tracking-[0.2em] uppercase">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/80" />
                     {selectedImage.categoryTag}
                   </span>
                   <span className="text-white/30 text-xs hidden sm:inline">•</span>
                   <span className="inline-flex items-center gap-1 text-[11px] text-white/60 tracking-wider uppercase">
-                    <MapPin className="w-3 h-3 text-[#ffb59c]" />
+                    <MapPin className="w-3 h-3 text-white/60" />
                     {selectedImage.location}
                   </span>
                 </div>
@@ -378,8 +484,7 @@ export default function Gallery() {
 
             {/* Modal Footer */}
             <div className="px-4 sm:px-7 py-3 sm:py-3.5 bg-[#231e1a]/90 backdrop-blur-md border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs z-20">
-              <div className="flex items-center gap-2 text-white/70">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <div className="flex items-center gap-2 text-white/60">
                 <span className="text-[11px] font-medium tracking-wider uppercase">Malabar Decorators Kasaragod</span>
               </div>
 
@@ -393,9 +498,9 @@ export default function Gallery() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-gradient-to-r from-[#790504] to-[#ab3600] hover:from-[#8f0605] hover:to-[#bd3c00] text-white text-[11px] font-bold tracking-wider uppercase shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
                 >
-                  <MessageCircle className="w-3.5 h-3.5 text-amber-300" />
+                  <MessageCircle className="w-3.5 h-3.5 text-white" />
                   <span>Enquire Setup</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-amber-300" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-white" />
                 </a>
 
                 <button
