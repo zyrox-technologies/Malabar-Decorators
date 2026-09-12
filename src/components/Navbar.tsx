@@ -20,7 +20,7 @@ export default function Navbar() {
                 <Link href="/" className="flex items-center group z-50">
                     <div className="relative w-44 md:w-52 h-12 md:h-14 shrink-0 flex items-center">
                         <Image
-                            src="/LOGO/image1.png"
+                            src="/images/logo/image1.png"
                             alt={`${brandData.name} Logo`}
                             fill
                             sizes="(max-width: 768px) 176px, 208px"

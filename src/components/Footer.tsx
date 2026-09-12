@@ -44,7 +44,7 @@ export default function Footer() {
               className="inline-block bg-white px-4 py-2.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-xl group"
             >
               <Image
-                src="/LOGO/image1.png"
+                src="/images/logo/image1.png"
                 alt={brandData.name}
                 width={175}
                 height={52}

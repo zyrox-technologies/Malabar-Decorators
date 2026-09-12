@@ -10,7 +10,7 @@ export const aboutData = {
     "href": "/#services"
   },
   "image": {
-    "src": "/about/file_000000000188820bafb49a41007c1577.png",
+    "src": "/images/about/file_000000000188820bafb49a41007c1577.png",
     "alt": "Editorial wedding stage scenography and floral backdrop",
     "captionOverline": "Couture Stagecraft",
     "captionTitle": "Minimalist Mandap Scenography"

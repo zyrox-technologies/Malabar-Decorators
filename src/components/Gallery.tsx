@@ -38,7 +38,7 @@ const workItems: WorkItem[] = [
     category: "Royal Stages",
     categoryTag: "Stage Decor",
     location: "Karandakkad, Kasaragod",
-    image: "/Malabar-imges/malabar-decorators-karandakkad-kasaragod-flower-decorators-vajfq0rkn4.jpg",
+    image: "/images/gallery/malabar-decorators-karandakkad-kasaragod-flower-decorators-vajfq0rkn4.jpg",
   },
   {
     id: 2,
@@ -46,7 +46,7 @@ const workItems: WorkItem[] = [
     category: "Floral Mandaps",
     categoryTag: "Floral Art",
     location: "Kanhangad",
-    image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-1lepi60kot.jpg",
+    image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-1lepi60kot.jpg",
   },
   {
     id: 3,
@@ -54,7 +54,7 @@ const workItems: WorkItem[] = [
     category: "Floral Mandaps",
     categoryTag: "Mandap Decor",
     location: "Uppala, Kasaragod",
-    image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-c0b95t3sru.jpg",
+    image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-c0b95t3sru.jpg",
   },
   {
     id: 4,
@@ -62,7 +62,7 @@ const workItems: WorkItem[] = [
     category: "Reception Halls",
     categoryTag: "Reception",
     location: "Karandakkad",
-    image: "/Malabar-imges/malabar-decorators-karandakkad-kasaragod-flower-decorators-3gfqv2nr6m.jpg",
+    image: "/images/gallery/malabar-decorators-karandakkad-kasaragod-flower-decorators-3gfqv2nr6m.jpg",
   },
   {
     id: 5,
@@ -70,7 +70,7 @@ const workItems: WorkItem[] = [
     category: "Royal Stages",
     categoryTag: "Stage Decor",
     location: "Kasaragod Central",
-    image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-lr5hqiduzn.jpg",
+    image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-lr5hqiduzn.jpg",
   },
   {
     id: 6,
@@ -78,7 +78,7 @@ const workItems: WorkItem[] = [
     category: "Walkways & Arches",
     categoryTag: "Entrance Arch",
     location: "Kasaragod",
-    image: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-zctu7alvqc.jpg",
+    image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-zctu7alvqc.jpg",
   },
 ];
 

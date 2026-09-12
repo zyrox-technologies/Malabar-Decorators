@@ -17,25 +17,25 @@ const showcaseCards: ShowcaseCard[] = [
     id: 1,
     title: "Grand Royal Wedding Stage",
     tag: "Royal Stage",
-    image: "/gallery-showcase/card1.png",
+    image: "/images/gallery/card1.png",
   },
   {
     id: 2,
     title: "Traditional Ceremony & Floral Mandap",
     tag: "Ceremony & Mandap",
-    image: "/gallery-showcase/card2.png",
+    image: "/images/gallery/card2.png",
   },
   {
     id: 3,
     title: "Enchanted Floral Arch Reception",
     tag: "Reception Art",
-    image: "/gallery-showcase/card3.png",
+    image: "/images/gallery/card3.png",
   },
   {
     id: 4,
     title: "Bridal Garlands & Adornments",
     tag: "Floral Details",
-    image: "/gallery-showcase/card4.png",
+    image: "/images/gallery/card4.png",
   },
 ];
 

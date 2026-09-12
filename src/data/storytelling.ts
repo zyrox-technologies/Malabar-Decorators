@@ -11,7 +11,7 @@ export const storytellingData = {
     "href": "/#contact"
   },
   "image": {
-    "src": "/Malabar/file_0000000054bc824391abca2865d59a8f.png",
+    "src": "/images/about/file_0000000054bc824391abca2865d59a8f.png",
     "alt": "Close up of bespoke floral arrangement on a textured table setting"
   }
 };

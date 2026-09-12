@@ -32,7 +32,7 @@ export const galleryData = {
       category: "Weddings",
       categoryLabel: "WEDDING",
       duration: "00:45",
-      thumbnail: "/hero section/file_00000000eb0c820bbe3fae738cbee3e7.png",
+      thumbnail: "/images/hero/file_00000000eb0c820bbe3fae738cbee3e7.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4H0YK4dYFrKG2ZhAwcIBoQNF5mRz7U8ySduMPj",
     },
     {
@@ -41,7 +41,7 @@ export const galleryData = {
       category: "Weddings",
       categoryLabel: "NIKAH STAGE",
       duration: "00:38",
-      thumbnail: "/Decoration/file_0000000015b881fa9bbbf4a93b5e22b6.png",
+      thumbnail: "/images/catalogue/file_0000000015b881fa9bbbf4a93b5e22b6.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HrzdX1a7qDGAKts7Ie0vFiplPdM9xW4buRrjY",
     },
     {
@@ -50,7 +50,7 @@ export const galleryData = {
       category: "Event Setups",
       categoryLabel: "EVENT SETUP",
       duration: "00:52",
-      thumbnail: "/Decoration/file_00000000344c81fa850396f61fb9d12d.png",
+      thumbnail: "/images/catalogue/file_00000000344c81fa850396f61fb9d12d.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4H3TsxpOKLeRkUgSqWsoDH4ruBzKfvpbTxIM9w",
     },
     {
@@ -59,7 +59,7 @@ export const galleryData = {
       category: "Private Parties",
       categoryLabel: "SPECIAL EFFECTS",
       duration: "00:30",
-      thumbnail: "/service/5.png",
+      thumbnail: "/images/services/5.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4H5jBdhFRaAvoT7y2JwB58kPgE4xmsDSUqQ1dh",
     },
     {
@@ -68,7 +68,7 @@ export const galleryData = {
       category: "Weddings",
       categoryLabel: "RECEPTION",
       duration: "01:05",
-      thumbnail: "/Decoration/file_00000000375c81fa9ee8f7a1a8a6fb43.png",
+      thumbnail: "/images/catalogue/file_00000000375c81fa9ee8f7a1a8a6fb43.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HuFvDCY1FUf9IglqWMC43XT2Vnauc7AwPoiQz",
     },
     {
@@ -77,7 +77,7 @@ export const galleryData = {
       category: "Corporate Events",
       categoryLabel: "CATERING",
       duration: "00:48",
-      thumbnail: "/about/file_000000007b0c81fa8424c183306499a2.png",
+      thumbnail: "/images/about/file_000000007b0c81fa8424c183306499a2.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HAT3pNAMjXo2UWRIOKw1DaPEC6yVButTepNAr",
     },
     {
@@ -86,7 +86,7 @@ export const galleryData = {
       category: "Private Parties",
       categoryLabel: "HALDI DECOR",
       duration: "00:36",
-      thumbnail: "/service/3.png",
+      thumbnail: "/images/services/3.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HngYZJelqebmPczhSlaygk14B0AsH5f9CFvXJ",
     },
     {
@@ -95,7 +95,7 @@ export const galleryData = {
       category: "Event Setups",
       categoryLabel: "WALKWAY ARCH",
       duration: "00:42",
-      thumbnail: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-1lepi60kot.jpg",
+      thumbnail: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-1lepi60kot.jpg",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HHcahqCWWhRmKGqip7lB5zDg2eZ6N1rLaow0x",
     },
     {
@@ -104,7 +104,7 @@ export const galleryData = {
       category: "Weddings",
       categoryLabel: "DESTINATION",
       duration: "00:55",
-      thumbnail: "/Decoration/file_00000000e8f8820bb6b4b4dcaff4fbb3.png",
+      thumbnail: "/images/catalogue/file_00000000e8f8820bb6b4b4dcaff4fbb3.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HKTmyWX2SY0bqlDUZfeHIw35rmNtgQ19jx4Bh",
     },
     {
@@ -113,7 +113,7 @@ export const galleryData = {
       category: "Weddings",
       categoryLabel: "ROYAL STAGE",
       duration: "00:40",
-      thumbnail: "/service/1.png",
+      thumbnail: "/images/services/1.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HrNJucG7qDGAKts7Ie0vFiplPdM9xW4buRrjY",
     },
     {
@@ -122,7 +122,7 @@ export const galleryData = {
       category: "Corporate Events",
       categoryLabel: "CULINARY ART",
       duration: "00:50",
-      thumbnail: "/Malabar/IMG-20260908-WA0056.jpg",
+      thumbnail: "/images/gallery/IMG-20260908-WA0056.jpg",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HbOTk8XICO4HihRrgsGa6D7lu0fKtBVML5SFN",
     },
     {
@@ -131,7 +131,7 @@ export const galleryData = {
       category: "Weddings",
       categoryLabel: "WEDDING",
       duration: "00:35",
-      thumbnail: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-zctu7alvqc.jpg",
+      thumbnail: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-zctu7alvqc.jpg",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HtNYK75OP0S9DTU472CKqfncxNlLyGZJ6ugHk",
     },
     {
@@ -140,7 +140,7 @@ export const galleryData = {
       category: "Private Parties",
       categoryLabel: "MEHNDI DECOR",
       duration: "00:44",
-      thumbnail: "/Decoration/file_00000000ff5c81fab206a64f8a6c6766.png",
+      thumbnail: "/images/catalogue/file_00000000ff5c81fab206a64f8a6c6766.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HKcQhes2SY0bqlDUZfeHIw35rmNtgQ19jx4Bh",
     },
     {
@@ -149,7 +149,7 @@ export const galleryData = {
       category: "Event Setups",
       categoryLabel: "STAGE ARCH",
       duration: "00:58",
-      thumbnail: "/Malabar-imges/malabar-decorators-karandakkad-kasaragod-flower-decorators-vajfq0rkn4.jpg",
+      thumbnail: "/images/gallery/malabar-decorators-karandakkad-kasaragod-flower-decorators-vajfq0rkn4.jpg",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HDobTIr9CJHOGnD31UTtPmBE48aYRjudFloWz",
     },
     {
@@ -158,7 +158,7 @@ export const galleryData = {
       category: "Weddings",
       categoryLabel: "RECEPTION",
       duration: "00:39",
-      thumbnail: "/Malabar-imges/malabar-decorators-karandakkad-kasaragod-flower-decorators-3gfqv2nr6m.jpg",
+      thumbnail: "/images/gallery/malabar-decorators-karandakkad-kasaragod-flower-decorators-3gfqv2nr6m.jpg",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4H6ZGs1ZbwM5hvlWJr91VuQioPpbKadjE8B4e0",
     },
     {
@@ -167,7 +167,7 @@ export const galleryData = {
       category: "Corporate Events",
       categoryLabel: "CORPORATE",
       duration: "01:10",
-      thumbnail: "/service/6.png",
+      thumbnail: "/images/services/6.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HWdbaOtuFj8E9MiQzRvst0q65NULJVXW1YOxk",
     },
     {
@@ -176,7 +176,7 @@ export const galleryData = {
       category: "Client Stories",
       categoryLabel: "TRADITION",
       duration: "00:33",
-      thumbnail: "/Malabar/file_0000000054bc824391abca2865d59a8f.png",
+      thumbnail: "/images/about/file_0000000054bc824391abca2865d59a8f.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HMutPzw0YRnU73KuoIABp9xQyHr5wchitgl8f",
     },
     {
@@ -185,7 +185,7 @@ export const galleryData = {
       category: "Weddings",
       categoryLabel: "OUTDOOR DECOR",
       duration: "00:47",
-      thumbnail: "/service/4.png",
+      thumbnail: "/images/services/4.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HlNzTUGp046tir5IYfdHV7MsbZqjyGKSUA8xN",
     },
     {
@@ -194,7 +194,7 @@ export const galleryData = {
       category: "Event Setups",
       categoryLabel: "STAGE STYLING",
       duration: "00:32",
-      thumbnail: "/Decoration/file_000000003934820ba9d16be60f892922.png",
+      thumbnail: "/images/catalogue/file_000000003934820ba9d16be60f892922.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HexiKGMtFp7WMs0jYniPxJ3oCArG2UhbERZfX",
     },
     {
@@ -203,7 +203,7 @@ export const galleryData = {
       category: "Client Stories",
       categoryLabel: "HIGHLIGHTS",
       duration: "01:00",
-      thumbnail: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-c0b95t3sru.jpg",
+      thumbnail: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-c0b95t3sru.jpg",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HqD3JoGx0JNGARuzVXHCYwrsLEMTUctbfSBxk",
     },
     {
@@ -212,7 +212,7 @@ export const galleryData = {
       category: "Private Parties",
       categoryLabel: "SFX MOMENTS",
       duration: "00:28",
-      thumbnail: "/service/5.png",
+      thumbnail: "/images/services/5.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HBxyWMuDPdGu6m8DEIlbLpsYQyxkgNh3Oq1Vo",
     },
     {
@@ -221,7 +221,7 @@ export const galleryData = {
       category: "Corporate Events",
       categoryLabel: "DINING SETUP",
       duration: "00:45",
-      thumbnail: "/service/7.png",
+      thumbnail: "/images/services/7.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HYZwy5vjFu1lPZwN4MUAqK3T902eYSiCsmJXB",
     },
     {
@@ -230,7 +230,7 @@ export const galleryData = {
       category: "Private Parties",
       categoryLabel: "CAR DECOR",
       duration: "00:25",
-      thumbnail: "/service/8.png",
+      thumbnail: "/images/services/8.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HgQVcuKXUQCdBo8UPxin0EYRtSWusIA9bwc5r",
     },
     {
@@ -239,7 +239,7 @@ export const galleryData = {
       category: "Corporate Events",
       categoryLabel: "COMMERCIAL",
       duration: "00:50",
-      thumbnail: "/service/9.png",
+      thumbnail: "/images/services/9.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HTWXcecdS7c16kYl0LaX3Q2nrWJpfUb5ZHwI4",
     },
     {
@@ -248,7 +248,7 @@ export const galleryData = {
       category: "Weddings",
       categoryLabel: "DESTINATION",
       duration: "00:48",
-      thumbnail: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-fo6zj2ua32.jpg",
+      thumbnail: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-fo6zj2ua32.jpg",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HuUg8RXe1FUf9IglqWMC43XT2Vnauc7AwPoiQ",
     },
     {
@@ -257,7 +257,7 @@ export const galleryData = {
       category: "Client Stories",
       categoryLabel: "CLIENT STORY",
       duration: "00:38",
-      thumbnail: "/Malabar/file_000000003c1c81f59e8990e4f9073aeb.png",
+      thumbnail: "/images/about/file_000000003c1c81f59e8990e4f9073aeb.png",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HYz6QEVjFu1lPZwN4MUAqK3T902eYSiCsmJXB",
     },
     {
@@ -266,7 +266,7 @@ export const galleryData = {
       category: "Private Parties",
       categoryLabel: "CELEBRATION",
       duration: "00:42",
-      thumbnail: "/Malabar-imges/malabar-decorators-kasaragod-flower-decorators-1f2o2b186d.jpg",
+      thumbnail: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-1f2o2b186d.jpg",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4Hulx5EM1FUf9IglqWMC43XT2Vnauc7AwPoiQz",
     },
   ],
