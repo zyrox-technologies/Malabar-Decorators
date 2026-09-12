@@ -1,14 +1,14 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Pillars from "@/components/Pillars";
-import Services from "@/components/Services";
-import Storytelling from "@/components/Storytelling";
-import HomeGalleryShowcase from "@/components/HomeGalleryShowcase";
-import MomentsInMotion from "@/components/MomentsInMotion";
-import Instagram from "@/components/Instagram";
-import Reviews from "@/components/Reviews";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/header/Navbar";
+import Hero from "@/components/hero/Hero";
+import About from "@/components/about/About";
+import Pillars from "@/components/pillars/Pillars";
+import Services from "@/components/services/ServicesHome";
+import Storytelling from "@/components/about/Storytelling";
+import HomeGalleryShowcase from "@/components/gallery/HomeGalleryShowcase";
+import MomentsInMotion from "@/components/gallery/MomentsInMotion";
+import Instagram from "@/components/social/Instagram";
+import Reviews from "@/components/reviews/Reviews";
+import Footer from "@/components/footer/Footer";
 
 export default function Home() {
   return (

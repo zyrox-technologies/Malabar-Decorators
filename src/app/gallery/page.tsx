@@ -1,9 +1,21 @@
-import Navbar from "@/components/Navbar";
-import Gallery from "@/components/Gallery";
-import MomentsInMotion from "@/components/MomentsInMotion";
-import Instagram from "@/components/Instagram";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import type { Metadata } from "next";
+import Navbar from "@/components/header/Navbar";
+import Gallery from "@/components/gallery/Gallery";
+import MomentsInMotion from "@/components/gallery/MomentsInMotion";
+import Instagram from "@/components/social/Instagram";
+import Footer from "@/components/footer/Footer";
+import WhatsAppButton from "@/components/common/WhatsAppButton";
+
+export const metadata: Metadata = {
+  title: "Celebration Gallery | Royal Weddings, Mandaps & Cinematic Moments",
+  description:
+    "Explore our portfolio of royal wedding stage setups, authentic Malabar feasts, custom floral arches, and luminous evening celebrations across Kerala.",
+  openGraph: {
+    title: "Celebration Gallery | Malabar Decorators",
+    description:
+      "Real Events. Real People. Real Happiness. Photos and moments in motion from our celebrations.",
+  },
+};
 
 export default function CelebrationGalleryPage() {
   return (
