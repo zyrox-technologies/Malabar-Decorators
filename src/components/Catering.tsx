@@ -80,7 +80,7 @@ export default function Catering() {
                             style={{ y }}
                         >
                             <Image
-                                src="/images/about/file_000000007b0c81fa8424c183306499a2.png"
+                                src="/images/about/file_000000007b0c81fa8424c183306499a2.webp"
                                 alt="Signature Catering"
                                 fill
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1400px"

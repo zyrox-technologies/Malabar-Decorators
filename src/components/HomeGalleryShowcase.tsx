@@ -17,25 +17,25 @@ const showcaseCards: ShowcaseCard[] = [
     id: 1,
     title: "Grand Royal Wedding Stage",
     tag: "Royal Stage",
-    image: "/images/gallery/0f47fd29-e0f6-4aae-8ad8-2d8c8df2624f.png",
+    image: "/images/gallery/0f47fd29-e0f6-4aae-8ad8-2d8c8df2624f.webp",
   },
   {
     id: 2,
     title: "Grand Nikah Floral Stage",
     tag: "Ceremony & Mandap",
-    image: "/images/gallery/16a50fa3-f261-4bb7-ab80-e3f52d7faffc.png",
+    image: "/images/gallery/16a50fa3-f261-4bb7-ab80-e3f52d7faffc.webp",
   },
   {
     id: 3,
     title: "Intricate Floral Mandap Canopy",
     tag: "Floral Pavilion",
-    image: "/images/gallery/7326c7a8-b8e8-4d07-8eee-6a0dd643bc7e.png",
+    image: "/images/gallery/7326c7a8-b8e8-4d07-8eee-6a0dd643bc7e.webp",
   },
   {
     id: 4,
     title: "Grand Banquet Hall Illumination",
     tag: "Reception Art",
-    image: "/images/gallery/a616594c-b7a5-4aef-b8ed-15ca99e5ca99.png",
+    image: "/images/gallery/a616594c-b7a5-4aef-b8ed-15ca99e5ca99.webp",
   },
 ];
 

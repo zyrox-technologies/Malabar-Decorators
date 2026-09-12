@@ -200,7 +200,7 @@ export default function Menu() {
                 <div className="lg:col-span-6">
                   <div className="relative aspect-[16/10] sm:aspect-[2.1/1] lg:aspect-[16/10] rounded-2xl overflow-hidden shadow-md border border-[#E9DFD1] bg-[#E9DFD1]/30">
                     <Image
-                      src="/images/menu/sadhya-feast.jpg"
+                      src="/images/menu/sadhya-feast.webp"
                       alt="Traditional Kerala Sadhya on Banana Leaf"
                       fill
                       sizes="(max-width: 1024px) 100vw, 50vw"
@@ -338,7 +338,7 @@ export default function Menu() {
                   {/* Right Half: Payasam Image */}
                   <div className="w-full sm:w-1/2 min-h-[200px] relative rounded-xl overflow-hidden shadow-xs border border-[#E9DFD1] bg-[#E9DFD1]/30">
                     <Image
-                      src="/images/menu/payasam.jpg"
+                      src="/images/menu/payasam.webp"
                       alt="Traditional Payasam with Roasted Cashews"
                       fill
                       sizes="(max-width: 640px) 100vw, 25vw"
@@ -413,7 +413,7 @@ export default function Menu() {
                 <div className="lg:col-span-6">
                   <div className="relative aspect-[16/10] sm:aspect-[2.1/1] lg:aspect-[16/10] rounded-2xl overflow-hidden shadow-md border border-[#E9DFD1] bg-[#E9DFD1]/30">
                     <Image
-                      src="/images/menu/biryani-feast.jpg"
+                      src="/images/menu/biryani-feast.webp"
                       alt="Malabar Dum Biryani Feast in Copper Handi"
                       fill
                       sizes="(max-width: 1024px) 100vw, 50vw"
@@ -650,8 +650,8 @@ export default function Menu() {
               <Image
                 src={
                   activeModal === "sadhya"
-                    ? "/images/menu/sadhya-feast.jpg"
-                    : "/images/menu/biryani-feast.jpg"
+                    ? "/images/menu/sadhya-feast.webp"
+                    : "/images/menu/biryani-feast.webp"
                 }
                 alt={activeModal === "sadhya" ? "Sadhya Feast" : "Biryani Feast"}
                 width={800}

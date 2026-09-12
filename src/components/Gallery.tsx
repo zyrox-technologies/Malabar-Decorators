@@ -38,7 +38,7 @@ const workItems: WorkItem[] = [
     category: "Royal Stages",
     categoryTag: "Stage Decor",
     location: "Karandakkad, Kasaragod",
-    image: "/images/gallery/0f47fd29-e0f6-4aae-8ad8-2d8c8df2624f.png",
+    image: "/images/gallery/0f47fd29-e0f6-4aae-8ad8-2d8c8df2624f.webp",
   },
   {
     id: 2,
@@ -46,7 +46,7 @@ const workItems: WorkItem[] = [
     category: "Royal Stages",
     categoryTag: "Nikah Stage",
     location: "Kasaragod Central",
-    image: "/images/gallery/16a50fa3-f261-4bb7-ab80-e3f52d7faffc.png",
+    image: "/images/gallery/16a50fa3-f261-4bb7-ab80-e3f52d7faffc.webp",
   },
   {
     id: 3,
@@ -54,7 +54,7 @@ const workItems: WorkItem[] = [
     category: "Royal Stages",
     categoryTag: "Stage Styling",
     location: "Valanchery",
-    image: "/images/gallery/270bdc2b-4f05-47be-b369-fd3d4fc2274e.png",
+    image: "/images/gallery/270bdc2b-4f05-47be-b369-fd3d4fc2274e.webp",
   },
   {
     id: 4,
@@ -62,7 +62,7 @@ const workItems: WorkItem[] = [
     category: "Royal Stages",
     categoryTag: "Throne Seating",
     location: "Kanhangad",
-    image: "/images/gallery/2baf72ba-15d3-4f93-8ebe-8b76a1bcbbfc.png",
+    image: "/images/gallery/2baf72ba-15d3-4f93-8ebe-8b76a1bcbbfc.webp",
   },
   {
     id: 5,
@@ -70,7 +70,7 @@ const workItems: WorkItem[] = [
     category: "Royal Stages",
     categoryTag: "Pavilion Decor",
     location: "Malappuram",
-    image: "/images/gallery/2f7be626-e525-4730-b1f8-9e502c79c9da.png",
+    image: "/images/gallery/2f7be626-e525-4730-b1f8-9e502c79c9da.webp",
   },
   {
     id: 6,
@@ -78,7 +78,7 @@ const workItems: WorkItem[] = [
     category: "Royal Stages",
     categoryTag: "Stage Lights",
     location: "Uppala, Kasaragod",
-    image: "/images/gallery/516eef83-df7a-4fc6-8e4b-ea1f4c7628cf.png",
+    image: "/images/gallery/516eef83-df7a-4fc6-8e4b-ea1f4c7628cf.webp",
   },
   {
     id: 7,
@@ -86,7 +86,7 @@ const workItems: WorkItem[] = [
     category: "Floral Mandaps",
     categoryTag: "Mandap Canopy",
     location: "Kanhangad",
-    image: "/images/gallery/7326c7a8-b8e8-4d07-8eee-6a0dd643bc7e.png",
+    image: "/images/gallery/7326c7a8-b8e8-4d07-8eee-6a0dd643bc7e.webp",
   },
   {
     id: 8,
@@ -94,7 +94,7 @@ const workItems: WorkItem[] = [
     category: "Floral Mandaps",
     categoryTag: "Heritage Mandap",
     location: "Kozhikode",
-    image: "/images/gallery/735b3aeb-edc6-42c5-a98b-37d2f0a1e765.png",
+    image: "/images/gallery/735b3aeb-edc6-42c5-a98b-37d2f0a1e765.webp",
   },
   {
     id: 9,
@@ -102,7 +102,7 @@ const workItems: WorkItem[] = [
     category: "Floral Mandaps",
     categoryTag: "Floral Art",
     location: "Karandakkad",
-    image: "/images/gallery/777c9464-a49f-44dc-8d48-5795196b0011.png",
+    image: "/images/gallery/777c9464-a49f-44dc-8d48-5795196b0011.webp",
   },
   {
     id: 10,
@@ -110,7 +110,7 @@ const workItems: WorkItem[] = [
     category: "Floral Mandaps",
     categoryTag: "Mandap Arch",
     location: "Kasaragod",
-    image: "/images/gallery/7a3adcca-d113-4438-98c1-8c8f72812444.png",
+    image: "/images/gallery/7a3adcca-d113-4438-98c1-8c8f72812444.webp",
   },
   {
     id: 11,
@@ -118,7 +118,7 @@ const workItems: WorkItem[] = [
     category: "Floral Mandaps",
     categoryTag: "Mandap Styling",
     location: "Valanchery",
-    image: "/images/gallery/8dd82b12-b2fc-4aad-9a2b-dbe4d626f711.png",
+    image: "/images/gallery/8dd82b12-b2fc-4aad-9a2b-dbe4d626f711.webp",
   },
   {
     id: 12,
@@ -126,7 +126,7 @@ const workItems: WorkItem[] = [
     category: "Floral Mandaps",
     categoryTag: "Floral Dome",
     location: "Malappuram",
-    image: "/images/gallery/923cdbe5-1b1d-4a1b-99bf-1369ba2be9fd.png",
+    image: "/images/gallery/923cdbe5-1b1d-4a1b-99bf-1369ba2be9fd.webp",
   },
   {
     id: 13,
@@ -134,7 +134,7 @@ const workItems: WorkItem[] = [
     category: "Reception Halls",
     categoryTag: "Banquet Hall",
     location: "Karandakkad, Kasaragod",
-    image: "/images/gallery/a616594c-b7a5-4aef-b8ed-15ca99e5ca99.png",
+    image: "/images/gallery/a616594c-b7a5-4aef-b8ed-15ca99e5ca99.webp",
   },
   {
     id: 14,
@@ -142,7 +142,7 @@ const workItems: WorkItem[] = [
     category: "Reception Halls",
     categoryTag: "Dining Hall",
     location: "Valanchery",
-    image: "/images/gallery/a83b2d3e-b4fd-4727-8355-a36cf57f6033.png",
+    image: "/images/gallery/a83b2d3e-b4fd-4727-8355-a36cf57f6033.webp",
   },
   {
     id: 15,
@@ -150,7 +150,7 @@ const workItems: WorkItem[] = [
     category: "Reception Halls",
     categoryTag: "Reception Art",
     location: "Kanhangad",
-    image: "/images/gallery/ad024359-b131-44b4-9324-b1e780ca4569.png",
+    image: "/images/gallery/ad024359-b131-44b4-9324-b1e780ca4569.webp",
   },
   {
     id: 16,
@@ -158,7 +158,7 @@ const workItems: WorkItem[] = [
     category: "Reception Halls",
     categoryTag: "Banqueting",
     location: "Kozhikode",
-    image: "/images/gallery/ba5a35c0-2bf1-4563-bb34-63040d32f85a.png",
+    image: "/images/gallery/ba5a35c0-2bf1-4563-bb34-63040d32f85a.webp",
   },
   {
     id: 17,
@@ -166,7 +166,7 @@ const workItems: WorkItem[] = [
     category: "Reception Halls",
     categoryTag: "Reception Hall",
     location: "Kasaragod Central",
-    image: "/images/gallery/be074bc4-5529-461d-bece-b32c711a9b44.png",
+    image: "/images/gallery/be074bc4-5529-461d-bece-b32c711a9b44.webp",
   },
   {
     id: 18,
@@ -174,7 +174,7 @@ const workItems: WorkItem[] = [
     category: "Walkways & Arches",
     categoryTag: "Entrance Arch",
     location: "Kasaragod",
-    image: "/images/gallery/d43d95d2-319c-4847-a78f-4aebc3325086.png",
+    image: "/images/gallery/d43d95d2-319c-4847-a78f-4aebc3325086.webp",
   },
   {
     id: 19,
@@ -182,7 +182,7 @@ const workItems: WorkItem[] = [
     category: "Walkways & Arches",
     categoryTag: "Light Tunnel",
     location: "Valanchery",
-    image: "/images/gallery/e8c359e5-a348-4e48-9b4f-8e8d7c032d46.png",
+    image: "/images/gallery/e8c359e5-a348-4e48-9b4f-8e8d7c032d46.webp",
   },
   {
     id: 20,
@@ -190,7 +190,7 @@ const workItems: WorkItem[] = [
     category: "Walkways & Arches",
     categoryTag: "Grand Walkway",
     location: "Karandakkad",
-    image: "/images/gallery/ed304218-1597-4a6c-9fee-dec6632d3173.png",
+    image: "/images/gallery/ed304218-1597-4a6c-9fee-dec6632d3173.webp",
   },
   {
     id: 21,
@@ -198,7 +198,7 @@ const workItems: WorkItem[] = [
     category: "Walkways & Arches",
     categoryTag: "Fairy Lights",
     location: "Kanhangad",
-    image: "/images/gallery/eec8a0ec-9fb6-48b8-8f85-ed4dad2282c2.png",
+    image: "/images/gallery/eec8a0ec-9fb6-48b8-8f85-ed4dad2282c2.webp",
   },
   {
     id: 22,
@@ -206,7 +206,7 @@ const workItems: WorkItem[] = [
     category: "Walkways & Arches",
     categoryTag: "VIP Entrance",
     location: "Malappuram",
-    image: "/images/gallery/f41038df-027c-466c-b54f-e55151f3b5f8.png",
+    image: "/images/gallery/f41038df-027c-466c-b54f-e55151f3b5f8.webp",
   },
 ];
 

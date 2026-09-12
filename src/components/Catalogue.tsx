@@ -29,7 +29,7 @@ export default function Catalogue() {
       desc: "Complete traditional mandap, heavy floral stage, royal seating, welcome arch & entrance lighting setup.",
       pricePrefix: "ESTIMATED RATE",
       price: "₹1,00,000",
-      image: "/images/catalogue/file_0000000015b881fa9bbbf4a93b5e22b6.png",
+      image: "/images/catalogue/file_0000000015b881fa9bbbf4a93b5e22b6.webp",
     },
     {
       id: "02",
@@ -40,7 +40,7 @@ export default function Catalogue() {
       desc: "Full lawn fairy light canopy, backdrop floral wall, carpet aisle, ambient spotlights & photo zone.",
       pricePrefix: "ESTIMATED RATE STARTING FROM",
       price: "₹50,000",
-      image: "/images/catalogue/file_00000000344c81fa850396f61fb9d12d.png",
+      image: "/images/catalogue/file_00000000344c81fa850396f61fb9d12d.webp",
     },
     {
       id: "03",
@@ -51,7 +51,7 @@ export default function Catalogue() {
       desc: "Intelligent warm spotlights, crystal chandelier fixtures, golden truss decor & backdrop illumination.",
       pricePrefix: "ESTIMATED RATE",
       price: "₹20,000 – ₹40,000",
-      image: "/images/catalogue/file_00000000375c81fa9ee8f7a1a8a6fb43.png",
+      image: "/images/catalogue/file_00000000375c81fa9ee8f7a1a8a6fb43.webp",
     },
     {
       id: "04",
@@ -62,7 +62,7 @@ export default function Catalogue() {
       desc: "Customized floral background frame, vintage props, wooden archway & vanity lighting.",
       pricePrefix: "ESTIMATED RATE STARTING FROM",
       price: "₹8,000",
-      image: "/images/catalogue/file_000000003934820ba9d16be60f892922.png",
+      image: "/images/catalogue/file_000000003934820ba9d16be60f892922.webp",
     },
     {
       id: "05",
@@ -73,7 +73,7 @@ export default function Catalogue() {
       desc: "Fresh marigold garlands, brass oil lamps (Nilavilakku), urlis & wooden mandap pillars.",
       pricePrefix: "ESTIMATED RATE STARTING FROM",
       price: "₹25,000",
-      image: "/images/catalogue/file_00000000e8f8820bb6b4b4dcaff4fbb3.png",
+      image: "/images/catalogue/file_00000000e8f8820bb6b4b4dcaff4fbb3.webp",
     },
     {
       id: "06",
@@ -84,7 +84,7 @@ export default function Catalogue() {
       desc: "Ribbon cutting arch, podium floral styling, entrance welcome gate & carpeting.",
       pricePrefix: "ESTIMATED RATE STARTING FROM",
       price: "₹5,000",
-      image: "/images/catalogue/file_00000000ff5c81fab206a64f8a6c6766.png",
+      image: "/images/catalogue/file_00000000ff5c81fab206a64f8a6c6766.webp",
     },
   ];
 

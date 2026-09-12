@@ -38,7 +38,7 @@ export default function DecorCataloguePage() {
       category: "stage",
       price: "₹1,00,000",
       desc: "Complete traditional mandap, heavy floral stage, royal Maharaja seating, welcome entrance arch & ambient venue illumination.",
-      image: "/images/catalogue/file_0000000015b881fa9bbbf4a93b5e22b6.png",
+      image: "/images/catalogue/file_0000000015b881fa9bbbf4a93b5e22b6.webp",
       popular: true,
       features: [
         "Heavy Fresh Floral Mandap Setup",
@@ -55,7 +55,7 @@ export default function DecorCataloguePage() {
       category: "outdoor",
       price: "Starting from ₹50,000",
       desc: "Full lawn fairy light canopy, backdrop floral wall, carpeted pathway, warm spotlights & customized photo corner.",
-      image: "/images/catalogue/file_00000000344c81fa850396f61fb9d12d.png",
+      image: "/images/catalogue/file_00000000344c81fa850396f61fb9d12d.webp",
       popular: true,
       features: [
         "Overhead Fairy Light Canopy",
@@ -72,7 +72,7 @@ export default function DecorCataloguePage() {
       category: "sfx",
       price: "₹20,000 – ₹40,000",
       desc: "Intelligent warm spotlights, crystal chandelier fixtures, golden truss decor & backdrop LED color illumination.",
-      image: "/images/catalogue/file_00000000375c81fa9ee8f7a1a8a6fb43.png",
+      image: "/images/catalogue/file_00000000375c81fa9ee8f7a1a8a6fb43.webp",
       popular: false,
       features: [
         "Intelligent Moving Head Lights",
@@ -89,7 +89,7 @@ export default function DecorCataloguePage() {
       category: "photobooth",
       price: "Starting from ₹8,000",
       desc: "Customized floral background frame, vintage wooden props, rustic archway & warm vanity lighting for guest pictures.",
-      image: "/images/catalogue/file_000000003934820ba9d16be60f892922.png",
+      image: "/images/catalogue/file_000000003934820ba9d16be60f892922.webp",
       popular: false,
       features: [
         "12x8 Feet Floral Backdrop Frame",
@@ -106,7 +106,7 @@ export default function DecorCataloguePage() {
       category: "traditional",
       price: "Starting from ₹25,000",
       desc: "Fresh yellow marigold garlands, traditional brass oil lamps (Nilavilakku), urlis with floating petals & wooden mandap pillars.",
-      image: "/images/catalogue/file_00000000e8f8820bb6b4b4dcaff4fbb3.png",
+      image: "/images/catalogue/file_00000000e8f8820bb6b4b4dcaff4fbb3.webp",
       popular: false,
       features: [
         "Fresh Marigold Floral Garlands",
@@ -122,7 +122,7 @@ export default function DecorCataloguePage() {
       malayalam: "ഇനൗഗുറേഷൻ & കോർപ്പറേറ്റ് ഡെക്കറേഷൻ",
       price: "Starting from ₹5,000",
       desc: "Ribbon cutting ceremonial arch, podium floral styling, entrance welcome gate, red carpeting & VIP seating drapes.",
-      image: "/images/catalogue/file_00000000ff5c81fab206a64f8a6c6766.png",
+      image: "/images/catalogue/file_00000000ff5c81fab206a64f8a6c6766.webp",
       popular: false,
       features: [
         "Ceremonial Ribbon Cutting Gate",

@@ -11,7 +11,7 @@ export const heroData = {
     "href": "/services"
   },
   "featured": {
-    "image": "/images/hero/file_00000000eb0c820bbe3fae738cbee3e7.png",
+    "image": "/images/hero/file_00000000eb0c820bbe3fae738cbee3e7.webp",
     "overline": "Signature Scenography",
     "title": "The Royal Pavilion Wedding",
     "tags": [
