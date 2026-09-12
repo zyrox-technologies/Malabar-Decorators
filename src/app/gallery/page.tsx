@@ -12,15 +12,23 @@ export default function CelebrationGalleryPage() {
 
       <main className="flex-1">
         {/* Page Banner Header */}
-        <section className="pt-12 pb-8 bg-surface-container-low border-b border-surface-variant text-center">
-          <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
-            <span className="font-label-caps text-label-caps text-secondary tracking-[0.16em] uppercase block mb-3">
-              CELEBRATION GALLERY • ARCHIVE OF CRAFT
-            </span>
-            <h1 className="font-headline-xl text-headline-xl text-on-surface max-w-3xl mx-auto leading-tight mb-4">
-              Real Events. Real People. Real Happiness.
+        <section className="pt-16 pb-12 sm:pt-20 sm:pb-14 bg-[#FDFBF7] border-b border-[#790504]/10 text-center relative overflow-hidden">
+          <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop relative z-10">
+            {/* Pill Label */}
+            <div className="inline-block mb-3">
+              <span className="border border-[#790504]/30 text-[#790504] px-4 py-1 rounded-full text-[11px] font-bold tracking-[0.2em] uppercase bg-white/60 shadow-xs">
+                CELEBRATION GALLERY
+              </span>
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-[#1E1B19] font-normal leading-[1.14] tracking-tight max-w-4xl mx-auto mb-4">
+              Real Events. Real People. <br className="hidden sm:inline" />
+              <span className="text-[#790504] font-bold">Real Happiness</span>
             </h1>
-            <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">
+
+            {/* Subtitle */}
+            <p className="mt-3 text-sm md:text-base text-[#59413D]/80 max-w-2xl mx-auto font-normal leading-relaxed">
               Explore our portfolio of royal wedding stage setups, authentic Malabar feasts, custom floral arches, and luminous evening celebrations.
             </p>
           </div>
