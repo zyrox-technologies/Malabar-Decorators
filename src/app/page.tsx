@@ -10,6 +10,7 @@ import Instagram from "@/components/social/Instagram";
 import Reviews from "@/components/reviews/Reviews";
 import Footer from "@/components/footer/Footer";
 import HomeGalleryShowcase from "@/components/gallery/HomeGalleryShowcase";
+import WhatsAppButton from "@/components/common/WhatsAppButton";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
       </main>
 
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }

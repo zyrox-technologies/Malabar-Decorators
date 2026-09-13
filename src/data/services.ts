@@ -1,75 +1,3 @@
-export interface ServiceItem {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  link: string;
-  iconType: "wedding" | "destination" | "engagement" | "reception" | "catering" | "haldi";
-}
-
-export const servicesData = {
-  overline: "OUR SERVICES",
-  headline: "Crafting Extraordinary Experiences for Every Occasion",
-  subtitle:
-    "From intimate ceremonies to grand celebrations, we thoughtfully curate experiences that reflect your vision with elegance, precision, and timeless charm.",
-  items: [
-    {
-      id: "luxury-weddings",
-      title: "Luxury Weddings",
-      description:
-        "Celebrate your love with bespoke wedding experiences, timeless décor, and flawless execution tailored to your unique story.",
-      image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-c0b95t3sru.webp",
-      link: "/services",
-      iconType: "wedding",
-    },
-    {
-      id: "destination-weddings",
-      title: "Destination Weddings",
-      description:
-        "Exchange vows in Kerala's most breathtaking destinations, where stunning venues meet exceptional planning and hospitality.",
-      image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-fo6zj2ua32.webp",
-      link: "/services",
-      iconType: "destination",
-    },
-    {
-      id: "engagement-ceremonies",
-      title: "Engagement Ceremonies",
-      description:
-        "Begin your forever with sophisticated décor, elegant styling, and unforgettable engagement celebrations.",
-      image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-lr5hqiduzn.webp",
-      link: "/services",
-      iconType: "engagement",
-    },
-    {
-      id: "royal-reception",
-      title: "Grand Reception & Stage Décor",
-      description:
-        "Bespoke stage architecture featuring premium floral backdrops, crystal chandeliers, royal sofa seating, and ambient lighting.",
-      image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-1lepi60kot.webp",
-      link: "/services",
-      iconType: "reception",
-    },
-    {
-      id: "malabar-catering",
-      title: "Authentic Malabar Catering",
-      description:
-        "Authentic Malabar Dum Biryani, live food counters, and traditional Kerala Sadya prepared with pure cow ghee and authentic spices.",
-      image: "/images/gallery/malabar-decorators-kasaragod-caterers-hh34cc8r6a.webp",
-      link: "/services",
-      iconType: "catering",
-    },
-    {
-      id: "haldi-mehendi",
-      title: "Haldi & Traditional Celebrations",
-      description:
-        "Vibrant yellow floral arrangements, marigold drapes, wooden swings (Jhula), brass Urlis, and cheerful photo booths for family celebrations.",
-      image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-eyuu9lnc79.webp",
-      link: "/services",
-      iconType: "haldi",
-    },
-  ] as ServiceItem[],
-};
-
 export interface DetailedService {
   id: string;
   category: "decor" | "catering" | "sfx" | "special";
@@ -91,6 +19,15 @@ export const serviceCategoryList = [
   { id: "sfx", label: "Lighting & Effects" },
   { id: "special", label: "Special Functions" },
 ] as const;
+
+export interface ServiceItem {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+  iconType: "wedding" | "destination" | "engagement" | "reception" | "catering" | "haldi";
+}
 
 export const detailedServicesList: DetailedService[] = [
   {
@@ -265,3 +202,25 @@ export const detailedServicesList: DetailedService[] = [
     capacity: "Shops, Offices & Showrooms",
   },
 ];
+
+export const servicesData = {
+  overline: "OUR SERVICES",
+  headline: "Crafting Extraordinary Experiences for Every Occasion",
+  subtitle:
+    "From intimate ceremonies to grand celebrations, we thoughtfully curate experiences that reflect your vision with elegance, precision, and timeless charm.",
+  items: detailedServicesList.map((service) => ({
+    id: service.id,
+    title: service.title,
+    description: service.shortDesc,
+    image: service.image,
+    link: "/services",
+    iconType:
+      service.category === "catering"
+        ? "catering"
+        : service.category === "sfx"
+        ? "reception"
+        : service.id === "haldi-mehendi"
+        ? "haldi"
+        : "wedding",
+  })) as ServiceItem[],
+};

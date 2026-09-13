@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { servicesData } from "@/data/services";
 import Reveal from "@/components/ui/Reveal";
+import { ArrowUpRight } from "lucide-react";
 
 export default function ServicesHome() {
   return (
@@ -36,9 +37,9 @@ export default function ServicesHome() {
         </Reveal>
 
         {/* 6 Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {servicesData.items.map((service, index) => (
-            <Reveal key={service.id} delay={index * 0.1} from="up">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+          {servicesData.items.slice(0, 6).map((service, index) => (
+            <Reveal key={service.id} delay={(index % 3) * 0.08} from="up" className="h-full flex flex-col">
               <Link
                 href={service.link}
                 className="group flex flex-col bg-surface border border-surface-variant/80 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-xl hover:border-secondary/30 hover:-translate-y-1.5 h-full"
@@ -79,6 +80,22 @@ export default function ServicesHome() {
             </Reveal>
           ))}
         </div>
+
+        {/* View All Services Button */}
+        <Reveal delay={0.2} from="up">
+          <div className="flex flex-col items-center justify-center pt-10 md:pt-14">
+            <Link
+              href="/services"
+              className="group inline-flex items-center gap-3 px-8 py-3.5 sm:py-4 rounded-full bg-secondary hover:bg-secondary/90 text-white font-semibold text-xs sm:text-sm tracking-widest uppercase shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+            >
+              <span>Explore All Services</span>
+              <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+            <p className="text-xs text-on-surface-variant/70 mt-2.5 font-medium">
+              Explore our complete collection of stage decor, catering menus, and celebration services
+            </p>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

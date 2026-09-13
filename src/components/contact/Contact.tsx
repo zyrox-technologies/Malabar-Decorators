@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { contactData } from "@/data/contact";
-import { Phone, Mail, MapPin, Send, CheckCircle2, MessageSquare, Calendar, User, Sparkles } from "lucide-react";
+import { Phone, Mail, MapPin, Send, CheckCircle2, Calendar, User, Sparkles } from "lucide-react";
 
 export default function Contact() {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -338,14 +338,12 @@ export default function Contact() {
                     />
                   </div>
 
-                  {/* Action Buttons: Submit & WhatsApp */}
-                  <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
-                    
-                    {/* Submit Button */}
+                  {/* Action Button: Submit */}
+                  <div className="pt-2">
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full sm:flex-1 py-3.5 px-6 rounded-full bg-secondary hover:bg-secondary/90 text-white font-semibold text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                      className="w-full py-3.5 px-6 rounded-full bg-secondary hover:bg-secondary/90 text-white font-semibold text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
                     >
                       {loading ? (
                         <span>Processing...</span>
@@ -356,17 +354,6 @@ export default function Contact() {
                         </>
                       )}
                     </button>
-
-                    {/* Quick WhatsApp Send */}
-                    <button
-                      type="button"
-                      onClick={handleWhatsAppSend}
-                      className="w-full sm:w-auto py-3.5 px-5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shrink-0"
-                    >
-                      <MessageSquare className="w-4 h-4" />
-                      <span>WhatsApp</span>
-                    </button>
-
                   </div>
 
                 </form>
