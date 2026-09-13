@@ -265,7 +265,7 @@ export const galleryData = {
       title: "Unforgettable Vibes & Celebration Memories",
       category: "Private Parties",
       categoryLabel: "CELEBRATION",
-      duration: "00:42",
+      duration: "00:09",
       thumbnail: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-1f2o2b186d.webp",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4Hulx5EM1FUf9IglqWMC43XT2Vnauc7AwPoiQz",
     },

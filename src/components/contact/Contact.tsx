@@ -18,12 +18,22 @@ export default function Contact() {
   });
 
   const eventTypes = [
-    "Wedding & Stage Decor",
-    "Nikah & Grand Reception",
-    "Haldi & Mehendi Styling",
-    "Corporate Events & Conclaves",
-    "Catering & Banquet Spread",
-    "SFX & Pyrotechnic Couple Entry",
+    "Premium Traditional Decor",
+    "Premium Nikah Decor",
+    "Valakappu (Bangle Ceremony)",
+    "Birthday Celebration",
+    "Haldi & Mehendi",
+    "Sangeet Night",
+    "Cradle / Naming Ceremony",
+    "House Warming (Grihapravesham)",
+    "Inauguration / Grand Opening",
+    "Corporate Events & Conferences",
+    "Anchoring & Hosting",
+    "Wedding & Event Catering",
+    "Buffet Counters & Food Supply Staff",
+    "Light & Sounds / DJ",
+    "Tent & Panthal Service",
+    "Diesel Generators (Power Backup)",
     "Other Bespoke Celebration",
   ];
 
@@ -183,18 +193,34 @@ export default function Contact() {
                     </div>
                   </a>
 
-                  {/* Address */}
+                  {/* Office Address */}
                   <div className="flex items-start gap-3.5">
                     <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-primary-fixed shrink-0">
                       <MapPin className="w-4 h-4" />
                     </div>
                     <div>
                       <span className="block text-[10px] uppercase tracking-wider text-white/60 font-medium">
-                        Design Studio
+                        Office
                       </span>
                       <span className="text-xs text-white/90 leading-relaxed block mt-0.5">
-                        {contactData.address[0]},<br />
-                        {contactData.address[1]}
+                        {contactData.office.line1},<br />
+                        {contactData.office.line2}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Godown Address */}
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-primary-fixed shrink-0">
+                      <MapPin className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="block text-[10px] uppercase tracking-wider text-white/60 font-medium">
+                        Godown
+                      </span>
+                      <span className="text-xs text-white/90 leading-relaxed block mt-0.5">
+                        {contactData.godown.line1},<br />
+                        {contactData.godown.line2}
                       </span>
                     </div>
                   </div>
@@ -394,7 +420,7 @@ export default function Contact() {
                   <div className="lg:hidden mt-3 pt-3 border-t border-outline-variant/30 flex items-center justify-between text-[11px] text-on-surface-variant">
                     <div className="flex items-center gap-1.5">
                       <MapPin className="w-3.5 h-3.5 text-secondary shrink-0" />
-                      <span className="truncate">Karandakkad, Kasaragod</span>
+                      <span className="truncate">Near Bekal Fort & Udma, Kasaragod</span>
                     </div>
                     <a
                       href={`tel:${contactData.phone.replace(/\s+/g, "")}`}

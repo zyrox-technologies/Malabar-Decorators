@@ -51,7 +51,7 @@ export default function ContactInquirePage() {
         {/* Quick Contact Cards */}
         <section className="py-12 bg-surface">
           <div className="max-w-max-width mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               
               {/* Card 1: Call Us */}
               <a
@@ -87,16 +87,30 @@ export default function ContactInquirePage() {
                 </div>
               </a>
 
-              {/* Card 3: Visit Studio */}
+              {/* Card 3: Office */}
               <div className="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-xs flex items-start gap-4">
                 <div className="p-3.5 rounded-xl bg-secondary/10 text-secondary shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-serif text-lg font-medium text-on-surface mb-0.5">Design Studio</h3>
+                  <h3 className="font-serif text-lg font-medium text-on-surface mb-0.5">Office</h3>
                   <p className="text-xs text-on-surface-variant leading-relaxed">
-                    {contactData.address[0]}<br />
-                    {contactData.address[1]}
+                    {contactData.office.line1}<br />
+                    {contactData.office.line2}
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 4: Godown */}
+              <div className="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-xs flex items-start gap-4">
+                <div className="p-3.5 rounded-xl bg-secondary/10 text-secondary shrink-0">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-serif text-lg font-medium text-on-surface mb-0.5">Godown</h3>
+                  <p className="text-xs text-on-surface-variant leading-relaxed">
+                    {contactData.godown.line1}<br />
+                    {contactData.godown.line2}
                   </p>
                 </div>
               </div>

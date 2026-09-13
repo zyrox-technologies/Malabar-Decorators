@@ -132,14 +132,29 @@ export default function Footer() {
             </h4>
             <div className="w-8 h-[2px] bg-white/30 mb-5" />
             <ul className="space-y-4 text-sm">
+              {/* Office */}
               <li className="flex items-start gap-3">
                 <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-white shrink-0 mt-0.5 shadow-xs">
                   <MapPin className="w-4 h-4" />
                 </div>
-                <div className="text-white/80 leading-snug font-normal">
-                  <span className="text-white font-medium">{contactData.address[0]}</span>
+                <div className="text-white/80 leading-snug font-normal text-xs">
+                  <span className="text-[10px] uppercase tracking-wider text-[#F2B93F] font-semibold block">Office</span>
+                  <span className="text-white font-medium">{contactData.office.line1}</span>
                   <br />
-                  <span className="text-xs text-white/65">{contactData.address[1]}</span>
+                  <span className="text-white/65">{contactData.office.line2}</span>
+                </div>
+              </li>
+
+              {/* Godown */}
+              <li className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-white shrink-0 mt-0.5 shadow-xs">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <div className="text-white/80 leading-snug font-normal text-xs">
+                  <span className="text-[10px] uppercase tracking-wider text-[#F2B93F] font-semibold block">Godown</span>
+                  <span className="text-white font-medium">{contactData.godown.line1}</span>
+                  <br />
+                  <span className="text-white/65">{contactData.godown.line2}</span>
                 </div>
               </li>
 

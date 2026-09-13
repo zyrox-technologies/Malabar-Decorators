@@ -3,10 +3,11 @@
 import { motion } from "motion/react";
 import { heroData } from "@/data/hero";
 import Button from "@/components/ui/Button";
-import { useParallax } from "@/hooks/useScrollAnimation";
+// import { useParallax } from "@/hooks/useScrollAnimation";
 
 export default function Hero() {
-  const { ref: imgRef, y } = useParallax(0.12);
+  // Parallax hook preserved for original image:
+  // const { ref: imgRef, y } = useParallax(0.12);
 
   return (
     <section
@@ -54,13 +55,17 @@ export default function Hero() {
             <Button href={heroData.primaryCta.href} className="w-full sm:w-auto">
               {heroData.primaryCta.label}
             </Button>
-            <Button href={heroData.secondaryCta.href} variant="outline" className="w-full sm:w-auto">
+            <Button
+              href={heroData.secondaryCta.href}
+              variant="outline"
+              className="w-full sm:w-auto"
+            >
               {heroData.secondaryCta.label}
             </Button>
           </motion.div>
         </div>
 
-        {/* Hero Featured Media Showcase – parallax image */}
+        {/* Hero Featured Media Showcase – Video with Parallax & Poster */}
         <motion.div
           className="relative w-full rounded-xl overflow-hidden border border-surface-variant shadow-sm group"
           initial={{ opacity: 0, y: 32 }}
@@ -68,6 +73,8 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="overflow-hidden">
+            {/* Hero Image (Preserved and commented out as requested) */}
+            {/*
             <motion.img
               ref={imgRef as React.RefObject<HTMLImageElement>}
               alt="Cinematic luxury wedding banquet under pavilion with bespoke chandeliers and floral arrangements"
@@ -75,6 +82,29 @@ export default function Hero() {
               src={heroData.featured.image}
               style={{ y }}
             />
+            */}
+
+            {/* Hero Featured Video */}
+            <div className="w-full h-[380px] sm:h-[500px] lg:h-[620px] relative overflow-hidden">
+              <video
+                key={heroData.featured.video}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                poster={heroData.featured.image}
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.015]"
+              >
+                <source
+                  src={
+                    heroData.featured.video ||
+                    "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HM7w6J0YRnU73KuoIABp9xQyHr5wchitgl8fV"
+                  }
+                  type="video/mp4"
+                />
+              </video>
+            </div>
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent pointer-events-none" />
           <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 flex flex-col sm:flex-row justify-between sm:items-end text-surface-bright">
@@ -90,9 +120,7 @@ export default function Hero() {
               {heroData.featured.tags.map((tag, index) => (
                 <span key={index}>
                   {tag}
-                  {index < heroData.featured.tags.length - 1 && (
-                    <span className="mx-3">•</span>
-                  )}
+                  {index < heroData.featured.tags.length - 1 && <span className="mx-3">•</span>}
                 </span>
               ))}
             </div>
