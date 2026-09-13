@@ -69,9 +69,9 @@ export default function Instagram() {
         </Reveal>
 
         {/* Desktop View: Full 4-Column Grid */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {instagramData.posts.map((post, i) => (
-            <Reveal key={post.id} delay={i * 0.08} from="up">
+            <Reveal key={post.id} delay={i * 0.08} from="up" className="h-full flex flex-col">
               <InstagramCard post={post} />
             </Reveal>
           ))}
@@ -90,7 +90,7 @@ export default function Instagram() {
             style={{ transform: `translateX(-${mobileIndex * 100}%)` }}
           >
             {instagramData.posts.map((post) => (
-              <div key={post.id} className="w-full shrink-0 px-2">
+              <div key={post.id} className="w-full shrink-0 px-2 h-full flex flex-col">
                 <InstagramCard post={post} />
               </div>
             ))}
@@ -152,28 +152,19 @@ export default function Instagram() {
 // Interactive Instagram Post Card
 function InstagramCard({ post }: { post: InstagramPost }) {
   const [isLiked, setIsLiked] = useState(false);
-  const [likeCount, setLikeCount] = useState(post.likes);
   const [isSaved, setIsSaved] = useState(false);
   const [showHeartPop, setShowHeartPop] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
   const [copied, setCopied] = useState(false);
 
   const toggleLike = () => {
-    if (isLiked) {
-      setIsLiked(false);
-      setLikeCount((prev) => prev - 1);
-    } else {
-      setIsLiked(true);
-      setLikeCount((prev) => prev + 1);
+    setIsLiked((prev) => !prev);
+    if (!isLiked) {
       triggerHeartAnimation();
     }
   };
 
   const handleDoubleTap = () => {
-    if (!isLiked) {
-      setIsLiked(true);
-      setLikeCount((prev) => prev + 1);
-    }
+    setIsLiked(true);
     triggerHeartAnimation();
   };
 
@@ -195,10 +186,10 @@ function InstagramCard({ post }: { post: InstagramPost }) {
   };
 
   return (
-    <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+    <div className="w-full h-full bg-surface-container-lowest border border-outline-variant/40 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
       
       {/* 1. Header (Profile, Username, Location, Dots) */}
-      <div className="p-3.5 flex items-center justify-between border-b border-outline-variant/20">
+      <div className="p-3.5 flex items-center justify-between border-b border-outline-variant/20 shrink-0">
         <a
           href={post.link}
           target="_blank"
@@ -250,7 +241,7 @@ function InstagramCard({ post }: { post: InstagramPost }) {
 
       {/* 2. Post Image with Double-Tap Heart Animation */}
       <div
-        className="relative w-full aspect-square bg-surface-container overflow-hidden cursor-pointer select-none"
+        className="relative w-full aspect-square bg-surface-container overflow-hidden cursor-pointer select-none shrink-0"
         onDoubleClick={handleDoubleTap}
       >
         <img
@@ -280,7 +271,7 @@ function InstagramCard({ post }: { post: InstagramPost }) {
       </div>
 
       {/* 3. Interactive Action Icons (Like, Comment, Share, Save) */}
-      <div className="p-3.5 pb-2 flex items-center justify-between">
+      <div className="p-3.5 pb-2 flex items-center justify-between shrink-0">
         <div className="flex items-center gap-3.5">
           {/* Like Button */}
           <button
@@ -346,59 +337,40 @@ function InstagramCard({ post }: { post: InstagramPost }) {
         </button>
       </div>
 
-      {/* 4. Likes & Engagement */}
-      <div className="px-3.5 text-left">
-        <p className="text-xs font-semibold text-on-surface">
-          Liked by <span className="font-bold">{post.likedBy}</span> and{" "}
-          <span className="font-bold">{likeCount.toLocaleString()}</span> others
-        </p>
-      </div>
-
-      {/* 5. Caption & Hashtags */}
-      <div className="p-3.5 pt-1 text-left flex-1">
-        <p className="text-xs text-on-surface leading-relaxed">
-          <span className="font-bold mr-1.5 text-on-surface">
-            {instagramData.handle.replace("@", "")}
-          </span>
-          {isExpanded ? (
-            post.caption
-          ) : (
-            <>
-              {post.caption.slice(0, 85)}...
-              <button
-                type="button"
-                onClick={() => setIsExpanded(true)}
-                className="text-on-surface-variant hover:text-on-surface ml-1 font-medium text-[11px]"
-              >
-                more
-              </button>
-            </>
-          )}
-        </p>
-
-        {/* Hashtags */}
-        <div className="flex flex-wrap gap-1 mt-1.5">
-          {post.hashtags.map((tag, i) => (
-            <span key={i} className="text-[10px] text-secondary font-medium hover:underline cursor-pointer">
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {/* Comments Link */}
+      {/* 4. Action Link */}
+      <div className="px-3.5 text-left shrink-0">
         <a
           href={post.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="block text-[11px] text-on-surface-variant hover:text-on-surface mt-2 transition-colors"
+          className="text-xs font-semibold text-secondary hover:underline inline-flex items-center gap-1.5"
         >
-          View all {post.commentsCount} comments
+          <span>View on Instagram</span>
+          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
         </a>
+      </div>
 
-        {/* Timestamp */}
-        <span className="block text-[9px] uppercase tracking-widest text-on-surface-variant/70 mt-1 font-medium">
-          {post.timeAgo}
-        </span>
+      {/* 5. Caption & Hashtags */}
+      <div className="p-3.5 pt-1.5 text-left flex-1 flex flex-col justify-between">
+        <p className="text-xs text-on-surface leading-relaxed">
+          <span className="font-bold mr-1.5 text-on-surface">
+            {instagramData.handle.replace("@", "")}
+          </span>
+          {post.caption}
+        </p>
+
+        {/* Hashtags */}
+        <div className="flex flex-wrap gap-1 mt-2.5 pt-1">
+          {post.hashtags.map((tag, i) => (
+            <span key={i} className="text-[10px] text-secondary font-medium">
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
 
     </div>

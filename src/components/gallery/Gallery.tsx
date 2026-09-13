@@ -178,23 +178,23 @@ export default function Gallery() {
         <div className="mt-14 pt-8 border-t border-[#241B18]/10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-8 text-[#241B18]">
             <div className="flex items-center gap-3">
-              <span className="font-serif text-2xl md:text-3xl font-light text-[#790504]">500+</span>
+              <span className="font-serif text-2xl md:text-3xl font-light text-[#790504]">2011</span>
               <span className="text-xs tracking-wider uppercase text-[#241B18]/70 font-medium leading-tight">
-                Weddings<br />Crafted
+                Established<br />Year
               </span>
             </div>
             <div className="w-px h-8 bg-[#241B18]/15" />
             <div className="flex items-center gap-3">
-              <span className="font-serif text-2xl md:text-3xl font-light text-[#790504]">21+</span>
+              <span className="font-serif text-2xl md:text-3xl font-light text-[#790504]">Kasaragod</span>
               <span className="text-xs tracking-wider uppercase text-[#241B18]/70 font-medium leading-tight">
-                Unique Stage<br />Themes
+                Kerala<br />Location
               </span>
             </div>
             <div className="w-px h-8 bg-[#241B18]/15 hidden sm:block" />
             <div className="hidden sm:flex items-center gap-3">
-              <span className="font-serif text-2xl md:text-3xl font-light text-[#790504]">25+</span>
+              <span className="font-serif text-2xl md:text-3xl font-light text-[#790504]">Events</span>
               <span className="text-xs tracking-wider uppercase text-[#241B18]/70 font-medium leading-tight">
-                Years of<br />Heritage
+                Decor &<br />Catering
               </span>
             </div>
           </div>

@@ -28,7 +28,7 @@ export const galleryData = {
   videos: [
     {
       id: "video-ut-1",
-      title: "The Royal Pavilion Wedding",
+      title: "Wedding Stage & Pavilion Scenography",
       category: "Weddings",
       categoryLabel: "WEDDING",
       duration: "00:45",
@@ -320,7 +320,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Opulent Gold Backdrop Stage",
     "category": "Royal Stages",
     "categoryTag": "Stage Styling",
-    "location": "Valanchery",
+    "location": "Karandakkad, Kasaragod",
     "image": "/images/gallery/270bdc2b-4f05-47be-b369-fd3d4fc2274e.webp"
   },
   {
@@ -336,7 +336,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Royal Velvet & Floral Pavilion",
     "category": "Royal Stages",
     "categoryTag": "Pavilion Decor",
-    "location": "Malappuram",
+    "location": "Kasaragod Central",
     "image": "/images/gallery/2f7be626-e525-4730-b1f8-9e502c79c9da.webp"
   },
   {
@@ -360,7 +360,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Traditional Ceremonial Mandap",
     "category": "Floral Mandaps",
     "categoryTag": "Heritage Mandap",
-    "location": "Kozhikode",
+    "location": "Kanhangad",
     "image": "/images/gallery/735b3aeb-edc6-42c5-a98b-37d2f0a1e765.webp"
   },
   {
@@ -384,7 +384,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Temple Heritage Mandap Design",
     "category": "Floral Mandaps",
     "categoryTag": "Mandap Styling",
-    "location": "Valanchery",
+    "location": "Kasaragod",
     "image": "/images/gallery/8dd82b12-b2fc-4aad-9a2b-dbe4d626f711.webp"
   },
   {
@@ -392,7 +392,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Bespoke Fresh Flower Dome",
     "category": "Floral Mandaps",
     "categoryTag": "Floral Dome",
-    "location": "Malappuram",
+    "location": "Karandakkad",
     "image": "/images/gallery/923cdbe5-1b1d-4a1b-99bf-1369ba2be9fd.webp"
   },
   {
@@ -408,7 +408,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Evening Soirée Dining Experience",
     "category": "Reception Halls",
     "categoryTag": "Dining Hall",
-    "location": "Valanchery",
+    "location": "Kasaragod",
     "image": "/images/gallery/a83b2d3e-b4fd-4727-8355-a36cf57f6033.webp"
   },
   {
@@ -424,7 +424,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Regal Reception Banqueting",
     "category": "Reception Halls",
     "categoryTag": "Banqueting",
-    "location": "Kozhikode",
+    "location": "Kanhangad",
     "image": "/images/gallery/ba5a35c0-2bf1-4563-bb34-63040d32f85a.webp"
   },
   {
@@ -448,7 +448,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Luminous Tunnel & Archway",
     "category": "Walkways & Arches",
     "categoryTag": "Light Tunnel",
-    "location": "Valanchery",
+    "location": "Kasaragod",
     "image": "/images/gallery/e8c359e5-a348-4e48-9b4f-8e8d7c032d46.webp"
   },
   {
@@ -472,7 +472,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Royal VIP Welcome Walkway",
     "category": "Walkways & Arches",
     "categoryTag": "VIP Entrance",
-    "location": "Malappuram",
+    "location": "Karandakkad",
     "image": "/images/gallery/f41038df-027c-466c-b54f-e55151f3b5f8.webp"
   },
   {
@@ -496,7 +496,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Grand Celebration Scenography 3",
     "category": "Reception Halls",
     "categoryTag": "Event Setup",
-    "location": "Kozhikode",
+    "location": "Kanhangad",
     "image": "/images/gallery/0552c212-c7fd-4819-badb-15c51661a6e1.webp"
   },
   {
@@ -504,7 +504,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Grand Celebration Scenography 4",
     "category": "Walkways & Arches",
     "categoryTag": "Event Setup",
-    "location": "Valanchery",
+    "location": "Kasaragod",
     "image": "/images/gallery/094a4b41-fe5f-4560-a504-07a72ef62e44.webp"
   },
   {
@@ -528,7 +528,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Grand Celebration Scenography 7",
     "category": "Reception Halls",
     "categoryTag": "Event Setup",
-    "location": "Malappuram",
+    "location": "Karandakkad",
     "image": "/images/gallery/4fff9021-5b3c-4e34-9713-2f5f997f3103.webp"
   },
   {
@@ -552,7 +552,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Grand Celebration Scenography 10",
     "category": "Floral Mandaps",
     "categoryTag": "Event Setup",
-    "location": "Kozhikode",
+    "location": "Kanhangad",
     "image": "/images/gallery/6b489e88-096c-4860-b353-0a160141ea6c.webp"
   },
   {
@@ -560,7 +560,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Grand Celebration Scenography 11",
     "category": "Reception Halls",
     "categoryTag": "Event Setup",
-    "location": "Valanchery",
+    "location": "Kasaragod",
     "image": "/images/gallery/6f34e45e-9164-4390-8b26-f0e741a8782d.webp"
   },
   {
@@ -584,7 +584,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Grand Celebration Scenography 14",
     "category": "Floral Mandaps",
     "categoryTag": "Event Setup",
-    "location": "Malappuram",
+    "location": "Karandakkad",
     "image": "/images/gallery/7de02960-38bf-4895-a748-ac2d4bdce011.webp"
   },
   {
@@ -608,7 +608,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Grand Celebration Scenography 17",
     "category": "Royal Stages",
     "categoryTag": "Event Setup",
-    "location": "Kozhikode",
+    "location": "Kanhangad",
     "image": "/images/gallery/9e8dd9f3-ff21-4953-870b-c677e1850b0b.webp"
   },
   {
@@ -616,7 +616,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Grand Celebration Scenography 18",
     "category": "Floral Mandaps",
     "categoryTag": "Event Setup",
-    "location": "Valanchery",
+    "location": "Kasaragod",
     "image": "/images/gallery/a64d058f-94f3-4734-8e17-6e6f0140ad22.webp"
   },
   {
@@ -640,7 +640,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Grand Celebration Scenography 21",
     "category": "Royal Stages",
     "categoryTag": "Event Setup",
-    "location": "Malappuram",
+    "location": "Karandakkad",
     "image": "/images/gallery/c303274e-2a28-4800-a1ea-edbbeae9c153.webp"
   },
   {
@@ -664,7 +664,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Grand Celebration Scenography 24",
     "category": "Walkways & Arches",
     "categoryTag": "Event Setup",
-    "location": "Kozhikode",
+    "location": "Kanhangad",
     "image": "/images/gallery/e82a22c8-8433-4072-944b-da94df8aa6a2.webp"
   },
   {
@@ -672,7 +672,7 @@ export const galleryWorkItems: WorkItem[] = [
     "title": "Grand Celebration Scenography 25",
     "category": "Royal Stages",
     "categoryTag": "Event Setup",
-    "location": "Valanchery",
+    "location": "Kasaragod",
     "image": "/images/gallery/ebb043a5-2fad-42b6-bcd4-a6ac1ef6239f.webp"
   },
   {

@@ -175,12 +175,12 @@ export default function Contact() {
               {/* Bottom Trust Badge */}
               <div className="relative z-10 pt-8 mt-8 border-t border-white/15 flex items-center justify-between">
                 <div>
-                  <span className="font-serif text-lg font-bold text-white block">15+ Years</span>
-                  <span className="text-[10px] uppercase tracking-widest text-white/70">Of Event Artistry</span>
+                  <span className="font-serif text-lg font-bold text-white block">Est. 2011</span>
+                  <span className="text-[10px] uppercase tracking-widest text-white/70">Kasaragod, Kerala</span>
                 </div>
                 <div className="text-right">
-                  <span className="font-serif text-lg font-bold text-white block">★ 4.9 / 5</span>
-                  <span className="text-[10px] uppercase tracking-widest text-white/70">Client Satisfaction</span>
+                  <span className="font-serif text-lg font-bold text-white block">Decor & Food</span>
+                  <span className="text-[10px] uppercase tracking-widest text-white/70">Complete Service</span>
                 </div>
               </div>
 
@@ -198,7 +198,7 @@ export default function Contact() {
                     Inquiry Sent on WhatsApp
                   </h3>
                   <p className="text-xs sm:text-sm text-on-surface-variant max-w-md mx-auto leading-relaxed mb-6">
-                    Thank you! We have opened WhatsApp with your event details. Our senior scenographer will connect with you shortly.
+                    Thank you! We have opened WhatsApp with your event details. Our team will connect with you shortly.
                   </p>
                   <button
                     type="button"
@@ -230,7 +230,7 @@ export default function Contact() {
                         <input
                           type="text"
                           required
-                          placeholder="e.g. Rahul Acharya"
+                          placeholder="e.g. Rahul Kumar"
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           className="w-full pl-10 pr-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/50 text-xs text-on-surface placeholder:text-on-surface-variant/40 focus:bg-white focus:border-secondary focus:ring-2 focus:ring-secondary/15 focus:outline-none transition-all"
@@ -316,7 +316,7 @@ export default function Contact() {
                       </label>
                       <input
                         type="text"
-                        placeholder="e.g. 500 - 1,000 guests"
+                        placeholder="e.g. 200 - 500 guests"
                         value={formData.guestCount}
                         onChange={(e) => setFormData({ ...formData, guestCount: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/50 text-xs text-on-surface placeholder:text-on-surface-variant/40 focus:bg-white focus:border-secondary focus:ring-2 focus:ring-secondary/15 focus:outline-none transition-all"

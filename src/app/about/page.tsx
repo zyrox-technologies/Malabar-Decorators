@@ -8,13 +8,13 @@ import Footer from "@/components/footer/Footer";
 import WhatsAppButton from "@/components/common/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "About Us | 15+ Years of Event Scenography & Heritage Feasts",
+  title: "About Us | Event Decoration & Catering in Kasaragod Since 2011",
   description:
-    "Learn about Malabar Decorators — 15+ years of wedding decor artistry, architectural mandaps, and heritage culinary catering across North Kerala.",
+    "Learn about Malabar Decorators — event decoration and catering services for weddings, receptions, and celebrations in Kasaragod, Kerala since 2011.",
   openGraph: {
-    title: "About Malabar Decorators | Artistry & Soul",
+    title: "About Malabar Decorators | Kasaragod Event Services",
     description:
-      "Transforming grand halls, coastal estates, and ancestral courtyards into architectural compositions of warmth and sculptural florals.",
+      "Creating memorable celebrations through event decoration and catering in Kasaragod since 2011.",
   },
 };
 

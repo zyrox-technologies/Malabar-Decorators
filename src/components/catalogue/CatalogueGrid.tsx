@@ -106,20 +106,20 @@ export default function CatalogueGrid() {
         </div>
       </section>
 
-      {/* FULL TRANSPARENT PRICING LIST TABLE */}
+      {/* FULL SETUP LIST SECTION */}
       <section id="full-table" className="py-12 sm:py-16 bg-white border-t border-[#EFE8D7]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-3 mb-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6F1014]/10 border border-[#6F1014]/20 text-[#6F1014] text-xs font-bold tracking-widest uppercase">
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Transparent Rate Card</span>
+              <span>Event Setups Directory</span>
             </div>
             <h2 className="font-heading text-2xl sm:text-4xl font-bold">
               <span className="dark-gradient-text">Complete Event Decor</span>{" "}
-              <span className="maroon-gradient-text">Price List</span>
+              <span className="maroon-gradient-text">Overview</span>
             </h2>
             <p className="text-xs sm:text-sm text-gray-600">
-              Estimated starting rates. Final custom package prices vary based on venue size and fresh flower selections.
+              Personalized setups tailored to venue dimensions, floral styling, and event preferences. Contact us for custom quotes.
             </p>
           </div>
 
@@ -140,7 +140,7 @@ export default function CatalogueGrid() {
                       {row.price}
                     </span>
                     <a
-                      href={`https://wa.me/919946692100?text=${encodeURIComponent(`Hi Malabar Decorators, I want to enquire about ${row.name} (${row.price})`)}`}
+                      href={`https://wa.me/919946692100?text=${encodeURIComponent(`Hi Malabar Decorators, I want to enquire about ${row.name}`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-3.5 py-1.5 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all"

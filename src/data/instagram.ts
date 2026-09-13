@@ -3,73 +3,53 @@ export interface InstagramPost {
   image: string;
   alt: string;
   location: string;
-  likes: number;
-  likedBy: string;
   caption: string;
   hashtags: string[];
-  commentsCount: number;
-  timeAgo: string;
   link: string;
 }
 
 export const instagramData = {
   handle: "@malabar_decorators",
-  profileName: "Malabar Decorators & Events",
+  profileName: "Malabar Decorators",
   avatar: "/images/logo/logo.webp",
-  description: "Daily inspiration from our latest celebrations",
-  link: "https://instagram.com/malabardecorators",
+  description: "Inspiration from our latest decorations and catering setups in Kasaragod",
+  link: "https://www.instagram.com/malabar_decorators/?hl=en",
   posts: [
     {
       id: "ig-1",
       image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-1f2o2b186d.webp",
-      alt: "Instagram feed post showing floral centerpieces",
+      alt: "Floral decoration and centerpieces in Kasaragod",
       location: "Kasaragod, Kerala",
-      likes: 1428,
-      likedBy: "weddingwireindia",
-      caption: "A dream in full bloom ✨ Handcrafted floral arches, ambient golden chandeliers, and intimate details for an unforgettable celebration.",
-      hashtags: ["#malabardecorators", "#keralawedding", "#floralarchitecture", "#luxuryevents"],
-      commentsCount: 38,
-      timeAgo: "2 HOURS AGO",
-      link: "https://instagram.com/malabardecorators",
+      caption: "Floral arches, ambient lighting, and elegant details for a memorable celebration.",
+      hashtags: ["#malabardecorators", "#keralawedding", "#stagedecor", "#kasaragod"],
+      link: "https://www.instagram.com/malabar_decorators/?hl=en",
     },
     {
       id: "ig-2",
       image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-1lepi60kot.webp",
-      alt: "Instagram feed post showing table setting",
-      location: "Bekal, Kerala",
-      likes: 986,
-      likedBy: "keralaweddingplanners",
-      caption: "Bespoke banquet & royal table styling. Every centerpiece curated to deliver an unforgettable dining experience. 🍷🌿",
-      hashtags: ["#tabledecor", "#malabarevents", "#luxurydining", "#receptiondecor"],
-      commentsCount: 24,
-      timeAgo: "1 DAY AGO",
-      link: "https://instagram.com/malabardecorators",
+      alt: "Table setting and dining decor by Malabar Decorators",
+      location: "Kasaragod, Kerala",
+      caption: "Carefully arranged banquet tables and floral touches for event catering.",
+      hashtags: ["#tabledecor", "#malabarevents", "#catering", "#keralasadhya"],
+      link: "https://www.instagram.com/malabar_decorators/?hl=en",
     },
     {
       id: "ig-3",
       image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-21ul6bh1v8.webp",
-      alt: "Instagram feed post showing stage decor",
-      location: "Kannur, Kerala",
-      likes: 2154,
-      likedBy: "wedmegood",
-      caption: "Grand stage revelation for a fairytale union. Cascading floral drapes and architectural lighting in pure harmony. 🕊️👑",
-      hashtags: ["#stagedecor", "#royalnikah", "#malabarstage", "#destinationwedding"],
-      commentsCount: 52,
-      timeAgo: "3 DAYS AGO",
-      link: "https://instagram.com/malabardecorators",
+      alt: "Stage decoration by Malabar Decorators",
+      location: "Kasaragod, Kerala",
+      caption: "Stage floral backdrop and lighting setup tailored for wedding ceremonies.",
+      hashtags: ["#stagedecor", "#weddingdecor", "#malabarstage", "#kasaragodevents"],
+      link: "https://www.instagram.com/malabar_decorators/?hl=en",
     },
     {
       id: "ig-4",
       image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-3x0dus6bi1.webp",
-      alt: "Instagram feed post showing lighting",
-      location: "Kozhikode, Kerala",
-      likes: 1738,
-      likedBy: "southindianweddings",
-      caption: "Atmospheric ambient illumination creating pure cinematic magic for the grand couple entry. Moments that linger forever. ✨🔥",
-      hashtags: ["#sfxentry", "#lightingdesign", "#eventmagic", "#weddinginspiration"],
-      commentsCount: 41,
-      timeAgo: "5 DAYS AGO",
-      link: "https://instagram.com/malabardecorators",
+      alt: "Evening venue lighting and entrance ambiance",
+      location: "Kasaragod, Kerala",
+      caption: "Ambient illumination creating warm atmosphere for the grand event entry.",
+      hashtags: ["#lightingdesign", "#eventdecor", "#kasaragod", "#celebrations"],
+      link: "https://www.instagram.com/malabar_decorators/?hl=en",
     },
   ],
 };

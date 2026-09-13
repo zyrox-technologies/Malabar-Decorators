@@ -1,5 +1,4 @@
 export const socialsData = {
-  "instagram": "https://instagram.com/malabardecorators",
-  "facebook": "https://facebook.com",
-  "whatsapp": "https://wa.me/919946692100"
+  instagram: "https://www.instagram.com/malabar_decorators/?hl=en",
+  whatsapp: "https://wa.me/919946692100",
 };

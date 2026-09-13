@@ -52,21 +52,21 @@ export default function ServicesDirectory() {
             </h1>
 
             <p className="mt-3 text-sm md:text-base text-[#59413D]/80 leading-relaxed font-normal">
-              From majestic wedding stage decor to authentic Malabar Dum Biryani feasts, live food stalls, and mesmerizing stage entry SFX — we turn every occasion into a royal celebration across Malappuram & Kerala.
+              From grand wedding stage decor to authentic Sadya and catering feasts, live food counters, and ambient lighting — we turn every occasion into a memorable celebration across Kasaragod and surrounding areas.
             </p>
 
             <div className="grid grid-cols-3 gap-4 pt-6 border-t border-[#790504]/10 max-w-xl">
               <div>
-                <p className="font-serif text-2xl sm:text-3xl text-[#790504] font-bold">10+ Years</p>
-                <p className="text-[11px] font-medium text-[#59413D]/70 uppercase tracking-wider mt-0.5">Experience</p>
+                <p className="font-serif text-2xl sm:text-3xl text-[#790504] font-bold">2011</p>
+                <p className="text-[11px] font-medium text-[#59413D]/70 uppercase tracking-wider mt-0.5">Established</p>
               </div>
               <div>
-                <p className="font-serif text-2xl sm:text-3xl text-[#790504] font-bold">500+</p>
-                <p className="text-[11px] font-medium text-[#59413D]/70 uppercase tracking-wider mt-0.5">Events Executed</p>
+                <p className="font-serif text-2xl sm:text-3xl text-[#790504] font-bold">Kasaragod</p>
+                <p className="text-[11px] font-medium text-[#59413D]/70 uppercase tracking-wider mt-0.5">Location</p>
               </div>
               <div>
-                <p className="font-serif text-2xl sm:text-3xl text-[#790504] font-bold">100%</p>
-                <p className="text-[11px] font-medium text-[#59413D]/70 uppercase tracking-wider mt-0.5">Quality Guaranteed</p>
+                <p className="font-serif text-2xl sm:text-3xl text-[#790504] font-bold">Decor & Food</p>
+                <p className="text-[11px] font-medium text-[#59413D]/70 uppercase tracking-wider mt-0.5">Complete Service</p>
               </div>
             </div>
           </div>
