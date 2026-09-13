@@ -7,8 +7,6 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
-  Clock,
-  MessageCircle,
   ArrowUpRight,
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
@@ -29,11 +27,12 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
   const responsivePageSize = useResponsivePageSize({ laptop: 19 });
   const pageSize = limit ? limit : responsivePageSize;
 
-  // Filter videos based on active category
-  const filteredVideos =
-    activeCategory === "All Videos"
-      ? galleryData.videos
-      : galleryData.videos.filter((v) => v.category === activeCategory);
+  // Filter videos based on active category - temporarily showing all videos:
+  // const filteredVideos =
+  //   activeCategory === "All Videos"
+  //     ? galleryData.videos
+  //     : galleryData.videos.filter((v) => v.category === activeCategory);
+  const filteredVideos = galleryData.videos;
 
   const totalPages = Math.max(1, Math.ceil(filteredVideos.length / pageSize));
   const safeCurrentPage = Math.min(Math.max(1, currentPage), totalPages);
@@ -162,7 +161,8 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
           </div>
         </div>
 
-        {/* Categories Bar */}
+        {/* Categories Bar - Temporarily Commented Out */}
+        {/*
         <div className="relative max-w-4xl mx-auto mb-10 md:mb-12">
           <div className="relative flex items-center">
             <button
@@ -206,8 +206,9 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
             </button>
           </div>
         </div>
+        */}
 
-        {/* Video Grid */}
+        {/* Video Grid - Only Videos (Details Temporarily Commented Out) */}
         <div ref={gridContainerRef} className="space-y-6 md:space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {topRowVideos.map((video, i) => (
@@ -281,8 +282,17 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
             className="relative max-w-5xl w-full max-h-[92vh] bg-stone-950 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 shadow-2xl flex flex-col animate-in zoom-in-95 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header */}
-            <div className="px-4 sm:px-7 py-3.5 sm:py-4 bg-stone-900/90 backdrop-blur-md border-b border-white/[0.08] flex items-center justify-between gap-4 z-20">
+            {/* Modal Header (Counter & Close only - details temporarily commented out) */}
+            <div className="px-4 sm:px-7 py-3 sm:py-3.5 bg-stone-900/90 backdrop-blur-md border-b border-white/[0.08] flex items-center justify-between gap-4 z-20">
+              <div className="flex items-center gap-2">
+                {currentModalIndex >= 0 && (
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/10 border border-white/10 text-white/80 text-xs font-mono tracking-wider">
+                    {String(currentModalIndex + 1).padStart(2, "0")} / {String(activeVideoList.length).padStart(2, "0")}
+                  </span>
+                )}
+              </div>
+
+              {/* Title & category details temporarily commented out:
               <div className="flex-1 min-w-0">
                 <span className="inline-block text-[10px] font-bold tracking-[0.2em] uppercase text-primary-fixed-dim mb-0.5">
                   {selectedVideo.categoryLabel}
@@ -291,25 +301,19 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
                   {selectedVideo.title}
                 </h4>
               </div>
+              */}
 
-              <div className="flex items-center gap-2.5 shrink-0">
-                {currentModalIndex >= 0 && (
-                  <span className="hidden sm:inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/70 text-xs font-mono tracking-wider">
-                    {String(currentModalIndex + 1).padStart(2, "0")} / {String(activeVideoList.length).padStart(2, "0")}
-                  </span>
-                )}
-                <button
-                  onClick={() => setSelectedVideo(null)}
-                  aria-label="Close video preview"
-                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer shadow-sm"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
+              <button
+                onClick={() => setSelectedVideo(null)}
+                aria-label="Close video preview"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer shadow-sm"
+              >
+                <X className="w-5 h-5" />
+              </button>
             </div>
 
             {/* Video Player */}
-            <div className="relative flex-1 min-h-[42vh] max-h-[64vh] sm:max-h-[68vh] bg-black flex items-center justify-center overflow-hidden">
+            <div className="relative flex-1 min-h-[45vh] max-h-[75vh] bg-black flex items-center justify-center overflow-hidden">
               {activeVideoList.length > 1 && (
                 <button
                   type="button"
@@ -332,10 +336,10 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
                 </button>
               )}
 
-              <div className="relative z-10 max-h-[64vh] sm:max-h-[68vh] flex items-center justify-center p-2 sm:p-4">
+              <div className="relative z-10 max-h-[72vh] flex items-center justify-center p-2 sm:p-4">
                 <video
                   key={selectedVideo.src}
-                  className="max-h-[60vh] sm:max-h-[65vh] w-auto max-w-full rounded-xl shadow-2xl object-contain"
+                  className="max-h-[68vh] w-auto max-w-full rounded-xl shadow-2xl object-contain"
                   src={selectedVideo.src}
                   controls
                   autoPlay
@@ -344,7 +348,7 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
               </div>
             </div>
 
-            {/* Modal Footer */}
+            {/* Modal Footer temporarily commented out:
             <div className="px-4 sm:px-7 py-3 sm:py-3.5 bg-stone-900/90 backdrop-blur-md border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs z-20">
               <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-start">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 font-mono text-[11px]">
@@ -371,6 +375,7 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
                 </a>
               </div>
             </div>
+            */}
           </div>
         </div>
       )}
@@ -396,13 +401,13 @@ function VideoCard({
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10 group-hover:from-black/90 group-hover:via-black/40 transition-colors duration-300" />
+      <div className="absolute inset-0 bg-black/25 group-hover:bg-black/35 transition-colors duration-300" />
 
       <div className="absolute inset-0 flex items-center justify-center">
         <button
           type="button"
-          aria-label={`Play ${video.title}`}
-          className="w-13 h-13 md:w-15 md:h-15 rounded-full bg-white/95 backdrop-blur-md shadow-[0_8px_25px_rgba(0,0,0,0.35)] flex items-center justify-center group-hover:scale-110 group-hover:bg-white transition-all duration-300"
+          aria-label={`Play video`}
+          className="w-13 h-13 md:w-15 md:h-15 rounded-full bg-white/95 backdrop-blur-md shadow-[0_8px_25px_rgba(0,0,0,0.35)] flex items-center justify-center group-hover:scale-110 group-hover:bg-white transition-all duration-300 cursor-pointer"
         >
           <svg
             className="w-5 h-5 md:w-6 md:h-6 text-stone-900 ml-0.5"
@@ -414,6 +419,7 @@ function VideoCard({
         </button>
       </div>
 
+      {/* Details (category, title, duration) temporarily commented out:
       <div className="absolute bottom-0 inset-x-0 p-4 md:p-5 flex items-end justify-between z-10 pointer-events-none">
         <div className="max-w-[75%]">
           <span className="text-[10px] md:text-[11px] uppercase tracking-widest font-semibold text-primary-fixed-dim block mb-1">
@@ -428,6 +434,7 @@ function VideoCard({
           {video.duration}
         </span>
       </div>
+      */}
     </div>
   );
 }

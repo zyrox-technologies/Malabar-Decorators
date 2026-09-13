@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { galleryWorkItems, galleryPhotoCategories, WorkItem } from "@/data/gallery";
-import { ChevronLeft, ChevronRight, MapPin, ArrowUpRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 import { useResponsivePageSize } from "@/hooks/useResponsivePageSize";
 import Pagination from "@/components/common/Pagination";
 import GalleryModal from "@/components/gallery/GalleryModal";
@@ -18,14 +18,17 @@ export default function Gallery() {
 
   const pageSize = useResponsivePageSize(); // 10 mobile, 15 tablet, 18 laptop
 
-  const filteredItems =
-    activeCategory === "All"
-      ? galleryWorkItems
-      : galleryWorkItems.filter((item) => item.category === activeCategory);
+  // Temporarily commented category sorting, showing all items directly:
+  // const filteredItems =
+  //   activeCategory === "All"
+  //     ? galleryWorkItems
+  //     : galleryWorkItems.filter((item) => item.category === activeCategory);
+  const filteredItems = galleryWorkItems;
 
   const totalPages = Math.max(1, Math.ceil(filteredItems.length / pageSize));
   const safeCurrentPage = Math.min(Math.max(1, currentPage), totalPages);
 
+  // Responsive device-based pagination:
   const displayedItems = filteredItems.slice(
     (safeCurrentPage - 1) * pageSize,
     safeCurrentPage * pageSize
@@ -66,7 +69,8 @@ export default function Gallery() {
           </p>
         </div>
 
-        {/* Scrollable Category Filter */}
+        {/* Scrollable Category Filter - Temporarily Commented Out */}
+        {/*
         <div className="relative max-w-4xl mx-auto mb-10 sm:mb-14">
           <div className="relative flex items-center">
             <button
@@ -110,30 +114,29 @@ export default function Gallery() {
             </button>
           </div>
         </div>
+        */}
 
-        {/* 3-Column Image Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* 3-Column Image Grid - Only Images (Details Temporarily Commented Out) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {displayedItems.map((item) => (
             <div
               key={item.id}
               onClick={() => setSelectedImage(item)}
-              className="group relative rounded-2xl overflow-hidden bg-white/50 border border-[#241B18]/10 cursor-pointer shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-1"
+              className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#241B18]/5 border border-[#241B18]/10 cursor-pointer shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-1"
             >
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#241B18]/5">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#14100E]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10px] font-semibold tracking-wider text-white uppercase">
-                  {item.categoryTag}
-                </span>
-              </div>
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
 
+              {/* Tag and details temporarily commented out:
+              <div className="absolute inset-0 bg-gradient-to-t from-[#14100E]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10px] font-semibold tracking-wider text-white uppercase">
+                {item.categoryTag}
+              </span>
               <div className="p-4 sm:p-5 flex flex-col justify-between">
                 <div>
                   <h3 className="font-serif text-lg font-medium text-[#241B18] group-hover:text-[#790504] transition-colors leading-snug">
@@ -144,7 +147,6 @@ export default function Gallery() {
                     <span>{item.location}</span>
                   </div>
                 </div>
-
                 <div className="mt-4 pt-3 border-t border-[#241B18]/10 flex items-center justify-between text-xs">
                   <span className="text-[#241B18]/50 uppercase tracking-widest text-[10px] font-medium">
                     Malabar Decorators
@@ -155,19 +157,22 @@ export default function Gallery() {
                   </span>
                 </div>
               </div>
+              */}
             </div>
           ))}
         </div>
 
-        {/* Reusable Pagination */}
-        <Pagination
-          currentPage={safeCurrentPage}
-          totalPages={totalPages}
-          totalItems={filteredItems.length}
-          pageSize={pageSize}
-          onPageChange={handlePageChange}
-          itemLabel="decor setups"
-        />
+        {/* Reusable Responsive Pagination */}
+        {totalPages > 1 && (
+          <Pagination
+            currentPage={safeCurrentPage}
+            totalPages={totalPages}
+            totalItems={filteredItems.length}
+            pageSize={pageSize}
+            onPageChange={handlePageChange}
+            itemLabel="decor setups"
+          />
+        )}
 
         {/* Bottom Highlights */}
         <div className="mt-14 pt-8 border-t border-[#241B18]/10 flex flex-col md:flex-row items-center justify-between gap-6">
