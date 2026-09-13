@@ -3,26 +3,18 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { galleryWorkItems, galleryPhotoCategories, WorkItem } from "@/data/gallery";
-import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
+import { galleryWorkItems, WorkItem } from "@/data/gallery";
+import { ArrowUpRight } from "lucide-react";
 import { useResponsivePageSize } from "@/hooks/useResponsivePageSize";
 import Pagination from "@/components/common/Pagination";
 import GalleryModal from "@/components/gallery/GalleryModal";
 
 export default function Gallery() {
-  const [activeCategory, setActiveCategory] = useState("All");
   const [selectedImage, setSelectedImage] = useState<WorkItem | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const galleryContainerRef = useRef<HTMLDivElement>(null);
-  const categorySliderRef = useRef<HTMLDivElement>(null);
 
   const pageSize = useResponsivePageSize(); // 10 mobile, 15 tablet, 18 laptop
-
-  // Temporarily commented category sorting, showing all items directly:
-  // const filteredItems =
-  //   activeCategory === "All"
-  //     ? galleryWorkItems
-  //     : galleryWorkItems.filter((item) => item.category === activeCategory);
   const filteredItems = galleryWorkItems;
 
   const totalPages = Math.max(1, Math.ceil(filteredItems.length / pageSize));
@@ -37,13 +29,6 @@ export default function Gallery() {
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
     galleryContainerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
-  const scrollCategories = (direction: "left" | "right") => {
-    if (categorySliderRef.current) {
-      const scrollAmount = direction === "left" ? -220 : 220;
-      categorySliderRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
   };
 
   return (

@@ -4,7 +4,6 @@ import About from "@/components/about/About";
 import Pillars from "@/components/pillars/Pillars";
 import Services from "@/components/services/ServicesHome";
 import Storytelling from "@/components/about/Storytelling";
-import Gallery from "@/components/gallery/Gallery";
 import MomentsInMotion from "@/components/gallery/MomentsInMotion";
 import Instagram from "@/components/social/Instagram";
 import Reviews from "@/components/reviews/Reviews";

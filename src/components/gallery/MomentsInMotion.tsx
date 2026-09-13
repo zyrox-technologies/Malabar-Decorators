@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { galleryData, GalleryVideo } from "@/data/gallery";
 import {
@@ -23,20 +23,13 @@ interface MomentsInMotionProps {
 }
 
 export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
-  const [activeCategory, setActiveCategory] = useState("All Videos");
   const [selectedVideo, setSelectedVideo] = useState<GalleryVideo | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const gridContainerRef = useRef<HTMLDivElement>(null);
-  const categorySliderRef = useRef<HTMLDivElement>(null);
 
   const responsivePageSize = useResponsivePageSize({ laptop: 19 });
   const pageSize = limit ? limit : responsivePageSize;
 
-  // Filter videos based on active category - temporarily showing all videos:
-  // const filteredVideos =
-  //   activeCategory === "All Videos"
-  //     ? galleryData.videos
-  //     : galleryData.videos.filter((v) => v.category === activeCategory);
   const filteredVideos = galleryData.videos;
 
   const totalPages = Math.max(1, Math.ceil(filteredVideos.length / pageSize));
@@ -54,36 +47,35 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
     gridContainerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const scrollCategories = (direction: "left" | "right") => {
-    if (categorySliderRef.current) {
-      const scrollAmount = direction === "left" ? -240 : 240;
-      categorySliderRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
-  };
-
   const activeVideoList =
     filteredVideos.length > 0 ? filteredVideos : galleryData.videos;
   const currentModalIndex = selectedVideo
     ? activeVideoList.findIndex((v) => v.id === selectedVideo.id)
     : -1;
 
-  const handleModalPrev = (e?: React.MouseEvent) => {
-    e?.stopPropagation();
-    if (currentModalIndex > 0) {
-      setSelectedVideo(activeVideoList[currentModalIndex - 1]);
-    } else {
-      setSelectedVideo(activeVideoList[activeVideoList.length - 1]);
-    }
-  };
+  const handleModalPrev = useCallback(
+    (e?: React.MouseEvent) => {
+      e?.stopPropagation();
+      if (currentModalIndex > 0) {
+        setSelectedVideo(activeVideoList[currentModalIndex - 1]);
+      } else {
+        setSelectedVideo(activeVideoList[activeVideoList.length - 1]);
+      }
+    },
+    [currentModalIndex, activeVideoList]
+  );
 
-  const handleModalNext = (e?: React.MouseEvent) => {
-    e?.stopPropagation();
-    if (currentModalIndex < activeVideoList.length - 1) {
-      setSelectedVideo(activeVideoList[currentModalIndex + 1]);
-    } else {
-      setSelectedVideo(activeVideoList[0]);
-    }
-  };
+  const handleModalNext = useCallback(
+    (e?: React.MouseEvent) => {
+      e?.stopPropagation();
+      if (currentModalIndex < activeVideoList.length - 1) {
+        setSelectedVideo(activeVideoList[currentModalIndex + 1]);
+      } else {
+        setSelectedVideo(activeVideoList[0]);
+      }
+    },
+    [currentModalIndex, activeVideoList]
+  );
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -106,7 +98,7 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [selectedVideo, currentModalIndex, activeVideoList]);
+  }, [selectedVideo, handleModalPrev, handleModalNext]);
 
   return (
     <section
@@ -166,52 +158,7 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
           </div>
         </div>
 
-        {/* Categories Bar - Temporarily Commented Out */}
-        {/*
-        <div className="relative max-w-4xl mx-auto mb-10 md:mb-12">
-          <div className="relative flex items-center">
-            <button
-              type="button"
-              onClick={() => scrollCategories("left")}
-              aria-label="Scroll categories left"
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-surface-container-high border border-outline-variant/50 flex items-center justify-center text-on-surface hover:bg-surface hover:border-secondary hover:text-secondary shadow-xs transition-all cursor-pointer"
-            >
-              <ChevronLeft className="w-3.5 h-3.5" />
-            </button>
 
-            <div
-              ref={categorySliderRef}
-              className="flex items-center gap-2 overflow-x-auto scroll-smooth py-1 px-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden w-full"
-            >
-              {galleryData.categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => {
-                    setActiveCategory(category);
-                    setCurrentPage(1);
-                  }}
-                  className={`shrink-0 px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 cursor-pointer whitespace-nowrap ${
-                    activeCategory === category
-                      ? "bg-secondary text-white shadow-sm"
-                      : "bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container border border-outline-variant/30"
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-
-            <button
-              type="button"
-              onClick={() => scrollCategories("right")}
-              aria-label="Scroll categories right"
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-surface-container-high border border-outline-variant/50 flex items-center justify-center text-on-surface hover:bg-surface hover:border-secondary hover:text-secondary shadow-xs transition-all cursor-pointer"
-            >
-              <ChevronRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </div>
-        */}
 
         {/* Mobile View: Single Row Auto-Sliding Swiper Slider */}
         <div className="block md:hidden">

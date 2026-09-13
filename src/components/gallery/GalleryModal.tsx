@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import Image from "next/image";
 import { WorkItem } from "@/data/gallery";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
@@ -22,21 +22,21 @@ export default function GalleryModal({
     ? filteredItems.findIndex((item) => item.id === selectedImage.id)
     : -1;
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     if (currentImageIndex > 0) {
       onSelectImage(filteredItems[currentImageIndex - 1]);
     } else if (filteredItems.length > 0) {
       onSelectImage(filteredItems[filteredItems.length - 1]);
     }
-  };
+  }, [currentImageIndex, filteredItems, onSelectImage]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (currentImageIndex < filteredItems.length - 1) {
       onSelectImage(filteredItems[currentImageIndex + 1]);
     } else if (filteredItems.length > 0) {
       onSelectImage(filteredItems[0]);
     }
-  };
+  }, [currentImageIndex, filteredItems, onSelectImage]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -59,7 +59,7 @@ export default function GalleryModal({
       document.body.style.overflow = "auto";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [selectedImage, currentImageIndex, filteredItems]);
+  }, [selectedImage, onClose, handlePrev, handleNext]);
 
   if (!selectedImage) return null;
 
