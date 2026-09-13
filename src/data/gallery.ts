@@ -95,7 +95,7 @@ export const galleryData = {
       category: "Event Setups",
       categoryLabel: "WALKWAY ARCH",
       duration: "00:42",
-      thumbnail: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-1lepi60kot.webp",
+      thumbnail: "/images/gallery/f41038df-027c-466c-b54f-e55151f3b5f8.webp",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HHcahqCWWhRmKGqip7lB5zDg2eZ6N1rLaow0x",
     },
     {
@@ -131,7 +131,7 @@ export const galleryData = {
       category: "Weddings",
       categoryLabel: "WEDDING",
       duration: "00:35",
-      thumbnail: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-zctu7alvqc.webp",
+      thumbnail: "/images/gallery/dfbfa0ae-5502-4c79-8532-928a5e997b48.webp",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HtNYK75OP0S9DTU472CKqfncxNlLyGZJ6ugHk",
     },
     {
@@ -149,7 +149,7 @@ export const galleryData = {
       category: "Event Setups",
       categoryLabel: "STAGE ARCH",
       duration: "00:58",
-      thumbnail: "/images/gallery/malabar-decorators-karandakkad-kasaragod-flower-decorators-vajfq0rkn4.webp",
+      thumbnail: "/images/gallery/c303274e-2a28-4800-a1ea-edbbeae9c153.webp",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HDobTIr9CJHOGnD31UTtPmBE48aYRjudFloWz",
     },
     {
@@ -158,7 +158,7 @@ export const galleryData = {
       category: "Weddings",
       categoryLabel: "RECEPTION",
       duration: "00:39",
-      thumbnail: "/images/gallery/malabar-decorators-karandakkad-kasaragod-flower-decorators-3gfqv2nr6m.webp",
+      thumbnail: "/images/gallery/e14601cb-74f3-4b7e-809a-d729b7912935.webp",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4H6ZGs1ZbwM5hvlWJr91VuQioPpbKadjE8B4e0",
     },
     {
@@ -203,7 +203,7 @@ export const galleryData = {
       category: "Client Stories",
       categoryLabel: "HIGHLIGHTS",
       duration: "01:00",
-      thumbnail: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-c0b95t3sru.webp",
+      thumbnail: "/images/gallery/923cdbe5-1b1d-4a1b-99bf-1369ba2be9fd.webp",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HqD3JoGx0JNGARuzVXHCYwrsLEMTUctbfSBxk",
     },
     {
@@ -248,7 +248,7 @@ export const galleryData = {
       category: "Weddings",
       categoryLabel: "DESTINATION",
       duration: "00:48",
-      thumbnail: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-fo6zj2ua32.webp",
+      thumbnail: "/images/gallery/29b0822d-e596-4e97-b191-7a8d6c0bf00d.webp",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HuUg8RXe1FUf9IglqWMC43XT2Vnauc7AwPoiQ",
     },
     {
@@ -266,7 +266,7 @@ export const galleryData = {
       category: "Private Parties",
       categoryLabel: "CELEBRATION",
       duration: "00:09",
-      thumbnail: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-1f2o2b186d.webp",
+      thumbnail: "/images/gallery/79e94a5a-2106-42ee-8400-ad8fe029214d.webp",
       src: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4Hulx5EM1FUf9IglqWMC43XT2Vnauc7AwPoiQz",
     },
   ],
@@ -682,101 +682,5 @@ export const galleryWorkItems: WorkItem[] = [
     "categoryTag": "Floral & Catering",
     "location": "Kasaragod, Kerala",
     "image": "/images/gallery/IMG-20260908-WA0056.webp"
-  },
-  {
-    "id": 49,
-    "title": "Malabar Decorators Heritage Portfolio 2",
-    "category": "Walkways & Arches",
-    "categoryTag": "Floral & Catering",
-    "location": "Kasaragod, Kerala",
-    "image": "/images/gallery/malabar-decorators-karandakkad-kasaragod-flower-decorators-3gfqv2nr6m.webp"
-  },
-  {
-    "id": 50,
-    "title": "Malabar Decorators Heritage Portfolio 3",
-    "category": "Royal Stages",
-    "categoryTag": "Floral & Catering",
-    "location": "Kasaragod, Kerala",
-    "image": "/images/gallery/malabar-decorators-karandakkad-kasaragod-flower-decorators-vajfq0rkn4.webp"
-  },
-  {
-    "id": 51,
-    "title": "Malabar Decorators Heritage Portfolio 4",
-    "category": "Floral Mandaps",
-    "categoryTag": "Floral & Catering",
-    "location": "Kasaragod, Kerala",
-    "image": "/images/gallery/malabar-decorators-kasaragod-caterers-hh34cc8r6a.webp"
-  },
-  {
-    "id": 52,
-    "title": "Malabar Decorators Heritage Portfolio 5",
-    "category": "Reception Halls",
-    "categoryTag": "Floral & Catering",
-    "location": "Kasaragod, Kerala",
-    "image": "/images/gallery/malabar-decorators-kasaragod-flower-decorators-1f2o2b186d.webp"
-  },
-  {
-    "id": 53,
-    "title": "Malabar Decorators Heritage Portfolio 6",
-    "category": "Walkways & Arches",
-    "categoryTag": "Floral & Catering",
-    "location": "Kasaragod, Kerala",
-    "image": "/images/gallery/malabar-decorators-kasaragod-flower-decorators-1lepi60kot.webp"
-  },
-  {
-    "id": 54,
-    "title": "Malabar Decorators Heritage Portfolio 7",
-    "category": "Royal Stages",
-    "categoryTag": "Floral & Catering",
-    "location": "Kasaragod, Kerala",
-    "image": "/images/gallery/malabar-decorators-kasaragod-flower-decorators-21ul6bh1v8.webp"
-  },
-  {
-    "id": 55,
-    "title": "Malabar Decorators Heritage Portfolio 8",
-    "category": "Floral Mandaps",
-    "categoryTag": "Floral & Catering",
-    "location": "Kasaragod, Kerala",
-    "image": "/images/gallery/malabar-decorators-kasaragod-flower-decorators-3x0dus6bi1.webp"
-  },
-  {
-    "id": 56,
-    "title": "Malabar Decorators Heritage Portfolio 9",
-    "category": "Reception Halls",
-    "categoryTag": "Floral & Catering",
-    "location": "Kasaragod, Kerala",
-    "image": "/images/gallery/malabar-decorators-kasaragod-flower-decorators-c0b95t3sru.webp"
-  },
-  {
-    "id": 57,
-    "title": "Malabar Decorators Heritage Portfolio 10",
-    "category": "Walkways & Arches",
-    "categoryTag": "Floral & Catering",
-    "location": "Kasaragod, Kerala",
-    "image": "/images/gallery/malabar-decorators-kasaragod-flower-decorators-eyuu9lnc79.webp"
-  },
-  {
-    "id": 58,
-    "title": "Malabar Decorators Heritage Portfolio 11",
-    "category": "Royal Stages",
-    "categoryTag": "Floral & Catering",
-    "location": "Kasaragod, Kerala",
-    "image": "/images/gallery/malabar-decorators-kasaragod-flower-decorators-fo6zj2ua32.webp"
-  },
-  {
-    "id": 59,
-    "title": "Malabar Decorators Heritage Portfolio 12",
-    "category": "Floral Mandaps",
-    "categoryTag": "Floral & Catering",
-    "location": "Kasaragod, Kerala",
-    "image": "/images/gallery/malabar-decorators-kasaragod-flower-decorators-lr5hqiduzn.webp"
-  },
-  {
-    "id": 60,
-    "title": "Malabar Decorators Heritage Portfolio 13",
-    "category": "Reception Halls",
-    "categoryTag": "Floral & Catering",
-    "location": "Kasaragod, Kerala",
-    "image": "/images/gallery/malabar-decorators-kasaragod-flower-decorators-zctu7alvqc.webp"
   }
 ];
