@@ -51,5 +51,23 @@ export const instagramData = {
       hashtags: ["#lightingdesign", "#eventdecor", "#kasaragod", "#celebrations"],
       link: "https://www.instagram.com/malabar_decorators/?hl=en",
     },
+    {
+      id: "ig-5",
+      image: "/images/gallery/malabar-decorators-kasaragod-flower-decorators-eyuu9lnc79.webp",
+      alt: "Haldi ceremony floral decoration in Kasaragod",
+      location: "Kasaragod, Kerala",
+      caption: "Vibrant yellow marigold styling and traditional ceremony accents.",
+      hashtags: ["#haldiceremony", "#marigolddecor", "#keralatradition", "#kasaragod"],
+      link: "https://www.instagram.com/malabar_decorators/?hl=en",
+    },
+    {
+      id: "ig-6",
+      image: "/images/gallery/malabar-decorators-karandakkad-kasaragod-flower-decorators-vajfq0rkn4.webp",
+      alt: "Grand stage decor by Malabar Decorators",
+      location: "Karandakkad, Kasaragod",
+      caption: "Elegantly draped stage setup with royal seating and ambient lights.",
+      hashtags: ["#weddingstage", "#eventdecor", "#kasaragodevents", "#reception"],
+      link: "https://www.instagram.com/malabar_decorators/?hl=en",
+    },
   ],
 };

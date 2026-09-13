@@ -12,6 +12,11 @@ import {
 import Reveal from "@/components/ui/Reveal";
 import { useResponsivePageSize } from "@/hooks/useResponsivePageSize";
 import Pagination from "@/components/common/Pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination as SwiperPagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 interface MomentsInMotionProps {
   limit?: number;
@@ -208,8 +213,42 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
         </div>
         */}
 
-        {/* Video Grid - Only Videos (Details Temporarily Commented Out) */}
-        <div ref={gridContainerRef} className="space-y-6 md:space-y-8">
+        {/* Mobile View: Single Row Auto-Sliding Swiper Slider */}
+        <div className="block md:hidden">
+          <Reveal from="up">
+            <div className="relative">
+              <Swiper
+                modules={[Navigation, SwiperPagination, Autoplay]}
+                spaceBetween={16}
+                slidesPerView={1.12}
+                loop={displayedVideos.length > 1}
+                autoplay={{
+                  delay: 3500,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+                }}
+                pagination={{
+                  clickable: true,
+                  dynamicBullets: true,
+                }}
+                grabCursor={true}
+                className="!pb-10"
+              >
+                {displayedVideos.map((video) => (
+                  <SwiperSlide key={video.id} className="!h-auto">
+                    <VideoCard
+                      video={video}
+                      onPlay={() => setSelectedVideo(video)}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Desktop View: Multi-Column Video Grid */}
+        <div ref={gridContainerRef} className="hidden md:block space-y-6 md:space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {topRowVideos.map((video, i) => (
               <Reveal key={video.id} delay={i * 0.1} from="up">
@@ -239,6 +278,7 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
               ))}
             </div>
           )}
+        </div>
 
           {limit && filteredVideos.length > limit && (
             <Reveal delay={0.2} from="up">
@@ -267,7 +307,6 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
               itemLabel="celebration videos"
             />
           )}
-        </div>
       </div>
 
       {/* Video Modal Lightbox */}

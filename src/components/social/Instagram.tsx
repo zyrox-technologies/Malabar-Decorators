@@ -1,21 +1,20 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { instagramData, InstagramPost } from "@/data/instagram";
 import Reveal from "@/components/ui/Reveal";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default function Instagram() {
-  const [mobileIndex, setMobileIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  // Auto-scroll on mobile
-  useEffect(() => {
-    if (isPaused) return;
-    const interval = setInterval(() => {
-      setMobileIndex((prev) => (prev + 1) % instagramData.posts.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [isPaused]);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
 
   return (
     <section className="py-16 md:py-24 bg-surface relative overflow-hidden border-t border-outline-variant/30" id="social">
@@ -68,81 +67,77 @@ export default function Instagram() {
           </div>
         </Reveal>
 
-        {/* Desktop View: Full 4-Column Grid */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-          {instagramData.posts.map((post, i) => (
-            <Reveal key={post.id} delay={i * 0.08} from="up" className="h-full flex flex-col">
-              <InstagramCard post={post} />
-            </Reveal>
-          ))}
-        </div>
-
-        {/* Mobile View: Single Card Auto-Scroll Carousel */}
-        <div
-          className="block md:hidden relative overflow-hidden"
-          onTouchStart={() => setIsPaused(true)}
-          onTouchEnd={() => setIsPaused(false)}
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          <div
-            className="flex transition-transform duration-600 ease-in-out"
-            style={{ transform: `translateX(-${mobileIndex * 100}%)` }}
-          >
-            {instagramData.posts.map((post) => (
-              <div key={post.id} className="w-full shrink-0 px-2 h-full flex flex-col">
-                <InstagramCard post={post} />
-              </div>
-            ))}
-          </div>
-
-          {/* Mobile Dot Indicators & Prev/Next */}
-          <div className="flex items-center justify-between px-4 mt-5">
-            <button
-              type="button"
-              onClick={() =>
-                setMobileIndex(
-                  (prev) =>
-                    (prev - 1 + instagramData.posts.length) %
-                    instagramData.posts.length
-                )
-              }
-              aria-label="Previous post"
-              className="w-8 h-8 rounded-full border border-outline-variant/50 flex items-center justify-center text-on-surface-variant hover:text-on-surface bg-surface-container-lowest"
+        {/* Swiper Carousel for All Screen Sizes */}
+        <Reveal from="up" delay={0.1}>
+          <div className="relative">
+            <Swiper
+              onSwiper={setSwiperInstance}
+              modules={[Navigation, Pagination, Autoplay]}
+              spaceBetween={20}
+              slidesPerView={1.12}
+              breakpoints={{
+                520: {
+                  slidesPerView: 1.8,
+                  spaceBetween: 20,
+                },
+                680: {
+                  slidesPerView: 2.3,
+                  spaceBetween: 20,
+                },
+                900: {
+                  slidesPerView: 3,
+                  spaceBetween: 24,
+                },
+                1200: {
+                  slidesPerView: 4,
+                  spaceBetween: 24,
+                },
+              }}
+              autoplay={{
+                delay: 3800,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              pagination={{
+                clickable: true,
+                dynamicBullets: true,
+              }}
+              grabCursor={true}
+              className="!pb-14 items-stretch"
             >
-              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
-            </button>
-
-            {/* Indicator Dots */}
-            <div className="flex items-center gap-1.5">
-              {instagramData.posts.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setMobileIndex(i)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    mobileIndex === i ? "w-6 bg-secondary" : "w-1.5 bg-outline-variant/60"
-                  }`}
-                  aria-label={`Slide ${i + 1}`}
-                />
+              {instagramData.posts.map((post) => (
+                <SwiperSlide key={post.id} className="!h-auto flex flex-col">
+                  <InstagramCard post={post} />
+                </SwiperSlide>
               ))}
-            </div>
+            </Swiper>
 
-            <button
-              type="button"
-              onClick={() =>
-                setMobileIndex((prev) => (prev + 1) % instagramData.posts.length)
-              }
-              aria-label="Next post"
-              className="w-8 h-8 rounded-full border border-outline-variant/50 flex items-center justify-center text-on-surface-variant hover:text-on-surface bg-surface-container-lowest"
-            >
-              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            </button>
+            {/* Custom Navigation Arrows */}
+            <div className="flex items-center justify-between mt-2 px-1">
+              <button
+                type="button"
+                onClick={() => swiperInstance?.slidePrev()}
+                aria-label="Previous slide"
+                className="w-10 h-10 rounded-full border border-outline-variant/60 flex items-center justify-center text-on-surface hover:bg-secondary hover:border-secondary hover:text-white bg-surface-container-lowest shadow-sm hover:shadow-md transition-all cursor-pointer"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+
+              <span className="text-xs font-medium text-on-surface-variant/70 hidden sm:inline">
+                Drag or swipe to explore our showcase
+              </span>
+
+              <button
+                type="button"
+                onClick={() => swiperInstance?.slideNext()}
+                aria-label="Next slide"
+                className="w-10 h-10 rounded-full border border-outline-variant/60 flex items-center justify-center text-on-surface hover:bg-secondary hover:border-secondary hover:text-white bg-surface-container-lowest shadow-sm hover:shadow-md transition-all cursor-pointer"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
-        </div>
+        </Reveal>
 
       </div>
     </section>
