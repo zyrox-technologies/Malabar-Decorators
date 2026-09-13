@@ -53,7 +53,7 @@ export default function Reviews() {
     }
   };
 
-  const googleReviewUrl = "https://www.google.com/search?q=Malabar+Decorators+Karandakkad+Kasaragod";
+  const googleReviewUrl = "https://www.google.com/search?q=Malabar+Decorators+Kasaragod";
 
   return (
     <section

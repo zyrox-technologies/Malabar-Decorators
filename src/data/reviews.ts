@@ -77,7 +77,7 @@ export const googleReviewsData: ReviewItem[] = [
     role: "Wedding Couple",
     event: "Mandap & Sadya Catering",
     rating: 5,
-    date: "Karandakkad",
+    date: "Bekal",
     comment:
       "Traditional Kerala Sadya catering was authentic and freshly prepared. Stage mandap setup looked beautiful in all our photos.",
     initials: "AP",

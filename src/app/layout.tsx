@@ -33,7 +33,8 @@ export const metadata: Metadata = {
     "Event Catering Kasaragod",
     "Biriyani Catering",
     "Mandap Decoration",
-    "Karandakkad",
+    "Bekal Fort",
+    "Udma",
   ],
   authors: [{ name: "Malabar Decorators" }],
   creator: "Malabar Decorators",
@@ -90,10 +91,9 @@ const jsonLd = {
   telephone: "+91 99466 92100",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Golden Arcade, 1st Floor, Opposite New Bus Stand, Karandakkad",
+    streetAddress: "Aralikkatta, Near Bekal Fort",
     addressLocality: "Kasaragod",
     addressRegion: "Kerala",
-    postalCode: "671121",
     addressCountry: "IN",
   },
   geo: {

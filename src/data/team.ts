@@ -10,7 +10,7 @@ export const teamData = {
     image: "/images/about/file_0000000054bc824391abca2865d59a8f.webp",
     quote:
       "Creating memorable celebrations through event decoration and catering since 2011.",
-    bio: "Based in Karandakkad, Kasaragod, Malabar Decorators has been trusted by families and event hosts for weddings, receptions, traditional ceremonies, and special occasions across North Kerala.",
+    bio: "With our office near Bekal Fort and operations hub in Udma, Kasaragod, Malabar Decorators has been trusted by families and event hosts for weddings, receptions, traditional ceremonies, and special occasions across North Kerala.",
     highlights: [
       { number: "2011", label: "Year Established" },
       { number: "Kasaragod", label: "Home Location" },
