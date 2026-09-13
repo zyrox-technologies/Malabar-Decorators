@@ -55,7 +55,11 @@ export default function Hero() {
             <Button href={heroData.primaryCta.href} className="w-full sm:w-auto">
               {heroData.primaryCta.label}
             </Button>
-            <Button href={heroData.secondaryCta.href} variant="outline" className="w-full sm:w-auto">
+            <Button
+              href={heroData.secondaryCta.href}
+              variant="outline"
+              className="w-full sm:w-auto"
+            >
               {heroData.secondaryCta.label}
             </Button>
           </motion.div>
@@ -93,7 +97,10 @@ export default function Hero() {
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.015]"
               >
                 <source
-                  src={heroData.featured.video || "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HM7w6J0YRnU73KuoIABp9xQyHr5wchitgl8fV"}
+                  src={
+                    heroData.featured.video ||
+                    "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HM7w6J0YRnU73KuoIABp9xQyHr5wchitgl8fV"
+                  }
                   type="video/mp4"
                 />
               </video>
@@ -113,9 +120,7 @@ export default function Hero() {
               {heroData.featured.tags.map((tag, index) => (
                 <span key={index}>
                   {tag}
-                  {index < heroData.featured.tags.length - 1 && (
-                    <span className="mx-3">•</span>
-                  )}
+                  {index < heroData.featured.tags.length - 1 && <span className="mx-3">•</span>}
                 </span>
               ))}
             </div>

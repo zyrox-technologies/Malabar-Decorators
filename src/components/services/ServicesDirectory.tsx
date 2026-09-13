@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 
 export default function ServicesDirectory() {
-  const [activeTab, setActiveTab] = useState<"all" | "decor" | "catering" | "sfx" | "special">("all");
+  const [activeTab, setActiveTab] = useState<"all" | "decor" | "catering" | "sfx" | "infrastructure" | "special">("all");
 
   const filteredServices =
     activeTab === "all"
@@ -80,7 +80,7 @@ export default function ServicesDirectory() {
             {serviceCategoryList.map((cat) => (
               <button
                 key={cat.id}
-                onClick={() => setActiveTab(cat.id as "all" | "decor" | "catering" | "sfx" | "special")}
+                onClick={() => setActiveTab(cat.id as "all" | "decor" | "catering" | "sfx" | "infrastructure" | "special")}
                 className={`px-5 py-2 rounded-lg font-label-md text-label-md transition-all shrink-0 cursor-pointer ${
                   activeTab === cat.id
                     ? "bg-primary-container text-surface font-semibold shadow-sm"

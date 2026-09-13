@@ -18,12 +18,22 @@ export default function Contact() {
   });
 
   const eventTypes = [
-    "Wedding & Stage Decor",
-    "Nikah & Grand Reception",
-    "Haldi & Mehendi Styling",
-    "Corporate Events & Conclaves",
-    "Catering & Banquet Spread",
-    "SFX & Pyrotechnic Couple Entry",
+    "Premium Traditional Decor",
+    "Premium Nikah Decor",
+    "Valakappu (Bangle Ceremony)",
+    "Birthday Celebration",
+    "Haldi & Mehendi",
+    "Sangeet Night",
+    "Cradle / Naming Ceremony",
+    "House Warming (Grihapravesham)",
+    "Inauguration / Grand Opening",
+    "Corporate Events & Conferences",
+    "Anchoring & Hosting",
+    "Wedding & Event Catering",
+    "Buffet Counters & Food Supply Staff",
+    "Light & Sounds / DJ",
+    "Tent & Panthal Service",
+    "Diesel Generators (Power Backup)",
     "Other Bespoke Celebration",
   ];
 
