@@ -3,6 +3,7 @@ import Hero from "@/components/hero/Hero";
 import About from "@/components/about/About";
 import Pillars from "@/components/pillars/Pillars";
 import Services from "@/components/services/ServicesHome";
+import MenuHook from "@/components/home/MenuHook";
 import Storytelling from "@/components/about/Storytelling";
 import MomentsInMotion from "@/components/gallery/MomentsInMotion";
 import Instagram from "@/components/social/Instagram";
@@ -21,6 +22,7 @@ export default function Home() {
         <About />
         <Pillars />
         <Services />
+        <MenuHook />
         <Storytelling />
         <HomeGalleryShowcase />
         {/* <Gallery /> */}
