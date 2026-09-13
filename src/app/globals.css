@@ -84,7 +84,7 @@
 
   --radius-lg: 0.25rem;
   --radius-xl: 0.5rem;
-  --radius-full: 0.75rem;
+  --radius-full: 9999px;
 }
 
 @layer utilities {
@@ -137,4 +137,19 @@ body {
   -webkit-font-smoothing: antialiased;
   font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
   vertical-align: middle;
+}
+
+/* Swiper Custom Theme Styling */
+.swiper-pagination-bullet {
+  background-color: var(--color-outline-variant, #e1bfba) !important;
+  opacity: 0.65 !important;
+  transition: all 0.3s ease !important;
+  width: 8px !important;
+  height: 8px !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: var(--color-secondary, #ab3600) !important;
+  width: 24px !important;
+  border-radius: 9999px !important;
+  opacity: 1 !important;
 }

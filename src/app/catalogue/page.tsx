@@ -8,13 +8,13 @@ import WhatsAppButton from "@/components/common/WhatsAppButton";
 import { ChevronRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Event Decor & Package Catalogue | Transparent Rates & Price List",
+  title: "Event Decor Catalogue | Malabar Decorators Kasaragod",
   description:
-    "Transparent pricing and package catalog for wedding stage decor, mandap setups, outdoor lawn receptions, photo booths, and SFX lighting across Kerala.",
+    "Explore decoration setups for wedding stages, mandaps, outdoor lawn receptions, and ceremonies by Malabar Decorators in Kasaragod.",
   openGraph: {
-    title: "Event Decor & Package Catalogue | Malabar Decorators",
+    title: "Event Decor Catalogue | Malabar Decorators",
     description:
-      "Explore full catalog with transparent estimates. Mandaps, reception backdrops, photo booths, and lighting packages.",
+      "Explore our decoration setups and request a customized quote for your celebration.",
   },
 };
 
@@ -40,18 +40,18 @@ export default function DecorCataloguePage() {
               {/* Pill Label */}
               <div className="inline-block">
                 <span className="border border-[#790504]/30 text-[#790504] px-4 py-1 rounded-full text-[11px] font-bold tracking-[0.2em] uppercase bg-white/60 shadow-xs">
-                  TRANSPARENT RATES & BESPOKE SETUPS
+                  BESPOKE SETUPS & DESIGN SHOWCASE
                 </span>
               </div>
 
               {/* Main Headline */}
               <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-[#1E1B19] font-normal leading-[1.14] tracking-tight">
-                Event Decor & <span className="text-[#790504] font-bold">Package Catalogue</span>
+                Event Decor & <span className="text-[#790504] font-bold">Design Showcase</span>
               </h1>
 
               {/* Subtitle */}
               <p className="mt-3 text-sm md:text-base text-[#59413D]/80 leading-relaxed font-normal">
-                From budget-friendly home function decorations to opulent royal Nikah stages, outdoor lawn receptions, and custom photo booths — explore our full catalog with transparent estimates.
+                From home function decorations to wedding stages, outdoor receptions, and ceremonial mandaps — explore our setups and request a custom quotation tailored to your venue and vision.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -59,10 +59,12 @@ export default function DecorCataloguePage() {
                   href="#full-table"
                   className="px-6 py-3 rounded-full bg-[#790504] text-white font-bold text-xs uppercase tracking-wider shadow-md hover:bg-[#8B1E23] transition-all"
                 >
-                  View Complete Pricing Table
+                  View Setup List
                 </a>
                 <a
-                  href="#contact"
+                  href="https://wa.me/919946692100?text=Hi%20Malabar%20Decorators,%20I%20would%20like%20to%20request%20a%20custom%20quote%20for%20an%20event"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-6 py-3 rounded-full border border-[#790504]/30 bg-white text-[#790504] font-semibold text-xs uppercase tracking-wider hover:bg-[#FAF2EE] transition-all shadow-xs"
                 >
                   Request Custom Quotation

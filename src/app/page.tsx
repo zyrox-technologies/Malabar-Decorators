@@ -4,11 +4,12 @@ import About from "@/components/about/About";
 import Pillars from "@/components/pillars/Pillars";
 import Services from "@/components/services/ServicesHome";
 import Storytelling from "@/components/about/Storytelling";
-import HomeGalleryShowcase from "@/components/gallery/HomeGalleryShowcase";
 import MomentsInMotion from "@/components/gallery/MomentsInMotion";
 import Instagram from "@/components/social/Instagram";
 import Reviews from "@/components/reviews/Reviews";
 import Footer from "@/components/footer/Footer";
+import HomeGalleryShowcase from "@/components/gallery/HomeGalleryShowcase";
+import WhatsAppButton from "@/components/common/WhatsAppButton";
 
 export default function Home() {
   return (
@@ -22,12 +23,14 @@ export default function Home() {
         <Services />
         <Storytelling />
         <HomeGalleryShowcase />
+        {/* <Gallery /> */}
         <MomentsInMotion limit={6} />
         <Instagram />
         <Reviews />
       </main>
 
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }

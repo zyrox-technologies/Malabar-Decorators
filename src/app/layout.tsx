@@ -19,21 +19,21 @@ const sansFont = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://malabardecorators.com"),
   title: {
-    default: "Malabar Decorators | Premium Catering & Wedding Event Decoration",
+    default: "Malabar Decorators | Event Decoration & Catering in Kasaragod",
     template: "%s | Malabar Decorators",
   },
   description:
-    "Delicious Food & Beautiful Decor for Every Occasion. Premium catering, Nikah decor, wedding stages, reception decor & complete event management across Kannur, Kozhikode, Kasaragod and North Kerala.",
+    "Malabar Decorators provides event decoration and catering services for weddings, receptions, engagements, parties, inaugurations and other special occasions in Kasaragod and surrounding areas.",
   keywords: [
     "Malabar Decorators",
-    "Kerala Catering",
-    "Wedding Decoration Kannur",
-    "Nikah Stage Decor",
-    "Event Services Kerala",
+    "Kasaragod Event Decorators",
+    "Wedding Decoration Kasaragod",
+    "Kerala Sadya Catering",
+    "Stage Decoration Kasaragod",
+    "Event Catering Kasaragod",
     "Biriyani Catering",
-    "Stage Decoration",
-    "Wedding Planners Kerala",
-    "North Kerala Decorators",
+    "Mandap Decoration",
+    "Karandakkad",
   ],
   authors: [{ name: "Malabar Decorators" }],
   creator: "Malabar Decorators",
@@ -48,24 +48,24 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://malabardecorators.com",
     siteName: "Malabar Decorators",
-    title: "Malabar Decorators | Premium Catering & Wedding Event Decoration",
+    title: "Malabar Decorators | Event Decoration & Catering in Kasaragod",
     description:
-      "Delicious Food & Beautiful Decor for Every Occasion. Luxury stage scenography, authentic Malabar feasts, and complete event production in Kerala.",
+      "Event decoration and catering services for weddings, receptions, parties, and celebrations in Kasaragod, Kerala. Established in 2011.",
     images: [
       {
-        url: "/images/hero-wedding.webp",
+        url: "/images/hero/file_00000000eb0c820bbe3fae738cbee3e7.webp",
         width: 1200,
         height: 630,
-        alt: "Malabar Decorators Luxury Wedding Stage Scenography",
+        alt: "Malabar Decorators Event Decoration & Catering",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Malabar Decorators | Premium Catering & Wedding Event Decoration",
+    title: "Malabar Decorators | Event Decoration & Catering in Kasaragod",
     description:
-      "Delicious Food & Beautiful Decor for Every Occasion. Premium stage scenography and banquet catering in Kerala.",
-    images: ["/images/hero-wedding.webp"],
+      "Event decoration and catering services for weddings, receptions, and celebrations in Kasaragod, Kerala.",
+    images: ["/images/hero/file_00000000eb0c820bbe3fae738cbee3e7.webp"],
   },
   robots: {
     index: true,
@@ -84,40 +84,25 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Malabar Decorators",
-  image: "https://malabardecorators.com/images/hero-wedding.webp",
+  image: "https://malabardecorators.com/images/hero/file_00000000eb0c820bbe3fae738cbee3e7.webp",
   "@id": "https://malabardecorators.com",
   url: "https://malabardecorators.com",
   telephone: "+91 99466 92100",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Kuthuparamba Road",
-    addressLocality: "Kannur",
+    streetAddress: "Golden Arcade, 1st Floor, Opposite New Bus Stand, Karandakkad",
+    addressLocality: "Kasaragod",
     addressRegion: "Kerala",
-    postalCode: "670001",
+    postalCode: "671121",
     addressCountry: "IN",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 11.8745,
-    longitude: 75.3704,
+    latitude: 12.5085,
+    longitude: 74.9877,
   },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ],
-    opens: "08:00",
-    closes: "21:00",
-  },
-  priceRange: "₹₹ - ₹₹₹₹",
   sameAs: [
-    "https://instagram.com/malabardecorators",
+    "https://www.instagram.com/malabar_decorators/?hl=en",
   ],
 };
 
@@ -134,7 +119,7 @@ export default function RootLayout({
     >
       <head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
           rel="stylesheet"
         />
         <script

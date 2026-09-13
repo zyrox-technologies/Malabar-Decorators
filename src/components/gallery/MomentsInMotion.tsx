@@ -1,39 +1,36 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { galleryData, GalleryVideo } from "@/data/gallery";
 import {
   X,
   ChevronLeft,
   ChevronRight,
-  Clock,
-  MessageCircle,
   ArrowUpRight,
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import { useResponsivePageSize } from "@/hooks/useResponsivePageSize";
 import Pagination from "@/components/common/Pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination as SwiperPagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 interface MomentsInMotionProps {
   limit?: number;
 }
 
 export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
-  const [activeCategory, setActiveCategory] = useState("All Videos");
   const [selectedVideo, setSelectedVideo] = useState<GalleryVideo | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const gridContainerRef = useRef<HTMLDivElement>(null);
-  const categorySliderRef = useRef<HTMLDivElement>(null);
 
   const responsivePageSize = useResponsivePageSize({ laptop: 19 });
   const pageSize = limit ? limit : responsivePageSize;
 
-  // Filter videos based on active category
-  const filteredVideos =
-    activeCategory === "All Videos"
-      ? galleryData.videos
-      : galleryData.videos.filter((v) => v.category === activeCategory);
+  const filteredVideos = galleryData.videos;
 
   const totalPages = Math.max(1, Math.ceil(filteredVideos.length / pageSize));
   const safeCurrentPage = Math.min(Math.max(1, currentPage), totalPages);
@@ -50,36 +47,35 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
     gridContainerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const scrollCategories = (direction: "left" | "right") => {
-    if (categorySliderRef.current) {
-      const scrollAmount = direction === "left" ? -240 : 240;
-      categorySliderRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
-  };
-
   const activeVideoList =
     filteredVideos.length > 0 ? filteredVideos : galleryData.videos;
   const currentModalIndex = selectedVideo
     ? activeVideoList.findIndex((v) => v.id === selectedVideo.id)
     : -1;
 
-  const handleModalPrev = (e?: React.MouseEvent) => {
-    e?.stopPropagation();
-    if (currentModalIndex > 0) {
-      setSelectedVideo(activeVideoList[currentModalIndex - 1]);
-    } else {
-      setSelectedVideo(activeVideoList[activeVideoList.length - 1]);
-    }
-  };
+  const handleModalPrev = useCallback(
+    (e?: React.MouseEvent) => {
+      e?.stopPropagation();
+      if (currentModalIndex > 0) {
+        setSelectedVideo(activeVideoList[currentModalIndex - 1]);
+      } else {
+        setSelectedVideo(activeVideoList[activeVideoList.length - 1]);
+      }
+    },
+    [currentModalIndex, activeVideoList]
+  );
 
-  const handleModalNext = (e?: React.MouseEvent) => {
-    e?.stopPropagation();
-    if (currentModalIndex < activeVideoList.length - 1) {
-      setSelectedVideo(activeVideoList[currentModalIndex + 1]);
-    } else {
-      setSelectedVideo(activeVideoList[0]);
-    }
-  };
+  const handleModalNext = useCallback(
+    (e?: React.MouseEvent) => {
+      e?.stopPropagation();
+      if (currentModalIndex < activeVideoList.length - 1) {
+        setSelectedVideo(activeVideoList[currentModalIndex + 1]);
+      } else {
+        setSelectedVideo(activeVideoList[0]);
+      }
+    },
+    [currentModalIndex, activeVideoList]
+  );
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -102,7 +98,7 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [selectedVideo, currentModalIndex, activeVideoList]);
+  }, [selectedVideo, handleModalPrev, handleModalNext]);
 
   return (
     <section
@@ -162,53 +158,44 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
           </div>
         </div>
 
-        {/* Categories Bar */}
-        <div className="relative max-w-4xl mx-auto mb-10 md:mb-12">
-          <div className="relative flex items-center">
-            <button
-              type="button"
-              onClick={() => scrollCategories("left")}
-              aria-label="Scroll categories left"
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-surface-container-high border border-outline-variant/50 flex items-center justify-center text-on-surface hover:bg-surface hover:border-secondary hover:text-secondary shadow-xs transition-all cursor-pointer"
-            >
-              <ChevronLeft className="w-3.5 h-3.5" />
-            </button>
 
-            <div
-              ref={categorySliderRef}
-              className="flex items-center gap-2 overflow-x-auto scroll-smooth py-1 px-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden w-full"
-            >
-              {galleryData.categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => {
-                    setActiveCategory(category);
-                    setCurrentPage(1);
-                  }}
-                  className={`shrink-0 px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 cursor-pointer whitespace-nowrap ${
-                    activeCategory === category
-                      ? "bg-secondary text-white shadow-sm"
-                      : "bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container border border-outline-variant/30"
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
+
+        {/* Mobile View: Single Row Auto-Sliding Swiper Slider */}
+        <div className="block md:hidden">
+          <Reveal from="up">
+            <div className="relative">
+              <Swiper
+                modules={[Navigation, SwiperPagination, Autoplay]}
+                spaceBetween={16}
+                slidesPerView={1.12}
+                loop={displayedVideos.length > 1}
+                autoplay={{
+                  delay: 3500,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+                }}
+                pagination={{
+                  clickable: true,
+                  dynamicBullets: true,
+                }}
+                grabCursor={true}
+                className="!pb-10"
+              >
+                {displayedVideos.map((video) => (
+                  <SwiperSlide key={video.id} className="!h-auto">
+                    <VideoCard
+                      video={video}
+                      onPlay={() => setSelectedVideo(video)}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
-
-            <button
-              type="button"
-              onClick={() => scrollCategories("right")}
-              aria-label="Scroll categories right"
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-surface-container-high border border-outline-variant/50 flex items-center justify-center text-on-surface hover:bg-surface hover:border-secondary hover:text-secondary shadow-xs transition-all cursor-pointer"
-            >
-              <ChevronRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
+          </Reveal>
         </div>
 
-        {/* Video Grid */}
-        <div ref={gridContainerRef} className="space-y-6 md:space-y-8">
+        {/* Desktop View: Multi-Column Video Grid */}
+        <div ref={gridContainerRef} className="hidden md:block space-y-6 md:space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {topRowVideos.map((video, i) => (
               <Reveal key={video.id} delay={i * 0.1} from="up">
@@ -238,6 +225,7 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
               ))}
             </div>
           )}
+        </div>
 
           {limit && filteredVideos.length > limit && (
             <Reveal delay={0.2} from="up">
@@ -266,7 +254,6 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
               itemLabel="celebration videos"
             />
           )}
-        </div>
       </div>
 
       {/* Video Modal Lightbox */}
@@ -281,8 +268,17 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
             className="relative max-w-5xl w-full max-h-[92vh] bg-stone-950 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 shadow-2xl flex flex-col animate-in zoom-in-95 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header */}
-            <div className="px-4 sm:px-7 py-3.5 sm:py-4 bg-stone-900/90 backdrop-blur-md border-b border-white/[0.08] flex items-center justify-between gap-4 z-20">
+            {/* Modal Header (Counter & Close only - details temporarily commented out) */}
+            <div className="px-4 sm:px-7 py-3 sm:py-3.5 bg-stone-900/90 backdrop-blur-md border-b border-white/[0.08] flex items-center justify-between gap-4 z-20">
+              <div className="flex items-center gap-2">
+                {currentModalIndex >= 0 && (
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/10 border border-white/10 text-white/80 text-xs font-mono tracking-wider">
+                    {String(currentModalIndex + 1).padStart(2, "0")} / {String(activeVideoList.length).padStart(2, "0")}
+                  </span>
+                )}
+              </div>
+
+              {/* Title & category details temporarily commented out:
               <div className="flex-1 min-w-0">
                 <span className="inline-block text-[10px] font-bold tracking-[0.2em] uppercase text-primary-fixed-dim mb-0.5">
                   {selectedVideo.categoryLabel}
@@ -291,25 +287,19 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
                   {selectedVideo.title}
                 </h4>
               </div>
+              */}
 
-              <div className="flex items-center gap-2.5 shrink-0">
-                {currentModalIndex >= 0 && (
-                  <span className="hidden sm:inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/70 text-xs font-mono tracking-wider">
-                    {String(currentModalIndex + 1).padStart(2, "0")} / {String(activeVideoList.length).padStart(2, "0")}
-                  </span>
-                )}
-                <button
-                  onClick={() => setSelectedVideo(null)}
-                  aria-label="Close video preview"
-                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer shadow-sm"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
+              <button
+                onClick={() => setSelectedVideo(null)}
+                aria-label="Close video preview"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer shadow-sm"
+              >
+                <X className="w-5 h-5" />
+              </button>
             </div>
 
             {/* Video Player */}
-            <div className="relative flex-1 min-h-[42vh] max-h-[64vh] sm:max-h-[68vh] bg-black flex items-center justify-center overflow-hidden">
+            <div className="relative flex-1 min-h-[45vh] max-h-[75vh] bg-black flex items-center justify-center overflow-hidden">
               {activeVideoList.length > 1 && (
                 <button
                   type="button"
@@ -332,10 +322,10 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
                 </button>
               )}
 
-              <div className="relative z-10 max-h-[64vh] sm:max-h-[68vh] flex items-center justify-center p-2 sm:p-4">
+              <div className="relative z-10 max-h-[72vh] flex items-center justify-center p-2 sm:p-4">
                 <video
                   key={selectedVideo.src}
-                  className="max-h-[60vh] sm:max-h-[65vh] w-auto max-w-full rounded-xl shadow-2xl object-contain"
+                  className="max-h-[68vh] w-auto max-w-full rounded-xl shadow-2xl object-contain"
                   src={selectedVideo.src}
                   controls
                   autoPlay
@@ -344,7 +334,7 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
               </div>
             </div>
 
-            {/* Modal Footer */}
+            {/* Modal Footer temporarily commented out:
             <div className="px-4 sm:px-7 py-3 sm:py-3.5 bg-stone-900/90 backdrop-blur-md border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs z-20">
               <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-start">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 font-mono text-[11px]">
@@ -371,6 +361,7 @@ export default function MomentsInMotion({ limit }: MomentsInMotionProps = {}) {
                 </a>
               </div>
             </div>
+            */}
           </div>
         </div>
       )}
@@ -396,13 +387,13 @@ function VideoCard({
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10 group-hover:from-black/90 group-hover:via-black/40 transition-colors duration-300" />
+      <div className="absolute inset-0 bg-black/25 group-hover:bg-black/35 transition-colors duration-300" />
 
       <div className="absolute inset-0 flex items-center justify-center">
         <button
           type="button"
-          aria-label={`Play ${video.title}`}
-          className="w-13 h-13 md:w-15 md:h-15 rounded-full bg-white/95 backdrop-blur-md shadow-[0_8px_25px_rgba(0,0,0,0.35)] flex items-center justify-center group-hover:scale-110 group-hover:bg-white transition-all duration-300"
+          aria-label={`Play video`}
+          className="w-13 h-13 md:w-15 md:h-15 rounded-full bg-white/95 backdrop-blur-md shadow-[0_8px_25px_rgba(0,0,0,0.35)] flex items-center justify-center group-hover:scale-110 group-hover:bg-white transition-all duration-300 cursor-pointer"
         >
           <svg
             className="w-5 h-5 md:w-6 md:h-6 text-stone-900 ml-0.5"
@@ -414,6 +405,7 @@ function VideoCard({
         </button>
       </div>
 
+      {/* Details (category, title, duration) temporarily commented out:
       <div className="absolute bottom-0 inset-x-0 p-4 md:p-5 flex items-end justify-between z-10 pointer-events-none">
         <div className="max-w-[75%]">
           <span className="text-[10px] md:text-[11px] uppercase tracking-widest font-semibold text-primary-fixed-dim block mb-1">
@@ -428,6 +420,7 @@ function VideoCard({
           {video.duration}
         </span>
       </div>
+      */}
     </div>
   );
 }

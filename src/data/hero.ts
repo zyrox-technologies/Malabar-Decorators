@@ -1,23 +1,23 @@
 export const heroData = {
-  "overline": "EVENT MANAGEMENT • STAGE DECOR • CATERING",
-  "headline": "Spaces That Stay With You. <br class='hidden sm:block' /><span class='font-bold text-secondary'>Moments That Matter.</span>",
-  "description": "Malabar Decorators designs and orchestrates bespoke celebration environments through architectural stage decoration, couture floral styling, and exquisite culinary hospitality.",
-  "primaryCta": {
-    "label": "Plan Your Event",
-    "href": "/contact"
+  overline: "DECOR • CATERING • CELEBRATIONS",
+  headline: "Malabar Decorators <br class='hidden sm:block' /><span class='font-bold text-secondary'>Decor. Catering. Celebrations.</span>",
+  description: "Thoughtfully designed spaces and carefully prepared menus for your special occasions in Kasaragod and surrounding areas.",
+  primaryCta: {
+    label: "Enquire on WhatsApp",
+    href: "https://wa.me/919946692100",
   },
-  "secondaryCta": {
-    "label": "Explore Our Work",
-    "href": "/services"
+  secondaryCta: {
+    label: "View Our Work",
+    href: "/services",
   },
-  "featured": {
-    "image": "/images/hero/file_00000000eb0c820bbe3fae738cbee3e7.webp",
-    "overline": "Signature Scenography",
-    "title": "The Royal Pavilion Wedding",
-    "tags": [
-      "Bespoke Lighting",
-      "Floral Architecture",
-      "Banqueting"
-    ]
-  }
+  featured: {
+    image: "/images/hero/file_00000000eb0c820bbe3fae738cbee3e7.webp",
+    overline: "Signature Scenography",
+    title: "Wedding Stage & Event Scenography",
+    tags: [
+      "Stage Decoration",
+      "Floral Styling",
+      "Catering Service",
+    ],
+  },
 };
