@@ -13,7 +13,7 @@ export interface DetailedService {
 }
 
 export const serviceCategoryList = [
-  { id: "all", label: "All Services (20)" },
+  { id: "all", label: "All Services (21)" },
   { id: "decor", label: "Event & Stage Decor" },
   { id: "catering", label: "Catering & Feasts" },
   { id: "sfx", label: "Sound, Light & DJ" },
@@ -39,7 +39,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "പ്രീമിയം ട്രഡീഷണൽ ഡെക്കർ",
     shortDesc: "Authentic traditional mandaps, brass lamps, fresh floral garlands, and royal heritage stage setups.",
     fullDesc: "Celebrate your roots with our premium traditional decor. Crafted with fresh jasmine, marigolds, and lotus motifs, accompanied by brass Nilavilakkus, traditional wooden pillars, and auspicious floral canopies designed for South Indian and traditional Kerala ceremonies.",
-    image: "/images/gallery/735b3aeb-edc6-42c5-a98b-37d2f0a1e765.webp",
+    image: "/images/services/Premium Traditional Decor.webp",
     features: [
       "Bespoke Fresh Floral Mandap & Arch",
       "Traditional Brass Nilavilakku & Urlis",
@@ -58,7 +58,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "പ്രീമിയം നിക്കാഹ് ഡെക്കർ",
     shortDesc: "Opulent Nikah stages featuring grand floral arches, luxurious sofa seating, crystal chandeliers, and ambient warm illumination.",
     fullDesc: "Make your Nikah ceremony royal and unforgettable with Malabar Decorators. We build grand custom stage backdrops, plush throne seating for the couple, imported floral runners, crystal chandeliers, and mood lighting tailored to Islamic wedding traditions in Kasaragod and Malabar.",
-    image: "/images/gallery/16a50fa3-f261-4bb7-ab80-e3f52d7faffc.webp",
+    image: "/images/services/Premium Nikah Decor.webp",
     features: [
       "Grand Royal Backdrop Arch & Carvings",
       "King & Queen Luxury Throne Seating",
@@ -77,7 +77,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "വളകാപ്പ് / സീമന്തം ഡെക്കറേഷൻ",
     shortDesc: "Traditional floral swing (Jhula), colorful bangle displays, brass Urlis, and auspicious floral arrangements.",
     fullDesc: "Celebrate motherhood and family joy with our specialized Valakappu (Seemantham / Bangle ceremony) decoration. Featuring traditional floral swings decorated with fresh jasmine and roses, vibrant backdrop drapes, customized bangle counters, and brass oil lamps.",
-    image: "/images/gallery/777c9464-a49f-44dc-8d48-5795196b0011.webp",
+    image: "/images/services/Valakappu (Bangle Ceremony).webp",
     features: [
       "Floral Decorated Traditional Wooden Jhula (Swing)",
       "Auspicious Brass Urli & Flower Petal Rangoli",
@@ -96,7 +96,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "ബർത്ത്ഡേ ആഘോഷങ്ങൾ & തീം ഡെക്കർ",
     shortDesc: "Themed balloon arches, custom LED neon name boards, backdrop cutouts, and celebration table styling.",
     fullDesc: "From 1st birthday milestones to grand jubilee celebrations, we bring dreams alive with custom theme styling, organic balloon arches, marquee number lights, character cutouts, and photogenic banquet tables.",
-    image: "/images/gallery/a83b2d3e-b4fd-4727-8355-a36cf57f6033.webp",
+    image: "/images/services/Birthday Celebration Decor.webp",
     features: [
       "Organic Balloon Arches & Garlands",
       "Custom Neon Name Signage & Number Lights",
@@ -115,7 +115,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "ഹൽദി സെലിബ്രേഷൻ ഡെക്കറേഷൻ",
     shortDesc: "Sun-kissed yellow & orange marigold cascades, traditional Urlis, decorated jhula, and joyful photo corners.",
     fullDesc: "Infuse your Haldi function with vibrant colors and lively festivities. Our Haldi package features fresh yellow and orange marigold strings, brass Urlis for turmeric bathing, floral umbrellas, wooden seating, and Instagram-worthy photo backdrops.",
-    image: "/images/gallery/303095f0-48df-45b7-ac55-b3dc557e7020.webp",
+    image: "/images/services/Haldi Ceremony Decor.webp",
     features: [
       "Fresh Yellow & Orange Marigold Drapes",
       "Large Brass Bathing Urli & Petal Setup",
@@ -153,7 +153,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "സംഗീത് നൈറ്റ് സ്റ്റേജ് & ആംബിയൻസ്",
     shortDesc: "Luminous stage design, dance floor, dynamic intelligent lighting, and festive party ambience.",
     fullDesc: "Turn up the energy on your Sangeet night with high-impact stage designs, illuminated LED dance floors, truss-mounted moving beam lights, floral wall accents, and interactive lounge seating for family dance performances.",
-    image: "/images/gallery/abe62612-2190-4c3a-81e4-51609475f4fd.webp",
+    image: "/images/services/Sangeet Night Stage & Ambience.webp",
     features: [
       "Performance Stage & LED Dance Floor",
       "Intelligent Beam & Wash Stage Lights",
@@ -165,6 +165,25 @@ export const detailedServicesList: DetailedService[] = [
     capacity: "Auditoriums & Open Lawns",
   },
   {
+    id: "car-decoration",
+    category: "decor",
+    tag: "Wedding Car Decor",
+    title: "Wedding Car Decoration",
+    malayalam: "വെഡ്ഡിംഗ് കാർ ഡെക്കറേഷൻ",
+    shortDesc: "Bespoke floral styling, elegant ribbon draping, and bonnet floral arrangements for wedding cars.",
+    fullDesc: "Make your bridal entry and grand departure memorable with our luxury wedding car decoration. We design fresh floral bonnet sprays, door handle bow accents, ribbon draping, and customized name boards for all luxury & classic cars across Kasaragod.",
+    image: "/images/services/car decore.webp",
+    features: [
+      "Fresh Rose & Orchid Bonnet Floral Spray",
+      "Ribbon & Satin Draping on Roof & Door Handles",
+      "Custom Bride & Groom Name Signage Board",
+      "Scratch-Free Safe Car Mounting System",
+      "Available for All Luxury & Classic Cars",
+    ],
+    price: "Custom Quote",
+    capacity: "Single & Fleet Cars",
+  },
+  {
     id: "cradle-ceremony",
     category: "special",
     tag: "Baby Blessing",
@@ -172,7 +191,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "തൊട്ടിൽ കെട്ട് / ക്രഡിൽ സെറിമണി",
     shortDesc: "Elegant floral decorated cradle, soft pastel fabric canopies, fairy lights, and blessed traditional accents.",
     fullDesc: "Welcome the newest member of your family with our gentle, enchanting cradle ceremony (Thottil Kettu / Irupathietthu) decor. Featuring a beautifully adorned wooden or brass cradle with soft florals, baby pastel draping, floral swings, and welcoming entrance signs.",
-    image: "/images/gallery/923cdbe5-1b1d-4a1b-99bf-1369ba2be9fd.webp",
+    image: "/images/services/Cradle Ceremony (Thottil Kettu).webp",
     features: [
       "Fresh Flower Draped Wooden/Brass Cradle",
       "Pastel Themed Fabric Backdrop & Canopy",
@@ -191,7 +210,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "പേരിടൽ ചടങ്ങ് / നൂലുകെട്ട്",
     shortDesc: "Sacred ceremonial stage with traditional Kerala elements, name reveal backdrops, and auspicious floral decor.",
     fullDesc: "Commemorate the traditional Noolukettu / Naming ceremony with timeless Kerala grace. We arrange traditional brass Urlis with floating blossoms, auspicious banana plants, fresh jasmine garlands, personalized name reveal boards, and comfortable family seating.",
-    image: "/images/gallery/8dd82b12-b2fc-4aad-9a2b-dbe4d626f711.webp",
+    image: "/images/services/Naming Ceremony (Noolukettu).webp",
     features: [
       "Personalized Baby Name Reveal Backdrop",
       "Traditional Kerala Brass Nilavilakku & Urli",
@@ -210,7 +229,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "ഗൃഹപ്രവേശം ഡെക്കറേഷൻ",
     shortDesc: "Main door mango leaf Torans, entrance floral arches, milk boiling ceremonial setup, and garden fairy lights.",
     fullDesc: "Step into your new home with prosperity and blessings. Our Grihapravesham package covers fresh flower door hangings (Toran), mango leaf adornments, ceremonial stove & milk boiling setup, Rangoli, and warm courtyard lighting.",
-    image: "/images/gallery/d43d95d2-319c-4847-a78f-4aebc3325086.webp",
+    image: "/images/services/House Warming (Grihapravesham).webp",
     features: [
       "Main Door Fresh Mango Leaf & Flower Toran",
       "Grand Front Porch Floral Welcome Arch",
@@ -229,7 +248,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "ഉദ്ഘാടന ചടങ്ങുകൾ & ഗ്രാൻഡ് ഓപ്പണിംഗ്",
     shortDesc: "Red carpet welcome, ribbon-cutting podium, entrance balloon / floral arch, and VIP ceremonial setups.",
     fullDesc: "Make your showroom, hospital, corporate office, or boutique opening a high-profile milestone. We coordinate red carpets, ceremonial brass scissors on satin trays, auspicious Nilavilakkus, balloon garlands, and branded stage backdrops across Kasaragod.",
-    image: "/images/gallery/f41038df-027c-466c-b54f-e55151f3b5f8.webp",
+    image: "/images/services/Inauguration & Grand Opening.webp",
     features: [
       "Entrance Red Carpet & Stanchion Ropes",
       "Ceremonial Ribbon Cutting & Satin Tray Setup",
@@ -248,7 +267,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "കോർപ്പറേറ്റ് ഇവന്റുകൾ & കോൺഫറൻസ്",
     shortDesc: "Stage setup with LED video walls, branded podiums, banquet seating, and audio-visual coordination.",
     fullDesc: "Deliver seamless corporate conferences, annual meetings, dealer meets, and award galas. Malabar Decorators handles professional acoustic sound, projection/LED backdrops, clean branding, badge counters, and VIP hospitality.",
-    image: "/images/gallery/a616594c-b7a5-4aef-b8ed-15ca99e5ca99.webp",
+    image: "/images/services/Corporate Events & Conferences.webp",
     features: [
       "Professional Stage & LED Video Backdrop",
       "Acoustic Audio System & Collar/Cordless Mics",
@@ -267,7 +286,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "ആങ്കറിംഗ് & ഇവന്റ് ഹോസ്റ്റിംഗ്",
     shortDesc: "Experienced bilingual emcees and hosts to engage guests, conduct games, and manage event flow smoothly.",
     fullDesc: "Keep your guests engaged, entertained, and delighted. We provide seasoned Malayalam, English, and Hindi anchors experienced in wedding receptions, corporate galas, Sangeet game shows, and ceremonial protocol.",
-    image: "/images/gallery/be074bc4-5529-461d-bece-b32c711a9b44.webp",
+    image: "/images/services/Anchoring & Professional Hosting.png",
     features: [
       "Fluent Bilingual Emcees (Malayalam, English, Hindi)",
       "Interactive Sangeet & Family Fun Games",
@@ -286,7 +305,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "കല്യാണ കാറ്ററിംഗ് സദ്യ & ബിരിയാണി",
     shortDesc: "Signature Malabar Dum Biryani, pure ghee rice (Neychoru), and traditional Kerala Sadhya on banana leaf.",
     fullDesc: "Renowned across Kasaragod for authentic taste and unwavering quality. Prepared by seasoned ustad chefs using pure cow ghee, long-grain Kaima rice, and authentic Malabar spices. We cater to grand wedding receptions, family functions, and community feasts.",
-    image: "/images/gallery/IMG-20260908-WA0056.webp",
+    image: "/images/services/Wedding & Event Catering.webp",
     features: [
       "Authentic Thalassery / Malabar Dum Biryani",
       "Pure Ghee Rice (Neychoru) & Rich Meat Curries",
@@ -305,7 +324,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "റോയൽ ബുഫെ കൗണ്ടറുകൾ & ലൈവ് സ്റ്റാളുകൾ",
     shortDesc: "Sleek chafing dishes, styled food displays, live dosa/appam counters, and gourmet dessert tables.",
     fullDesc: "Transform dining into a gourmet experience. Our buffet counters feature gleaming stainless and copper chafing dishes, artistic food display risers, live hot snack stations, fresh salads, and refreshing welcome drinks.",
-    image: "/images/gallery/ba5a35c0-2bf1-4563-bb34-63040d32f85a.webp",
+    image: "/images/services/Royal Buffet Counters & Live Stations.webp",
     features: [
       "Polished Chafing Dishes & Food Warmers",
       "Live Dosa, Appam & Hot Snacks Counter",
@@ -324,7 +343,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "ഫുഡ് സപ്ലൈ ബോയ്സ് & ഗേൾസ് (യൂണിഫോംഡ് സ്റ്റാഫ്)",
     shortDesc: "Trained, well-groomed, uniformed serving staff ensuring polite, fast, and hygienic guest service.",
     fullDesc: "Ensure gracious hospitality for your esteemed guests. Our polite, disciplined, and uniformed service team (boys & girls) handles table service, buffet assistance, water service, and prompt table clearance with utmost etiquette.",
-    image: "/images/gallery/0552c212-c7fd-4819-badb-15c51661a6e1.webp",
+    image: "/images/services/Food Supply Boys & Girls (Uniformed Staff).png",
     features: [
       "Well-Groomed Uniformed Boys & Girls",
       "Traditional Sadya Leaf Serving Specialists",
@@ -343,7 +362,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "പ്രൊഫഷണൽ ലൈറ്റ് & സൗണ്ട്സ് സിസ്റ്റം",
     shortDesc: "High-definition line array sound systems, wireless microphones, LED par cans, and moving head beams.",
     fullDesc: "Crystal clear sound and immersive lighting engineered for open grounds, wedding halls, and stages. We supply line-array speakers, digital mixers, cordless microphones, moving sharpies, LED floodlights, and ambient architectural illumination.",
-    image: "/images/gallery/516eef83-df7a-4fc6-8e4b-ea1f4c7628cf.webp",
+    image: "/images/services/Professional Light & Sounds.png",
     features: [
       "Line Array Acoustic Sound & Subwoofers",
       "Digital Audio Mixers & Cordless UHF Mics",
@@ -362,7 +381,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "ഡിജെ & പാർട്ടി മ്യൂസിക്",
     shortDesc: "Electrifying DJ setups, high-bass sound, laser shows, and dance-floor lighting for receptions & parties.",
     fullDesc: "Get your guests dancing with our top-tier DJ services. Mixing the hottest Malabar, Bollywood, Kollywood, and English club tracks with pulse-pounding bass, synchronized lasers, strobe lights, and energetic dance floor vibes.",
-    image: "/images/gallery/e8c359e5-a348-4e48-9b4f-8e8d7c032d46.webp",
+    image: "/images/services/DJ & Party Entertainment.png",
     features: [
       "Professional Event DJ & MC Coordination",
       "High-Decibel Subwoofer Sound Setup",
@@ -381,7 +400,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "ടെന്റ് & പന്തൽ സർവീസ്",
     shortDesc: "Waterproof German pagodas, decorative cloth shamianas, dining tents, and sturdy tubular structures.",
     fullDesc: "Transform open courtyards and grounds into elegant, weatherproof celebration venues. We install waterproof German hanger tents, traditional cloth shamianas, elegant pleated roof canopies, and sidewall drapes for weddings and feasts.",
-    image: "/images/gallery/79e94a5a-2106-42ee-8400-ad8fe029214d.webp",
+    image: "/images/services/Tent & Panthal Service.webp",
     features: [
       "Waterproof German Hanger & Pagoda Tents",
       "Traditional Colorful Cloth Shamiana Panthals",
@@ -400,7 +419,7 @@ export const detailedServicesList: DetailedService[] = [
     malayalam: "ഡീസൽ ജനറേറ്റർ പവർ ബാക്കപ്പ്",
     shortDesc: "Heavy-duty soundproof diesel generators with automatic changeover for 100% uninterrupted celebration power.",
     fullDesc: "Never let a power outage interrupt your once-in-a-lifetime moments. We supply silent diesel generators (from 15 kVA to 125+ kVA) with on-site certified technicians, fuel backup, and seamless power distribution for lights, ACs, sounds, and kitchen equipment.",
-    image: "/images/gallery/29b0822d-e596-4e97-b191-7a8d6c0bf00d.webp",
+    image: "/images/services/Diesel Generators (Power Backup).png",
     features: [
       "Silent / Soundproof Mobile Generator Units",
       "Capacity Range: 15 kVA to 125+ kVA",

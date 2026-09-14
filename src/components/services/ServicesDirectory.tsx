@@ -115,10 +115,7 @@ export default function ServicesDirectory() {
                 <div className="absolute top-4 left-4 bg-surface/90 backdrop-blur-md text-primary font-label-caps text-label-caps uppercase tracking-wider px-3 py-1 rounded-lg border border-outline-variant/40 shadow-sm">
                   {service.tag}
                 </div>
-                <div className="absolute bottom-4 left-4 right-4 bg-inverse-surface/85 backdrop-blur-md text-surface-bright font-label-sm text-label-sm px-4 py-2.5 rounded-lg flex items-center justify-between border border-surface-variant/20">
-                  <span>{service.capacity}</span>
-                  <span className="text-primary-fixed font-semibold">{service.price}</span>
-                </div>
+
               </div>
 
               {/* Content side */}
