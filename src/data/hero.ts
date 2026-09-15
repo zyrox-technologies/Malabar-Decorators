@@ -11,7 +11,7 @@ export const heroData = {
     href: "/services",
   },
   featured: {
-    video: "/videos/hero-haldi-1080p.mp4",
+    video: "https://e8m3dltotn.ufs.sh/f/bNiZoESICO4HeIBUrCtFp7WMs0jYniPxJ3oCArG2UhbERZfX",
     image: "/images/hero/file_00000000eb0c820bbe3fae738cbee3e7.webp",
     overline: "Signature Scenography",
     title: "Wedding Stage & Event Scenography",
